@@ -1,0 +1,77 @@
+package myApp.client.vi.home.front;
+
+import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.safehtml.shared.SafeHtmlUtils;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Label;
+import com.sencha.gxt.cell.core.client.ButtonCell.IconAlign;
+import com.sencha.gxt.core.client.util.Margins;
+import com.sencha.gxt.widget.core.client.button.CellButtonBase;
+import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData;
+import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
+import com.sencha.gxt.widget.core.client.event.SelectEvent;
+import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
+import com.sencha.gxt.widget.core.client.form.FieldLabel;
+import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
+
+import myApp.client.resource.ResourceIcon;
+import myApp.client.vi.home.MainFramePage;
+
+public class FirmHeadLeft extends BorderLayoutContainer {
+
+	public FirmHeadLeft() {
+
+		HorizontalLayoutData rowLayout = new HorizontalLayoutData(0.33333, 100, new Margins(0, 0, 0, 0));
+		
+		//	<span style='font-weight:bold;font-size:1.2em;'>한국채권투자자문㈜ 대표이사 김형호 </span>
+		//	1d7bbb	349da0	42339c
+		SafeHtml label1Html = SafeHtmlUtils.fromTrustedString(	"<center>"
+				+	"<div style='background-color: #1d7bbb; line-height:130%; '>"
+				+	"<span style='font-size:0.1em;'><br></span>"
+				+	"<div><img src='img/icon_left.png' width='32' height='40'></div>"
+				+	"<span style='font-size:0.1em;'><br></span>"
+				+	"<span style='font-weight:normal; font-size:1.2em;'>"
+				+	"<font color='#eeeeee'>총 운용규모<br>약 3조 1,426억</font></span>"
+				+	"<span style='font-size:0.1em;'><br><br></span>"
+				+	"</div>"
+				);
+		LabelToolItem labelToolItem1 = new LabelToolItem(label1Html);
+		labelToolItem1.setWidth(460);
+		labelToolItem1.setHeight(70);
+		labelToolItem1.setBorders(true);
+
+//		// 1번 버튼
+//		CellButtonBase btn = new CellButtonBase<>();
+////		TextButton btn = new TextButton("한국펀드서비스(주)");
+////		btn.setWidth(200);
+//		btn.setHeight(50);
+//		btn.setIcon(ResourceIcon.INSTANCE.iconLeft());
+////		btn.setText("한국펀드서비스(주)");
+//		btn.setIconAlign(IconAlign.TOP);
+//		btn.addSelectHandler(new SelectHandler() {
+//			@Override
+//			public void onSelect(SelectEvent event) {
+////				MainHomePage openTab = new MainHomePage();
+//				MainFramePage.openTabPage(MainFramePage.tabPanel, "회사소개");
+//			}
+//		});
+
+		HorizontalLayoutContainer row00 = new HorizontalLayoutContainer();
+		row00.add(new LabelToolItem(""), rowLayout);
+		row00.add(new LabelToolItem(""), rowLayout);
+		row00.add(labelToolItem1, rowLayout);
+
+//		HorizontalLayoutContainer row01 = new HorizontalLayoutContainer();
+//		row01.add(new LabelToolItem(""), rowLayout);
+//		row01.add(new LabelToolItem(""), rowLayout);
+//		row01.add(new HTML("<center><font color='#606060' style='font-size:16px;'><p style='font-weight:bold;'>총 운용규모<br>약 3조 1,426억</p></font>"),rowLayout);
+		
+		VerticalLayoutContainer layoutContainer = new VerticalLayoutContainer();
+		layoutContainer.add(row00, new VerticalLayoutData(1, -1, new Margins(5, 0, 5, 0)));
+//		layoutContainer.add(row01, new VerticalLayoutData(1, -1, new Margins(90, 0, 5, 0)));
+		this.add(layoutContainer);
+	}
+}
