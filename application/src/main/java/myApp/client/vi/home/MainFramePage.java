@@ -80,8 +80,8 @@ public class MainFramePage extends BorderLayoutContainer {
 	
 	public static HorizontalLayoutContainer FuncLabelToolItem(String textHtml) {
 		// TODO Auto-generated constructor stub  023d69
-		SafeHtml label1Html = SafeHtmlUtils.fromTrustedString(	"<div style='background-color: #023d69; line-height:130%; '>"
-															+	"<span style='font-size:0.1em;'><br></span>"
+		SafeHtml label1Html = SafeHtmlUtils.fromTrustedString(	"<div style='background-color: #023d69; line-height:110%; '>"
+															+	"<span style='font-size:0.1em;'><br><br></span>"
 															+	"<span style='font-weight:bold; font-size:2.3em;'>"
 															+	"<font color='#ffffff'><br></font></span>"
 															+	"<span style='font-size:0.1em;'><br></span>"
@@ -89,10 +89,10 @@ public class MainFramePage extends BorderLayoutContainer {
 															);
 		LabelToolItem labelToolItem1 = new LabelToolItem(label1Html);
 		labelToolItem1.setWidth(460);
-		labelToolItem1.setHeight(65);
+		labelToolItem1.setHeight(70);
 
-		SafeHtml label2Html = SafeHtmlUtils.fromTrustedString(	"<div style='background-color: #023d69; line-height:130%; '>"
-															+	"<span style='font-size:0.1em;'><br></span>"
+		SafeHtml label2Html = SafeHtmlUtils.fromTrustedString(	"<div style='background-color: #023d69; line-height:110%; '>"
+															+	"<span style='font-size:0.1em;'><br><br></span>"
 															+	"<span style='font-weight:bold; font-size:2.3em;'>"
 															+	"<font color='#ffffff'>" + textHtml + "<br></font></span>"
 															+	"<span style='font-size:0.1em;'><br></span>"
@@ -102,11 +102,11 @@ public class MainFramePage extends BorderLayoutContainer {
 //		SafeHtml label2Html = SafeHtmlUtils.fromTrustedString("<left><font color='#ffffff' style='font-size:32px;font-weight:bold;'><p style='background-color: #023d69;'>"+ textHtml +"</p></font>");
 		LabelToolItem labelToolItem2 = new LabelToolItem(label2Html);
 		labelToolItem2.setWidth(200);
-		labelToolItem2.setHeight(65);
+		labelToolItem2.setHeight(70);
 
 //		SafeHtml label3Html = SafeHtmlUtils.fromTrustedString("<left><font color='#ffffff' style='font-size:32px;font-weight:bold;'><p style='background-color: #023d69;'><br><br>　<br><br></p></font>");
-		SafeHtml label3Html = SafeHtmlUtils.fromTrustedString(	"<div style='background-color: #023d69; line-height:130%; '>"
-															+	"<span style='font-size:0.1em;'><br></span>"
+		SafeHtml label3Html = SafeHtmlUtils.fromTrustedString(	"<div style='background-color: #023d69; line-height:110%; '>"
+															+	"<span style='font-size:0.1em;'><br><br></span>"
 															+	"<span style='font-weight:bold; font-size:2.3em;'>"
 															+	"<font color='#ffffff'><br></font></span>"
 															+	"<span style='font-size:0.1em;'><br></span>"
@@ -114,7 +114,7 @@ public class MainFramePage extends BorderLayoutContainer {
 															);
 		LabelToolItem labelToolItem3 = new LabelToolItem(label3Html);
 		labelToolItem3.setWidth(1340);
-		labelToolItem3.setHeight(65);
+		labelToolItem3.setHeight(70);
 
 		HorizontalLayoutContainer hlc = new HorizontalLayoutContainer();
 		HorizontalLayoutData hld = new HorizontalLayoutData();
@@ -126,7 +126,7 @@ public class MainFramePage extends BorderLayoutContainer {
 		margins.setBottom(0);
 
 		hlc.setWidth(2000);
-		hlc.setHeight(65);
+		hlc.setHeight(70);
 		hld.setMargins(margins);
 		hlc.add(labelToolItem1, hld);
 		hlc.add(labelToolItem2, hld);
