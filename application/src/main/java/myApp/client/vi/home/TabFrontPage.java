@@ -24,7 +24,7 @@ import myApp.client.vi.home.front.BodyAreaCenter;
 import myApp.client.vi.home.front.BodyAreaNorth;
 import myApp.client.vi.home.front.BodyAreaSouth;
 
-public class TabFrontPage extends BorderLayoutContainer implements InterfaceGridOperate {
+public class TabFrontPage extends BorderLayoutContainer {
 	
 	
 	public TabFrontPage() {
@@ -42,7 +42,7 @@ public class TabFrontPage extends BorderLayoutContainer implements InterfaceGrid
 		this.setNorthWidget(north, northLayoutData);
 
 		// center-center
-		BorderLayoutData centerLayoutData = new BorderLayoutData(200);
+		BorderLayoutData centerLayoutData = new BorderLayoutData(250);
 		centerLayoutData.setSplit(false); // 크기조절
 		centerLayoutData.setMargins(new Margins(0, 0, 0, 0));
 //		centerLayoutData.setSize(100);
@@ -57,37 +57,5 @@ public class TabFrontPage extends BorderLayoutContainer implements InterfaceGrid
 //		southBorderLayoutData.setMaxSize(700);
 		this.setSouthWidget(south, southBorderLayoutData);
 
-//		BorderLayoutData centerLayoutData = new BorderLayoutData();
-//		centerLayoutData.setSplit(true);
-//		centerLayoutData.setMargins(new Margins(0));
-		
-//		ContentPanel cp = new ContentPanel();
-//		cp.setHeaderVisible(false);
-//		cp.add(vlc);
-		
-//		this.setCenterWidget(cp, centerLayoutData);
-	}
-
-	@Override
-	public void retrieve() {
-//		carlendar.retrieve();		//달력 조회
-//		outstandingGrid.retrieve();	//미결함 조회
-//		apprGird.retrieve();		//결재요청함 조회
-//		toDoGrid.retrieve();		//To-Do List 조회
-	}
-
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void insertRow() {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void deleteRow() {
-		// TODO Auto-generated method stub
 	}
 }

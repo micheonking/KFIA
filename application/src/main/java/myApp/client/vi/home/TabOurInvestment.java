@@ -21,7 +21,7 @@ import myApp.client.vi.home.business.TabBusinessTerritory;
 import myApp.client.vi.home.business.TabClientCompany;
 import myApp.client.vi.home.business.TabLeadingRecode;
 
-public class TabOurInvestment extends BorderLayoutContainer {
+public class TabOurInvestment extends ContentPanel {
 
 	private TabBusinessTerritory tabBusinessTerritory  = new TabBusinessTerritory();
 	
@@ -29,6 +29,7 @@ public class TabOurInvestment extends BorderLayoutContainer {
 
 	public TabOurInvestment() {
 
+		this.setHeaderVisible(false);
 		this.setBorders(false);
 
 		VBoxLayoutContainer headerVBox = new VBoxLayoutContainer();
@@ -54,7 +55,7 @@ public class TabOurInvestment extends BorderLayoutContainer {
 		headerVBox.add(MainFramePage.FuncLabelToolItem("투자일임"));
 
 		menuVBox.add(lineImage0, new BoxLayoutData(new Margins(20, 0, 0, 0)));
-		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>ㆍ투자일임안내　　　　</font> ");
+		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ투자일임안내　　　　</font></div> ");
 		CellButtonBase mainButton1 = new CellButtonBase<>();
 		mainButton1.setSize("200", "40");
 		mainButton1.setHTML(button1Html);
@@ -77,7 +78,7 @@ public class TabOurInvestment extends BorderLayoutContainer {
 		centerVBox.add(totalHBar);
 
 		headerVBox.add(centerVBox);
-		this.setCenterWidget(headerVBox);
+		this.add(headerVBox);
 
 	}
 

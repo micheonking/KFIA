@@ -3,14 +3,16 @@ package myApp.client.vi.home;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.sencha.gxt.core.client.util.Margins;
+import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
 
-public class MainSouthArea extends BorderLayoutContainer {
+public class MainSouthArea extends ContentPanel {
 
 	public MainSouthArea() {
 
+		this.setHeaderVisible(false);
 		// 홈페이지 하단 회사 주소 페이지
 		VerticalLayoutContainer vlc = new VerticalLayoutContainer();
 

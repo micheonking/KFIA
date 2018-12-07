@@ -211,7 +211,8 @@ public class LoginPage implements InterfaceServiceCall {
 	private void openFrame(){
 		// 일반 사용자이다. 회사 선택없이 로드인한다. 
 		this.viewport.remove(container);
-		MainFrame window = new MainFrame(); 
+		MainFrame window = new MainFrame();
+//		viewport.setBorders(true);
 		viewport.add(window.getMainWindow());
 		RootPanel.get().add(viewport);
 	}

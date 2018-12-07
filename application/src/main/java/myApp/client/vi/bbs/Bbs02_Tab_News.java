@@ -36,7 +36,7 @@ public class Bbs02_Tab_News extends BorderLayoutContainer implements InterfaceGr
 //		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(50));
  
         BorderLayoutData centerBorLayoutData = new BorderLayoutData(1);
-        centerBorLayoutData.setMargins(new Margins(0, 4, 0, 0));
+        centerBorLayoutData.setMargins(new Margins(0, 0, 0, 0));
         centerBorLayoutData.setSplit(true);
         centerBorLayoutData.setMaxSize(1000);
  

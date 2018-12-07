@@ -1,7 +1,5 @@
 package myApp.client.vi.home;
 
-import com.google.gwt.event.dom.client.KeyPressEvent;
-import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -11,42 +9,25 @@ import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.CellButtonBase;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.CenterLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.MarginData;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.Viewport;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
-import com.sencha.gxt.widget.core.client.form.FieldLabel;
-import com.sencha.gxt.widget.core.client.form.PasswordField;
-import com.sencha.gxt.widget.core.client.form.TextField;
 
-import myApp.client.service.InterfaceServiceCall;
-import myApp.client.service.ServiceCall;
-import myApp.client.service.ServiceRequest;
-import myApp.client.service.ServiceResult;
-import myApp.client.utils.SimpleMessage;
 import myApp.client.vi.LoginPage;
-import myApp.client.vi.LoginUser;
-import myApp.client.vi.MainFrame;
-import myApp.client.vi.emp.model.Emp00_InfoModel;
-import myApp.client.vi.sys.model.Sys02_UserModel;
 
 public class MainNorthArea extends BorderLayoutContainer {
 
-	private TextField firstName = new TextField();
-	private PasswordField password= new PasswordField();
-//	private TextField otpNumber = new TextField();
-	private PasswordField otpNumber = new PasswordField();
-    private CenterLayoutContainer container = new CenterLayoutContainer();
 	Viewport viewport = new Viewport();
+	private MainFramePage mainFramePage;
 
-	public MainNorthArea() {
-
+	public MainNorthArea(MainFramePage mainFramePage) {
+		this.mainFramePage = mainFramePage;
+		
 		VBoxLayoutContainer center = new VBoxLayoutContainer();
 		center.setVBoxLayoutAlign(VBoxLayoutAlign.CENTER);
 
@@ -55,26 +36,28 @@ public class MainNorthArea extends BorderLayoutContainer {
 		header.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
 
 		// 홈페이지 상단 회사로고
-		SafeHtml logoHtml = SafeHtmlUtils.fromTrustedString("<img src='img/_KFIAMLogo.png' style='margin:0px 0px'> </img>");
+		SafeHtml logoHtml = SafeHtmlUtils.fromTrustedString("<div><img src='img/_KFIAMLogo.png' style='margin:0px 0px'></img><br></div>");
 		CellButtonBase mainButton = new CellButtonBase<>();
 //		mainButton.setIconAlign(IconAlign.TOP);
 //		mainButton.setIcon(ResourceIcon.INSTANCE.getLogo());
 		mainButton.setSize("170", "44");
 		mainButton.setHTML(logoHtml);
+		mainButton.setBorders(false);
 		mainButton.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				MainFramePage.openTabPage(MainFramePage.tabPanel, "");
+//				MainFramePage.openTabPage(MainFramePage.tabPanel, "");
+				mainFramePage.changePage("0");
 			}
 		});
 		header.add(mainButton, new BoxLayoutData(new Margins(15, 280, 0, 20)));
 		
 		// 버튼생성
-		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>회사소개</font> ");
-		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>투자일임</font> ");
-		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>상품안내</font> ");
-		SafeHtml button4Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>KFIA소식</font> ");
-		SafeHtml button5Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #1d7bbb;'><font color='#dddddd' style='font-size:16px; '>고객정보</font></div>" );
+		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:16px;font-weight:bold'>회사소개</font></div>");
+		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:16px;font-weight:bold'>투자일임</font></div>");
+		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:16px;font-weight:bold'>상품안내</font></div>");
+		SafeHtml button4Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:16px;font-weight:bold'>KFIA소식</font></div>");
+		SafeHtml button5Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #5fa2dd;'><font color='#dddddd' style='font-size:16px;font-weight:bold'>고객정보</font></div>" );
 //		SafeHtml label1Html = SafeHtmlUtils.fromTrustedString(	"<center>"
 //				+	"<div style='background-color: #1d7bbb; line-height:130%; '>"
 //				+	"<span style='font-size:0.1em;'><br></span>"
@@ -86,7 +69,7 @@ public class MainNorthArea extends BorderLayoutContainer {
 //				+	"</div>"
 //				);
 
-		BoxLayoutData boxLayoutData = new BoxLayoutData(new Margins(25, 0, 0, 25));
+		BoxLayoutData boxLayoutData = new BoxLayoutData(new Margins(20, 35, 0, 0));
 		TextButton textButton1 = new TextButton("");
 		TextButton textButton2 = new TextButton("");
 		TextButton textButton3 = new TextButton("");
@@ -95,64 +78,68 @@ public class MainNorthArea extends BorderLayoutContainer {
 
 //		header.add(new Label(), boxLayoutData);
 		textButton1.setHTML(button1Html);
-		textButton1.setWidth(120);
-		textButton1.setHeight(40);
-		textButton1.setBorders(true);
+		textButton1.setWidth(80);
+		textButton1.setHeight(30);
+//		textButton1.setBorders(true);
 //		textButton1.setIcon(ResourceIcon.INSTANCE.blank());
 //		textButton1.setIconAlign(IconAlign.TOP);
 		header.add(textButton1, boxLayoutData);
 		textButton1.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				MainFramePage.openTabPage(MainFramePage.tabPanel, "회사소개");
+				//MainFramePage.openTabPage(MainFramePage.tabPanel, "회사소개");
+				mainFramePage.changePage("1");
 			}
 		});
 		textButton2.setHTML(button2Html);
-		textButton2.setWidth(120);
-		textButton2.setHeight(40);
-		textButton2.setBorders(true);
+		textButton2.setWidth(80);
+		textButton2.setHeight(30);
+//		textButton2.setBorders(true);
 //		textButton2.setIconAlign(IconAlign.BOTTOM);
 //		textButton2.setIcon(ResourceIcon.INSTANCE.blank());
 		header.add(textButton2, boxLayoutData);
 		textButton2.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				MainFramePage.openTabPage(MainFramePage.tabPanel, "투자일임");
+//				MainFramePage.openTabPage(MainFramePage.tabPanel, "투자일임");
+				mainFramePage.changePage("2");
 			}
 		});
 		textButton3.setHTML(button3Html);
-		textButton3.setWidth(120);
-		textButton3.setHeight(40);
-		textButton3.setBorders(true);
+		textButton3.setWidth(80);
+		textButton3.setHeight(30);
+//		textButton3.setBorders(true);
 //		textButton3.setIconAlign(IconAlign.BOTTOM);
 //		textButton3.setIcon(ResourceIcon.INSTANCE.blank());
 		header.add(textButton3, boxLayoutData);
 		textButton3.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				MainFramePage.openTabPage(MainFramePage.tabPanel, "상품안내");
+//				MainFramePage.openTabPage(MainFramePage.tabPanel, "상품안내");
+				mainFramePage.changePage("3");
 			}
 		});
 		textButton4.setHTML(button4Html);
-		textButton4.setWidth(120);
-		textButton4.setHeight(40);
-		textButton4.setBorders(true);
+		textButton4.setWidth(80);
+		textButton4.setHeight(30);
+//		textButton4.setBorders(true);
 //		textButton4.setIconAlign(IconAlign.BOTTOM);
 //		textButton4.setIcon(ResourceIcon.INSTANCE.blank());
 		header.add(textButton4, boxLayoutData);
 		textButton4.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				MainFramePage.openTabPage(MainFramePage.tabPanel, "KFIA소식");
+//				MainFramePage.openTabPage(MainFramePage.tabPanel, "KFIA소식");
+				mainFramePage.changePage("4");
 			}
 		});
 		textButton5.setHTML(button5Html);
 		textButton5.setWidth(120);
-		textButton5.setHeight(40);
-		textButton5.setBorders(true);
+		textButton5.setHeight(30);
+		textButton5.setBorders(false);
 //		textButton5.setIconAlign(IconAlign.BOTTOM);
 //		textButton5.setIcon(ResourceIcon.INSTANCE.blank());
-		header.add(textButton5, boxLayoutData);
+		header.add(textButton5, new BoxLayoutData(new Margins(20, 5, 0, 15)));
 		textButton5.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
@@ -204,14 +191,14 @@ public class MainNorthArea extends BorderLayoutContainer {
 		center.add(header);
 		
 		ContentPanel cp = new ContentPanel();
-		cp.setBodyStyle("backgroundColor:ffffff"); // http://www.w3schools.com/colors/colors_names.asp 페이지 참조
+		cp.setBodyStyle("backgroundColor:white; color:red"); // http://www.w3schools.com/colors/colors_names.asp 페이지 참조
 
 		cp.add(center);
 		
 		cp.forceLayout();
 		cp.setHeaderVisible(false);
 //		cp.setBorders(true);
-		cp.setHeight(60);
+		cp.setHeight(70);
 		cp.getButtonBar().setHeight(0);
 		
 		this.add(cp);

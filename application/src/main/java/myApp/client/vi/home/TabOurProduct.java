@@ -22,7 +22,7 @@ import myApp.client.vi.home.business.TabClientCompany;
 import myApp.client.vi.home.business.TabLeadingRecode;
 import myApp.client.vi.home.solution.TabSolutionICAM;
 
-public class TabOurProduct extends BorderLayoutContainer {
+public class TabOurProduct extends ContentPanel {
 
 	private TabSolutionICAM tabSolutionICAM  = new TabSolutionICAM();
 	
@@ -30,6 +30,7 @@ public class TabOurProduct extends BorderLayoutContainer {
 
 	public TabOurProduct() {
 
+		this.setHeaderVisible(false);
 		this.setBorders(false);
 
 		VBoxLayoutContainer headerVBox = new VBoxLayoutContainer();
@@ -57,9 +58,9 @@ public class TabOurProduct extends BorderLayoutContainer {
 		headerVBox.add(MainFramePage.FuncLabelToolItem("상품안내"));
 
 		menuVBox.add(lineImage0, new BoxLayoutData(new Margins(20, 0, 0, 0)));
-		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>ㆍ스마트 하이일드　　 </font> ");
-		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>ㆍ스마트 사모채권　　 </font> ");
-		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>ㆍ글로벌 펀드　　　　 </font> ");
+		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ스마트 하이일드　　 </font></div> ");
+		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ스마트 사모채권　　 </font></div> ");
+		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ글로벌 펀드　　　　 </font></div> ");
 		CellButtonBase mainButton1 = new CellButtonBase<>();
 		mainButton1.setSize("200", "40");
 		mainButton1.setHTML(button1Html);
@@ -108,7 +109,7 @@ public class TabOurProduct extends BorderLayoutContainer {
 		centerVBox.add(totalHBar);
 
 		headerVBox.add(centerVBox);
-		this.setCenterWidget(headerVBox);
+		this.add(headerVBox);
 
 	}
 

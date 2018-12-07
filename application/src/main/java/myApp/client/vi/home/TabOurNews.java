@@ -21,7 +21,7 @@ import myApp.client.vi.home.news.TabNews;
 import myApp.client.vi.home.news.TabNotification;
 import myApp.client.vi.home.news.TabOfficialNotice;
 
-public class TabOurNews extends BorderLayoutContainer {
+public class TabOurNews extends ContentPanel {
 
 	private TabNotification tabNotification  = new TabNotification();
 	private TabOfficialNotice tabOfficialNotice  = new TabOfficialNotice();
@@ -31,6 +31,7 @@ public class TabOurNews extends BorderLayoutContainer {
 
 	public TabOurNews() {
 
+		this.setHeaderVisible(false);
 		this.setBorders(false);
 
 		VBoxLayoutContainer headerVBox = new VBoxLayoutContainer();
@@ -58,9 +59,9 @@ public class TabOurNews extends BorderLayoutContainer {
 		headerVBox.add(MainFramePage.FuncLabelToolItem("KFIA소식"));
 
 		menuVBox.add(lineImage0, new BoxLayoutData(new Margins(20, 0, 0, 0)));
-		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>ㆍ공지사항　　　　　　</font> ");
-		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>ㆍ공시사항　　　　　　</font> ");
-		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>ㆍ보도자료　　　　　　</font> ");
+		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ공지사항　　　　　　</font></div> ");
+		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ공시사항　　　　　　</font></div> ");
+		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ보도자료　　　　　　</font></div> ");
 		CellButtonBase mainButton1 = new CellButtonBase<>();
 		mainButton1.setSize("200", "40");
 		mainButton1.setHTML(button1Html);
@@ -108,7 +109,7 @@ public class TabOurNews extends BorderLayoutContainer {
 		centerVBox.add(totalHBar);
 
 		headerVBox.add(centerVBox);
-		this.setCenterWidget(headerVBox);
+		this.add(headerVBox);
 
 	}
 

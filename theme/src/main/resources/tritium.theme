@@ -1,66 +1,39 @@
-/**
- * Sencha GXT 4.0.3 - Sencha for GWT
- * Copyright (c) 2006-2018, Sencha Inc.
- *
- * licensing@sencha.com
- * http://www.sencha.com/products/gxt/license/
- *
- * ================================================================================
- * Commercial License
- * ================================================================================
- * This version of Sencha GXT is licensed commercially and is the appropriate
- * option for the vast majority of use cases.
- *
- * Please see the Sencha GXT Licensing page at:
- * http://www.sencha.com/products/gxt/license/
- *
- * For clarification or additional options, please contact:
- * licensing@sencha.com
- * ================================================================================
- *
- * ================================================================================
- * Disclaimer
- * ================================================================================
- * THIS SOFTWARE IS DISTRIBUTED "AS-IS" WITHOUT ANY WARRANTIES, CONDITIONS AND
- * REPRESENTATIONS WHETHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION THE
- * IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, MERCHANTABLE QUALITY,
- * FITNESS FOR A PARTICULAR PURPOSE, DURABILITY, NON-INFRINGEMENT, PERFORMANCE AND
- * THOSE ARISING BY STATUTE OR FROM CUSTOM OR USAGE OF TRADE OR COURSE OF DEALING.
- * ================================================================================
- */
 theme {
-  basePackage = "myApp.theme.tritium"
   name = "tritium"
-  borderColor = "#157FCC"
+  basePackage = "myApp.theme.tritium"
+  
+  borderColor = "#ececec"  
   panelBackgroundColor = "#ffffff"
+  
   details {
-    backgroundColor = "#ffffff"
-    borderColor = "#d9d9d9" // "#5fa2de"
+    backgroundColor = theme.panelBackgroundColor // "#ffffff"
+    borderColor = theme.borderColor // "#5fa2dd"
     disabledOpacity = 0.5
-    disabledTextColor = "#5fa2de"
+    disabledTextColor = ""
+   
     accordionLayout {
       backgroundColor = "#ffffff"
       frameHeight = 0
       frameWidth = 0
       headerBackgroundColor = "#ECECEC"
-      headerGradient = "#ECECEC 0%, #ECECEC 100%"
-      headerLineHeight = "20px"
+      headerGradient = "#5fa2dd 0%, #5fa2dd 100%"
+      headerLineHeight = "18px"
       border {
-        bottom = 1
-        color = "#ffffff"
+        bottom = 5
+        color = "#ececec"
         left = 0
-        right = 0
+        right = 5
         style = "solid"
-        top = 0
+        top = 1
       }
       font {
-        color = "#666666"
+        color = "#f6f6f6"
         family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "16px"
+        size = "15px"
         weight = "300"
       }
       headerPadding = util.padding(12, 10)
-      headerBarMargin = util.margin(0, 5, 0, 0)
+      headerBarMargin = util.margin(0, 0, 0, 0)
       padding {
         bottom = 0
         left = 0
@@ -68,19 +41,24 @@ theme {
         top = 0
       }
       panelPadding {
-        bottom = 5
-        left = 5
-        right = 5
+        bottom = 0 // 5
+        left = 0 // 5
+        right = 0 // 5
         top = 0
       }
-      firstPanelPadding = util.padding(5)
+      firstPanelPadding { // = util.padding(5)
+        bottom = 0
+        left = 0 // 5
+        right = 0 // 5
+        top = 0
+      }
     }
     borderLayout {
-      panelBackgroundColor = "#ffffff" // "#ececec"
-      collapsePanelBackgroundColor = "#5fa2d2"
+      panelBackgroundColor = "#5fa2dd" // "#ececec"
+      collapsePanelBackgroundColor = "#5fa2dd"
       collapsePanelBorder {
-        bottom = 0
-        color = "#5fa2d3"
+        bottom = 1
+        color = "#ececec"
         left = 0
         right = 0
         style = "solid"
@@ -88,36 +66,36 @@ theme {
       }
     }
     button {
+      backgroundColor = "#5fa2dd" // "#ffffff" // 
+      gradient = "#5fa2dd 0%, #5fa2dd 100%" // "#ffffff 0%, #ffffff 100%"
       arrowColor = "#f0f0f0"
-      backgroundColor = "#5fa2d4"
       borderRadius = 0
-      gradient = "#ffffff 0%, #ffffff 100%" // "#f5f5f5 0%, #f5f5f5 100%" //
       largeFontSize = "18"
       largeLineHeight = "32"
-      mediumFontSize = "17"
+      mediumFontSize = "16"
       mediumLineHeight = "24"
-      overBackgroundColor = "#f5f5f5" // "#5795CB"
-      overGradient = "#f5f5f5 0%, #f5f5f5  100%"
+      overBackgroundColor = "#5795CB"
+      overGradient = "#5795CB 0%, #5795CB  100%"
       pressedBackgroundColor = "#477aa6"
-      pressedGradient = "#ffffff 0%, #ffffff 100%"
+      pressedGradient = "#477aa6 0%, #477aa6 100%"
       radiusMinusBorderWidth = util.radiusMinusBorderWidth(border, borderRadius)
-      smallFontSize = "16"
+      smallFontSize = "14"
       smallLineHeight = "18"
       border {
         bottom = 1
-        color = "#5897ce" // "#303030" // "#5897ce"
-        left = 1
-        right = 1
-        style = "none" // "solid"
-        top = 1
+        color = "#5897ce"
+        left = 0 // 1
+        right = 0 // 1
+        style = "solid"
+        top = 0 // 1
       }
       overBorder = util.border('solid', '#518BBD', 1)
       pressedBorder = util.border('solid', '#42719A', 1)
       font {
-        color = "#404040" // "#f0f0f0"
-        family = "'Nanum Gothic','Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
-        size = "16px"
-        weight = "700"
+        color = "#f0f0f0"
+        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        size = "14px"
+        weight = "300"
       }
       padding {
         bottom = 0 // 7
@@ -127,18 +105,18 @@ theme {
       }
     }
     buttonGroup {
-      bodyBackgroundColor = "#FFFFFF"
+      bodyBackgroundColor = "#5fa2dd" //"#FFFFFF"
       borderRadius = 0
       headerGradient = "#ffffff 0%, #ffffff 100%"
       bodyPadding {
-        bottom = 8
-        left = 8
-        right = 8
-        top = 8
+        bottom = 0 // 8
+        left = 0 // 8
+        right = 0 // 8
+        top = 0 // 8
       }
       border {
         bottom = 1
-        color = "#d0d0d1"
+        color = "#d0d0d0"
         left = 1
         right = 1
         style = "solid"
@@ -147,14 +125,14 @@ theme {
       font {
         color = "#606060"
         family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "13px"
+        size = "14px"
         weight = "300"
       }
       headerPadding {
-        bottom = 7
-        left = 8
-        right = 8
-        top = 8
+        bottom = 0 // 7
+        left = 0 // 8
+        right = 0 // 8
+        top = 0 // 8
       }
     }
     colorpalette {
@@ -197,7 +175,7 @@ theme {
       headerBackgroundColor = "#ececec"
       itemOverBackgroundColor = "#ececec"
       itemOverColor = "#404040"
-      itemSelectedBackgroundColor = "#5fa2d5"
+      itemSelectedBackgroundColor = "#5fa2dd"
       monthLeftButtonColor = "#919191"
       monthLeftButtonOpacity = 0.7
       monthRightButtonColor = "#919191"
@@ -205,7 +183,7 @@ theme {
       width = "308px"
       border {
         bottom = 1
-        color = "#d0d0d2"
+        color = "#d0d0d0"
         left = 1
         right = 1
         style = "solid"
@@ -226,7 +204,7 @@ theme {
         top = 0
       }
       dayDisabledText {
-        color = "#d0d0d3"
+        color = "#d0d0d0"
         family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
@@ -332,13 +310,13 @@ theme {
     errortip = tip
     field {
       backgroundColor = "#ffffff"
-      borderColor = "#d0d0d4"
+      borderColor = "#d0d0d0"
       borderStyle = "solid"
       borderWidth = 1
       dualListFieldIconColor = "#919191"
       emptyTextColor = "#a9a9a9"
       focusBorderColor = "#3892d3"
-      height = 26 // 30
+      height = 30
       invalidBackgroundColor = "#ffffff"
       invalidBorderColor = "#cf4c35"
       invalidBorderWidth = 1
@@ -392,7 +370,7 @@ theme {
         text {
           color = "#404040"
           family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-          size = "13px"
+          size = "14px"
           weight = "300"
         }
       }
@@ -406,7 +384,7 @@ theme {
         trackRadius = 0
         thumbBorder {
           bottom = 1
-          color = "#d0d0d5"
+          color = "#d0d0d0"
           left = 1
           right = 1
           style = "solid"
@@ -414,7 +392,7 @@ theme {
         }
         trackBorder {
           bottom = 1
-          color = "#d0d0d6"
+          color = "#d0d0d0"
           left = 1
           right = 1
           style = "solid"
@@ -424,7 +402,7 @@ theme {
       text {
         color = "#404040"
         family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "13px"
+        size = "14px"
         weight = "300"
       }
       topLabel {
@@ -464,7 +442,7 @@ theme {
       backgroundColor = "#f6f6f6"
       border {
         bottom = 1
-        color = "#d0d0d7"
+        color = "#d0d0d0"
         left = 1
         right = 1
         style = "solid"
@@ -489,31 +467,31 @@ theme {
       text {
         color = "#919191"
         family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "16px"
+        size = "14px"
         weight = "400"
       }
     }
     framedPanel {
-      backgroundColor = "#5fa2d6" // "#ffffff"
+      backgroundColor = "#ffffff"
       borderRadius = 0
       frameHeight = 0
       frameWidth = 0
-      headerBackgroundColor = "#5fa2d6"
-      headerGradient = "#5fa2d6 0%, #5fa2d6 100%"
+      headerBackgroundColor = "#5fa2dd"
+      headerGradient = "#5fa2dd 0%, #5fa2dd 100%"
       headerLineHeight = "20px"
       radiusMinusBorderWidth = util.radiusMinusBorderWidth(border, borderRadius)
       border {
-        bottom = 2
-        color = "#5fa2dd"
-        left = 2
-        right = 2
+        bottom = 0
+        color = "#ececec" // "#5fa2dd"
+        left = 1
+        right = 0
         style = "solid"
-        top = 2
+        top = 0
       }
       font {
         color = "#f0f0f0"
         family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
-        size = "16px"
+        size = "14px"
         weight = "400"
       }
       headerPadding {
@@ -532,18 +510,18 @@ theme {
     grid {
       bodyBorder {
         bottom = 0
-        color = "#d0d0d8"
+        color = "#d0d0d0"
         left = 0
         right = 0
         style = "solid"
-        top = 1 // 2
+        top = 2
       }
       cellAltBackgroundColor = "#fafafa"
       cellBackgroundColor = "#ffffff"
       cellBorderWidth = 1
-      cellHBorderColor = "#e9e9e9" // "#ffffff" // 
-      cellLineHeight = "24px" // "13px"
-      cellOverBackgroundColor = "#f5f5f5" // "#eaeff4"
+      cellHBorderColor = "#e9e9e9"
+      cellLineHeight = "17px"
+      cellOverBackgroundColor = "#eaeff4"
       cellOverHBorderColor = "#dee3e8"
       cellOverHBorderStyle = "solid"
       cellOverVBorderColor = "#dee3e8"
@@ -557,28 +535,28 @@ theme {
       specialColumnGradient = ""
       specialColumnGradientSelected = ""
       cellPadding {
-        bottom = 0 // 6
-        left = 5
-        right = 5
-        top = 0 // 6
+        bottom = 6
+        left = 10
+        right = 10
+        top = 6
       }
       cellText {
-        color = "#404041"
+        color = "#404040"
         family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "14px" // "13px"
+        size = "13px"
         weight = "300"
       }
       columnHeader {
-        backgroundColor = "#f2f2f2" // "#c0c0c1" // "#ffffff"
-        borderColor = "#c0c0c1"
-        borderStyle = "none" // "solid"
+        backgroundColor = "#ffffff"
+        borderColor = "#c0c0c0"
+        borderStyle = "solid"
         borderWidth = 1
-        gradient = "#f2f2f2 0%, #f2f2f2 100%" // "#ffffff 0%, #ffffff 100%"
-        lineHeight = "32px" // "13px"
+        gradient = "#ffffff 0%, #ffffff 100%"
+        lineHeight = "15px"
         menuActiveBackgroundColor = "#DFEAF2"
         menuActiveGradient = "#DFEAF2 0%, #DFEAF2 100%"
         menuBackgroundColor = "#eaeff4"
-        menuButtonWidth = 15 // 18
+        menuButtonWidth = 18
         menuGradient = "#eaeff4 0%, #eaeff4 100%"
         menuHoverBackgroundColor = "#eaeff4"
         menuHoverGradient = "#eaeff4 0%, #eaeff4 100%"
@@ -587,23 +565,23 @@ theme {
         menuActiveBorder = menuBorder
         menuBorder {
           bottom = 0
-          color = "#d0d0d9"
-          left = 0 // 1
-          right = 0 // 1
+          color = "#d0d0d0"
+          left = 1
+          right = 1
           style = "solid"
           top = 0
         }
         menuHoverBorder = menuBorder
         padding {
-          bottom = 0 // 6
-          left = 0 // 10
-          right = 0 // 10
-          top = 0 // 7
+          bottom = 6
+          left = 10
+          right = 10
+          top = 7
         }
         text {
-          color = "#404042"
+          color = "#404040"
           family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-          size = "14px" // "13px"
+          size = "13px"
           weight = "normal"
         }
       }
@@ -615,12 +593,12 @@ theme {
           left = 0
           right = 0
           style = "solid"
-          top = 0 // 1
+          top = 1
         }
         text {
           color = "#000000"
           family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-          size = "16px" // "13px"
+          size = "13px"
           weight = "bold"
         }
       }
@@ -628,7 +606,7 @@ theme {
         backgroundColor = "#f5f5f5"
         iconSpacing = 17
         border {
-          bottom = 0 // 1
+          bottom = 1
           color = "#c0c0c0"
           left = 0
           right = 0
@@ -636,17 +614,17 @@ theme {
           top = 0
         }
         padding {
-          bottom = 0 // 8
-          left = 0 // 4
-          right = 0 // 4
-          top = 0 // 8
+          bottom = 8
+          left = 4
+          right = 4
+          top = 8
         }
         summary {
           backgroundColor = "#ffffff"
           text {
             color = "#000000"
             family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-            size = "16px" // "13px"
+            size = "13px"
             weight = "bold"
           }
         }
@@ -655,12 +633,12 @@ theme {
       rowEditor {
         backgroundColor = "#DFEAF2"
         border {
-          bottom = 0 // 1
+          bottom = 1
           color = "#e1e1e1"
           left = 0
           right = 0
           style = "solid"
-          top = 0 // 1
+          top = 1
         }
       }
       rowNumberer {
@@ -673,21 +651,21 @@ theme {
         text {
           color = "#000000"
           family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-          size = "16px" // "13px"
+          size = "13px"
           weight = "normal"
         }
       }
-      checkedIconColor = "#ffffff" // "#919191"
-      collapseIconColor = "#ffffff" // "#919191"
-      columnHeaderBtnIconColor = "#ffffff" // "#919191"
-      columnsIconColor = "#ffffff" // "#919191"
-      expandIconColor = "#ffffff" // "#919191"
-      groupByIconColor = "#ffffff" // "#919191"
-      sortAscendingIconColor = "#ffffff" // "#919191"
-      sortAscHeaderIconColor = "#ffffff" // "#919191"
-      sortDescendingIconColor = "#ffffff" // "#919191"
-      sortDescHeaderIconColor = "#ffffff" // "#919191"
-      uncheckedIconColor = "#ffffff" // "#919191"
+      checkedIconColor = "#919191"
+      collapseIconColor = "#919191"
+      columnHeaderBtnIconColor = "#919191"
+      columnsIconColor = "#919191"
+      expandIconColor = "#919191"
+      groupByIconColor = "#919191"
+      sortAscendingIconColor = "#919191"
+      sortAscHeaderIconColor = "#919191"
+      sortDescendingIconColor = "#919191"
+      sortDescHeaderIconColor = "#919191"
+      uncheckedIconColor = "#919191"
     }
     info {
       backgroundColor = "#ffffff"
@@ -814,10 +792,10 @@ theme {
       }
     }
     mask {
-      backgroundColor = "#d0d0da"
+      backgroundColor = "#d0d0d0"
       opacity = 0.5
       box {
-        backgroundColor = "#d0d0db"
+        backgroundColor = "#d0d0d0"
         borderColor = ""
         borderRadius = 3
         borderStyle = "none"
@@ -924,11 +902,11 @@ theme {
         top = 1
       }
       header {
-        backgroundColor = "#5fa2dc"
+        backgroundColor = "#5fa2dd"
         itemLineHeight = "13px"
         border {
           bottom = 1
-          color = "#5fa2db"
+          color = "#5fa2dd"
           left = 0
           right = 0
           style = "solid"
@@ -1007,21 +985,21 @@ theme {
       backgroundColor = "#ffffff"
       frameHeight = 0
       frameWidth = 0
-      headerBackgroundColor = "#5fa2de"
-      headerGradient = "#5fa2de 0%, #5fa2de 100%"
+      headerBackgroundColor = "#5fa2dd"
+      headerGradient = "#5fa2dd 0%, #5fa2dd 100%"
       headerLineHeight = "20px"
       border {
         bottom = 0
-        color = "#000000"
-        left = 0
-        right = 0
-        style = "none"
+        color = "#ececec" // "#000000"
+        left = 1
+        right = 1
+        style = "solid"
         top = 0
       }
       font {
         color = "#f6f6f6"
         family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
-        size = "16px"
+        size = "14px"
         weight = "400"
       }
       headerPadding {
@@ -1079,8 +1057,8 @@ theme {
       arrowColor = "#919191"
       dragColor = "#B4B4B4"
       handleHeight = 48
-      handleOpacity = 1
-      handleWidth = 10
+      handleOpacity = 0.5
+      handleWidth = 8
     }
     status {
       lineHeight = "16px"
@@ -1127,52 +1105,52 @@ theme {
       activeHeadingText {
         color = "#4C82B1"
         family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "14px"
-        weight = "bold"
+        size = "13px"
+        weight = "300"
       }
       activePlainTabCloseIconColor = "#919191"
       activePlainTabCloseOverIconColor = "#919191"
       activeTabCloseIconColor = "#919191"
       activeTabCloseOverIconColor = "#919191"
-      activeTabItemBackgroundColor = "#5fa2dd" // "#ffffff"
-      activeTabItemBorderBottom = "0px" // "1px"
-      activeTabItemBorderTop = "0px" // "1px"
+      activeTabItemBackgroundColor = "#ffffff"
+      activeTabItemBorderBottom = "0px"
+      activeTabItemBorderTop = "0px"
 
       activeTabCloseIconOpacity = 1
       activeTabCloseOverIconOpacity = 1
       tabCloseIconOpacity = 1
       tabCloseOverIconOpacity = 1
 
-      bodyBackgroundColor = "#ffffff" //"#b6b7bc" // "#5fa2df" // 
-      borderColor = "#b6b7bc" // "#5fa2df"
+      borderColor = "#ececec" // "#5fa2dd"
+      bodyBackgroundColor = "#ffffff"
       borderRadius = 0
-      closeIconWidth = 13
-      gradient = "#ffffff 0%, #5fa2df 100%"
+      closeIconWidth = 11
       headingColor = "#ffffff"
+      gradient = "#ffffff 0%, #ffffff 100%"
       headingText {
         color = "#f0f0f0"
         family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "14px"
-        weight = "bold"
+        size = "13px"
+        weight = "300"
       }
-      hoverGradient = "rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%"
+      hoverGradient = "rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 100%"
       hoverHeadingText = headingText
-      hoverTabItemBackgroundColor = "rgba(0, 0, 0, 0.08)"
+      hoverTabItemBackgroundColor = "rgba(0, 0, 0, 0.01)"
       iconLeftOffset = 6
       iconTopOffset = 5
       iconWidth = 16
       inactiveGradient = "transparent 0%, transparent 100%"
       inactiveLastStopColor = "transparent"
       inactiveTabItemBackgroundColor = "transparent"
-      lastStopColor = "#ffffff" // "#5fa2dd"
-      overTabItemBorderBottom = "1px"
-      overTabItemBorderTop = "1px"
+      lastStopColor = "#5fa2dd"
+      overTabItemBorderBottom = "0px"
+      overTabItemBorderTop = "0px"
       overTabItemOpacity = 0.08
       padding {
-        bottom = 8//0 //8
-        left = 10//0 //10
-        right = 10//0 //10
-        top = 8//0 //8
+        bottom = 8
+        left = 10
+        right = 10
+        top = 8
       }
       paddingWithClosable {
         bottom = 19
@@ -1187,46 +1165,45 @@ theme {
         top = 18
       }
       plainActiveHeadingText {
-        color = "#404040"
+        color = "#2b579a" // "#4c82b1" // "#404040"
         family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "14px"
-        weight = "bold"
+        size = "13px"
+        weight = "300"
       }
       plainHeadingText {
-        color = "#606060"
+        color = "#eeeeee"
         family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "14px"
-        weight = "bold"
+        size = "13px"
+        weight = "300"
       }
       plainHoverHeadingText = plainHeadingText
-      plainTabBarBorderBottom = 0 // 0
-      plainTabBarBorderTop = 0 // 0
+      plainTabBarBorderBottom = 0
+      plainTabBarBorderTop = 0
       plainTabCloseIconColor = "#919191"
       plainTabCloseOverIconColor = "#919191"
       plainTabStripSpacerHeight = 0
-      plainTabStripSpacerBorder = 1 // 0
-      scrollerBackgroundColor = "#5fa2d0"
+      plainTabStripSpacerBorder = 0
+      scrollerBackgroundColor = "#5fa2dd"
       scrollerLeftDisabledOpacity = 0.5
       scrollerLeftOverOpacity = 1
       scrollerRightDisabledOpacity = 0.5
       scrollerRightOverOpacity = 1
       scrollerWidth = 24
-      tabBarBorder = "none"
+      tabBarBorder = "none" // "solid"	// delete me...
       tabBarBottomHeight = 0
-      tabBodyBorder = "none"
-      headingBorder = "none" // 
-      tabCloseIconColor = "#919191" // "#ffffff"
-      tabCloseOverIconColor = "#919191" // "#ffffff"
-      tabHeight = 0 // 60 // 36
+      tabBodyBorder = "none" // "solid"	// delete me...
+      tabCloseIconColor = "#ffffff"
+      tabCloseOverIconColor = "#ffffff"
+      tabHeight = 32 // 36		// Fix me...
       tabItemBorderBottom = "none"
-      tabItemBorderLeft = "none"
+      tabItemBorderLeft = "none" // "solid" // delete me...
       tabItemBorderRight = "none"
       tabItemBorderTop = "none"
-      tabSpacing = 5
+      tabSpacing = 1
       tabStripBottomBorder = "none"
       tabStripTopBorder = "none"
       tabStripBackgroundColor = "#5fa2dd"
-      tabStripGradient = "#ffffff 0%, #5fa2dd 100%"
+      tabStripGradient = "#5fa2dd 0%, #5fa2dd 100%"
       tabStripPadding {
         bottom = 0
         left = 8
@@ -1237,7 +1214,7 @@ theme {
         bottom = 10
         left = 0
         right = 0
-        top = 20
+        top = 10
       }
     }
     tip {
@@ -1308,10 +1285,10 @@ theme {
         borderRadius = 0
         firstIconColor = "#919191"
         gradient = "#f6f6f6 0%, #f6f6f6 100%"
-        largeFontSize = "20"
+        largeFontSize = "18"
         largeLineHeight = "32"
         lastIconColor = "#919191"
-        mediumFontSize = "18"
+        mediumFontSize = "16"
         mediumLineHeight = "24"
         nextIconColor = "#919191"
         overBackgroundColor = "#ececec"
@@ -1323,28 +1300,28 @@ theme {
         prevIconColor = "#919191"
         radiusMinusBorderWidth = util.radiusMinusBorderWidth(border, borderRadius)
         refreshIconColor = "#919191"
-        smallFontSize = "16"
+        smallFontSize = "14"
         smallLineHeight = "18"
         font {
           color = "#606060"
           family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
-          size = "16px"
+          size = "14px"
           weight = "300"
         }
         padding {
-          bottom = 7
-          left = 7
-          right = 7
-          top = 7
+          bottom = 0 // 7
+          left = 0 // 7
+          right = 0 // 7
+          top = 0 // 7
         }
       }
       htmlEditorIconColor = "#919191"
       labelItem {
-        lineHeight = "16px"
+        lineHeight = "14px"
         padding {
           bottom = 0
-          left = 0 // 4
-          right = 0 // 4
+          left = 4
+          right = 4
           top = 0
         }
         text = field.text
@@ -1357,7 +1334,7 @@ theme {
       }
       separatorBorder {
         bottom = 0
-        color = "#d0d0dc"
+        color = "#d0d0d0"
         left = 0
         right = 1
         style = "solid"
@@ -1367,15 +1344,15 @@ theme {
     }
     tools {
       allowColor = "#C6E38A"
-      primaryClickColor = "#424242" // "#ffffff"
-      primaryClickOpacity = 0.5 // 0.8
-      primaryColor = "#424242" // "#ffffff"
-      primaryOpacity = 0.5 // 0.8
-      primaryOverColor = "#424242" // "#ffffff"
+      primaryClickColor = "#ffffff"
+      primaryClickOpacity = 0.8
+      primaryColor = "#ffffff"
+      primaryOpacity = 0.8
+      primaryOverColor = "#ffffff"
       primaryOverOpacity = 1
       warningColor = "#D94E37"
       tabs {
-        tabCloseOver = "#ed1c24" // "#ffffff"
+        tabCloseOver = "#ffffff"
       }
     }
     tree {
@@ -1414,8 +1391,8 @@ theme {
       borderRadius = 0
       frameHeight = 0
       frameWidth = 0
-      headerBackgroundColor = "#ffffff" // "#5fa2dd"
-      headerGradient = "#ffffff 0%, #ffffff 100%"
+      headerBackgroundColor = "#5fa2dd"
+      headerGradient = "#5fa2dd 0%, #5fa2dd 100%"
       headerLineHeight = "20px"
       radiusMinusBorderWidth = util.radiusMinusBorderWidth(border, borderRadius)
       border {
@@ -1447,9 +1424,9 @@ theme {
     }
   }
   headerText {
-    color = "#606060"
+    color = "#ffffff"
     family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
-    size = "13px"
+    size = "16px"
     weight = "bold"
   }
 }

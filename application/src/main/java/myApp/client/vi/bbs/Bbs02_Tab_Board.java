@@ -58,7 +58,7 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 //	    searchBarBuilder.getSearchBar().add(redButton); 
 
 		BorderLayoutData centerBorLayoutData = new BorderLayoutData(1);
-		centerBorLayoutData.setMargins(new Margins(0, 4, 0, 0));
+		centerBorLayoutData.setMargins(new Margins(0, 0, 0, 0));
 		centerBorLayoutData.setSplit(true);
 		centerBorLayoutData.setMaxSize(1000);
 

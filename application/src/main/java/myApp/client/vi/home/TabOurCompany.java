@@ -20,7 +20,7 @@ import myApp.client.vi.home.company.TabAboutUsCompany;
 import myApp.client.vi.home.company.TabAboutUsHistory;
 import myApp.client.vi.home.company.TabAboutUsMap;
 
-public class TabOurCompany extends BorderLayoutContainer {
+public class TabOurCompany extends ContentPanel {
 
 	private TabAboutUsCeo tabAboutUsCeo  = new TabAboutUsCeo();
 	private TabAboutUsCompany tabAboutUsCompany  = new TabAboutUsCompany();
@@ -31,6 +31,7 @@ public class TabOurCompany extends BorderLayoutContainer {
 
 	public TabOurCompany() {
 
+		this.setHeaderVisible(false);
 		this.setBorders(false);
 
 		VBoxLayoutContainer headerVBox = new VBoxLayoutContainer();
@@ -59,10 +60,10 @@ public class TabOurCompany extends BorderLayoutContainer {
 		headerVBox.add(MainFramePage.FuncLabelToolItem("회사소개"));
 
 		menuVBox.add(lineImage0, new BoxLayoutData(new Margins(20, 0, 0, 0)));
-		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>ㆍCEO 인사말　　　　　</font> ");
-		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>ㆍ회사개요　　　　　　</font> ");
-		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>ㆍ운용조직 및 전문인력</font> ");
-		SafeHtml button4Html = SafeHtmlUtils.fromTrustedString("<font color='#606060' style='font-size:16px;'>ㆍ찾아오시는길　　　　</font> ");
+		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍCEO 인사말　　　　　</font></div> ");
+		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ회사개요　　　　　　</font></div> ");
+		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ운용조직 및 전문인력</font></div> ");
+		SafeHtml button4Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ찾아오시는길　　　　</font></div> ");
 		CellButtonBase mainButton1 = new CellButtonBase<>();
 		mainButton1.setSize("200", "40");
 		mainButton1.setHTML(button1Html);
@@ -74,7 +75,7 @@ public class TabOurCompany extends BorderLayoutContainer {
 			}
 		});
 		menuVBox.add(mainButton1, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-		menuVBox.add(lineImage1, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+//		menuVBox.add(lineImage1, new BoxLayoutData(new Margins(0, 0, 0, 0)));
 
 		CellButtonBase mainButton2 = new CellButtonBase<>();
 		mainButton2.setSize("200", "40");
@@ -87,7 +88,7 @@ public class TabOurCompany extends BorderLayoutContainer {
 			}
 		});
 		menuVBox.add(mainButton2, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-		menuVBox.add(lineImage2, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+//		menuVBox.add(lineImage2, new BoxLayoutData(new Margins(0, 0, 0, 0)));
 
 		CellButtonBase mainButton3 = new CellButtonBase<>();
 		mainButton3.setSize("200", "40");
@@ -100,7 +101,7 @@ public class TabOurCompany extends BorderLayoutContainer {
 			}
 		});
 		menuVBox.add(mainButton3, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-		menuVBox.add(lineImage3, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+//		menuVBox.add(lineImage3, new BoxLayoutData(new Margins(0, 0, 0, 0)));
 
 		CellButtonBase mainButton4 = new CellButtonBase<>();
 		mainButton4.setSize("200", "40");
@@ -113,7 +114,7 @@ public class TabOurCompany extends BorderLayoutContainer {
 			}
 		});
 		menuVBox.add(mainButton4, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-		menuVBox.add(lineImage4, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+//		menuVBox.add(lineImage4, new BoxLayoutData(new Margins(0, 0, 0, 0)));
 
 		menuVBox.setWidth(210);
 		menuVBox.setHeight(1000);
@@ -128,7 +129,7 @@ public class TabOurCompany extends BorderLayoutContainer {
 		centerVBox.add(totalHBar);
 
 		headerVBox.add(centerVBox);
-		this.setCenterWidget(headerVBox);
+		this.add(headerVBox);
 
 	}
 
