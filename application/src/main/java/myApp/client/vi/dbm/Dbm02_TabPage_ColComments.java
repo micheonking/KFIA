@@ -2,6 +2,7 @@ package myApp.client.vi.dbm;
 
 import com.google.gwt.core.client.GWT;
 import com.sencha.gxt.core.client.Style.SelectionMode;
+import com.sencha.gxt.core.client.Style.Side;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutPack;
@@ -33,6 +34,11 @@ public class Dbm02_TabPage_ColComments<Stock> extends ContentPanel implements In
 		this.add(this.grid);
 
 		TextButton xmlGeneratorButton = new TextButton("XML");
+//		xmlGeneratorButton.setWidth(100);
+//		xmlGeneratorButton.setHeight(70);
+		xmlGeneratorButton.getLayoutData().equals(height);
+		xmlGeneratorButton.setSize(""+xmlGeneratorButton.getLayoutData().equals(width)+7, ""+xmlGeneratorButton.getLayoutData().equals(height)+7);
+		xmlGeneratorButton.setBorders(true);
 		xmlGeneratorButton.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {

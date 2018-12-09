@@ -70,8 +70,8 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 //		grid.getView().setTrackMouseOver(false);
 		grid.getView().setEnableRowBody(false);
 //		grid.setVisible(false);
-		grid.setColumnResize(false);
-		grid.setHeight(10);
+		grid.setColumnResize(true);
+		grid.setHeight(20);
 
 		this.setCenterWidget(this.grid, centerBorLayoutData);
 

@@ -33,7 +33,7 @@ import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
-import myApp.client.kfiamEntryPoint;
+import myApp.client.kfiaEntryPoint;
 import myApp.client.resource.ResourceIcon;
 
 public class MainFrame extends BorderLayoutContainer {
@@ -110,7 +110,7 @@ public class MainFrame extends BorderLayoutContainer {
 //		header.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
 ////		header.setHeight(60);
 //
-//		// KFIAM
+//		// KFIA
 //		Image image = new Image();
 ////		image.setResource(ResourceIcon.INSTANCE.getLogo());
 //		image.setPixelSize(280, 26);

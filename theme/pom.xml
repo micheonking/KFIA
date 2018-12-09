@@ -3,14 +3,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.kfiam</groupId>
-    <artifactId>kfiam</artifactId>
+    <groupId>com.kfia</groupId>
+    <artifactId>kfia</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>kfiam-theme</artifactId>
+  <artifactId>kfia-theme</artifactId>
   <packaging>jar</packaging>
-  <name>kfiam Theme</name>
+  <name>kfia Theme</name>
   <description>GXT Application Theme</description>
 
   <properties>

@@ -1179,15 +1179,15 @@ theme {
       plainHoverHeadingText = plainHeadingText
       plainTabBarBorderBottom = 0
       plainTabBarBorderTop = 0
-      plainTabCloseIconColor = "#919191"
+      plainTabCloseIconColor = "#eeeeee" // "#919191"
       plainTabCloseOverIconColor = "#919191"
       plainTabStripSpacerHeight = 0
       plainTabStripSpacerBorder = 0
       scrollerBackgroundColor = "#5fa2dd"
       scrollerLeftDisabledOpacity = 0.5
-      scrollerLeftOverOpacity = 1
+      scrollerLeftOverOpacity = 10
       scrollerRightDisabledOpacity = 0.5
-      scrollerRightOverOpacity = 1
+      scrollerRightOverOpacity = 10
       scrollerWidth = 24
       tabBarBorder = "none" // "solid"	// delete me...
       tabBarBottomHeight = 0
@@ -1382,7 +1382,7 @@ theme {
       text {
         color = "#404040"
         family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
-        size = "13px"
+        size = "14px"
         weight = "300"
       }
     }

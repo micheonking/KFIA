@@ -3,12 +3,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>com.kfiam</groupId>
-    <artifactId>kfiam</artifactId>
+    <groupId>com.kfia</groupId>
+    <artifactId>kfia</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>kfiam-application</artifactId>
+  <artifactId>kfia-application</artifactId>
   <packaging>war</packaging>
   <name>gxt-theme-40x Application</name>
   <description>GXT project with custom theme setup</description>
@@ -67,8 +67,8 @@
           <copyWebapp>true</copyWebapp>
           <hostedWebapp>${webappDirectory}</hostedWebapp>
 
-          <runTarget>KFIAM.html</runTarget>
-          <module>myApp.KFIAM</module>
+          <runTarget>KFIA.html</runTarget>
+          <module>myApp.KFIA</module>
         </configuration>
         <executions>
           <execution>
@@ -141,7 +141,7 @@
     <!-- Custom Theme Module -->
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>kfiam-theme</artifactId>
+      <artifactId>kfia-theme</artifactId>
       <version>0.0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>

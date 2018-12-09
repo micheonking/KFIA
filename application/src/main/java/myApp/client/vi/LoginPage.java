@@ -56,7 +56,7 @@ public class LoginPage implements InterfaceServiceCall {
 		HBoxLayoutContainer hBoxLayout = new HBoxLayoutContainer();
 		VBoxLayoutContainer vBoxLayout = new VBoxLayoutContainer();
 
-		HTML image = new HTML("<center><div><img src='img/KFIAMLogin.png' width='423' height='103'></center></div>"); 
+		HTML image = new HTML("<center><div><img src='img/KFIALogin.png' width='423' height='103'></center></div>"); 
 		vlc.add(image, new VerticalLayoutData(300, -1, new Margins(0, 0, 30, 0)));
 
 		FieldLabel loginFieldLabel = new FieldLabel(firstName, "로그인ID");
@@ -129,14 +129,14 @@ public class LoginPage implements InterfaceServiceCall {
 		otpandroid.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				Window.open("/KFIAM/BaroOTP_Android.html", "optwin", "width=800,height=800,menubars=0,toolbars=0,location=0,scrollbars=yes");
+				Window.open("/KFIA/BaroOTP_Android.html", "optwin", "width=800,height=800,menubars=0,toolbars=0,location=0,scrollbars=yes");
 			}
 		});
 		Label otpIphone = new HTML("<font size='2'> ▶ <a href=\"#\">IOS(iPhone)</a>");
 		otpIphone.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				Window.open("/KFIAM/BaroOTP_iPhone.html", "optwin", "width=800,height=800,menubars=0,toolbars=0,location=0,scrollbars=yes");
+				Window.open("/KFIA/BaroOTP_iPhone.html", "optwin", "width=800,height=800,menubars=0,toolbars=0,location=0,scrollbars=yes");
 			}
 		});
 

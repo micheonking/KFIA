@@ -92,7 +92,7 @@ public class SendMailSMTP {
 
 			// 송신자 설정
 			InternetAddress from = new InternetAddress();
-//			from = new InternetAddress(new String(FROM_NAME.getBytes(CHAR_SET), "8859_1") + "<miCheon@kfiam.co.kr>");
+//			from = new InternetAddress(new String(FROM_NAME.getBytes(CHAR_SET), "8859_1") + "<miCheon@kfia.co.kr>");
 			from = new InternetAddress(FROM_NAME + "<" + username + ">");
 			//from = new InternetAddress(FROM_NAME + "<" + "test@hdfund.co.kr" + ">");
 

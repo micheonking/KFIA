@@ -34,7 +34,7 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 //		BoxLayoutData flex = new BoxLayoutData(new Margins(0, 5, 0, 0));
 //		flex.setFlex(1);
 		    
-		// KFIAM
+		// KFIA
 		Image image = new Image();
 		image.setResource(ResourceIcon.INSTANCE.getLogo());
 		image.setPixelSize(330, 26);
