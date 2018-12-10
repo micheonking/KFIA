@@ -31,7 +31,7 @@ public class StartPage extends BorderLayoutContainer {
 	private StartPageHeader mainNorthArea = new StartPageHeader(this);
 	private StartPageFooter mainSouthArea = new StartPageFooter();
 //	public static PlainTabPanel tabPanel = new PlainTabPanel();
-	private StartPage mainFramePage;
+	private StartPage startPage;
 
 	public StartPage() {
 
@@ -79,7 +79,7 @@ public class StartPage extends BorderLayoutContainer {
 			this.setCenterWidget(tabReportNews, centerLayoutData);
 			break;
 		default :
-			TabBeginnigPage tabBeginnigPage = new TabBeginnigPage(mainFramePage);
+			TabBeginnigPage tabBeginnigPage = new TabBeginnigPage(startPage);
 			this.setCenterWidget(tabBeginnigPage, centerLayoutData);
 			break;
 		}

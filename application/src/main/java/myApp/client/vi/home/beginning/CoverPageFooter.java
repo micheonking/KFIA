@@ -23,11 +23,11 @@ public class CoverPageFooter extends ContentPanel {
 	
 	private Bbs02_Tab_Board west = new Bbs02_Tab_Board();
 	private Bbs02_Tab_News east = new Bbs02_Tab_News();
-	private StartPage mainFramePage;
+	private StartPage startPage;
 
-	public CoverPageFooter(StartPage mainFramePage) {
+	public CoverPageFooter(StartPage startPage) {
 
-		this.mainFramePage = mainFramePage;
+		this.startPage = startPage;
 		this.setHeaderVisible(false);
 
 		// Red Button
@@ -50,7 +50,7 @@ public class CoverPageFooter extends ContentPanel {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
-				mainFramePage.changePage("4");
+				startPage.changePage("4");
 			}
 		});
 		textButton2.setHTML(button2Html);
@@ -62,7 +62,7 @@ public class CoverPageFooter extends ContentPanel {
 			public void onSelect(SelectEvent event) {
 //				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
 				Info.display("","1");
-				mainFramePage.changePage("4");
+				startPage.changePage("4");
 			}
 		});
 

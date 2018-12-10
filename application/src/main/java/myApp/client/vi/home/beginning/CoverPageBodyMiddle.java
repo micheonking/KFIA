@@ -71,7 +71,7 @@ public class CoverPageBodyMiddle extends ContentPanel {
 ////			@Override
 ////			public void onSelect(SelectEvent event) {
 //////				MainHomePage openTab = new MainHomePage();
-////				MainFramePage.openTabPage(MainFramePage.tabPanel, "비지니스");
+////				startPage.openTabPage(startPage.tabPanel, "비지니스");
 ////			}
 ////		});
 //		horizontalBar1.setVisibleRect(getAbsoluteLeft(), getAbsoluteTop(), 3, 142);

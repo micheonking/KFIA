@@ -26,10 +26,10 @@ import myApp.client.vi.LoginPage;
 public class StartPageHeader extends BorderLayoutContainer {
 
 	Viewport viewport = new Viewport();
-	private StartPage mainFramePage;
+	private StartPage startPage;
 
-	public StartPageHeader(StartPage mainFramePage) {
-		this.mainFramePage = mainFramePage;
+	public StartPageHeader(StartPage startPage) {
+		this.startPage = startPage;
 		
 		VBoxLayoutContainer center = new VBoxLayoutContainer();
 		center.setVBoxLayoutAlign(VBoxLayoutAlign.CENTER);
@@ -52,8 +52,8 @@ public class StartPageHeader extends BorderLayoutContainer {
 		mainButton.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-//				MainFramePage.openTabPage(MainFramePage.tabPanel, "");
-				mainFramePage.changePage("0");
+//				startPage.openTabPage(startPage.tabPanel, "");
+				startPage.changePage("0");
 			}
 		});
 		header.add(mainButton, new BoxLayoutData(new Margins(15, 280, 0, 20)));
@@ -98,8 +98,8 @@ public class StartPageHeader extends BorderLayoutContainer {
 		textButton1.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				//MainFramePage.openTabPage(MainFramePage.tabPanel, "회사소개");
-				mainFramePage.changePage("1");
+				//startPage.openTabPage(startPage.tabPanel, "회사소개");
+				startPage.changePage("1");
 			}
 		});
 		textButton2.setHTML(button2Html);
@@ -112,8 +112,8 @@ public class StartPageHeader extends BorderLayoutContainer {
 		textButton2.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-//				MainFramePage.openTabPage(MainFramePage.tabPanel, "투자일임");
-				mainFramePage.changePage("2");
+//				startPage.openTabPage(startPage.tabPanel, "투자일임");
+				startPage.changePage("2");
 			}
 		});
 		textButton3.setHTML(button3Html);
@@ -126,8 +126,8 @@ public class StartPageHeader extends BorderLayoutContainer {
 		textButton3.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-//				MainFramePage.openTabPage(MainFramePage.tabPanel, "상품안내");
-				mainFramePage.changePage("3");
+//				startPage.openTabPage(startPage.tabPanel, "상품안내");
+				startPage.changePage("3");
 			}
 		});
 		textButton4.setHTML(button4Html);
@@ -140,8 +140,8 @@ public class StartPageHeader extends BorderLayoutContainer {
 		textButton4.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-//				MainFramePage.openTabPage(MainFramePage.tabPanel, "KFIA소식");
-				mainFramePage.changePage("4");
+//				startPage.openTabPage(startPage.tabPanel, "KFIA소식");
+				startPage.changePage("4");
 			}
 		});
 //		textButton5.setHTML(button5Html);
@@ -251,7 +251,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 //		if (LoginUser.getIsAdmin()) {
 //			if(result.getStatus() == 10 ) {
 //				this.viewport.remove(container);
-//				viewport.add(new MainFramePage(), new MarginData(0, 0, 0, 0));
+//				viewport.add(new startPage(), new MarginData(0, 0, 0, 0));
 //				RootPanel.get().add(viewport);
 //			} else {
 //				new SimpleMessage("로그인 정보 확인", result.getMessage());

@@ -65,7 +65,7 @@ public class CoverPageBodyRight extends ContentPanel {
 ////			@Override
 ////			public void onSelect(SelectEvent event) {
 //////				MainHomePage openTab = new HomePage();
-////				MainFramePage.openTabPage(MainFramePage.tabPanel, "솔루션");
+////				startPage.openTabPage(startPage.tabPanel, "솔루션");
 ////			}
 ////		});
 //		
