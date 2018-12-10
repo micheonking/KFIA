@@ -33,7 +33,11 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
 
-		Image lineBar0 = new Image(ResourceIcon.INSTANCE.lineBar());
+		Margins getTextMargins = new Margins(0, 0, 15, 0);
+		Margins totalHBarMargins = new Margins(5, 0, 5, 45);
+		Margins lineBar0Margins = new Margins(10, 0, 20, 45);
+
+		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 
 //		grid.setHideHeaders(true);
 //		grid.setBorders(true);
@@ -51,9 +55,9 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		grid.setWidth(730);
 		grid.setHeight(1000);
 		
-		gridVBox.add(StartPage.getTextContents("공지사항"));
-		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 40)));
-		gridVBox.add(this.grid, new BoxLayoutData(new Margins(20, 0, 0, 40)));
+		gridVBox.add(StartPage.getTextContents("공지사항"),new BoxLayoutData(getTextMargins));
+		gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));
+		gridVBox.add(this.grid, new BoxLayoutData(totalHBarMargins));
 
 		this.add(gridVBox);
 		

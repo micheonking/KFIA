@@ -19,7 +19,7 @@ import myApp.client.vi.home.StartPage;
 public class EntrustInvestment extends ContentPanel{
 	public interface HTMLTemplate extends XTemplates {
 		//웹에디터 HTML 설정
-		@XTemplate(source="invest.html")
+		@XTemplate(source="entrustInvest.html")
 		SafeHtml getTemplate();
 	}
 	
@@ -32,8 +32,11 @@ public class EntrustInvestment extends ContentPanel{
 			gridVBox.setWidth(800);
 			gridVBox.setHeight(1000);
 
+			Margins getTextMargins = new Margins(0, 0, 15, 0);
+			Margins totalHBarMargins = new Margins(5, 0, 5, 45);
+			Margins lineBar0Margins = new Margins(10, 0, 20, 45);
+
 			Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
-			gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 0)));
 
 			VBoxLayoutContainer rightVBox = new VBoxLayoutContainer();
 			rightVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
@@ -43,11 +46,11 @@ public class EntrustInvestment extends ContentPanel{
 
 			HBoxLayoutContainer totalHBar = new HBoxLayoutContainer();
 			totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
-			totalHBar.add(content, new BoxLayoutData(new Margins(20, 0, 5, 45)));
+			totalHBar.add(content, new BoxLayoutData(totalHBarMargins));
 
-			gridVBox.add(StartPage.getTextContents("투자일임"),new BoxLayoutData(new Margins(0,0,15,0)));
-			gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 40)));
-//			gridVBox.add(mapImage,new BoxLayoutData(new Margins(20, 0, 0, 40)));
+			gridVBox.add(StartPage.getTextContents("투자일임"),new BoxLayoutData(getTextMargins));
+			gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));
+//			gridVBox.add(mapImage,new BoxLayoutData(lineBar0Margins));
 			gridVBox.add(totalHBar);
 
 			this.add(gridVBox);

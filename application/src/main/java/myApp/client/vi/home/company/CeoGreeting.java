@@ -26,6 +26,10 @@ public class CeoGreeting extends ContentPanel {
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
 
+		Margins getTextMargins = new Margins(0, 0, 15, 0);
+		Margins totalHBarMargins = new Margins(5, 0, 5, 45);
+		Margins lineBar0Margins = new Margins(10, 0, 20, 45);
+
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 
 		HBoxLayoutContainer gridHBox = new HBoxLayoutContainer();
@@ -92,8 +96,8 @@ public class CeoGreeting extends ContentPanel {
 					+	"<span style=\"font-size:0.8em;\">前) 조흥투신 채권운용팀장</span><br>"
 					);
 		
-		gridVBox.add(StartPage.getTextContents("CEO 인사말"),new BoxLayoutData(new Margins(0, 0, 15, 0)));
-		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(10, 0, 20, 45)));
+		gridVBox.add(StartPage.getTextContents("CEO 인사말"),new BoxLayoutData(getTextMargins));
+		gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));
 
 		rightVBox.add(ceoimage, new BoxLayoutData(new Margins(5, 0, 0, 0)));
 		rightVBox.add(education,new BoxLayoutData(new Margins(0, 0, 0, 0)));

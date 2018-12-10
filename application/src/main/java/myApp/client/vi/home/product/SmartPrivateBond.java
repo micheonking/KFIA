@@ -31,6 +31,10 @@ public class SmartPrivateBond extends ContentPanel {
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
 
+		Margins getTextMargins = new Margins(0, 0, 15, 0);
+		Margins totalHBarMargins = new Margins(5, 0, 5, 45);
+		Margins lineBar0Margins = new Margins(10, 0, 20, 45);
+
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 
 		VBoxLayoutContainer rightVBox = new VBoxLayoutContainer();
@@ -43,9 +47,9 @@ public class SmartPrivateBond extends ContentPanel {
 		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
 		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
 //
-		totalHBar.add(content, new BoxLayoutData(new Margins(20, 0, 5, 45)));
-		gridVBox.add(StartPage.getTextContents("스마트 사모 채권"),new BoxLayoutData(new Margins(0, 0, 15, 0)));
-		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 40)));
+		totalHBar.add(content, new BoxLayoutData(totalHBarMargins));
+		gridVBox.add(StartPage.getTextContents("스마트 사모 채권"),new BoxLayoutData(getTextMargins));
+		gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));
 		gridVBox.add(totalHBar);
 
 		this.add(gridVBox);

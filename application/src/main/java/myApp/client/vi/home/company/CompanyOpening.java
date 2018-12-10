@@ -25,7 +25,7 @@ public class CompanyOpening extends ContentPanel {
 	
 	public interface HTMLTemplate extends XTemplates {
 		//웹에디터 HTML 설정
-		@XTemplate(source="summary.html")
+		@XTemplate(source="companyOpening.html")
 		SafeHtml getTemplate();
 	}
 	
@@ -35,8 +35,10 @@ public class CompanyOpening extends ContentPanel {
 
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
-//		gridVBox.setWidth(800);
-//		gridVBox.setHeight(1000);
+
+		Margins getTextMargins = new Margins(0, 0, 15, 0);
+		Margins totalHBarMargins = new Margins(5, 0, 5, 45);
+		Margins lineBar0Margins = new Margins(10, 0, 20, 45);
 
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 
@@ -54,10 +56,10 @@ public class CompanyOpening extends ContentPanel {
 //					);
 //		content.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 //
-		totalHBar.add(content, new BoxLayoutData(new Margins(5, 0, 5, 45)));
+		totalHBar.add(content, new BoxLayoutData(totalHBarMargins));
 
-		gridVBox.add(StartPage.getTextContents("회사개요"),new BoxLayoutData(new Margins(0,0,15,0)));
-		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(10, 0, 20, 45)));
+		gridVBox.add(StartPage.getTextContents("회사개요"),new BoxLayoutData(getTextMargins));
+		gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));
 		gridVBox.add(totalHBar);
 
 		this.add(gridVBox);

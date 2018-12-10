@@ -16,16 +16,22 @@ import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.home.company.CeoGreeting;
 import myApp.client.vi.home.company.CompanyOpening;
-import myApp.client.vi.home.company.OperationOrganizationAndProfessionalPersonnel;
+import myApp.client.vi.home.company.OperationOrganization;
 import myApp.client.vi.home.company.YourWay;
 
 public class TabCompanyOpenning extends ContentPanel {
 
 	private CeoGreeting tabCeoGreeting  = new CeoGreeting();
 	private CompanyOpening tabCompanyOpening  = new CompanyOpening();
-	private OperationOrganizationAndProfessionalPersonnel tabOperationOrganizationAndProfessionalPersonnel  = new OperationOrganizationAndProfessionalPersonnel();
+	private OperationOrganization tabOperationOrganizationAndProfessionalPersonnel  = new OperationOrganization();
 	private YourWay tabYourWay  = new YourWay();
 	
+	protected static final int MENU_WIDTH = 210;
+	protected static final int MIN_WIDTH = 880;
+	protected static final int MIN_HEIGHT = 750;
+	protected static final String BTN_WIDTH = "200";
+	protected static final String BTN_HEIGHT = "40";
+
 	ContentPanel contentPanel  = new ContentPanel();
 
 	public TabCompanyOpenning() {
@@ -50,6 +56,12 @@ public class TabCompanyOpenning extends ContentPanel {
 		VBoxLayoutContainer menuVBox = new VBoxLayoutContainer();
 		menuVBox.setVBoxLayoutAlign(VBoxLayoutAlign.CENTER);
 
+//		Margins getTextMargins = new Margins(0, 0, 15, 0);
+//		Margins totalHBarMargins = new Margins(5, 0, 5, 45);
+//		Margins firstImageMargins = new Margins(20, 0, 0, 0);
+		Margins lineImageMargins = new Margins(0, 0, 0, 0);
+		Margins buttonMargins = new Margins(1, 3, 1, 3);
+		
 		Image lineImage0 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage1 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage2 = new Image(ResourceIcon.INSTANCE.verticalBar());
@@ -105,7 +117,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ운용조직 및 전문인력</font></div> ");
 		SafeHtml button4Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ찾아오시는길　　　　</font></div> ");
 		CellButtonBase mainButton1 = new CellButtonBase<>();
-		mainButton1.setSize("200", "40");
+		mainButton1.setSize(BTN_WIDTH, BTN_HEIGHT);
 		mainButton1.setHTML(button1Html);
 //		mainButton1.setBorders(true);
 		mainButton1.addSelectHandler(new SelectHandler() {
@@ -114,11 +126,11 @@ public class TabCompanyOpenning extends ContentPanel {
 				getCeoGreeting();
 			}
 		});
-		menuVBox.add(mainButton1, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-		menuVBox.add(lineImage1, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+		menuVBox.add(mainButton1, new BoxLayoutData(buttonMargins));
+		menuVBox.add(lineImage1, new BoxLayoutData(lineImageMargins));
 
 		CellButtonBase mainButton2 = new CellButtonBase<>();
-		mainButton2.setSize("200", "40");
+		mainButton2.setSize(BTN_WIDTH, BTN_HEIGHT);
 		mainButton2.setHTML(button2Html);
 //		mainButton2.setBorders(true);
 		mainButton2.addSelectHandler(new SelectHandler() {
@@ -127,11 +139,11 @@ public class TabCompanyOpenning extends ContentPanel {
 				getCompanyOpening();
 			}
 		});
-		menuVBox.add(mainButton2, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-		menuVBox.add(lineImage2, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+		menuVBox.add(mainButton2, new BoxLayoutData(buttonMargins));
+		menuVBox.add(lineImage2, new BoxLayoutData(lineImageMargins));
 
 		CellButtonBase mainButton3 = new CellButtonBase<>();
-		mainButton3.setSize("200", "40");
+		mainButton3.setSize(BTN_WIDTH, BTN_HEIGHT);
 		mainButton3.setHTML(button3Html);
 //		mainButton3.setBorders(true);
 		mainButton3.addSelectHandler(new SelectHandler() {
@@ -140,11 +152,11 @@ public class TabCompanyOpenning extends ContentPanel {
 				getOperationOrganizationAndProfessionalPersonnel();
 			}
 		});
-		menuVBox.add(mainButton3, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-		menuVBox.add(lineImage3, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+		menuVBox.add(mainButton3, new BoxLayoutData(buttonMargins));
+		menuVBox.add(lineImage3, new BoxLayoutData(lineImageMargins));
 
 		CellButtonBase mainButton4 = new CellButtonBase<>();
-		mainButton4.setSize("200", "40");
+		mainButton4.setSize(BTN_WIDTH, BTN_HEIGHT);
 		mainButton4.setHTML(button4Html);
 //		mainButton4.setBorders(true);
 		mainButton4.addSelectHandler(new SelectHandler() {
@@ -153,11 +165,11 @@ public class TabCompanyOpenning extends ContentPanel {
 				getYourWay();
 			}
 		});
-		menuVBox.add(mainButton4, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-		menuVBox.add(lineImage4, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+		menuVBox.add(mainButton4, new BoxLayoutData(buttonMargins));
+		menuVBox.add(lineImage4, new BoxLayoutData(lineImageMargins));
 
-		menuVBox.setWidth(220);
-		menuVBox.setHeight(750);
+		menuVBox.setWidth(MENU_WIDTH);
+		menuVBox.setHeight(MIN_HEIGHT);
 //		menuVBox.setBorders(true);
 
 		menuHBar.add(menuVBox, boxLayoutData);
@@ -177,8 +189,8 @@ public class TabCompanyOpenning extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(880);
-		contentPanel.setHeight(700);
+		contentPanel.setWidth(MIN_WIDTH);
+		contentPanel.setHeight(MIN_HEIGHT);
 		contentPanel.setWidget(tabCeoGreeting);
 
 		return contentPanel;
@@ -188,8 +200,8 @@ public class TabCompanyOpenning extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(880);
-		contentPanel.setHeight(700);
+		contentPanel.setWidth(MIN_WIDTH);
+		contentPanel.setHeight(MIN_HEIGHT);
 		contentPanel.setWidget(tabCompanyOpening);
 
 		return contentPanel;
@@ -199,8 +211,8 @@ public class TabCompanyOpenning extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(880);
-		contentPanel.setHeight(700);
+		contentPanel.setWidth(MIN_WIDTH);
+		contentPanel.setHeight(MIN_HEIGHT);
 		contentPanel.setWidget(tabOperationOrganizationAndProfessionalPersonnel);
 
 		return contentPanel;
@@ -210,8 +222,8 @@ public class TabCompanyOpenning extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(880);
-		contentPanel.setHeight(700);
+		contentPanel.setWidth(MIN_WIDTH);
+		contentPanel.setHeight(MIN_HEIGHT);
 		contentPanel.setWidget(tabYourWay);
 
 		return contentPanel;

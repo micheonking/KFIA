@@ -34,11 +34,13 @@ public class GlobalFund extends ContentPanel {
 			gridVBox.setWidth(800);
 			gridVBox.setHeight(1000);
 
+			Margins getTextMargins = new Margins(0, 0, 15, 0);
+			Margins totalHBarMargins = new Margins(5, 0, 5, 45);
+			Margins lineBar0Margins = new Margins(10, 0, 20, 45);
 
 //			HTML mapImage = new HTML("<img src='img/org_bg.jpg' width='656' height='440'>"); //조직도
 			
 			Image verticalTitle = new Image(ResourceIcon.INSTANCE.verticalTitle());
-			gridVBox.add(verticalTitle,new BoxLayoutData(new Margins(40, 40,40, 40)));
 
 			VBoxLayoutContainer rightVBox = new VBoxLayoutContainer();
 			rightVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
@@ -48,10 +50,10 @@ public class GlobalFund extends ContentPanel {
 
 			HBoxLayoutContainer totalHBar = new HBoxLayoutContainer();
 			totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
-			totalHBar.add(content, new BoxLayoutData(new Margins(20, 0, 5, 45)));
+			totalHBar.add(content, new BoxLayoutData(totalHBarMargins));
 			
-			gridVBox.add(StartPage.getTextContents("글로벌 펀드일임 투자"),new BoxLayoutData(new Margins(0, 0, 15, 0)));
-			gridVBox.add(verticalTitle,new BoxLayoutData(new Margins(0, 0, 0, 40)));
+			gridVBox.add(StartPage.getTextContents("글로벌 펀드일임 투자"),new BoxLayoutData(getTextMargins));
+			gridVBox.add(verticalTitle,new BoxLayoutData(lineBar0Margins));
 			gridVBox.add(totalHBar);
 
 			this.add(gridVBox);

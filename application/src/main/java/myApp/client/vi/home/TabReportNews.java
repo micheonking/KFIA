@@ -27,6 +27,12 @@ public class TabReportNews extends ContentPanel {
 	private OfficialNotice tabOfficialNotice  = new OfficialNotice();
 	private ReportNews tabNews  = new ReportNews();
 	
+	protected static final int MENU_WIDTH = 210;
+	protected static final int MIN_WIDTH = 880;
+	protected static final int MIN_HEIGHT = 750;
+	protected static final String BTN_WIDTH = "200";
+	protected static final String BTN_HEIGHT = "40";
+
 	ContentPanel contentPanel  = new ContentPanel();
 
 	public TabReportNews() {
@@ -51,6 +57,9 @@ public class TabReportNews extends ContentPanel {
 		VBoxLayoutContainer menuVBox = new VBoxLayoutContainer();
 		menuVBox.setVBoxLayoutAlign(VBoxLayoutAlign.CENTER);
 
+		Margins lineImageMargins = new Margins(0, 0, 0, 0);
+		Margins buttonMargins = new Margins(1, 3, 1, 3);
+
 		Image lineImage0 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage1 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage2 = new Image(ResourceIcon.INSTANCE.verticalBar());
@@ -63,7 +72,7 @@ public class TabReportNews extends ContentPanel {
 		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ공시사항　　　　　　</font></div> ");
 		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ보도자료　　　　　　</font></div> ");
 		CellButtonBase mainButton1 = new CellButtonBase<>();
-		mainButton1.setSize("200", "40");
+		mainButton1.setSize(BTN_WIDTH, BTN_HEIGHT);
 		mainButton1.setHTML(button1Html);
 //		mainButton1.setBorders(true);
 		mainButton1.addSelectHandler(new SelectHandler() {
@@ -72,11 +81,11 @@ public class TabReportNews extends ContentPanel {
 				getNotification();
 			}
 		});
-		menuVBox.add(mainButton1, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-		menuVBox.add(lineImage1, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+		menuVBox.add(mainButton1, new BoxLayoutData(buttonMargins));
+		menuVBox.add(lineImage1, new BoxLayoutData(lineImageMargins));
 
 		CellButtonBase mainButton2 = new CellButtonBase<>();
-		mainButton2.setSize("200", "40");
+		mainButton2.setSize(BTN_WIDTH, BTN_HEIGHT);
 		mainButton2.setHTML(button2Html);
 //		mainButton2.setBorders(true);
 		mainButton2.addSelectHandler(new SelectHandler() {
@@ -85,11 +94,11 @@ public class TabReportNews extends ContentPanel {
 				getOfficialNotice();
 			}
 		});
-		menuVBox.add(mainButton2, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-		menuVBox.add(lineImage2, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+		menuVBox.add(mainButton2, new BoxLayoutData(buttonMargins));
+		menuVBox.add(lineImage2, new BoxLayoutData(lineImageMargins));
 
 		CellButtonBase mainButton3 = new CellButtonBase<>();
-		mainButton3.setSize("200", "40");
+		mainButton3.setSize(BTN_WIDTH, BTN_HEIGHT);
 		mainButton3.setHTML(button3Html);
 //		mainButton3.setBorders(true);
 		mainButton3.addSelectHandler(new SelectHandler() {
@@ -98,10 +107,10 @@ public class TabReportNews extends ContentPanel {
 				getNews();
 			}
 		});
-		menuVBox.add(mainButton3, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-		menuVBox.add(lineImage3, new BoxLayoutData(new Margins(0, 0, 0, 0)));
-		menuVBox.setWidth(210);
-		menuVBox.setHeight(1000);
+		menuVBox.add(mainButton3, new BoxLayoutData(buttonMargins));
+		menuVBox.add(lineImage3, new BoxLayoutData(lineImageMargins));
+		menuVBox.setWidth(MENU_WIDTH);
+		menuVBox.setHeight(MIN_HEIGHT);
 		menuHBar.add(menuVBox, boxLayoutData);
 
 		totalHBar.add(menuHBar);
@@ -117,8 +126,8 @@ public class TabReportNews extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(880);
-		contentPanel.setHeight(600);
+		contentPanel.setWidth(MIN_WIDTH);
+		contentPanel.setHeight(MIN_HEIGHT);
 		contentPanel.setWidget(tabNotification);
 
 		return contentPanel;
@@ -128,8 +137,8 @@ public class TabReportNews extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(800);
-		contentPanel.setHeight(1000);
+		contentPanel.setWidth(MIN_WIDTH);
+		contentPanel.setHeight(MIN_HEIGHT);
 		contentPanel.setWidget(tabOfficialNotice);
 
 		return contentPanel;
@@ -139,8 +148,8 @@ public class TabReportNews extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(800);
-		contentPanel.setHeight(1000);
+		contentPanel.setWidth(MIN_WIDTH);
+		contentPanel.setHeight(MIN_HEIGHT);
 		contentPanel.setWidget(tabNews);
 
 		return contentPanel;
