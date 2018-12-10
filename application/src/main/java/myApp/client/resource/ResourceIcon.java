@@ -69,6 +69,9 @@ public interface ResourceIcon extends ClientBundle {
 	  @Source("files/verticalTitle.png")
 	  ImageResource verticalTitle();
 	  
+	  @Source("files/horizontalTitle.png")
+	  ImageResource horizontalTitle();
+	  
 	  @Source("files/verticalLine.png")
 	  ImageResource verticalLine();
 	  
