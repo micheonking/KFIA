@@ -38,7 +38,7 @@ public class SmartHeild extends ContentPanel {
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
 
-		Image lineBar0 = new Image(ResourceIcon.INSTANCE.kfiamlineBar());
+		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 
 		VBoxLayoutContainer rightVBox = new VBoxLayoutContainer();
 		rightVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);

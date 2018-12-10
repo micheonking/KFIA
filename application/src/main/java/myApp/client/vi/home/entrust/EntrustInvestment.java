@@ -32,7 +32,7 @@ public class EntrustInvestment extends ContentPanel{
 			gridVBox.setWidth(800);
 			gridVBox.setHeight(1000);
 
-			Image lineBar0 = new Image(ResourceIcon.INSTANCE.kfiamlineBar());
+			Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 			gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 0)));
 
 			VBoxLayoutContainer rightVBox = new VBoxLayoutContainer();

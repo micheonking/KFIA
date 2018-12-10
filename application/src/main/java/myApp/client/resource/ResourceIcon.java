@@ -75,7 +75,4 @@ public interface ResourceIcon extends ClientBundle {
 	  @Source("files/lineBar.png")
 	  ImageResource lineBar();
 	  
-	  @Source("files/h3_line.jpg")
-	  ImageResource kfiamlineBar();
-	  
 }

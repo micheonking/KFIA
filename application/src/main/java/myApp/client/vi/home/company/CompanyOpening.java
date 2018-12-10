@@ -39,7 +39,7 @@ public class CompanyOpening extends ContentPanel {
 //		gridVBox.setHeight(1000);
 
 
-		Image lineBar0 = new Image(ResourceIcon.INSTANCE.kfiamlineBar());
+		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 
 		VBoxLayoutContainer rightVBox = new VBoxLayoutContainer();
 		rightVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);

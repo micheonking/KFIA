@@ -37,8 +37,8 @@ public class GlobalFund extends ContentPanel {
 
 //			HTML mapImage = new HTML("<img src='img/org_bg.jpg' width='656' height='440'>"); //조직도
 			
-			Image kfiamlineBar = new Image(ResourceIcon.INSTANCE.kfiamlineBar());
-			gridVBox.add(kfiamlineBar,new BoxLayoutData(new Margins(40, 40,40, 40)));
+			Image verticalTitle = new Image(ResourceIcon.INSTANCE.verticalTitle());
+			gridVBox.add(verticalTitle,new BoxLayoutData(new Margins(40, 40,40, 40)));
 
 			VBoxLayoutContainer rightVBox = new VBoxLayoutContainer();
 			rightVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
@@ -51,7 +51,7 @@ public class GlobalFund extends ContentPanel {
 			totalHBar.add(content, new BoxLayoutData(new Margins(20, 0, 5, 45)));
 			
 			gridVBox.add(StartPage.FuncTextContents("글로벌 펀드일임 투자"),new BoxLayoutData(new Margins(0, 0, 15, 0)));
-			gridVBox.add(kfiamlineBar,new BoxLayoutData(new Margins(0, 0, 0, 40)));
+			gridVBox.add(verticalTitle,new BoxLayoutData(new Margins(0, 0, 0, 40)));
 			gridVBox.add(totalHBar);
 
 			this.add(gridVBox);
