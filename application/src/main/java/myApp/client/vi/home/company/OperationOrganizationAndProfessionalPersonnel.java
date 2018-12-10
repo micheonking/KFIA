@@ -1,17 +1,20 @@
 package myApp.client.vi.home.company;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
+import com.sencha.gxt.core.client.XTemplates;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayoutAlign;
+import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
@@ -20,19 +23,23 @@ import myApp.client.vi.home.StartPage;
 
 public class OperationOrganizationAndProfessionalPersonnel extends ContentPanel {
 	
+	public interface HTMLTemplate extends XTemplates {
+		//웹에디터 HTML 설정
+		@XTemplate(source="opr_org.html")
+		SafeHtml getTemplate();
+	}
+	
 	public OperationOrganizationAndProfessionalPersonnel() {
 
 		this.setHeaderVisible(false);
 
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
-		gridVBox.setWidth(800);
-		gridVBox.setHeight(1000);
+//		gridVBox.setWidth(800);
+//		gridVBox.setHeight(1000);
 
-		HTML mapImage = new HTML("<div><img src='img/kfsGroup.jpg' width='686' height='470'></div>"); //조직도
-		
-		Image lineBar0 = new Image(ResourceIcon.INSTANCE.lineBar());
-		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 0)));
+
+		Image lineBar0 = new Image(ResourceIcon.INSTANCE.kfiamlineBar());
 
 		VBoxLayoutContainer rightVBox = new VBoxLayoutContainer();
 		rightVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
@@ -40,9 +47,18 @@ public class OperationOrganizationAndProfessionalPersonnel extends ContentPanel 
 		HBoxLayoutContainer totalHBar = new HBoxLayoutContainer();
 		totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
 		
-		gridVBox.add(StartPage.FuncTextContents("조직도"));
+		
+		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
+		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
+		
+//		Label content = new HTML("
+//					);
+//		content.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
+//
+		totalHBar.add(content, new BoxLayoutData(new Margins(20, 0, 5, 45)));
+		gridVBox.add(StartPage.FuncTextContents("운용조직 및 조직인력"), new BoxLayoutData(new Margins(0,0,15,0)));
 		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 40)));
-		gridVBox.add(mapImage,new BoxLayoutData(new Margins(20, 0, 0, 40)));
+		gridVBox.add(totalHBar);
 
 		this.add(gridVBox);
 

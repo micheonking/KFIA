@@ -1,32 +1,61 @@
 package myApp.client.vi.home.product;
 
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.user.client.ui.Image;
+import com.sencha.gxt.core.client.XTemplates;
+import com.sencha.gxt.core.client.XTemplates.XTemplate;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.core.client.util.Padding;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutPack;
+import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayoutAlign;
+import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.form.TextField;
 
+import myApp.client.resource.ResourceIcon;
+import myApp.client.vi.home.StartPage;
+import myApp.client.vi.home.product.SmartPrivateBond.HTMLTemplate;
+
 public class SmartHeild extends ContentPanel {
 
+	public interface HTMLTemplate extends XTemplates {
+		//웹에디터 HTML 설정
+		@XTemplate(source="smartHigh.html")
+		SafeHtml getTemplate();
+	}
+	
 	public SmartHeild() {
 
 		this.setHeaderVisible(false);
 
-		VerticalLayoutContainer layout = new VerticalLayoutContainer();
-		HBoxLayoutContainer searchContainer = new HBoxLayoutContainer();
-		searchContainer.setPadding(new Padding(5));
-		searchContainer.setPack(BoxLayoutPack.CENTER);
-		BoxLayoutData boxLayout = new BoxLayoutData(new Margins(0, 5, 5, 0));
-		TextField searchText = new TextField();
-		TextButton searchButton = new TextButton("Search");
-		searchContainer.add(searchText, boxLayout);
-		searchContainer.add(searchButton, boxLayout);
-		searchContainer.setBorders(true);
-		layout.add(searchContainer);
+		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
+		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
+
+		Image lineBar0 = new Image(ResourceIcon.INSTANCE.kfiamlineBar());
+
+		VBoxLayoutContainer rightVBox = new VBoxLayoutContainer();
+		rightVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
+
+		HBoxLayoutContainer totalHBar = new HBoxLayoutContainer();
+		totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
+		
+		
+		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
+		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
+//
+		totalHBar.add(content, new BoxLayoutData(new Margins(20, 0, 5, 45)));
+		gridVBox.add(StartPage.FuncTextContents("스마트 하이일드 일임투자"),new BoxLayoutData(new Margins(0, 0, 15, 0)));
+		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 40)));
+		gridVBox.add(totalHBar);
+
+		this.add(gridVBox);
 
 	}
 }

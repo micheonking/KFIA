@@ -92,7 +92,7 @@ public class CeoGreeting extends ContentPanel {
 					+	"<span style=\"font-size:0.8em;\">前) 조흥투신 채권운용팀장</span><br>"
 					);
 		
-		gridVBox.add(StartPage.FuncTextContents("CEO 인사말"));
+		gridVBox.add(StartPage.FuncTextContents("CEO 인사말"),new BoxLayoutData(new Margins(0, 0, 15, 0)));
 		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(10, 0, 20, 40)));
 
 		rightVBox.add(ceoimage, new BoxLayoutData(new Margins(5, 0, 0, 0)));

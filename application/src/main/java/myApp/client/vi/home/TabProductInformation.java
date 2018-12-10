@@ -17,7 +17,6 @@ import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.resource.ResourceIcon;
-import myApp.client.vi.home.entrust.EntrustInvestment;
 import myApp.client.vi.home.product.GlobalFund;
 import myApp.client.vi.home.product.SmartPrivateBond;
 import myApp.client.vi.home.product.SmartHeild;
