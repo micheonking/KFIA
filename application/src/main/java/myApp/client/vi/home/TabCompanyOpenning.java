@@ -115,7 +115,7 @@ public class TabCompanyOpenning extends ContentPanel {
 			}
 		});
 		menuVBox.add(mainButton1, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-//		menuVBox.add(lineImage1, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+		menuVBox.add(lineImage1, new BoxLayoutData(new Margins(0, 0, 0, 0)));
 
 		CellButtonBase mainButton2 = new CellButtonBase<>();
 		mainButton2.setSize("200", "40");
@@ -128,7 +128,7 @@ public class TabCompanyOpenning extends ContentPanel {
 			}
 		});
 		menuVBox.add(mainButton2, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-//		menuVBox.add(lineImage2, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+		menuVBox.add(lineImage2, new BoxLayoutData(new Margins(0, 0, 0, 0)));
 
 		CellButtonBase mainButton3 = new CellButtonBase<>();
 		mainButton3.setSize("200", "40");
@@ -141,7 +141,7 @@ public class TabCompanyOpenning extends ContentPanel {
 			}
 		});
 		menuVBox.add(mainButton3, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-//		menuVBox.add(lineImage3, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+		menuVBox.add(lineImage3, new BoxLayoutData(new Margins(0, 0, 0, 0)));
 
 		CellButtonBase mainButton4 = new CellButtonBase<>();
 		mainButton4.setSize("200", "40");
@@ -154,10 +154,10 @@ public class TabCompanyOpenning extends ContentPanel {
 			}
 		});
 		menuVBox.add(mainButton4, new BoxLayoutData(new Margins(1, 3, 1, 3)));
-//		menuVBox.add(lineImage4, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+		menuVBox.add(lineImage4, new BoxLayoutData(new Margins(0, 0, 0, 0)));
 
-		menuVBox.setWidth(210);
-		menuVBox.setHeight(600);
+		menuVBox.setWidth(220);
+		menuVBox.setHeight(750);
 //		menuVBox.setBorders(true);
 
 		menuHBar.add(menuVBox, boxLayoutData);
@@ -178,7 +178,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(880);
-		contentPanel.setHeight(1000);
+		contentPanel.setHeight(700);
 		contentPanel.setWidget(tabCeoGreeting);
 
 		return contentPanel;
@@ -188,8 +188,8 @@ public class TabCompanyOpenning extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(800);
-		contentPanel.setHeight(1000);
+		contentPanel.setWidth(880);
+		contentPanel.setHeight(700);
 		contentPanel.setWidget(tabCompanyOpening);
 
 		return contentPanel;
@@ -199,8 +199,8 @@ public class TabCompanyOpenning extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(800);
-		contentPanel.setHeight(1000);
+		contentPanel.setWidth(880);
+		contentPanel.setHeight(700);
 		contentPanel.setWidget(tabOperationOrganizationAndProfessionalPersonnel);
 
 		return contentPanel;
@@ -210,8 +210,8 @@ public class TabCompanyOpenning extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(800);
-		contentPanel.setHeight(1000);
+		contentPanel.setWidth(880);
+		contentPanel.setHeight(700);
 		contentPanel.setWidget(tabYourWay);
 
 		return contentPanel;

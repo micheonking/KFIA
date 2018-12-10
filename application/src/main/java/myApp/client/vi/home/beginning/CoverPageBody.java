@@ -22,7 +22,7 @@ import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayou
 
 public class CoverPageBody extends ContentPanel {
 
-	// 업무현황 버튼 3개
+	// 운용현황 라벨 3개
 	public CoverPageBody() {
 		
 		this.setHeaderVisible(false);
@@ -49,7 +49,7 @@ public class CoverPageBody extends ContentPanel {
 				);
 		LabelToolItem labelToolItem1 = new LabelToolItem(label1Html);
 		labelToolItem1.setWidth(300);
-		labelToolItem1.setHeight(160);
+		labelToolItem1.setHeight(142);
 		labelToolItem1.setBorders(true);
 
 		SafeHtml label2Html = SafeHtmlUtils.fromTrustedString(	"<center>"
@@ -64,7 +64,7 @@ public class CoverPageBody extends ContentPanel {
 				);
 		LabelToolItem labelToolItem2 = new LabelToolItem(label2Html);
 		labelToolItem2.setWidth(300);
-		labelToolItem2.setHeight(160);
+		labelToolItem2.setHeight(142);
 		labelToolItem2.setBorders(true);
 
 		SafeHtml label3Html = SafeHtmlUtils.fromTrustedString(	"<center>"
@@ -78,9 +78,11 @@ public class CoverPageBody extends ContentPanel {
 				+	"</div>"
 				);
 		LabelToolItem labelToolItem3 = new LabelToolItem(label3Html);
+		labelToolItem3.setPosition(2, 2);
+		labelToolItem3.setPagePosition(2, 2);
 		labelToolItem3.setWidth(300);
-		labelToolItem3.setHeight(160);
-//		labelToolItem3.setBorders(true);
+		labelToolItem3.setHeight(142);
+		labelToolItem3.setBorders(true);
 
 		HBoxLayoutContainer boxHBox = new HBoxLayoutContainer();
 		boxHBox.setHBoxLayoutAlign(HBoxLayoutAlign.MIDDLE);
