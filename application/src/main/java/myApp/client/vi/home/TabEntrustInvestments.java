@@ -52,7 +52,7 @@ public class TabEntrustInvestments extends ContentPanel {
 		Image lineImage0 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage1 = new Image(ResourceIcon.INSTANCE.verticalBar());
 
-		headerVBox.add(StartPage.FuncLabelToolItem("투자일임"));
+		headerVBox.add(StartPage.getLabelToolItem("투자일임"));
 
 		menuVBox.add(lineImage0, new BoxLayoutData(new Margins(20, 0, 0, 0)));
 		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ투자일임안내　　　　</font></div> ");

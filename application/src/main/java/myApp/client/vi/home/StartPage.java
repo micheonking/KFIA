@@ -93,7 +93,7 @@ public class StartPage extends BorderLayoutContainer {
 //
 //	}
 	
-	public static ContentPanel FuncLabelToolItem(String textHtml) {
+	public static ContentPanel getLabelToolItem(String textHtml) {
 		// TODO Auto-generated constructor stub  023d69
 		ContentPanel contentPanel = new ContentPanel();
 		contentPanel.setBodyStyle("backgroundColor:#023d69");
@@ -210,13 +210,13 @@ public class StartPage extends BorderLayoutContainer {
 //		return hlc;
 	}
 
-	public static HBoxLayoutContainer FuncTextContents(String textHtml) {
+	public static HBoxLayoutContainer getTextContents(String textHtml) {
 		SafeHtml labelHtml = SafeHtmlUtils.fromTrustedString("<left><font color='#015ca3' font-family='Nanum Gothic' size='5'><p style='font-weight:bold;'>"+ textHtml +"</p></font>");
 		LabelToolItem labelToolItem = new LabelToolItem(labelHtml);
 		
 		HBoxLayoutContainer hblc = new HBoxLayoutContainer();
 		hblc.setHBoxLayoutAlign(HBoxLayoutAlign.BOTTOM);
-		hblc.add(labelToolItem, new BoxLayoutData(new Margins(30, 600, 5, 40)));
+		hblc.add(labelToolItem, new BoxLayoutData(new Margins(30, 600, 10, 40)));
 		
 		return hblc;
 	}

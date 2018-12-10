@@ -56,7 +56,7 @@ public class TabReportNews extends ContentPanel {
 		Image lineImage2 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage3 = new Image(ResourceIcon.INSTANCE.verticalBar());
 
-		headerVBox.add(StartPage.FuncLabelToolItem("KFIA소식"));
+		headerVBox.add(StartPage.getLabelToolItem("KFIA소식"));
 
 		menuVBox.add(lineImage0, new BoxLayoutData(new Margins(20, 0, 0, 0)));
 		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ공지사항　　　　　　</font></div> ");

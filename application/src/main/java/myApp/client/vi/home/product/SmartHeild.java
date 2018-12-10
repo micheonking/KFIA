@@ -51,7 +51,7 @@ public class SmartHeild extends ContentPanel {
 		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
 //
 		totalHBar.add(content, new BoxLayoutData(new Margins(20, 0, 5, 45)));
-		gridVBox.add(StartPage.FuncTextContents("스마트 하이일드 일임투자"),new BoxLayoutData(new Margins(0, 0, 15, 0)));
+		gridVBox.add(StartPage.getTextContents("스마트 하이일드 일임투자"),new BoxLayoutData(new Margins(0, 0, 15, 0)));
 		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 40)));
 		gridVBox.add(totalHBar);
 

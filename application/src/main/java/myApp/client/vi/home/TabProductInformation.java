@@ -56,7 +56,7 @@ public class TabProductInformation extends ContentPanel {
 		Image lineImage2 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage3 = new Image(ResourceIcon.INSTANCE.verticalBar());
 
-		headerVBox.add(StartPage.FuncLabelToolItem("상품안내"));
+		headerVBox.add(StartPage.getLabelToolItem("상품안내"));
 
 		menuVBox.add(lineImage0, new BoxLayoutData(new Margins(20, 0, 0, 0)));
 		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#606060' style='font-size:14px;'>ㆍ스마트 하이일드　　 </font></div> ");

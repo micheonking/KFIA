@@ -56,7 +56,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		Image lineImage3 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage4 = new Image(ResourceIcon.INSTANCE.verticalBar());
 
-		headerVBox.add(StartPage.FuncLabelToolItem("회사소개"));//, new BoxLayoutData(new Margins(2, 50, 100, 0)));
+		headerVBox.add(StartPage.getLabelToolItem("회사소개"));//, new BoxLayoutData(new Margins(2, 50, 100, 0)));
 //		Label labelHtml = new HTML(
 ////				"<center><font size='2' color=#aaaaaa><p style='background-color: #023d69;'>"+ textHtml +"</p></font></center>");
 ////		SafeHtml label2Html = SafeHtmlUtils.fromTrustedString(	

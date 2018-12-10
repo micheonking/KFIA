@@ -51,7 +51,7 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		grid.setWidth(730);
 		grid.setHeight(1000);
 		
-		gridVBox.add(StartPage.FuncTextContents("공지사항"));
+		gridVBox.add(StartPage.getTextContents("공지사항"));
 		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 40)));
 		gridVBox.add(this.grid, new BoxLayoutData(new Margins(20, 0, 0, 40)));
 

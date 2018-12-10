@@ -38,7 +38,6 @@ public class CompanyOpening extends ContentPanel {
 //		gridVBox.setWidth(800);
 //		gridVBox.setHeight(1000);
 
-
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 
 		VBoxLayoutContainer rightVBox = new VBoxLayoutContainer();
@@ -55,10 +54,10 @@ public class CompanyOpening extends ContentPanel {
 //					);
 //		content.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 //
-		totalHBar.add(content, new BoxLayoutData(new Margins(20, 0, 5, 45)));
+		totalHBar.add(content, new BoxLayoutData(new Margins(5, 0, 5, 45)));
 
-		gridVBox.add(StartPage.FuncTextContents("회사개요"),new BoxLayoutData(new Margins(0,0,15,0)));
-		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 40)));
+		gridVBox.add(StartPage.getTextContents("회사개요"),new BoxLayoutData(new Margins(0,0,15,0)));
+		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(10, 0, 20, 45)));
 		gridVBox.add(totalHBar);
 
 		this.add(gridVBox);

@@ -45,7 +45,7 @@ public class EntrustInvestment extends ContentPanel{
 			totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
 			totalHBar.add(content, new BoxLayoutData(new Margins(20, 0, 5, 45)));
 
-			gridVBox.add(StartPage.FuncTextContents("투자일임"),new BoxLayoutData(new Margins(0,0,15,0)));
+			gridVBox.add(StartPage.getTextContents("투자일임"),new BoxLayoutData(new Margins(0,0,15,0)));
 			gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 40)));
 //			gridVBox.add(mapImage,new BoxLayoutData(new Margins(20, 0, 0, 40)));
 			gridVBox.add(totalHBar);

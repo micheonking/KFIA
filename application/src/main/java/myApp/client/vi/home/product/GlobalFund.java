@@ -50,7 +50,7 @@ public class GlobalFund extends ContentPanel {
 			totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
 			totalHBar.add(content, new BoxLayoutData(new Margins(20, 0, 5, 45)));
 			
-			gridVBox.add(StartPage.FuncTextContents("글로벌 펀드일임 투자"),new BoxLayoutData(new Margins(0, 0, 15, 0)));
+			gridVBox.add(StartPage.getTextContents("글로벌 펀드일임 투자"),new BoxLayoutData(new Margins(0, 0, 15, 0)));
 			gridVBox.add(verticalTitle,new BoxLayoutData(new Margins(0, 0, 0, 40)));
 			gridVBox.add(totalHBar);
 

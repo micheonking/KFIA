@@ -55,9 +55,9 @@ public class OperationOrganizationAndProfessionalPersonnel extends ContentPanel 
 //					);
 //		content.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 //
-		totalHBar.add(content, new BoxLayoutData(new Margins(20, 0, 5, 45)));
-		gridVBox.add(StartPage.FuncTextContents("운용조직 및 조직인력"), new BoxLayoutData(new Margins(0,0,15,0)));
-		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 40)));
+		totalHBar.add(content, new BoxLayoutData(new Margins(5, 0, 5, 45)));
+		gridVBox.add(StartPage.getTextContents("운용조직 및 조직인력"), new BoxLayoutData(new Margins(0,0,15,0)));
+		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(10, 0, 20, 45)));
 		gridVBox.add(totalHBar);
 
 		this.add(gridVBox);

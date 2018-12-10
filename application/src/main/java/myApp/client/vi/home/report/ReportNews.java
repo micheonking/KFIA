@@ -51,7 +51,7 @@ public class ReportNews extends ContentPanel implements InterfaceGridOperate {
 		grid.setWidth(730);
 		grid.setHeight(1000);
 		
-		gridVBox.add(StartPage.FuncTextContents("보도자료"));
+		gridVBox.add(StartPage.getTextContents("보도자료"));
 		gridVBox.add(lineBar0,new BoxLayoutData(new Margins(0, 0, 0, 40)));
 		gridVBox.add(this.grid, new BoxLayoutData(new Margins(20, 0, 0, 40)));
 

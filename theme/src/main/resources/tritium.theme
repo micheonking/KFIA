@@ -28,7 +28,7 @@ theme {
       }
       font {
         color = "#f6f6f6"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "15px"
         weight = "300"
       }
@@ -93,7 +93,7 @@ theme {
       pressedBorder = util.border('solid', '#42719A', 1)
       font {
         color = "#f0f0f0"
-        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Nanum Gothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "14px"
         weight = "300"
       }
@@ -124,7 +124,7 @@ theme {
       }
       font {
         color = "#606060"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "14px"
         weight = "300"
       }
@@ -205,13 +205,13 @@ theme {
       }
       dayDisabledText {
         color = "#d0d0d0"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
       }
       dayNextText {
         color = "#bfbfbf"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
       }
@@ -223,7 +223,7 @@ theme {
       }
       dayOfWeekText {
         color = "#404040"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
       }
@@ -236,7 +236,7 @@ theme {
       dayPreviousText = dayNextText
       dayText {
         color = "#404040"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -254,7 +254,7 @@ theme {
       }
       headerText {
         color = "#404040"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "15px"
         weight = "400"
       }
@@ -282,7 +282,7 @@ theme {
       }
       itemSelectedText {
         color = "#ffffff"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -369,7 +369,7 @@ theme {
         }
         text {
           color = "#404040"
-          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "14px"
           weight = "300"
         }
@@ -401,7 +401,7 @@ theme {
       }
       text {
         color = "#404040"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "14px"
         weight = "300"
       }
@@ -427,7 +427,7 @@ theme {
         }
         text {
           color = "#404040"
-          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "300"
         }
@@ -466,7 +466,7 @@ theme {
       }
       text {
         color = "#919191"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "14px"
         weight = "400"
       }
@@ -490,7 +490,7 @@ theme {
       }
       font {
         color = "#f0f0f0"
-        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Nanum Gothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "14px"
         weight = "400"
       }
@@ -542,7 +542,7 @@ theme {
       }
       cellText {
         color = "#404040"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -580,7 +580,7 @@ theme {
         }
         text {
           color = "#404040"
-          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "normal"
         }
@@ -597,7 +597,7 @@ theme {
         }
         text {
           color = "#000000"
-          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "bold"
         }
@@ -623,7 +623,7 @@ theme {
           backgroundColor = "#ffffff"
           text {
             color = "#000000"
-            family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+            family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
             size = "13px"
             weight = "bold"
           }
@@ -650,7 +650,7 @@ theme {
         }
         text {
           color = "#000000"
-          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "normal"
         }
@@ -786,7 +786,7 @@ theme {
       }
       text {
         color = "#000000"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -810,7 +810,7 @@ theme {
         }
         text {
           color = "#666666"
-          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "normal"
         }
@@ -920,7 +920,7 @@ theme {
         }
         itemText {
           color = "#ffffff"
-          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "300"
         }
@@ -933,7 +933,7 @@ theme {
       }
       itemText {
         color = "#404040"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -976,7 +976,7 @@ theme {
       }
       text {
         color = "#000000"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
       }
@@ -998,7 +998,7 @@ theme {
       }
       font {
         color = "#f6f6f6"
-        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Nanum Gothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "14px"
         weight = "400"
       }
@@ -1038,7 +1038,7 @@ theme {
       }
       text {
         color = "#666666"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "bold"
       }
@@ -1078,7 +1078,7 @@ theme {
       }
       text {
         color = "#000000"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "12px"
         weight = "normal"
       }
@@ -1096,7 +1096,7 @@ theme {
       }
       text {
         color = "#000000"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
       }
@@ -1104,7 +1104,7 @@ theme {
     tabs {
       activeHeadingText {
         color = "#4C82B1"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -1129,7 +1129,7 @@ theme {
       gradient = "#ffffff 0%, #ffffff 100%"
       headingText {
         color = "#f0f0f0"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -1166,13 +1166,13 @@ theme {
       }
       plainActiveHeadingText {
         color = "#2b579a" // "#4c82b1" // "#404040"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
       plainHeadingText {
         color = "#eeeeee"
-        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Nanum Gothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -1238,7 +1238,7 @@ theme {
       }
       headerText {
         color = "#f0f0f0"
-        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Nanum Gothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "13px"
         weight = "bold"
       }
@@ -1256,7 +1256,7 @@ theme {
       }
       messageText {
         color = "#f0f0f0"
-        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Nanum Gothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -1304,7 +1304,7 @@ theme {
         smallLineHeight = "18"
         font {
           color = "#606060"
-          family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+          family = "'Nanum Gothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
           size = "14px"
           weight = "300"
         }
@@ -1381,7 +1381,7 @@ theme {
       }
       text {
         color = "#404040"
-        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Nanum Gothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "14px"
         weight = "300"
       }
@@ -1405,7 +1405,7 @@ theme {
       }
       font {
         color = "#f6f6f6"
-        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Nanum Gothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "16px"
         weight = "400"
       }
@@ -1425,7 +1425,7 @@ theme {
   }
   headerText {
     color = "#ffffff"
-    family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+    family = "'Nanum Gothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
     size = "16px"
     weight = "bold"
   }
