@@ -2,6 +2,7 @@ package myApp.client.vi.home;
 
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.sencha.gxt.core.client.Style.Side;
 import com.sencha.gxt.core.client.util.Margins;
@@ -21,9 +22,13 @@ import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.info.Info;
 
+import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.LoginPage;
 
 public class StartPageHeader extends BorderLayoutContainer {
+
+	protected static final String BTN_WIDTH = "80";
+	protected static final String BTN_HEIGHT = "30";
 
 	Viewport viewport = new Viewport();
 	private StartPage startPage;
@@ -37,6 +42,10 @@ public class StartPageHeader extends BorderLayoutContainer {
 		HBoxLayoutContainer header = new HBoxLayoutContainer();
 		header.setPadding(new Padding(2));
 		header.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
+
+		Image lineImage1 = new Image(ResourceIcon.INSTANCE.horizontalTitle());
+		Image lineImage2 = new Image(ResourceIcon.INSTANCE.horizontalTitle());
+		Image lineImage3 = new Image(ResourceIcon.INSTANCE.horizontalTitle());
 
 		// 홈페이지 상단 회사로고
 		SafeHtml logoHtml = SafeHtmlUtils.fromTrustedString("<div><img src='img/_KFIALogo.png' style='margin:0px 0px'></img><br></div>");
@@ -56,7 +65,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 				startPage.changePage("0");
 			}
 		});
-		header.add(mainButton, new BoxLayoutData(new Margins(15, 280, 0, 20)));
+		header.add(mainButton, new BoxLayoutData(new Margins(15, 200, 0, 20)));
 		
 		// 버튼생성
 		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString(
@@ -79,7 +88,8 @@ public class StartPageHeader extends BorderLayoutContainer {
 //				+	"</div>"
 //				);
 
-		BoxLayoutData boxLayoutData = new BoxLayoutData(new Margins(20, 35, 0, 0));
+		BoxLayoutData boxLayoutData = new BoxLayoutData(new Margins(20, 25, 0, 0));
+		BoxLayoutData boxLayoutData1 = new BoxLayoutData(new Margins(30, 25, 0, 0));
 		TextButton textButton1 = new TextButton("");
 		TextButton textButton2 = new TextButton("");
 		TextButton textButton3 = new TextButton("");
@@ -88,13 +98,13 @@ public class StartPageHeader extends BorderLayoutContainer {
 
 //		header.add(new Label(), boxLayoutData);
 		textButton1.setHTML(button1Html);
-		textButton1.setWidth(80);
-		textButton1.setHeight(30);
+		textButton1.setSize(BTN_WIDTH, BTN_HEIGHT);
 //		textButton1.getElement().setMargins(new Margins(7, 7, 7, 7));
 //		textButton1.setBorders(true);
 //		textButton1.setIcon(ResourceIcon.INSTANCE.blank());
 //		textButton1.setIconAlign(IconAlign.TOP);
 		header.add(textButton1, boxLayoutData);
+		header.add(lineImage1, boxLayoutData1);
 		textButton1.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
@@ -103,12 +113,12 @@ public class StartPageHeader extends BorderLayoutContainer {
 			}
 		});
 		textButton2.setHTML(button2Html);
-		textButton2.setWidth(80);
-		textButton2.setHeight(30);
+		textButton2.setSize(BTN_WIDTH, BTN_HEIGHT);
 //		textButton2.setBorders(true);
 //		textButton2.setIconAlign(IconAlign.BOTTOM);
 //		textButton2.setIcon(ResourceIcon.INSTANCE.blank());
 		header.add(textButton2, boxLayoutData);
+		header.add(lineImage2, boxLayoutData1);
 		textButton2.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
@@ -117,12 +127,12 @@ public class StartPageHeader extends BorderLayoutContainer {
 			}
 		});
 		textButton3.setHTML(button3Html);
-		textButton3.setWidth(80);
-		textButton3.setHeight(30);
+		textButton3.setSize(BTN_WIDTH, BTN_HEIGHT);
 //		textButton3.setBorders(true);
 //		textButton3.setIconAlign(IconAlign.BOTTOM);
 //		textButton3.setIcon(ResourceIcon.INSTANCE.blank());
 		header.add(textButton3, boxLayoutData);
+		header.add(lineImage3, boxLayoutData1);
 		textButton3.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
@@ -131,8 +141,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 			}
 		});
 		textButton4.setHTML(button4Html);
-		textButton4.setWidth(80);
-		textButton4.setHeight(30);
+		textButton4.setSize(BTN_WIDTH, BTN_HEIGHT);
 //		textButton4.setBorders(true);
 //		textButton4.setIconAlign(IconAlign.BOTTOM);
 //		textButton4.setIcon(ResourceIcon.INSTANCE.blank());
