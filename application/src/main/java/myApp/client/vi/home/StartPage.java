@@ -30,7 +30,8 @@ public class StartPage extends BorderLayoutContainer {
 
 	private StartPageHeader mainNorthArea = new StartPageHeader(this);
 	private StartPageFooter mainSouthArea = new StartPageFooter();
-	public static PlainTabPanel tabPanel = new PlainTabPanel();
+//	public static PlainTabPanel tabPanel = new PlainTabPanel();
+	private StartPage mainFramePage;
 
 	public StartPage() {
 
@@ -62,35 +63,35 @@ public class StartPage extends BorderLayoutContainer {
 
 		switch (pageName) {
 		case "1" :
-			TabCompanyOpenning tabCompany = new TabCompanyOpenning();
-			this.setCenterWidget(tabCompany, centerLayoutData);
+			TabCompanyOpenning tabCompanyOpenning = new TabCompanyOpenning();
+			this.setCenterWidget(tabCompanyOpenning, centerLayoutData);
 			break;
 		case "2" :
-			TabEntrustInvestments tabBusiness = new TabEntrustInvestments();
-			this.setCenterWidget(tabBusiness, centerLayoutData);
+			TabEntrustInvestments tabEntrustInvestments = new TabEntrustInvestments();
+			this.setCenterWidget(tabEntrustInvestments, centerLayoutData);
 			break;
 		case "3" :
-			TabProductInformation tabSolution = new TabProductInformation();
-			this.setCenterWidget(tabSolution, centerLayoutData);
+			TabProductInformation tabProductInformation = new TabProductInformation();
+			this.setCenterWidget(tabProductInformation, centerLayoutData);
 			break;
 		case "4" :
-			TabReportNews tabNews = new TabReportNews();
-			this.setCenterWidget(tabNews, centerLayoutData);
+			TabReportNews tabReportNews = new TabReportNews();
+			this.setCenterWidget(tabReportNews, centerLayoutData);
 			break;
 		default :
-			TabBeginnigPage tabFrontPage = new TabBeginnigPage();
-			this.setCenterWidget(tabFrontPage, centerLayoutData);
+			TabBeginnigPage tabBeginnigPage = new TabBeginnigPage(mainFramePage);
+			this.setCenterWidget(tabBeginnigPage, centerLayoutData);
 			break;
 		}
 		this.onLoad();
 	}
 
-	public static void openTabPage(TabPanel tabPanel, String pageName) {
-		//
-		Widget tabPage = tabPanel.findItem(pageName, true);
-		tabPanel.setActiveWidget(tabPage);
-
-	}
+//	public static void openTabPage(TabPanel tabPanel, String pageName) {
+//		//
+//		Widget tabPage = tabPanel.findItem(pageName, true);
+//		tabPanel.setActiveWidget(tabPage);
+//
+//	}
 	
 	public static ContentPanel FuncLabelToolItem(String textHtml) {
 		// TODO Auto-generated constructor stub  023d69

@@ -67,7 +67,7 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 		grid.getView().setStripeRows(false);
 		grid.getView().setColumnLines(false); 
 		grid.getView().setAdjustForHScroll(false);
-//		grid.getView().setTrackMouseOver(false);
+//		grid.getView().setTrackMouseOver(false);	// 마우스 Over
 		grid.getView().setEnableRowBody(false);
 //		grid.setVisible(false);
 		grid.setColumnResize(true);
@@ -82,7 +82,7 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 		GridBuilder<Bbs02_BoardModel> gridBuilder = new GridBuilder<Bbs02_BoardModel>(properties.keyId());
 //		gridBuilder.setChecked(SelectionMode.SINGLE);
 
-		gridBuilder.addText(properties.titleName(), 320, "제목");
+		gridBuilder.addText(properties.titleName(), 321, "제목");
 		gridBuilder.addDate(properties.setdate(), 90, "작성일");
 
 //		gridBuilder.setMenuDisable(true);
@@ -94,7 +94,7 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 	public void retrieve() {
 		GridRetrieveData<Bbs02_BoardModel> service = new GridRetrieveData<Bbs02_BoardModel>(grid.getStore());
 		service.addParam("typeCode", "notice");
-		service.addParam("setCount", (long)3);
+		service.addParam("setCount", (long)4);
 		service.retrieve("bbs.Bbs02_Board.selectByTypeCode");
 	}
 

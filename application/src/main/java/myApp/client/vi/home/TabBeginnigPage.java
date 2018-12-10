@@ -26,12 +26,13 @@ import myApp.client.vi.home.beginning.CoverPageFooter;
 
 public class TabBeginnigPage extends BorderLayoutContainer {
 	
-	
-	public TabBeginnigPage() {
+	private StartPage mainFramePage;
+
+	public TabBeginnigPage(StartPage mainFramePage) {
 
 		CoverPageHeader north = new CoverPageHeader();
 		CoverPageBody center = new CoverPageBody();
-		CoverPageFooter south = new CoverPageFooter();
+		CoverPageFooter south = new CoverPageFooter(mainFramePage);
 		
 		// center-north 이미지 사진
 		BorderLayoutData northLayoutData = new BorderLayoutData(380);

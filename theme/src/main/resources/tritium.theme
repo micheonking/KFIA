@@ -82,7 +82,7 @@ theme {
       smallFontSize = "14"
       smallLineHeight = "18"
       border {
-        bottom = 1
+        bottom = 0 // 1
         color = "#5897ce"
         left = 0 // 1
         right = 0 // 1
@@ -483,7 +483,7 @@ theme {
       border {
         bottom = 0
         color = "#ececec" // "#5fa2dd"
-        left = 1
+        left = 0 // 1
         right = 0
         style = "solid"
         top = 0
@@ -991,8 +991,8 @@ theme {
       border {
         bottom = 0
         color = "#ececec" // "#000000"
-        left = 1
-        right = 1
+        left = 0 // 1
+        right = 0 // 1
         style = "solid"
         top = 0
       }

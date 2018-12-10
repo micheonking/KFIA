@@ -12,6 +12,7 @@ import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.Hor
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
+import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.vi.bbs.Bbs02_Tab_Board;
@@ -22,9 +23,11 @@ public class CoverPageFooter extends ContentPanel {
 	
 	private Bbs02_Tab_Board west = new Bbs02_Tab_Board();
 	private Bbs02_Tab_News east = new Bbs02_Tab_News();
+	private StartPage mainFramePage;
 
-	public CoverPageFooter() {
+	public CoverPageFooter(StartPage mainFramePage) {
 
+		this.mainFramePage = mainFramePage;
 		this.setHeaderVisible(false);
 
 		// Red Button
@@ -32,8 +35,8 @@ public class CoverPageFooter extends ContentPanel {
 //		TextButton redButton = new TextButton("공지사항");
 //		redButton.setText("공지사항");
 
-		HorizontalLayoutData rowLayout1 = new HorizontalLayoutData(0.25, 1, new Margins(20, 380, 0, 0));	// Double Column Size
-		HorizontalLayoutData rowLayout2 = new HorizontalLayoutData(0.25, 160, new Margins(20, 0, 0, 0));	// Double Column Size
+		HorizontalLayoutData rowLayout1 = new HorizontalLayoutData(0.25, 30, new Margins(10, 380, 0, 13));	// Double Column Size
+		HorizontalLayoutData rowLayout2 = new HorizontalLayoutData(0.25, 160, new Margins(10, 0, 0, 13));	// Double Column Size
 
 		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><left><font color='#606060' style='font-size:18px;'><p style='font-weight:bold;'>공지사항<br><br></p></font></div>");
 		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><left><font color='#606060' style='font-size:18px;'><p style='font-weight:bold;'>보도자료<br><br></p></font></div>");
@@ -41,12 +44,13 @@ public class CoverPageFooter extends ContentPanel {
 		TextButton textButton2 = new TextButton("");
 		textButton1.setHTML(button1Html);
 		textButton1.setWidth(130);
-		textButton1.setHeight(40);
+		textButton1.setHeight(30);
 		textButton1.setBorders(false);
 		textButton1.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
+//				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
+				mainFramePage.changePage("4");
 			}
 		});
 		textButton2.setHTML(button2Html);
@@ -56,7 +60,9 @@ public class CoverPageFooter extends ContentPanel {
 		textButton2.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
+//				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
+				Info.display("","1");
+				mainFramePage.changePage("4");
 			}
 		});
 
@@ -73,8 +79,8 @@ public class CoverPageFooter extends ContentPanel {
 		row01.add(new LabelToolItem(""), rowLayout2);
 
 		VerticalLayoutContainer layoutContainer = new VerticalLayoutContainer();
-		layoutContainer.add(row00, new VerticalLayoutData(1, -1, new Margins(0, 0, 0, 0)));
-		layoutContainer.add(row01, new VerticalLayoutData(1, 160, new Margins(25, 0, 0, 0)));
+		layoutContainer.add(row00, new VerticalLayoutData(1, 30, new Margins(0, 0, 0, 0)));
+		layoutContainer.add(row01, new VerticalLayoutData(1, 160, new Margins(0, 0, 0, 0)));
 		this.add(layoutContainer);
 		
 	}

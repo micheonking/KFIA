@@ -48,8 +48,8 @@ public class CeoGreeting extends ContentPanel {
 		margins.setRight(30);
 		margins.setBottom(5);
 		hld.setMargins(margins);
-		hld.setWidth(600);
-		totalHBar.setWidth(800);
+		hld.setWidth(570);
+//		totalHBar.setWidth(800);
 
 	    
 		Label content = new HTML("<font color='#606060' >"
@@ -101,8 +101,6 @@ public class CeoGreeting extends ContentPanel {
 		
 		totalHBar.add(content,hld);
 		totalHBar.add(rightVBox);
-//		totalHBar.add(content, new BoxLayoutData(new Margins(20, 0, 5, 45)));
-//		totalHBar.add(rightVBox), new BoxLayoutData(new Margins(20, 5, 5, 20)));
 
 		gridVBox.add(totalHBar);
 

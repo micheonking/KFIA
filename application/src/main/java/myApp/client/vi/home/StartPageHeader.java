@@ -91,7 +91,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 		textButton1.setWidth(80);
 		textButton1.setHeight(30);
 //		textButton1.getElement().setMargins(new Margins(7, 7, 7, 7));
-		textButton1.setBorders(true);
+//		textButton1.setBorders(true);
 //		textButton1.setIcon(ResourceIcon.INSTANCE.blank());
 //		textButton1.setIconAlign(IconAlign.TOP);
 		header.add(textButton1, boxLayoutData);
