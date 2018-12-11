@@ -27,8 +27,8 @@ public class CeoGreeting extends ContentPanel {
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
 
 		Margins getTextMargins = new Margins(0, 0, 15, 0);
-		Margins totalHBarMargins = new Margins(5, 0, 5, 45);
-		Margins lineBar0Margins = new Margins(10, 0, 20, 45);
+		Margins totalHBarMargins = new Margins(5, 0, 5, 30);
+		Margins lineBar0Margins = new Margins(10, 0, 20, 30);
 
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 
@@ -47,11 +47,11 @@ public class CeoGreeting extends ContentPanel {
 		HorizontalLayoutData hld = new HorizontalLayoutData();
 		Margins margins = new Margins();
 		margins.setTop(5);
-		margins.setRight(30);
+		margins.setRight(25);
 		margins.setBottom(5);
-		margins.setLeft(45);
+		margins.setLeft(30);
 		hld.setMargins(margins);
-		hld.setWidth(570);
+		hld.setWidth(500);
 //		totalHBar.setWidth(800);
 //		totalHBar.add(content, new BoxLayoutData(new Margins(5, 0, 5, 45)));
 

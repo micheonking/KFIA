@@ -2,6 +2,7 @@ package myApp.client.vi.home;
 
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.sencha.gxt.core.client.Style.Side;
@@ -33,23 +34,25 @@ public class StartPageHeader extends BorderLayoutContainer {
 	Viewport viewport = new Viewport();
 	private StartPage startPage;
 
+	public 	CellButtonBase mainButton = new CellButtonBase<>();
+	
 	public StartPageHeader(StartPage startPage) {
+
 		this.startPage = startPage;
-		
+
 		VBoxLayoutContainer center = new VBoxLayoutContainer();
 		center.setVBoxLayoutAlign(VBoxLayoutAlign.CENTER);
 
 		HBoxLayoutContainer header = new HBoxLayoutContainer();
-		header.setPadding(new Padding(2));
 		header.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
 
 		Image lineImage1 = new Image(ResourceIcon.INSTANCE.horizontalTitle());
 		Image lineImage2 = new Image(ResourceIcon.INSTANCE.horizontalTitle());
 		Image lineImage3 = new Image(ResourceIcon.INSTANCE.horizontalTitle());
 
-		// 홈페이지 상단 회사로고
-		SafeHtml logoHtml = SafeHtmlUtils.fromTrustedString("<div><img src='img/_KFIALogo.png' style='margin:0px 0px'></img><br></div>");
-		CellButtonBase mainButton = new CellButtonBase<>();
+		// 홈페이지 상단 회사로고 style='border-bottom: 5px solid orange;' 
+		SafeHtml logoHtml = SafeHtmlUtils.fromTrustedString("<left><div><img src='img/_KFIALogo.png' width='170' height='44'></img></div>");
+		
 //		mainButton.setIconAlign(IconAlign.TOP);
 //		mainButton.setIcon(ResourceIcon.INSTANCE.getLogo());
 		mainButton.setSize("170", "44");
@@ -62,10 +65,11 @@ public class StartPageHeader extends BorderLayoutContainer {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				startPage.openTabPage(startPage.tabPanel, "");
-				startPage.changePage("0");
+				int xPosition = mainButton.getAbsoluteLeft();
+				startPage.changePage(xPosition, "0");
 			}
 		});
-		header.add(mainButton, new BoxLayoutData(new Margins(15, 200, 0, 20)));
+		header.add(mainButton, new BoxLayoutData(new Margins(13, 180, 0, 5)));
 		
 		// 버튼생성
 		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString(
@@ -108,8 +112,10 @@ public class StartPageHeader extends BorderLayoutContainer {
 		textButton1.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				//startPage.openTabPage(startPage.tabPanel, "회사소개");
-				startPage.changePage("1");
+//				startPage.openTabPage(startPage.tabPanel, "회사소개");
+//				Info.display("", "" + mainButton.getAbsoluteLeft());
+				int xPosition = mainButton.getAbsoluteLeft();
+				startPage.changePage(xPosition, "1");
 			}
 		});
 		textButton2.setHTML(button2Html);
@@ -123,7 +129,8 @@ public class StartPageHeader extends BorderLayoutContainer {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				startPage.openTabPage(startPage.tabPanel, "투자일임");
-				startPage.changePage("2");
+				int xPosition = mainButton.getAbsoluteLeft();
+				startPage.changePage(xPosition, "2");
 			}
 		});
 		textButton3.setHTML(button3Html);
@@ -137,7 +144,8 @@ public class StartPageHeader extends BorderLayoutContainer {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				startPage.openTabPage(startPage.tabPanel, "상품안내");
-				startPage.changePage("3");
+				int xPosition = mainButton.getAbsoluteLeft();
+				startPage.changePage(xPosition, "3");
 			}
 		});
 		textButton4.setHTML(button4Html);
@@ -150,7 +158,8 @@ public class StartPageHeader extends BorderLayoutContainer {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				startPage.openTabPage(startPage.tabPanel, "KFIA소식");
-				startPage.changePage("4");
+				int xPosition = mainButton.getAbsoluteLeft();
+				startPage.changePage(xPosition, "4");
 			}
 		});
 //		textButton5.setHTML(button5Html);
@@ -209,6 +218,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 			}
 		});
 
+		Info.display("changePage", ""+mainButton.getAbsoluteLeft());
 		center.add(header);
 		
 		ContentPanel cp = new ContentPanel();
