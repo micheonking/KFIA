@@ -13,7 +13,6 @@ import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
-import com.sencha.gxt.widget.core.client.info.Info;
 
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.home.company.CeoGreeting;
@@ -31,8 +30,8 @@ public class TabCompanyOpenning extends ContentPanel {
 	protected static final int MAX_WIDTH = 1024;
 	protected static final int MENU_WIDTH = 180;
 	
-	protected static final int MIN_WIDTH = 800;
-	protected static final int MIN_HEIGHT = 750;
+	protected static final int CON_WIDTH = 800;
+	protected static final int CON_HEIGHT = 750;
 	
 	protected static final String BTN_WIDTH = ""+MENU_WIDTH;
 	protected static final String BTN_HEIGHT = "40";
@@ -171,7 +170,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuVBox.add(lineImage4, new BoxLayoutData(lineImageMargins));
 
 		menuVBox.setWidth(MENU_WIDTH);
-		menuVBox.setHeight(MIN_HEIGHT);
+		menuVBox.setHeight(CON_HEIGHT);
 //		menuVBox.setBorders(true);
 
 		menuHBar.add(menuVBox, boxLayoutData);
@@ -191,8 +190,8 @@ public class TabCompanyOpenning extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(MIN_WIDTH);
-		contentPanel.setHeight(MIN_HEIGHT);
+		contentPanel.setWidth(CON_WIDTH);
+		contentPanel.setHeight(CON_HEIGHT);
 		contentPanel.setWidget(tabCeoGreeting);
 
 		return contentPanel;
@@ -202,8 +201,8 @@ public class TabCompanyOpenning extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(MIN_WIDTH);
-		contentPanel.setHeight(MIN_HEIGHT);
+		contentPanel.setWidth(CON_WIDTH);
+		contentPanel.setHeight(CON_HEIGHT);
 		contentPanel.setWidget(tabCompanyOpening);
 
 		return contentPanel;
@@ -213,8 +212,8 @@ public class TabCompanyOpenning extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(MIN_WIDTH);
-		contentPanel.setHeight(MIN_HEIGHT);
+		contentPanel.setWidth(CON_WIDTH);
+		contentPanel.setHeight(CON_HEIGHT);
 		contentPanel.setWidget(tabOperationOrganization);
 
 		return contentPanel;
@@ -224,8 +223,8 @@ public class TabCompanyOpenning extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(MIN_WIDTH);
-		contentPanel.setHeight(MIN_HEIGHT);
+		contentPanel.setWidth(CON_WIDTH);
+		contentPanel.setHeight(CON_HEIGHT);
 		contentPanel.setWidget(tabYourWay);
 
 		return contentPanel;

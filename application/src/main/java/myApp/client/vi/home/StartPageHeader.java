@@ -174,51 +174,13 @@ public class StartPageHeader extends BorderLayoutContainer {
 			@Override
 			public void onSelect(SelectEvent event) {
 
-//				myApp.client.vi.LoginPage2 login = new LoginPage2();
-//
 				RootPanel.get().remove(0);
 				myApp.client.vi.LoginPage login = new LoginPage();
-				login.open();  
-//				Viewport viewport = new Viewport();
-////				viewport.add(login.getContainer(), new MarginData(0, 0, 0, 0));
-//				
-//				ContentPanel cp =  new ContentPanel();
-//				
-//				
-//				cp.add(new TextButton("찾기")); 
-//				
-//				
-////				cp.add(login.getContainer()); 
-//				
-//				viewport.add(cp, new MarginData(0, 0, 0, 0));
-//				RootPanel.get().add(viewport);
-//				
-//				
-////				login.open();  
-//				
-//				FieldLabel loginFieldLabel = new FieldLabel(firstName, "로그인ID ");
-//				loginFieldLabel.setLabelWidth(85);
-//				firstName.setText("");
-//				firstName.addKeyPressHandler(new KeyPressHandler() {
-//					@Override
-//					public void onKeyPress(KeyPressEvent event) {
-//						if(event.getCharCode() == 13) {
-//							login(); 
-//						}
-//					}
-//				}); 
-				
-//				openFrame();
-//				Viewport viewport = new Viewport();
-//				MainFrame window = new MainFrame(); 
-//				viewport.add(window.getMainWindow());
-//				RootPanel.get().add(viewport);
-				
-				
+				login.open();
+
 			}
 		});
 
-		Info.display("changePage", ""+mainButton.getAbsoluteLeft());
 		center.add(header);
 		
 		ContentPanel cp = new ContentPanel();
@@ -229,7 +191,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 		cp.forceLayout();
 		cp.setHeaderVisible(false);
 //		cp.setBorders(true);
-		cp.setHeight(70);
+//		cp.setHeight(70);
 		cp.getButtonBar().setHeight(0);
 		
 		this.add(cp);

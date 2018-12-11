@@ -56,11 +56,9 @@ public class StartPage extends BorderLayoutContainer {
 		
 		BorderLayoutData centerLayoutData = new BorderLayoutData(CENTER_HEIGHT);
 		centerLayoutData.setMargins(new Margins(0, 0, 0, 0)); // 앞쪽에 보이는 가로 줄을 없애준다
-//		centerLayoutData.setSplit(true);
-//		Info.display("", "" + mainNorthArea.mainButton.getAbsoluteLeft());
+		centerLayoutData.setSplit(true);
 
 		XPOS = xPosition;
-		Info.display("changePage", ""+xPosition);
 		
 		switch (pageName) {
 		case "1" :
@@ -111,7 +109,6 @@ public class StartPage extends BorderLayoutContainer {
 //		contentPanel.add(labelHtml, new BoxLayoutData(new Margins(25, 0, 0, WIN_WIDTH - (WIN_WIDTH * 490 / WIN_WIDTH))));
 		contentPanel.add(labelHtml, new BoxLayoutData(new Margins(25, 0, 0, XPOS)));
 		
-		Info.display("getLabelToolItem", ""+XPOS);
 		return contentPanel;
 //		HorizontalLayoutContainer row01 = new HorizontalLayoutContainer();
 //		HorizontalLayoutData hld = new HorizontalLayoutData(1, 90, new Margins(10, 1, 1, 1));

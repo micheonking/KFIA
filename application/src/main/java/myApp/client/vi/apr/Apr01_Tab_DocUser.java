@@ -31,7 +31,7 @@ public class Apr01_Tab_DocUser extends Apr01_Tab_DocManager{
 			@Override
 			public ImageResource getIcon(Dcr01_ClassTreeModel model) {
 				if("T".equals(model.getTypeCode())) {//등록가능한 메뉴일 경우
-					return ResourceIcon.INSTANCE.textButton();
+					return ResourceIcon.INSTANCE.listButton();
 				} else {
 					return ResourceIcon.INSTANCE.closeFolder();
 				}
