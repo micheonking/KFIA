@@ -39,6 +39,7 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 	private Grid<Bbs02_BoardModel> grid = this.buildGrid();
 
 	public Notification() {
+		Info.display("","notification~~~~~~~~~~~~~");
 
 		this.setHeaderVisible(false);
 

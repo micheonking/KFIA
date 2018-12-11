@@ -10,6 +10,9 @@ import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.grid.Grid;
+import com.sencha.gxt.widget.core.client.info.Info;
+import com.sencha.gxt.widget.core.client.selection.SelectionChangedEvent;
+import com.sencha.gxt.widget.core.client.selection.SelectionChangedEvent.SelectionChangedHandler;
 
 import myApp.client.grid.GridBuilder;
 import myApp.client.grid.InterfaceGridOperate;
@@ -17,8 +20,11 @@ import myApp.client.service.GridDeleteData;
 import myApp.client.service.GridInsertRow;
 import myApp.client.service.GridRetrieveData;
 import myApp.client.service.GridUpdate;
+import myApp.client.vi.MenuOpener;
+import myApp.client.vi.MenuTree;
 import myApp.client.vi.bbs.model.Bbs02_BoardModel;
 import myApp.client.vi.bbs.model.Bbs02_BoardModelProperties;
+import myApp.client.vi.home.report.Notification;
 
 public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceGridOperate {
 
@@ -74,8 +80,24 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 		grid.setHeight(20);
 
 		this.setCenterWidget(this.grid, centerBorLayoutData);
-
+		
+		this.grid.getSelectionModel().addSelectionChangedHandler(new SelectionChangedHandler<Bbs02_BoardModel>(){
+			
+			@Override
+			public void onSelectionChanged(SelectionChangedEvent<Bbs02_BoardModel> event) {
+				Info.display("","asd");
+//				MenuOpener openTab = new MenuOpener();
+//				openTab.openTab(MenuTree.tabPanel, "Notification.class", " ");
+					popupPage(); 
+			}
+		});
 		retrieve();
+	}
+
+	private void popupPage() {
+		Info.display("","123456");
+		Notification notification = new Notification();
+		notification.show();	
 	}
 
 	public Grid<Bbs02_BoardModel> buildGrid() {
