@@ -1,5 +1,8 @@
 package myApp.client.vi.home.report;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
@@ -10,15 +13,24 @@ import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.grid.Grid;
+import com.sencha.gxt.widget.core.client.info.Info;
+import com.sencha.gxt.widget.core.client.selection.SelectionChangedEvent;
+import com.sencha.gxt.widget.core.client.selection.SelectionChangedEvent.SelectionChangedHandler;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.grid.GridBuilder;
 import myApp.client.grid.InterfaceGridOperate;
 import myApp.client.resource.ResourceIcon;
 import myApp.client.service.GridRetrieveData;
+import myApp.client.utils.InterfaceCallbackResult;
+import myApp.client.vi.bbs.model.Bbs01_BoardModel;
 import myApp.client.vi.bbs.model.Bbs02_BoardModel;
 import myApp.client.vi.bbs.model.Bbs02_BoardModelProperties;
+import myApp.client.vi.fnd.model.Fnd01_FundCodeModel;
 import myApp.client.vi.home.StartPage;
+import myApp.client.vi.pln.Pln03_Lookup_ResrchDetail;
+import myApp.client.vi.pln.model.Pln03_ResrchModel;
+import myApp.client.vi.sys.model.Sys90_AfterServiceModel;
 
 public class Notification extends ContentPanel implements InterfaceGridOperate {
 
@@ -38,18 +50,11 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		Margins lineBar0Margins = new Margins(10, 0, 20, 45);
 
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
-
-//		grid.setHideHeaders(true);
-//		grid.setBorders(true);
-//		grid.setVisible(false);
 		grid.setColumnResize(false);
 		grid.setColumnReordering(false);
 		grid.getView().setStripeRows(false);
 		grid.getView().setColumnLines(false); 
 		grid.getView().setAdjustForHScroll(true);
-//		grid.getView().setTrackMouseOver(false);
-//		grid.getView().setEnableRowBody(false);
-//		grid.getView().setStripeRows(false);
 		grid.getView().setShowDirtyCells(false);
 		grid.getElement().setBorders(false);
 		grid.setWidth(730);
@@ -62,26 +67,43 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		this.add(gridVBox);
 		
 		retrieve();
+		
+		this.grid.getSelectionModel().addSelectionChangedHandler(new SelectionChangedHandler<Bbs02_BoardModel>(){
+			
+			@Override
+			public void onSelectionChanged(SelectionChangedEvent<Bbs02_BoardModel> event) {
+					popupPage(); 
+			}
+		});
 
 	}
 
+	private void popupPage() {
+		
+		Bbs02_BoardModel boardModel = grid.getSelectionModel().getSelectedItem();
+		
+		NotificationPopUp lookupResrch = new NotificationPopUp();
+		lookupResrch.open(boardModel, new InterfaceCallbackResult() {
+			@Override
+			public void execute(Object result) {
+				retrieve();
+			}
+		});
+	}
+
 	private Grid<Bbs02_BoardModel> buildGrid() {
-		// TODO Auto-generated method stub
+		
 		GridBuilder<Bbs02_BoardModel> gridBuilder = new GridBuilder<Bbs02_BoardModel>(properties.keyId());
-//		gridBuilder.setChecked(SelectionMode.SINGLE);
 
 		gridBuilder.addText(properties.titleName(), 500, "제목");
 		gridBuilder.addDate(properties.setdate(), 110, "작성일");
 		gridBuilder.addLong(properties.cnt(), 50, "조회수");
 
-//		gridBuilder.setMenuDisable(true);
-//		gridBuilder.rowNum.setHidden(true);
 		return gridBuilder.getGrid();
 	}
 
 	@Override
 	public void retrieve() {
-		// TODO Auto-generated method stub
 		GridRetrieveData<Bbs02_BoardModel> service = new GridRetrieveData<Bbs02_BoardModel>(grid.getStore());
 		service.addParam("typeCode", "notice");
 		service.addParam("setCount", (long)1000);
