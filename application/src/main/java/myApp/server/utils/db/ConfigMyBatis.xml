@@ -22,18 +22,9 @@
 
 		<!-- Tibero (티베로) -->
 			<property name="driver" value="com.tmax.tibero.jdbc.TbDriver" />
-
-		<!-- (개발DB) --> 
  			<property name="url" value="jdbc:tibero:thin:@183.96.184.118:8629:HDB" />
-		<!-- (운영DB-외부연결) -->
-<!-- 			<property name="url" value="jdbc:tibero:thin:@211.37.95.150:8629:HDB" /> -->
-		<!-- (운영DB-현대내부연결:운영계컴파일할때!!) -->
-<!-- 			<property name="url" value="jdbc:tibero:thin:@192.168.3.155:8629:HDB" /> -->
-
-<!-- 		<property name="url" value="jdbc:tibero:thin:@183.96.184.119:8629:HDB" />  -->
-<!--		<property name="url" value="jdbc:tibero:thin:@172.20.200.247:8629:HDB" />  -->
-			<property name="username" value="hiis" />
-			<property name="password" value="senchagxt" />
+			<property name="username" value="kfia" />
+			<property name="password" value="kfia8100" />
 		
 		</dataSource>
 	</environment>

@@ -7,7 +7,7 @@
 	<id		column="bbs02_board_id"			property="boardId"/>
 	<result	column="bbs02_type_cd"			property="typeCode"/>
 	<result	column="bbs02_title_nm"			property="titleName"/>
-	<result	column="bbs02_setdate"			property="setdate"/>
+	<result	column="bbs02_settle_dt"		property="settleDate"/>
 	<result	column="bbs02_cnt"				property="cnt"/>
 	<result	column="bbs02_file_name"		property="fileName"/>
 	<result	column="bbs02_file_path"		property="filePath"/>

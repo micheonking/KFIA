@@ -67,7 +67,7 @@ public class Bbs02_Tab_News extends BorderLayoutContainer implements InterfaceGr
 //		gridBuilder.setChecked(SelectionMode.SINGLE);
         
 		gridBuilder.addText	(properties.titleName(),	321,"제목");
-		gridBuilder.addDate	(properties.setdate(),		90,	"작성일");
+		gridBuilder.addDate	(properties.settleDate(),	90,	"작성일");
 //		gridBuilder.addLong	(properties.cnt(),			90,	"작성일");
         
         return gridBuilder.getGrid(); 

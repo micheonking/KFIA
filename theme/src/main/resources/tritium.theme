@@ -28,7 +28,7 @@ theme {
       }
       font {
         color = "#f6f6f6"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "15px"
         weight = "300"
       }
@@ -93,7 +93,7 @@ theme {
       pressedBorder = util.border('solid', '#42719A', 1)
       font {
         color = "#f0f0f0"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "14px"
         weight = "300"
       }
@@ -124,7 +124,7 @@ theme {
       }
       font {
         color = "#606060"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "14px"
         weight = "300"
       }
@@ -205,13 +205,13 @@ theme {
       }
       dayDisabledText {
         color = "#d0d0d0"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
       }
       dayNextText {
         color = "#bfbfbf"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
       }
@@ -223,7 +223,7 @@ theme {
       }
       dayOfWeekText {
         color = "#404040"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
       }
@@ -236,7 +236,7 @@ theme {
       dayPreviousText = dayNextText
       dayText {
         color = "#404040"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -254,7 +254,7 @@ theme {
       }
       headerText {
         color = "#404040"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "15px"
         weight = "400"
       }
@@ -282,7 +282,7 @@ theme {
       }
       itemSelectedText {
         color = "#ffffff"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -368,9 +368,9 @@ theme {
           top = 0
         }
         text {
-          color = "#404040"
-          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-          size = "14px"
+          color = "#404041" // Label
+          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          size = "13px"
           weight = "300"
         }
       }
@@ -400,9 +400,9 @@ theme {
         }
       }
       text {
-        color = "#404040"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "14px"
+        color = "#404042"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        size = "13px"
         weight = "300"
       }
       topLabel {
@@ -426,8 +426,8 @@ theme {
           top = 0
         }
         text {
-          color = "#404040"
-          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          color = "#404043"
+          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "300"
         }
@@ -466,7 +466,7 @@ theme {
       }
       text {
         color = "#919191"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "14px"
         weight = "400"
       }
@@ -490,7 +490,7 @@ theme {
       }
       font {
         color = "#f0f0f0"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "14px"
         weight = "400"
       }
@@ -542,7 +542,7 @@ theme {
       }
       cellText {
         color = "#404040"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -580,7 +580,7 @@ theme {
         }
         text {
           color = "#404040"
-          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "normal"
         }
@@ -597,7 +597,7 @@ theme {
         }
         text {
           color = "#000000"
-          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "bold"
         }
@@ -623,7 +623,7 @@ theme {
           backgroundColor = "#ffffff"
           text {
             color = "#000000"
-            family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+            family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
             size = "13px"
             weight = "bold"
           }
@@ -650,7 +650,7 @@ theme {
         }
         text {
           color = "#000000"
-          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "normal"
         }
@@ -786,7 +786,7 @@ theme {
       }
       text {
         color = "#000000"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -810,7 +810,7 @@ theme {
         }
         text {
           color = "#666666"
-          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "normal"
         }
@@ -920,7 +920,7 @@ theme {
         }
         itemText {
           color = "#ffffff"
-          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "300"
         }
@@ -933,7 +933,7 @@ theme {
       }
       itemText {
         color = "#404040"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -976,7 +976,7 @@ theme {
       }
       text {
         color = "#000000"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
       }
@@ -998,7 +998,7 @@ theme {
       }
       font {
         color = "#f6f6f6"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "14px"
         weight = "400"
       }
@@ -1038,7 +1038,7 @@ theme {
       }
       text {
         color = "#666666"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "bold"
       }
@@ -1078,7 +1078,7 @@ theme {
       }
       text {
         color = "#000000"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "12px"
         weight = "normal"
       }
@@ -1096,7 +1096,7 @@ theme {
       }
       text {
         color = "#000000"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
       }
@@ -1104,7 +1104,7 @@ theme {
     tabs {
       activeHeadingText {
         color = "#4C82B1"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -1129,13 +1129,13 @@ theme {
       gradient = "#ffffff 0%, #ffffff 100%"
       headingText {
         color = "#f0f0f0"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
-      hoverGradient = "rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.01) 100%"
+      hoverGradient = "rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%"
       hoverHeadingText = headingText
-      hoverTabItemBackgroundColor = "rgba(0, 0, 0, 0.01)"
+      hoverTabItemBackgroundColor = "rgba(0, 0, 0, 0.07)"
       iconLeftOffset = 6
       iconTopOffset = 5
       iconWidth = 16
@@ -1165,14 +1165,14 @@ theme {
         top = 18
       }
       plainActiveHeadingText {
-        color = "#2b579a" // "#4c82b1" // "#404040"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        color = "#2b579a" // "#4c82b1" // "#404040" 
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
       plainHeadingText {
         color = "#eeeeee"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -1238,7 +1238,7 @@ theme {
       }
       headerText {
         color = "#f0f0f0"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "13px"
         weight = "bold"
       }
@@ -1256,7 +1256,7 @@ theme {
       }
       messageText {
         color = "#f0f0f0"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -1304,7 +1304,7 @@ theme {
         smallLineHeight = "18"
         font {
           color = "#606060"
-          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+          family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
           size = "14px"
           weight = "300"
         }
@@ -1380,8 +1380,8 @@ theme {
         top = 7
       }
       text {
-        color = "#404040"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        color = "#404044"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "13px"
         weight = "300"
       }
@@ -1405,7 +1405,7 @@ theme {
       }
       font {
         color = "#f6f6f6"
-        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "16px"
         weight = "400"
       }
@@ -1425,7 +1425,7 @@ theme {
   }
   headerText {
     color = "#ffffff"
-    family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+    family = "'d2coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
     size = "16px"
     weight = "bold"
   }

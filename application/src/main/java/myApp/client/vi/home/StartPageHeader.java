@@ -2,18 +2,14 @@ package myApp.client.vi.home;
 
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
-import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.sencha.gxt.core.client.Style.Side;
 import com.sencha.gxt.core.client.util.Margins;
-import com.sencha.gxt.core.client.util.Padding;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.CellButtonBase;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
-import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutPack;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
@@ -21,7 +17,6 @@ import com.sencha.gxt.widget.core.client.container.Viewport;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
-import com.sencha.gxt.widget.core.client.info.Info;
 
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.LoginPage;
@@ -32,13 +27,13 @@ public class StartPageHeader extends BorderLayoutContainer {
 	protected static final String BTN_HEIGHT = "30";
 
 	Viewport viewport = new Viewport();
-	private StartPage startPage;
+//	private StartPage startPage;
 
 	public 	CellButtonBase mainButton = new CellButtonBase<>();
 	
 	public StartPageHeader(StartPage startPage) {
 
-		this.startPage = startPage;
+//		this.startPage = startPage;
 
 		VBoxLayoutContainer center = new VBoxLayoutContainer();
 		center.setVBoxLayoutAlign(VBoxLayoutAlign.CENTER);

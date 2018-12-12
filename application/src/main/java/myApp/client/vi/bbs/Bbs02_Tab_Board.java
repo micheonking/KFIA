@@ -83,7 +83,7 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 //		gridBuilder.setChecked(SelectionMode.SINGLE);
 
 		gridBuilder.addText(properties.titleName(), 321, "제목");
-		gridBuilder.addDate(properties.setdate(), 90, "작성일");
+		gridBuilder.addDate(properties.settleDate(), 90, "작성일");
 
 //		gridBuilder.setMenuDisable(true);
 //		gridBuilder.rowNum.setHidden(true);

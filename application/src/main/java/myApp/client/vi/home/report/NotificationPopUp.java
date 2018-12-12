@@ -56,7 +56,7 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 	Bbs02_BoardModel boardModel = new Bbs02_BoardModel();
 	TextField titleName = new TextField();
 	TextField filePath = new TextField();
-	DateField setdate = new DateField();
+	DateField settleDate = new DateField();
 	TextArea contents  = new TextArea();
 	private Long		boardId;
 	private InterfaceCallbackResult callback;
@@ -113,7 +113,7 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 		
 		HorizontalLayoutContainer row01 = new HorizontalLayoutContainer();
 		row01.add(new FieldLabel(titleName, "제목"), new HorizontalLayoutData(500,-1, new Margins(0, 10, 0, 0)));
-		row01.add(new FieldLabel(setdate, "작성일"), new HorizontalLayoutData(408,-1, new Margins(0, 10, 0, 0)));
+		row01.add(new FieldLabel(settleDate, "작성일"), new HorizontalLayoutData(408,-1, new Margins(0, 10, 0, 0)));
 		
 //		HorizontalLayoutContainer row02 = new HorizontalLayoutContainer();
 //		row02.add(new FieldLabel(filePath,"파일"), new HorizontalLayoutData(900,-1, new Margins(10,0,10,0)));

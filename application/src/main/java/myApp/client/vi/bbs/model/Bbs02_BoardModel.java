@@ -8,7 +8,7 @@ public class Bbs02_BoardModel implements GridDataModel {
 	private	Long	boardId;
 	private	String	typeCode;
 	private	String	titleName;
-	private	Date	setdate;
+	private	Date	settleDate;
 	private	Long	cnt;
 	private	String	fileName;
 	private	String	filePath;
@@ -41,11 +41,11 @@ public class Bbs02_BoardModel implements GridDataModel {
 	public void setTitleName(String titleName) {
 		this.titleName = titleName;
 	}
-	public Date getSetdate() {
-		return setdate;
+	public Date getSettleDate() {
+		return settleDate;
 	}
-	public void setSetdate(Date setdate) {
-		this.setdate = setdate;
+	public void setSetdate(Date settleDate) {
+		this.settleDate = settleDate;
 	}
 	public Long getCnt() {
 		return cnt;

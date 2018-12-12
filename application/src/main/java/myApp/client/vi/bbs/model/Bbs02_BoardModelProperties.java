@@ -13,7 +13,7 @@ public interface Bbs02_BoardModelProperties extends PropertyAccess<Bbs02_BoardMo
 	ValueProvider<Bbs02_BoardModel,	Long>	boardId();
 	ValueProvider<Bbs02_BoardModel,	String>	typeCode();
 	ValueProvider<Bbs02_BoardModel,	String>	titleName();
-	ValueProvider<Bbs02_BoardModel,	Date>	setdate();
+	ValueProvider<Bbs02_BoardModel,	Date>	settleDate();
 	ValueProvider<Bbs02_BoardModel,	Long>	cnt();
 	ValueProvider<Bbs02_BoardModel,	String>	fileName();
 	ValueProvider<Bbs02_BoardModel,	String>	filePath();
