@@ -19,6 +19,7 @@ public class TabBeginnigPage extends BorderLayoutContainer {
 	protected static final int IMG_WIDTH = 1950;
 	protected static final int IMG_HEIGHT = 378;
 
+	
 	public TabBeginnigPage(StartPage startPage) {
 		this.addResizeHandler(new ResizeHandler() {
 			@Override
