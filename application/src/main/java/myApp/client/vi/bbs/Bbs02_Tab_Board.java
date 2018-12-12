@@ -125,6 +125,7 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 		GridUpdate<Bbs02_BoardModel> service = new GridUpdate<Bbs02_BoardModel>();
 		// service.addParam("boardId", LoginUser.getUserId());
 		service.update(grid.getStore(), "bbs.Bbs02_Board.update");
+		
 	}
 
 	@Override
