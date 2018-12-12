@@ -63,7 +63,7 @@ public class Apr10_Move_OrgCode extends Window implements InterfaceServiceCall {
 //		orgCodeTree.setAutoLoad(true);
 		
 		
-		orgCodeTree.getStyle().setLeafIcon(ResourceIcon.INSTANCE.textButton());
+		orgCodeTree.getStyle().setLeafIcon(ResourceIcon.INSTANCE.listButton());
 		this.add(orgCodeTree);
 
 		TextButton oKButton = new TextButton("확인");

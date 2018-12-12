@@ -1,62 +1,55 @@
 package myApp.client.vi.home;
 
-import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.event.logical.shared.ResizeEvent;
+import com.google.gwt.event.logical.shared.ResizeHandler;
+import com.google.gwt.user.client.Window;
 import com.sencha.gxt.core.client.util.Margins;
-import com.sencha.gxt.core.client.util.Padding;
-import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData;
-import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
-import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayoutAlign;
-import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
+import com.sencha.gxt.widget.core.client.info.Info;
 
-import myApp.client.grid.InterfaceGridOperate;
-import myApp.client.grid.SearchBarBuilder;
-import myApp.client.resource.ResourceIcon;
-import myApp.client.vi.frm.Calendar;
-import myApp.client.vi.frm.Monitoring_Page_Appr;
-import myApp.client.vi.frm.Monitoring_Page_Outstanding;
-import myApp.client.vi.frm.Monitoring_Page_ToDoList;
 import myApp.client.vi.home.beginning.CoverPageBody;
 import myApp.client.vi.home.beginning.CoverPageHeader;
 import myApp.client.vi.home.beginning.CoverPageFooter;
 
 public class TabBeginnigPage extends BorderLayoutContainer {
 	
-	private StartPage startPage;
+	protected static final int WIN_WIDTH = Window.getClientWidth();
+	protected static final int WIN_HEIGHT = Window.getClientHeight();
+	protected static final int IMG_WIDTH = 1950;
+	protected static final int IMG_HEIGHT = 378;
 
 	public TabBeginnigPage(StartPage startPage) {
+		this.addResizeHandler(new ResizeHandler() {
+			@Override
+			public void onResize(ResizeEvent event) {
+				resize(startPage);
+			}
+		});
+	}
+	
+	private void resize(StartPage startPage) {
 
-		CoverPageHeader north = new CoverPageHeader();
-		CoverPageBody center = new CoverPageBody();
+		int imageWidth = Window.getClientWidth();
+		int imageHeight = (IMG_HEIGHT * Window.getClientWidth()) / IMG_WIDTH;
+		
+		CoverPageHeader north = new CoverPageHeader(imageWidth, imageHeight);
+		CoverPageBody center = new CoverPageBody(imageWidth, imageHeight);
 		CoverPageFooter south = new CoverPageFooter(startPage);
 		
 		// center-north 이미지 사진
-		BorderLayoutData northLayoutData = new BorderLayoutData(380);
-		northLayoutData.setSplit(false); // 크기조절
+		BorderLayoutData northLayoutData = new BorderLayoutData(imageHeight+2);
 		northLayoutData.setMargins(new Margins(0, 0, 0, 0));
-		northLayoutData.setSize(385);
-//		northLayoutData.setMaxSize(700);
 		this.setNorthWidget(north, northLayoutData);
 
 		// center-center
-		BorderLayoutData centerLayoutData = new BorderLayoutData(250);
-		centerLayoutData.setSplit(false); // 크기조절
+		BorderLayoutData centerLayoutData = new BorderLayoutData(70);
 		centerLayoutData.setMargins(new Margins(0, 0, 0, 0));
-//		centerLayoutData.setSize(100);
-//		centerLayoutData.setMaxSize(700);
 		this.setCenterWidget(center, centerLayoutData);
 
-		// center-south
-		BorderLayoutData southBorderLayoutData = new BorderLayoutData(220);
-		southBorderLayoutData.setSplit(false); // 크기조절
-		southBorderLayoutData.setMargins(new Margins(0, 0, 0, 0));
-//		southBorderLayoutData.setSize(220);
-//		southBorderLayoutData.setMaxSize(700);
-		this.setSouthWidget(south, southBorderLayoutData);
-
+//		// center-south
+//		BorderLayoutData southBorderLayoutData = new BorderLayoutData();
+//		southBorderLayoutData.setMargins(new Margins(0, 0, 0, 0));
+//		this.setSouthWidget(south, southBorderLayoutData);
 	}
 }

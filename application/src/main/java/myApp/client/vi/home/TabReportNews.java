@@ -27,10 +27,13 @@ public class TabReportNews extends ContentPanel {
 	private OfficialNotice tabOfficialNotice  = new OfficialNotice();
 	private ReportNews tabNews  = new ReportNews();
 	
-	protected static final int MENU_WIDTH = 210;
-	protected static final int MIN_WIDTH = 880;
-	protected static final int MIN_HEIGHT = 750;
-	protected static final String BTN_WIDTH = "200";
+	protected static final int MAX_WIDTH = 1024;
+	protected static final int MENU_WIDTH = 180;
+	
+	protected static final int CON_WIDTH = 800;
+	protected static final int CON_HEIGHT = 750;
+	
+	protected static final String BTN_WIDTH = ""+MENU_WIDTH;
 	protected static final String BTN_HEIGHT = "40";
 
 	ContentPanel contentPanel  = new ContentPanel();
@@ -110,7 +113,7 @@ public class TabReportNews extends ContentPanel {
 		menuVBox.add(mainButton3, new BoxLayoutData(buttonMargins));
 		menuVBox.add(lineImage3, new BoxLayoutData(lineImageMargins));
 		menuVBox.setWidth(MENU_WIDTH);
-		menuVBox.setHeight(MIN_HEIGHT);
+		menuVBox.setHeight(CON_HEIGHT);
 		menuHBar.add(menuVBox, boxLayoutData);
 
 		totalHBar.add(menuHBar);
@@ -126,8 +129,8 @@ public class TabReportNews extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(MIN_WIDTH);
-		contentPanel.setHeight(MIN_HEIGHT);
+		contentPanel.setWidth(CON_WIDTH);
+		contentPanel.setHeight(CON_HEIGHT);
 		contentPanel.setWidget(tabNotification);
 
 		return contentPanel;
@@ -137,8 +140,8 @@ public class TabReportNews extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(MIN_WIDTH);
-		contentPanel.setHeight(MIN_HEIGHT);
+		contentPanel.setWidth(CON_WIDTH);
+		contentPanel.setHeight(CON_HEIGHT);
 		contentPanel.setWidget(tabOfficialNotice);
 
 		return contentPanel;
@@ -148,8 +151,8 @@ public class TabReportNews extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(MIN_WIDTH);
-		contentPanel.setHeight(MIN_HEIGHT);
+		contentPanel.setWidth(CON_WIDTH);
+		contentPanel.setHeight(CON_HEIGHT);
 		contentPanel.setWidget(tabNews);
 
 		return contentPanel;

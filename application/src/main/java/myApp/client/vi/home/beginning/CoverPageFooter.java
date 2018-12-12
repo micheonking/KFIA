@@ -50,7 +50,7 @@ public class CoverPageFooter extends ContentPanel {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
-				startPage.changePage("4");
+//				startPage.changePage("4");
 			}
 		});
 		textButton2.setHTML(button2Html);
@@ -62,7 +62,7 @@ public class CoverPageFooter extends ContentPanel {
 			public void onSelect(SelectEvent event) {
 //				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
 				Info.display("","1");
-				startPage.changePage("4");
+//				startPage.changePage("4");
 			}
 		});
 

@@ -16,43 +16,43 @@ import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayou
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.home.StartPage;
 
-public class EntrustInvestment extends ContentPanel{
+public class EntrustInvestment extends ContentPanel {
 	public interface HTMLTemplate extends XTemplates {
-		//웹에디터 HTML 설정
-		@XTemplate(source="entrustInvest.html")
+		// 웹에디터 HTML 설정
+		@XTemplate(source = "entrustInvest.html")
 		SafeHtml getTemplate();
 	}
-	
-		public EntrustInvestment() {
 
-			this.setHeaderVisible(false);
+	public EntrustInvestment() {
 
-			VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
-			gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
-			gridVBox.setWidth(800);
-			gridVBox.setHeight(1000);
+		this.setHeaderVisible(false);
 
-			Margins getTextMargins = new Margins(0, 0, 15, 0);
-			Margins totalHBarMargins = new Margins(5, 0, 5, 45);
-			Margins lineBar0Margins = new Margins(10, 0, 20, 45);
+		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
+		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
+		gridVBox.setWidth(800);
+		gridVBox.setHeight(1000);
 
-			Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
+		Margins getTextMargins = new Margins(0, 0, 15, 0);
+		Margins totalHBarMargins = new Margins(5, 0, 5, 30);
+		Margins lineBar0Margins = new Margins(10, 0, 20, 30);
 
-			VBoxLayoutContainer rightVBox = new VBoxLayoutContainer();
-			rightVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
-			
-			HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
-			HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
+		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 
-			HBoxLayoutContainer totalHBar = new HBoxLayoutContainer();
-			totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
-			totalHBar.add(content, new BoxLayoutData(totalHBarMargins));
+		VBoxLayoutContainer rightVBox = new VBoxLayoutContainer();
+		rightVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
 
-			gridVBox.add(StartPage.getTextContents("투자일임"),new BoxLayoutData(getTextMargins));
-			gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));
-//			gridVBox.add(mapImage,new BoxLayoutData(lineBar0Margins));
-			gridVBox.add(totalHBar);
+		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
+		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
 
-			this.add(gridVBox);
-}
+		HBoxLayoutContainer totalHBar = new HBoxLayoutContainer();
+		totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
+		totalHBar.add(content, new BoxLayoutData(totalHBarMargins));
+
+		gridVBox.add(StartPage.getTextContents("투자일임"), new BoxLayoutData(getTextMargins));
+		gridVBox.add(lineBar0, new BoxLayoutData(lineBar0Margins));
+		// gridVBox.add(mapImage,new BoxLayoutData(lineBar0Margins));
+		gridVBox.add(totalHBar);
+
+		this.add(gridVBox);
+	}
 }

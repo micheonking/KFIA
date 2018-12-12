@@ -25,10 +25,13 @@ public class TabEntrustInvestments extends ContentPanel {
 
 	private EntrustInvestment tabEntrustInvestment  = new EntrustInvestment();
 	
-	protected static final int MENU_WIDTH = 210;
-	protected static final int MIN_WIDTH = 880;
-	protected static final int MIN_HEIGHT = 750;
-	protected static final String BTN_WIDTH = "200";
+	protected static final int MAX_WIDTH = 1024;
+	protected static final int MENU_WIDTH = 180;
+	
+	protected static final int CON_WIDTH = 800;
+	protected static final int CON_HEIGHT = 750;
+	
+	protected static final String BTN_WIDTH = ""+MENU_WIDTH;
 	protected static final String BTN_HEIGHT = "40";
 
 	ContentPanel contentPanel  = new ContentPanel();
@@ -56,7 +59,7 @@ public class TabEntrustInvestments extends ContentPanel {
 		menuVBox.setVBoxLayoutAlign(VBoxLayoutAlign.CENTER);
 
 		Margins lineImageMargins = new Margins(0, 0, 0, 0);
-		Margins buttonMargins = new Margins(1, 3, 1, 3);
+		Margins buttonMargins = new Margins(0, 0, 0, 0);
 
 		Image lineImage0 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage1 = new Image(ResourceIcon.INSTANCE.verticalBar());
@@ -79,7 +82,7 @@ public class TabEntrustInvestments extends ContentPanel {
 		menuVBox.add(lineImage1, new BoxLayoutData(lineImageMargins));
 
 		menuVBox.setWidth(MENU_WIDTH);
-		menuVBox.setHeight(MIN_HEIGHT);
+		menuVBox.setHeight(CON_HEIGHT);
 		menuHBar.add(menuVBox, boxLayoutData);
 
 		totalHBar.add(menuHBar);
@@ -95,8 +98,8 @@ public class TabEntrustInvestments extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(MIN_WIDTH);
-		contentPanel.setHeight(MIN_HEIGHT);
+		contentPanel.setWidth(CON_WIDTH);
+		contentPanel.setHeight(CON_HEIGHT);
 		contentPanel.setWidget(tabEntrustInvestment);
 
 		return contentPanel;

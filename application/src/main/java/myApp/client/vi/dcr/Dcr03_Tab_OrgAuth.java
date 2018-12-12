@@ -106,7 +106,7 @@ public class Dcr03_Tab_OrgAuth extends BorderLayoutContainer implements Interfac
 		//this.setCenterWidget(tabPanel, centerLayoutData);
 		this.setCenterWidget(orgAuthPage, centerLayoutData);
 		
-		this.orgCodeTree.getStyle().setLeafIcon(ResourceIcon.INSTANCE.textButton());
+		this.orgCodeTree.getStyle().setLeafIcon(ResourceIcon.INSTANCE.listButton());
 		this.orgCodeTree.getSelectionModel().addSelectionChangedHandler(new SelectionChangedHandler<Org01_CodeModel>() {
 			@Override
 			public void onSelectionChanged(SelectionChangedEvent<Org01_CodeModel> event) {

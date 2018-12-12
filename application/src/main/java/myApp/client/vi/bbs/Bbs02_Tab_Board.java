@@ -34,7 +34,7 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 
 	public Bbs02_Tab_Board() {
 
-		this.setBorders(false);
+//		this.setBorders(true);
 
 //		SearchBarBuilder searchBarBuilder = new SearchBarBuilder(this);
 //		searchBarBuilder.addRetrieveButton();

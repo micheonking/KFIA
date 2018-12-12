@@ -36,6 +36,9 @@ public interface ResourceIcon extends ClientBundle {
 	  @Source("files/text.png")
 	  ImageResource textButton();
 
+	  @Source("files/list.png")
+	  ImageResource listButton();
+
 	  @Source("files/update.png")
 	  ImageResource updateIcon();
 	  

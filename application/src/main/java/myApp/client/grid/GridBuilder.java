@@ -281,7 +281,7 @@ public class GridBuilder<T> {
 		
 		// 첫번째 칼럼으로 트리를 구성한다. 
 		TreeGrid<T> treeGrid = new TreeGrid<T>(treeStore, columnModel, columnModel.getColumns().get(treeColumn));
-		treeGrid.getStyle().setLeafIcon(ResourceIcon.INSTANCE.textButton());
+		treeGrid.getStyle().setLeafIcon(ResourceIcon.INSTANCE.listButton());
 		
 		if(this.selectionModel != null ){
 			// check box setting 여부 

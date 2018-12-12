@@ -2,6 +2,7 @@ package myApp.client.vi.home;
 
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.sencha.gxt.core.client.util.Margins;
@@ -10,43 +11,55 @@ import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayoutAlign;
+import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 public class StartPage extends BorderLayoutContainer {
+
+	protected static final int WIN_WIDTH = Window.getClientWidth();
+	protected static final int WIN_HEIGHT = Window.getClientHeight();
+	protected static final int HEADER_HEIGHT = 70;
+	protected static final int FOOTER_HEIGHT = 50;
+	protected static final int CENTER_HEIGHT = 250;
+	protected static final int TITLE_HEIGHT = 60;
 
 	private StartPageHeader mainNorthArea = new StartPageHeader(this);
 	private StartPageFooter mainSouthArea = new StartPageFooter();
 //	public static PlainTabPanel tabPanel = new PlainTabPanel();
 	private StartPage startPage;
+	
+	static int XPOS = 0;
 
 	public StartPage() {
 
 		this.setBorders(false);
 
-		BorderLayoutData northLayoutData = new BorderLayoutData(70);
+		BorderLayoutData northLayoutData = new BorderLayoutData(HEADER_HEIGHT);
 		northLayoutData.setMargins(new Margins(0, 0, 0, 0));
 		this.setNorthWidget(mainNorthArea, northLayoutData);
 //		northLayoutData.setSplit(true);
-		
-		BorderLayoutData southLayoutData = new BorderLayoutData(70);
+
+		BorderLayoutData southLayoutData = new BorderLayoutData(FOOTER_HEIGHT);
 		southLayoutData.setMargins(new Margins(0, 0, 0, 0)); // 앞쪽에 보이는 가로 줄을 없애준다
 		this.setSouthWidget(mainSouthArea, southLayoutData);
 //		southLayoutData.setSplit(true);
 		
-		BorderLayoutData centerLayoutData = new BorderLayoutData(250);
+		BorderLayoutData centerLayoutData = new BorderLayoutData(CENTER_HEIGHT);
 		centerLayoutData.setMargins(new Margins(0, 0, 0, 0)); // 앞쪽에 보이는 가로 줄을 없애준다
 //		centerLayoutData.setSplit(true);
 
-		this.changePage("0");
+		this.changePage(460, "0");
 		
 	}
 
-	public void changePage(String pageName) {
+	public void changePage(int xPosition, String pageName) {
 		
-		BorderLayoutData centerLayoutData = new BorderLayoutData(250);
+		BorderLayoutData centerLayoutData = new BorderLayoutData(CENTER_HEIGHT);
 		centerLayoutData.setMargins(new Margins(0, 0, 0, 0)); // 앞쪽에 보이는 가로 줄을 없애준다
-//		centerLayoutData.setSplit(true);
+		centerLayoutData.setSplit(true);
 
+		XPOS = xPosition;
+		
 		switch (pageName) {
 		case "1" :
 			TabCompanyOpenning tabCompanyOpenning = new TabCompanyOpenning();
@@ -81,31 +94,21 @@ public class StartPage extends BorderLayoutContainer {
 	
 	public static ContentPanel getLabelToolItem(String textHtml) {
 		// TODO Auto-generated constructor stub  023d69
+
 		ContentPanel contentPanel = new ContentPanel();
 		contentPanel.setBodyStyle("backgroundColor:#023d69");
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(2000); 
-		contentPanel.setHeight(60);
+		contentPanel.setWidth(Window.getClientWidth()); 
+		contentPanel.setHeight(TITLE_HEIGHT);
 
-		Label labelHtml = new HTML(
-//				"<center><font size='2' color=#aaaaaa><p style='background-color: #023d69;'>"+ textHtml +"</p></font></center>");
-//		SafeHtml label2Html = SafeHtmlUtils.fromTrustedString(	
-				"<div style='background-color: #023d69; line-height:90%; '>"
-//				+	"<span style='font-size:0.1em;'><br><br></span>"
-				+	"<span style='font-weight:bold; font-size:2.0em;'><font color='#ffffff'>" + textHtml + "</font></span>"
-//				+	"<span style='font-size:0.1em;'><br></span>"
-				+	"</div>"
-				);
-//		labelHtml.setWidth("400");
-//		labelHtml.setHeight("30");
+		Label labelHtml = new HTML(	"<div style='background-color: #023d69; line-height:90%; '>"
+								+	"<span style='font-weight:bold; font-size:2.0em;'><font color='#ffffff'>" + textHtml + "</font></span></div>");
+
+//		contentPanel.add(labelHtml, new BoxLayoutData(new Margins(25, (100 * WIN_WIDTH) / 1920, 0, (490 * WIN_WIDTH) / 1920)));
+//		contentPanel.add(labelHtml, new BoxLayoutData(new Margins(25, 0, 0, WIN_WIDTH - (WIN_WIDTH * 490 / WIN_WIDTH))));
+		contentPanel.add(labelHtml, new BoxLayoutData(new Margins(25, 0, 0, XPOS)));
 		
-//		HBoxLayoutContainer labelHBar = new HBoxLayoutContainer();
-//		labelHBar.setHBoxLayoutAlign(HBoxLayoutAlign.MIDDLE);
-//
-//		labelHBar.add(labelHtml);
-
-		contentPanel.add(labelHtml, new BoxLayoutData(new Margins(25, 1145, 0, 455)));
 		return contentPanel;
 //		HorizontalLayoutContainer row01 = new HorizontalLayoutContainer();
 //		HorizontalLayoutData hld = new HorizontalLayoutData(1, 90, new Margins(10, 1, 1, 1));
@@ -202,7 +205,7 @@ public class StartPage extends BorderLayoutContainer {
 		
 		HBoxLayoutContainer hblc = new HBoxLayoutContainer();
 		hblc.setHBoxLayoutAlign(HBoxLayoutAlign.BOTTOM);
-		hblc.add(labelToolItem, new BoxLayoutData(new Margins(30, 600, 10, 40)));
+		hblc.add(labelToolItem, new BoxLayoutData(new Margins(30, 600, 10, 22)));
 		
 		return hblc;
 	}

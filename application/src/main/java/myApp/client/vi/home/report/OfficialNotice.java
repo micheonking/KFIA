@@ -34,8 +34,8 @@ public class OfficialNotice extends ContentPanel implements InterfaceGridOperate
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
 
 		Margins getTextMargins = new Margins(0, 0, 15, 0);
-		Margins totalHBarMargins = new Margins(5, 0, 5, 45);
-		Margins lineBar0Margins = new Margins(10, 0, 20, 45);
+		Margins totalHBarMargins = new Margins(5, 0, 5, 30);
+		Margins lineBar0Margins = new Margins(10, 0, 20, 30);
 
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 

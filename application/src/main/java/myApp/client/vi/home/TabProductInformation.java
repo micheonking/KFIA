@@ -27,10 +27,13 @@ public class TabProductInformation extends ContentPanel {
 	private SmartPrivateBond tabSmartPrivateBond  = new SmartPrivateBond();
 	private GlobalFund tabGlobalFund  = new GlobalFund();
 	
-	protected static final int MENU_WIDTH = 210;
-	protected static final int MIN_WIDTH = 880;
-	protected static final int MIN_HEIGHT = 750;
-	protected static final String BTN_WIDTH = "200";
+	protected static final int MAX_WIDTH = 1024;
+	protected static final int MENU_WIDTH = 180;
+	
+	protected static final int CON_WIDTH = 800;
+	protected static final int CON_HEIGHT = 750;
+	
+	protected static final String BTN_WIDTH = ""+MENU_WIDTH;
 	protected static final String BTN_HEIGHT = "40";
 
 	ContentPanel contentPanel  = new ContentPanel();
@@ -111,7 +114,7 @@ public class TabProductInformation extends ContentPanel {
 		menuVBox.add(lineImage3, new BoxLayoutData(lineImageMargins));
 
 		menuVBox.setWidth(MENU_WIDTH);
-		menuVBox.setHeight(MIN_HEIGHT);
+		menuVBox.setHeight(CON_HEIGHT);
 		menuHBar.add(menuVBox, boxLayoutData);
 
 		totalHBar.add(menuHBar);
@@ -127,8 +130,8 @@ public class TabProductInformation extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(MIN_WIDTH);
-		contentPanel.setHeight(MIN_HEIGHT);
+		contentPanel.setWidth(CON_WIDTH);
+		contentPanel.setHeight(CON_HEIGHT);
 		contentPanel.setWidget(tabSmartHeild);
 
 		return contentPanel;
@@ -138,8 +141,8 @@ public class TabProductInformation extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(MIN_WIDTH);
-		contentPanel.setHeight(MIN_HEIGHT);
+		contentPanel.setWidth(CON_WIDTH);
+		contentPanel.setHeight(CON_HEIGHT);
 		contentPanel.setWidget(tabSmartPrivateBond);
 
 		return contentPanel;
@@ -149,8 +152,8 @@ public class TabProductInformation extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(MIN_WIDTH);
-		contentPanel.setHeight(MIN_HEIGHT);
+		contentPanel.setWidth(CON_WIDTH);
+		contentPanel.setHeight(CON_HEIGHT);
 		contentPanel.setWidget(tabGlobalFund);
 
 		return contentPanel;

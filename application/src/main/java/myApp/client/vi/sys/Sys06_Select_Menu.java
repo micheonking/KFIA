@@ -86,7 +86,7 @@ public class Sys06_Select_Menu extends Window implements InterfaceServiceCall {
 
 		menuTree = this.getMenuTree();
 		menuTree.setSize("420", "350");
-		menuTree.getStyle().setLeafIcon(ResourceIcon.INSTANCE.textButton());
+		menuTree.getStyle().setLeafIcon(ResourceIcon.INSTANCE.listButton());
 		
 		this.add(menuTree);
 		

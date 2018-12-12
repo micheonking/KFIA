@@ -79,7 +79,7 @@ public class MenuTree implements InterfaceServiceCall{
 			}
 		};
 
-		menuTree.getStyle().setLeafIcon(ResourceIcon.INSTANCE.textButton());
+		menuTree.getStyle().setLeafIcon(ResourceIcon.INSTANCE.listButton());
 		return menuTree; 
 	}
 	

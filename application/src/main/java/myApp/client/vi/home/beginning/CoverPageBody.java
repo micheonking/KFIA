@@ -5,6 +5,7 @@ import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.ui.Image;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.ContentPanel;
+import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer;
@@ -12,9 +13,14 @@ import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
+import com.sencha.gxt.widget.core.client.event.SelectEvent;
+import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
+import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.resource.ResourceIcon;
+import myApp.client.vi.bbs.Bbs02_Tab_Board;
+import myApp.client.vi.bbs.Bbs02_Tab_News;
 
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
@@ -22,10 +28,14 @@ import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayou
 
 public class CoverPageBody extends ContentPanel {
 
+	private Bbs02_Tab_Board westBoard = new Bbs02_Tab_Board();
+	private Bbs02_Tab_News eastBoard = new Bbs02_Tab_News();
+
 	// 운용현황 라벨 3개
-	public CoverPageBody() {
+	public CoverPageBody(int WIDTH, int HEIGHT) {
 		
 		this.setHeaderVisible(false);
+//		this.setBorders(true);
 
 //		FirmHeadTitle titleLeft = new FirmHeadTitle();
 		CoverPageBodyLeft west = new CoverPageBodyLeft();
@@ -34,8 +44,8 @@ public class CoverPageBody extends ContentPanel {
 
 		VBoxLayoutContainer centerVBox = new VBoxLayoutContainer();
 		centerVBox.setVBoxLayoutAlign(VBoxLayoutAlign.CENTER);
-//		centerVBox.setWidth(1200);
-		centerVBox.setHeight(170);
+		centerVBox.setWidth(WIDTH);
+		centerVBox.setHeight(HEIGHT);
 
 		SafeHtml label1Html = SafeHtmlUtils.fromTrustedString(	"<center>"
 				+	"<div style='background-color: #1d7bbb; line-height:130%; '>"
@@ -78,8 +88,6 @@ public class CoverPageBody extends ContentPanel {
 				+	"</div>"
 				);
 		LabelToolItem labelToolItem3 = new LabelToolItem(label3Html);
-		labelToolItem3.setPosition(2, 2);
-		labelToolItem3.setPagePosition(2, 2);
 		labelToolItem3.setWidth(300);
 		labelToolItem3.setHeight(142);
 		labelToolItem3.setBorders(true);
@@ -98,6 +106,67 @@ public class CoverPageBody extends ContentPanel {
 		centerVBox.add(verticalLine, new BoxLayoutData(new Margins(7, 1, 1, 0)));
 		centerVBox.add(boxHBox, new BoxLayoutData(new Margins(0, 1, 1, 1)));
 
+//		this.add(centerVBox);
+//		this.setWidth(WIDTH);
+//		this.setHeight(HEIGHT);
+
+//		HorizontalLayoutData rowLayout1 = new HorizontalLayoutData(0.25, 30, new Margins(10, 380, 0, 13));	// Double Column Size
+//		HorizontalLayoutData rowLayout2 = new HorizontalLayoutData(0.25, 160, new Margins(10, 0, 0, 13));	// Double Column Size
+
+		SafeHtml button4Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><left><font color='#606060' style='font-size:18px;'><p style='font-weight:bold;'>공지사항<br><br></p></font></div>");
+		SafeHtml button5Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><left><font color='#606060' style='font-size:18px;'><p style='font-weight:bold;'>보도자료<br><br></p></font></div>");
+		TextButton textButton1 = new TextButton("");
+		TextButton textButton2 = new TextButton("");
+		textButton1.setHTML(button4Html);
+		textButton1.setWidth(130);
+		textButton1.setHeight(30);
+		textButton1.setBorders(false);
+		textButton1.addSelectHandler(new SelectHandler() {
+			@Override
+			public void onSelect(SelectEvent event) {
+//				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
+//				startPage.changePage("4");
+			}
+		});
+		textButton2.setHTML(button5Html);
+		textButton2.setWidth(130);
+		textButton1.setHeight(40);
+		textButton2.setBorders(false);
+		textButton2.addSelectHandler(new SelectHandler() {
+			@Override
+			public void onSelect(SelectEvent event) {
+//				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
+				Info.display("","1");
+//				startPage.changePage("4");
+			}
+		});
+
+		HorizontalLayoutData rowLayout1 = new HorizontalLayoutData(0.5, 30, new Margins(10, 380, 0, 18));	// Double Column Size
+		HorizontalLayoutData rowLayout2 = new HorizontalLayoutData(0.5, 160, new Margins(10, 0, 0, 18));	// Double Column Size
+
+		HorizontalLayoutContainer row00 = new HorizontalLayoutContainer();
+		row00.add(textButton1, rowLayout1);
+		row00.add(textButton2, rowLayout1);
+
+		HorizontalLayoutContainer row01 = new HorizontalLayoutContainer();
+		westBoard.setWidth(970);
+		eastBoard.setWidth(970);
+		row01.add(westBoard, rowLayout2);
+		row01.add(eastBoard, rowLayout2);
+
+		VerticalLayoutContainer layoutContainer = new VerticalLayoutContainer();
+		layoutContainer.add(row00, new VerticalLayoutData(1, 30, new Margins(0, 0, 0, 0)));
+		layoutContainer.add(row01, new VerticalLayoutData(1, 160, new Margins(0, 0, 0, 0)));
+
+		centerVBox.add(layoutContainer, new BoxLayoutData(new Margins(0, 1, 1, 1)));
+
 		this.add(centerVBox);
+		this.setWidth(WIDTH);
+		this.setHeight(HEIGHT);
+	
+		
+		
+		
+		
 	}
 }
