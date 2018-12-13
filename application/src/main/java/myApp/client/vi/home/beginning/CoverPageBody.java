@@ -3,6 +3,7 @@ package myApp.client.vi.home.beginning;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.ui.Image;
+import com.sencha.gxt.cell.core.client.TextButtonCell;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.TextButton;
@@ -21,6 +22,8 @@ import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.bbs.Bbs02_Tab_Board;
 import myApp.client.vi.bbs.Bbs02_Tab_News;
+import myApp.client.vi.home.StartPage;
+import myApp.theme.tritium.custom.client.button.white.WhiteButtonCellAppearance;
 
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
@@ -38,9 +41,9 @@ public class CoverPageBody extends ContentPanel {
 //		this.setBorders(true);
 
 //		FirmHeadTitle titleLeft = new FirmHeadTitle();
-		CoverPageBodyLeft west = new CoverPageBodyLeft();
-		CoverPageBodyMiddle center = new CoverPageBodyMiddle();
-		CoverPageBodyRight east = new CoverPageBodyRight();
+//		CoverPageBodyLeft west = new CoverPageBodyLeft();
+//		CoverPageBodyMiddle center = new CoverPageBodyMiddle();
+//		CoverPageBodyRight east = new CoverPageBodyRight();
 
 		VBoxLayoutContainer centerVBox = new VBoxLayoutContainer();
 		centerVBox.setVBoxLayoutAlign(VBoxLayoutAlign.CENTER);
@@ -113,10 +116,10 @@ public class CoverPageBody extends ContentPanel {
 //		HorizontalLayoutData rowLayout1 = new HorizontalLayoutData(0.25, 30, new Margins(10, 380, 0, 13));	// Double Column Size
 //		HorizontalLayoutData rowLayout2 = new HorizontalLayoutData(0.25, 160, new Margins(10, 0, 0, 13));	// Double Column Size
 
-		SafeHtml button4Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><left><font color='#606060' style='font-size:18px;'><p style='font-weight:bold;'>공지사항<br><br></p></font></div>");
-		SafeHtml button5Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><left><font color='#606060' style='font-size:18px;'><p style='font-weight:bold;'>보도자료<br><br></p></font></div>");
-		TextButton textButton1 = new TextButton("");
-		TextButton textButton2 = new TextButton("");
+		SafeHtml button4Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: transparent;'><left><font color='#606060' style='font-size:18px;'><p style='font-weight:bold;'>공지사항<br><br></p></font></div>");
+		SafeHtml button5Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: transparent;'><left><font color='#606060' style='font-size:18px;'><p style='font-weight:bold;'>보도자료<br><br></p></font></div>");
+	    TextButton textButton1 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
+	    TextButton textButton2 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		textButton1.setHTML(button4Html);
 		textButton1.setWidth(130);
 		textButton1.setHeight(30);
@@ -130,7 +133,7 @@ public class CoverPageBody extends ContentPanel {
 		});
 		textButton2.setHTML(button5Html);
 		textButton2.setWidth(130);
-		textButton1.setHeight(40);
+		textButton2.setHeight(40);
 		textButton2.setBorders(false);
 		textButton2.addSelectHandler(new SelectHandler() {
 			@Override
@@ -138,11 +141,12 @@ public class CoverPageBody extends ContentPanel {
 //				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
 				Info.display("","1");
 //				startPage.changePage("4");
+//				StartPage.changePage(xPosition, "4");
 			}
 		});
 
-		HorizontalLayoutData rowLayout1 = new HorizontalLayoutData(0.5, 30, new Margins(10, 380, 0, 18));	// Double Column Size
-		HorizontalLayoutData rowLayout2 = new HorizontalLayoutData(0.5, 160, new Margins(10, 0, 0, 18));	// Double Column Size
+		HorizontalLayoutData rowLayout1 = new HorizontalLayoutData(0.5, 30, new Margins(0, 380, 0, 18));	// Double Column Size
+		HorizontalLayoutData rowLayout2 = new HorizontalLayoutData(0.5, 160, new Margins(0, 0, 0, 18));	// Double Column Size
 
 		HorizontalLayoutContainer row00 = new HorizontalLayoutContainer();
 		row00.add(textButton1, rowLayout1);

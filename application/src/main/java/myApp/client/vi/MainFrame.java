@@ -59,14 +59,15 @@ public class MainFrame extends BorderLayoutContainer {
 		//westLayoutData.setCollapseMini(true);
 		this.setWestWidget(this.getWestLayout(), westLayoutData);
 		//this.setWestWidget(treeMenu.getMenuTree()); 
-				
+
+		tabPanel.setTabMargin(8);
 		tabPanel.setTabScroll(true);
 		tabPanel.setBorders(true);
         tabPanel.setAnimScroll(true);
         tabPanel.setTabScroll(true);
         tabPanel.setCloseContextMenu(true);
         
-		tabPanel.add(new TabBorder(), "Notification..."); // my page setting
+		tabPanel.add(new TabBorder(), "달력"); // my page setting
 
 		VerticalLayoutContainer vlc = new VerticalLayoutContainer(); 
 		vlc.add(tabPanel, new VerticalLayoutData(1, 1, new Margins(0, 0, 0, 0)));

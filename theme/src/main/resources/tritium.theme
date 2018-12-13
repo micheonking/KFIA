@@ -1133,9 +1133,9 @@ theme {
         size = "13px"
         weight = "400"
       }
-      hoverGradient = "rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%"
+      hoverGradient = "rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%"
       hoverHeadingText = headingText
-      hoverTabItemBackgroundColor = "rgba(0, 0, 0, 0.07)"
+      hoverTabItemBackgroundColor = "rgba(0, 0, 0, 0.08)"
       iconLeftOffset = 6
       iconTopOffset = 5
       iconWidth = 16
@@ -1178,16 +1178,16 @@ theme {
       }
       plainHoverHeadingText = plainHeadingText
       plainTabBarBorderBottom = 0
-      plainTabBarBorderTop = 0
+      plainTabBarBorderTop = 5 // 0
       plainTabCloseIconColor = "#eeeeee" // "#919191"
       plainTabCloseOverIconColor = "#919191"
       plainTabStripSpacerHeight = 0
       plainTabStripSpacerBorder = 0
       scrollerBackgroundColor = "#5fa2dd"
       scrollerLeftDisabledOpacity = 0.5
-      scrollerLeftOverOpacity = 10
+      scrollerLeftOverOpacity = 1
       scrollerRightDisabledOpacity = 0.5
-      scrollerRightOverOpacity = 10
+      scrollerRightOverOpacity = 1
       scrollerWidth = 24
       tabBarBorder = "none" // "solid"	// delete me...
       tabBarBottomHeight = 0
@@ -1196,7 +1196,7 @@ theme {
       tabCloseOverIconColor = "#ffffff"
       tabHeight = 32 // 36		// Fix me...
       tabItemBorderBottom = "none"
-      tabItemBorderLeft = "solid 8px #5fa2dd" // "solid" // delete me...
+      tabItemBorderLeft = "none" // "solid 8px #5fa2dd" // "solid" // delete me...
       tabItemBorderRight = "none"
       tabItemBorderTop = "none"
       tabSpacing = 1

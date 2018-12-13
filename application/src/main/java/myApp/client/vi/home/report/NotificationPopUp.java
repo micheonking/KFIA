@@ -2,11 +2,15 @@ package myApp.client.vi.home.report;
 
 import java.util.Map;
 
+import org.apache.tools.ant.taskdefs.Javadoc.Html;
+
+import com.gargoylesoftware.htmlunit.html.HtmlArea;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextArea;
 import com.sencha.gxt.cell.core.client.ButtonCell.IconAlign;
 import com.sencha.gxt.core.client.util.Margins;
@@ -41,6 +45,7 @@ import myApp.client.service.ServiceResult;
 import myApp.client.utils.FileUpdownForm;
 import myApp.client.utils.InterfaceCallbackResult;
 import myApp.client.utils.JSCaller;
+import myApp.client.utils.SimpleMessage;
 import myApp.client.vi.bbs.model.Bbs02_BoardModel;
 import myApp.client.vi.home.StartPage;
 import myApp.client.vi.pln.model.Pln03_ResrchModel;
@@ -56,8 +61,9 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 	Bbs02_BoardModel boardModel = new Bbs02_BoardModel();
 	TextField titleName = new TextField();
 	TextField filePath = new TextField();
-	DateField setdate = new DateField();
+	DateField settleDate = new DateField();
 	TextArea contents  = new TextArea();
+	
 	private Long		boardId;
 	private InterfaceCallbackResult callback;
 	private FileUpdownForm fileUpdownForm = new FileUpdownForm();
@@ -74,6 +80,7 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 		this.setSize("1000",  "920");
 		this.grid = grid;
 		editDriver.initialize(this);
+		editDriver.edit(boardModel);
 		
 		this.setButtonAlign(BoxLayoutPack.CENTER);
 //		editDriver.edit(boardModel);
@@ -103,7 +110,6 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 //		
 //		this.getButtonBar().add(btn);
 		this.show();
-		editDriver.edit(boardModel);
 	}
 	
 
@@ -112,14 +118,35 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 		
 		HorizontalLayoutContainer row01 = new HorizontalLayoutContainer();
+
 		row01.add(new FieldLabel(titleName, "제목"), new HorizontalLayoutData(500,-1, new Margins(0, 10, 0, 0)));
-		row01.add(new FieldLabel(setdate, "작성일"), new HorizontalLayoutData(408,-1, new Margins(0, 10, 0, 0)));
+		row01.add(new FieldLabel(settleDate, "작성일"), new HorizontalLayoutData(408,-1, new Margins(0, 10, 0, 0)));
 		
 //		HorizontalLayoutContainer row02 = new HorizontalLayoutContainer();
 //		row02.add(new FieldLabel(filePath,"파일"), new HorizontalLayoutData(900,-1, new Margins(10,0,10,0)));
 		
 		HorizontalLayoutContainer row03 = new HorizontalLayoutContainer();
-		row03.add(new FieldLabel(contents, "내용"), new HorizontalLayoutData(900,450, new Margins(20,0,0,0)));
+		row03.add(new FieldLabel(contents, "내용"), new HorizontalLayoutData(900,450, new Margins(40,0,0,0)));
+		
+		
+		Label labelHtml = new HTML(	
+				 "<table width=700 height=160>"
+				+"<tr>"
+				+"<th style='background-color: #f7f7f7;'>제목</th>"
+				+"<td>" + titleName.getText() + "</td>"
+				+"</tr>"
+				+"<tr>"
+				+"<th style='background-color: #f7f7f7;'>작성일</th>"
+				+"<td>"+settleDate.getText()+"</td>"
+				+"</tr>"
+				+"<tr>"
+				+"<th style='background-color: #f7f7f7;'>첨부파일</th>"
+				+"<td>"+contents.getText()+"</td>"
+				+"</tr>"
+				+ "</table>");
+
+//				+	" titleName + "</div>");
+
 		
 //		첨부파일 기능 복구
 //		HorizontalLayoutContainer row04 = new HorizontalLayoutContainer();
@@ -130,10 +157,11 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 		
 		VerticalLayoutContainer layout = new VerticalLayoutContainer();
 		layout.add(StartPage.getTextContents("공지사항"));
-		layout.add(lineBar0,new VerticalLayoutData(1.2,1.2, new Margins(10, 0, 20, 45)));
-		layout.add(row01, new VerticalLayoutData(1, -1, new Margins(16)));
+		layout.add(lineBar0,new VerticalLayoutData(1.2,1.2, new Margins(10, 0, 50, 45)));
+//		layout.add(row01, new VerticalLayoutData(1, -1, new Margins(16)));
 //		layout.add(row02, new VerticalLayoutData(1, -1, new Margins(16)));
-		layout.add(row03, new VerticalLayoutData(1, -1, new Margins(16)));
+//		layout.add(row03, new VerticalLayoutData(1, -1, new Margins(16)));
+		layout.add(labelHtml,new VerticalLayoutData(1,1, new Margins(0, 70, 0, 0)));
 //		layout.add(row04, new VerticalLayoutData(1, -1, new Margins(16)));
 //		layout.add(fileUpdownForm.getForm(),new VerticalLayoutData(1,1, new Margins(450,0,0,0)));
 //		layout.add(row04, new VerticalLayoutData(1, 0.7, new Margins(16, 16, 0, 16)));

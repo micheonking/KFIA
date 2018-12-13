@@ -12,7 +12,9 @@ import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayoutAlign;
+import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.container.Viewport;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
@@ -71,10 +73,14 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 		header.add(logoutButton, new BoxLayoutData(new Margins(7, 40, 0, 0)));
 //		header.setHeight(90);
 
+//		Image borderBar = new Image(ResourceIcon.INSTANCE.borderBox());
+
 		ContentPanel cp = new ContentPanel();
 		cp.setBodyStyle("backgroundColor:white; color:red"); // http://www.w3schools.com/colors/colors_names.asp 페이지 참조
 
 		cp.add(header);
+//		cp.add(header, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+//		cp.add(borderBar, new BoxLayoutData(new Margins(0, 0, 0, 0)));
 		
 		cp.forceLayout();
 		cp.setHeaderVisible(false);

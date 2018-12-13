@@ -38,6 +38,7 @@ import myApp.client.service.ServiceResult;
 import myApp.client.utils.SimpleMessage;
 import myApp.client.vi.emp.model.Emp00_InfoModel;
 import myApp.client.vi.MainFrame;
+import myApp.client.vi.sys.Sys00_Admin;
 import myApp.client.vi.sys.model.Sys02_UserModel;
 
 public class LoginPage implements InterfaceServiceCall {
@@ -98,6 +99,16 @@ public class LoginPage implements InterfaceServiceCall {
 			}
 		});
 
+//		TextButton adminButton = new TextButton("Admin"); 
+//		adminButton.setWidth(50);
+//		adminButton.addSelectHandler(new SelectHandler() {
+//			@Override
+//			public void onSelect(SelectEvent event) {
+//				firstName.setText("admin");
+//				login(); // 함수로 빼서 호출한다. 
+//			}
+//		});
+
 		TextButton cancelButton = new TextButton("Cancel");
 //		cancelButton.setHTML(cancelButtonHtml);
 		cancelButton.setWidth(65);
@@ -117,6 +128,7 @@ public class LoginPage implements InterfaceServiceCall {
 		
 		hBoxLayout.add(vBoxLayout, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 		hBoxLayout.add(okButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
+//		hBoxLayout.add(adminButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 		hBoxLayout.add(cancelButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 
 		vlc.add(hBoxLayout, new VerticalLayoutData(550, -1, new Margins(0, 0, 0, 15)));
@@ -182,29 +194,69 @@ public class LoginPage implements InterfaceServiceCall {
 		}
 
 		// 로그인 정보를 찾는다.
-		ServiceRequest request = new ServiceRequest("sys.Sys02_User.getLoginInfo");
-		request.putStringParam("loginId", firstName.getText());
-		request.putStringParam("passwd", password.getText());
-		request.putStringParam("otpNumber", otpNumber.getValue());
-		ServiceCall service = new ServiceCall();
-		service.execute(request, this);
+		if("admin".equals(firstName.getText())) {
+			LoginUser.setIsAdmin(true);
+			ServiceRequest request = new ServiceRequest("sys.Sys02_User.getLoginAdminInfo");
+			request.putLongParam  ("companyId", (long)2000940);	//2000940:한국펀드서비스
+			request.putStringParam("otpNumber", otpNumber.getValue());
+			ServiceCall service = new ServiceCall(); 
+			service.execute(request, this);
+		} else {
+			ServiceRequest request = new ServiceRequest("sys.Sys02_User.getLoginInfo");
+			request.putStringParam("loginId", firstName.getText());
+			request.putStringParam("passwd", password.getText());
+			request.putStringParam("otpNumber", otpNumber.getValue());
+			ServiceCall service = new ServiceCall(); 
+			service.execute(request, this);
+		}
+//		ServiceRequest request = new ServiceRequest("sys.Sys02_User.getLoginInfo");
+//		request.putStringParam("loginId", firstName.getText());
+//		request.putStringParam("passwd", password.getText());
+//		request.putStringParam("otpNumber", otpNumber.getValue());
+//		ServiceCall service = new ServiceCall();
+//		service.execute(request, this);
 	}
 	
 	@Override
 	public void getServiceResult(ServiceResult result) {
 
-		if (result.getStatus() == 10) { // 일반사용자 접속
-			// get userModel
-			Emp00_InfoModel empModel = (Emp00_InfoModel) result.getResult(0);
-			LoginUser.setEmpModel(empModel);
-		} else if (result.getStatus() == 20) { // 회사관리자 접속
-			// get userModel
-			Sys02_UserModel userModel = (Sys02_UserModel) result.getResult(0);
-			LoginUser.setUserModel(userModel);
-		} else { // 로그인 정보를 찾을 수 없다.
-			new SimpleMessage("로그인 정보 확인", result.getMessage());
+		if (LoginUser.getIsAdmin()) {
+			if(result.getStatus() == 10 ) {
+				this.viewport.remove(container);
+				viewport.add(new Sys00_Admin(), new MarginData(3, 3, 6, 3));
+				RootPanel.get().add(viewport);
+			} else {
+				new SimpleMessage("로그인 정보 확인", result.getMessage());
+			}
 			return;
+		} else {
+			if(result.getStatus() == 10 ) { // 일반사용자 접속
+				// get userModel
+				Emp00_InfoModel empModel = (Emp00_InfoModel) result.getResult(0);
+				LoginUser.setEmpModel(empModel); 
+			}
+			else if(result.getStatus() == 20) { // 회사관리자 접속
+				// get userModel
+				Sys02_UserModel userModel = (Sys02_UserModel) result.getResult(0); 
+				LoginUser.setUserModel(userModel); 
+			}
+			else { // 로그인 정보를 찾을 수 없다.  
+				new SimpleMessage("로그인 정보 확인", result.getMessage());
+				return ; 
+			}
 		}
+//		if (result.getStatus() == 10) { // 일반사용자 접속
+//			// get userModel
+//			Emp00_InfoModel empModel = (Emp00_InfoModel) result.getResult(0);
+//			LoginUser.setEmpModel(empModel);
+//		} else if (result.getStatus() == 20) { // 회사관리자 접속
+//			// get userModel
+//			Sys02_UserModel userModel = (Sys02_UserModel) result.getResult(0);
+//			LoginUser.setUserModel(userModel);
+//		} else { // 로그인 정보를 찾을 수 없다.
+//			new SimpleMessage("로그인 정보 확인", result.getMessage());
+//			return;
+//		}
 		openFrame();
 	}
 	
