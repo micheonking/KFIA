@@ -60,6 +60,9 @@ public class MainFrame extends BorderLayoutContainer {
 		this.setWestWidget(this.getWestLayout(), westLayoutData);
 		//this.setWestWidget(treeMenu.getMenuTree()); 
 
+		tabPanel.getElement().getStyle().clearMarginLeft();
+		//.setLeft(7);
+		//.getElement().get.getStyle().set("color", "#666666"); // font color 변경
 		tabPanel.setTabMargin(8);
 		tabPanel.setTabScroll(true);
 		tabPanel.setBorders(true);
