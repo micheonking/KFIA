@@ -4,6 +4,7 @@ import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.sencha.gxt.cell.core.client.TextButtonCell;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.CellButtonBase;
@@ -20,6 +21,9 @@ import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.LoginPage;
+import myApp.theme.tritium.custom.client.button.purple.PurpleButtonCellAppearance;
+import myApp.theme.tritium.custom.client.button.red.RedButtonCellAppearance;
+import myApp.theme.tritium.custom.client.button.white.WhiteButtonCellAppearance;
 
 public class StartPageHeader extends BorderLayoutContainer {
 
@@ -29,8 +33,6 @@ public class StartPageHeader extends BorderLayoutContainer {
 	Viewport viewport = new Viewport();
 //	private StartPage startPage;
 
-	public 	CellButtonBase mainButton = new CellButtonBase<>();
-	
 	public StartPageHeader(StartPage startPage) {
 
 //		this.startPage = startPage;
@@ -48,33 +50,34 @@ public class StartPageHeader extends BorderLayoutContainer {
 		// 홈페이지 상단 회사로고 style='border-bottom: 5px solid orange;' 
 		SafeHtml logoHtml = SafeHtmlUtils.fromTrustedString("<left><div><img src='img/_KFIALogo.png' width='170' height='44'></img></div>");
 		
-//		mainButton.setIconAlign(IconAlign.TOP);
-//		mainButton.setIcon(ResourceIcon.INSTANCE.getLogo());
-		mainButton.setSize("170", "44");
-		mainButton.setHTML(logoHtml);
-		mainButton.setBorders(false);
-//		mainButton.setLayoutData(new BoxLayoutData(new Margins(1, 1, 1, 1)));
-//		mainButton.getElement().getMargins(Side.LEFT);
-		mainButton.getElement().setMargins(new Margins(0, 0, 0, 0));
-		mainButton.addSelectHandler(new SelectHandler() {
+	    TextButton logoButton = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
+//		logoButton.setIconAlign(IconAlign.TOP);
+//		logoButton.setIcon(ResourceIcon.INSTANCE.getLogo());
+		logoButton.setSize("191", "58");
+		logoButton.setHTML(logoHtml);
+		logoButton.setBorders(false);
+//		logoButton.setLayoutData(new BoxLayoutData(new Margins(1, 1, 1, 1)));
+//		logoButton.getElement().getMargins(Side.LEFT);
+		logoButton.getElement().setMargins(new Margins(0, 0, 0, 0));
+		logoButton.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				startPage.openTabPage(startPage.tabPanel, "");
-				int xPosition = mainButton.getAbsoluteLeft();
+				int xPosition = logoButton.getAbsoluteLeft();
 				startPage.changePage(xPosition, "0");
 			}
 		});
-		header.add(mainButton, new BoxLayoutData(new Margins(13, 180, 0, 5)));
+		header.add(logoButton, new BoxLayoutData(new Margins(6, 180, 0, 5)));
 		
 		// 버튼생성
 		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString(
-				"<div style='background-color: #ffffff;'><font color='#606060' style='font-size:16px;font-weight:bold'>회사소개</font></div>");
+				"<div style='background-color: transparent;'><font color='#606060' style='font-size:16px;font-weight:bold'>회사소개</font></div>");
 		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString(
-				"<div style='background-color: #ffffff;'><font color='#606060' style='font-size:16px;font-weight:bold'>투자일임</font></div>");
+				"<div style='background-color: transparent;'><font color='#606060' style='font-size:16px;font-weight:bold'>투자일임</font></div>");
 		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString(
-				"<div style='background-color: #ffffff;'><font color='#606060' style='font-size:16px;font-weight:bold'>상품안내</font></div>");
+				"<div style='background-color: transparent;'><font color='#606060' style='font-size:16px;font-weight:bold'>상품안내</font></div>");
 		SafeHtml button4Html = SafeHtmlUtils.fromTrustedString(
-				"<div style='background-color: #ffffff;'><font color='#606060' style='font-size:16px;font-weight:bold'>KFIA소식</font></div>");
+				"<div style='background-color: transparent;'><font color='#606060' style='font-size:16px;font-weight:bold'>KFIA소식</font></div>");
 //		SafeHtml button5Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: #5fa2dd;'><font color='#dddddd' style='font-size:16px;font-weight:bold'>고객정보</font></div>" );
 //		SafeHtml label1Html = SafeHtmlUtils.fromTrustedString(	"<center>"
 //				+	"<div style='background-color: #1d7bbb; line-height:130%; '>"
@@ -89,27 +92,38 @@ public class StartPageHeader extends BorderLayoutContainer {
 
 		BoxLayoutData boxLayoutData = new BoxLayoutData(new Margins(20, 25, 0, 0));
 		BoxLayoutData boxLayoutData1 = new BoxLayoutData(new Margins(30, 25, 0, 0));
-		TextButton textButton1 = new TextButton("");
-		TextButton textButton2 = new TextButton("");
-		TextButton textButton3 = new TextButton("");
-		TextButton textButton4 = new TextButton("");
+
+		// WhiteButton
+	    TextButton textButton1 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
+	    TextButton textButton2 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
+	    TextButton textButton3 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
+	    TextButton textButton4 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
+//		TextButton textButton1 = new TextButton("");
+//		TextButton textButton2 = new TextButton("");
+//		TextButton textButton3 = new TextButton("");
+//		TextButton textButton4 = new TextButton("");
 		TextButton textButton5 = new TextButton("");
 
 //		header.add(new Label(), boxLayoutData);
 		textButton1.setHTML(button1Html);
+//		textButton1.setText("회사소개");
 		textButton1.setSize(BTN_WIDTH, BTN_HEIGHT);
 //		textButton1.getElement().setMargins(new Margins(7, 7, 7, 7));
 //		textButton1.setBorders(true);
 //		textButton1.setIcon(ResourceIcon.INSTANCE.blank());
 //		textButton1.setIconAlign(IconAlign.TOP);
+//		textButton1.getElement().getStyle().setProperty("color", "#606060"); // font color 변경
+//		textButton1.getElement().getStyle().setProperty("fontWeight", "bold"); // font color 변경
+//		textButton1.getElement().getStyle().setProperty("fontSize", "16px"); // font color 변경
+
 		header.add(textButton1, boxLayoutData);
 		header.add(lineImage1, boxLayoutData1);
 		textButton1.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				startPage.openTabPage(startPage.tabPanel, "회사소개");
-//				Info.display("", "" + mainButton.getAbsoluteLeft());
-				int xPosition = mainButton.getAbsoluteLeft();
+//				Info.display("", "" + logoButton.getAbsoluteLeft());
+				int xPosition = logoButton.getAbsoluteLeft();
 				startPage.changePage(xPosition, "1");
 			}
 		});
@@ -124,7 +138,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				startPage.openTabPage(startPage.tabPanel, "투자일임");
-				int xPosition = mainButton.getAbsoluteLeft();
+				int xPosition = logoButton.getAbsoluteLeft();
 				startPage.changePage(xPosition, "2");
 			}
 		});
@@ -139,7 +153,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				startPage.openTabPage(startPage.tabPanel, "상품안내");
-				int xPosition = mainButton.getAbsoluteLeft();
+				int xPosition = logoButton.getAbsoluteLeft();
 				startPage.changePage(xPosition, "3");
 			}
 		});
@@ -153,7 +167,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				startPage.openTabPage(startPage.tabPanel, "KFIA소식");
-				int xPosition = mainButton.getAbsoluteLeft();
+				int xPosition = logoButton.getAbsoluteLeft();
 				startPage.changePage(xPosition, "4");
 			}
 		});
