@@ -38,7 +38,7 @@
 	,		column_name
 	,		data_type
 	,		nullable
-	from 	all_tab_cols
+	from 	user_tab_cols
 	where	table_name = #{table_name}  	
 </select>
 
