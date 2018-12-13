@@ -39,7 +39,6 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 	private Grid<Bbs02_BoardModel> grid = this.buildGrid();
 
 	public Notification() {
-		Info.display("","notification~~~~~~~~~~~~~");
 
 		this.setHeaderVisible(false);
 
@@ -97,7 +96,7 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		GridBuilder<Bbs02_BoardModel> gridBuilder = new GridBuilder<Bbs02_BoardModel>(properties.keyId());
 
 		gridBuilder.addText(properties.titleName(), 500, "제목");
-		gridBuilder.addDate(properties.settleDate(), 110, "작성일");
+		gridBuilder.addDate(properties.setdate(), 110, "작성일");
 		gridBuilder.addLong(properties.cnt(), 50, "조회수");
 
 		return gridBuilder.getGrid();

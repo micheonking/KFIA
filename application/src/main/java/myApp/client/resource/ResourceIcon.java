@@ -81,9 +81,6 @@ public interface ResourceIcon extends ClientBundle {
 	  @Source("files/lineBar.png")
 	  ImageResource lineBar();
 	  
-	  @Source("files/borderBox.png")
-	  ImageResource borderBox();
-	  
 	  @Source("files/close.png")
 	  ImageResource close();
 	  

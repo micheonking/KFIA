@@ -5,9 +5,12 @@ import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.user.client.Window;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
+import com.sencha.gxt.widget.core.client.info.Info;
 
 import myApp.client.vi.home.beginning.CoverPageBody;
 import myApp.client.vi.home.beginning.CoverPageHeader;
+import myApp.client.vi.home.beginning.CoverPageFooter;
 
 public class TabBeginnigPage extends BorderLayoutContainer {
 	
@@ -16,7 +19,6 @@ public class TabBeginnigPage extends BorderLayoutContainer {
 	protected static final int IMG_WIDTH = 1950;
 	protected static final int IMG_HEIGHT = 378;
 
-	
 	public TabBeginnigPage(StartPage startPage) {
 		this.addResizeHandler(new ResizeHandler() {
 			@Override
@@ -33,6 +35,7 @@ public class TabBeginnigPage extends BorderLayoutContainer {
 		
 		CoverPageHeader north = new CoverPageHeader(imageWidth, imageHeight);
 		CoverPageBody center = new CoverPageBody(imageWidth, imageHeight);
+		CoverPageFooter south = new CoverPageFooter(startPage);
 		
 		// center-north 이미지 사진
 		BorderLayoutData northLayoutData = new BorderLayoutData(imageHeight+2);

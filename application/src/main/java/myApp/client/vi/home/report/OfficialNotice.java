@@ -71,7 +71,7 @@ public class OfficialNotice extends ContentPanel implements InterfaceGridOperate
 //		gridBuilder.setChecked(SelectionMode.SINGLE);
 
 		gridBuilder.addText(properties.titleName(), 500, "제목");
-		gridBuilder.addDate(properties.settleDate(), 110, "작성일");
+		gridBuilder.addDate(properties.setdate(), 110, "작성일");
 		gridBuilder.addLong(properties.cnt(), 50, "조회수");
 
 //		gridBuilder.setMenuDisable(true);

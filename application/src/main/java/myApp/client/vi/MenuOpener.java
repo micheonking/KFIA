@@ -213,9 +213,6 @@ public class MenuOpener {
 			return (Widget) GWT.create(myApp.client.vi.dbm.Dbm99_Tab_RDTest.class);
 		}
 		
-		if ("Notification.class".equals(className)) {
-			return (Widget) GWT.create(myApp.client.vi.home.report.Notification.class);
-		}
 	 
 	
 		

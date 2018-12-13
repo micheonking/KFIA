@@ -51,7 +51,7 @@ public class CeoGreeting extends ContentPanel {
 		margins.setBottom(5);
 		margins.setLeft(30);
 		hld.setMargins(margins);
-		hld.setWidth(550);
+		hld.setWidth(500);
 //		totalHBar.setWidth(800);
 //		totalHBar.add(content, new BoxLayoutData(new Margins(5, 0, 5, 45)));
 
