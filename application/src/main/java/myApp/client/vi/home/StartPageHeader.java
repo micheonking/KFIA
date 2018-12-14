@@ -7,7 +7,6 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.sencha.gxt.cell.core.client.TextButtonCell;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.ContentPanel;
-import com.sencha.gxt.widget.core.client.button.CellButtonBase;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
@@ -21,8 +20,6 @@ import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.LoginPage;
-import myApp.theme.tritium.custom.client.button.purple.PurpleButtonCellAppearance;
-import myApp.theme.tritium.custom.client.button.red.RedButtonCellAppearance;
 import myApp.theme.tritium.custom.client.button.white.WhiteButtonCellAppearance;
 
 public class StartPageHeader extends BorderLayoutContainer {
@@ -31,11 +28,8 @@ public class StartPageHeader extends BorderLayoutContainer {
 	protected static final String BTN_HEIGHT = "30";
 
 	Viewport viewport = new Viewport();
-//	private StartPage startPage;
 
 	public StartPageHeader(StartPage startPage) {
-
-//		this.startPage = startPage;
 
 		VBoxLayoutContainer center = new VBoxLayoutContainer();
 		center.setVBoxLayoutAlign(VBoxLayoutAlign.CENTER);
@@ -63,11 +57,11 @@ public class StartPageHeader extends BorderLayoutContainer {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				startPage.openTabPage(startPage.tabPanel, "");
-				int xPosition = logoButton.getAbsoluteLeft();
-				startPage.changePage(xPosition, "0");
+//				int xPosition = logoButton.getAbsoluteLeft();
+				startPage.changePage("0");
 			}
 		});
-		header.add(logoButton, new BoxLayoutData(new Margins(6, 180, 0, 5)));
+		header.add(logoButton, new BoxLayoutData(new Margins(6, 180, 0, 0)));
 		
 		// 버튼생성
 		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString(
@@ -100,10 +94,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 		textButton1.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-//				startPage.openTabPage(startPage.tabPanel, "회사소개");
-//				Info.display("", "" + logoButton.getAbsoluteLeft());
-				int xPosition = logoButton.getAbsoluteLeft();
-				startPage.changePage(xPosition, "1");
+				startPage.changePage("1");
 			}
 		});
 		textButton2.setHTML(button2Html);
@@ -114,9 +105,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 		textButton2.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-//				startPage.openTabPage(startPage.tabPanel, "투자일임");
-				int xPosition = logoButton.getAbsoluteLeft();
-				startPage.changePage(xPosition, "2");
+				startPage.changePage("2");
 			}
 		});
 		textButton3.setHTML(button3Html);
@@ -127,9 +116,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 		textButton3.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-//				startPage.openTabPage(startPage.tabPanel, "상품안내");
-				int xPosition = logoButton.getAbsoluteLeft();
-				startPage.changePage(xPosition, "3");
+				startPage.changePage("3");
 			}
 		});
 		textButton4.setHTML(button4Html);
@@ -139,9 +126,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 		textButton4.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-//				startPage.openTabPage(startPage.tabPanel, "KFIA소식");
-				int xPosition = logoButton.getAbsoluteLeft();
-				startPage.changePage(xPosition, "4");
+				startPage.changePage("4");
 			}
 		});
 //		textButton5.setHTML(button5Html);

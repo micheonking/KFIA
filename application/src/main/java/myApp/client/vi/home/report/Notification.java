@@ -40,8 +40,11 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 	private Grid<Bbs02_BoardModel> grid = this.buildGrid();
 
 	public Notification() {
+<<<<<<< HEAD
 		
 
+=======
+>>>>>>> refs/heads/miCheon
 		this.setHeaderVisible(false);
 
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();

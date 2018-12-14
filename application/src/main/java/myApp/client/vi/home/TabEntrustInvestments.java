@@ -1,7 +1,10 @@
 package myApp.client.vi.home;
 
+import com.google.gwt.event.logical.shared.ResizeEvent;
+import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Image;
 import com.sencha.gxt.cell.core.client.TextButtonCell;
 import com.sencha.gxt.core.client.util.Margins;
@@ -39,7 +42,18 @@ public class TabEntrustInvestments extends ContentPanel {
 
 	ContentPanel contentPanel  = new ContentPanel();
 
-	public TabEntrustInvestments() {
+//	public TabEntrustInvestments() {
+	public TabEntrustInvestments(StartPage startPage) {
+		this.addResizeHandler(new ResizeHandler() {
+			@Override
+			public void onResize(ResizeEvent event) {
+				resize(startPage);
+			}
+		});
+	}
+	
+	private void resize(StartPage startPage) {
+
 
 		this.setHeaderVisible(false);
 		this.setBorders(false);
@@ -67,7 +81,7 @@ public class TabEntrustInvestments extends ContentPanel {
 		Image lineImage0 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage1 = new Image(ResourceIcon.INSTANCE.verticalBar());
 
-		headerVBox.add(StartPage.getLabelToolItem("투자일임"));
+		headerVBox.add(StartPage.getLabelToolItem((Window.getClientWidth() - (CON_WIDTH+MENU_WIDTH))/2, "투자일임"));
 
 		menuVBox.add(lineImage0, new BoxLayoutData(new Margins(20, 0, 0, 0)));
 		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ투자일임안내　　　　</font></div> ");
