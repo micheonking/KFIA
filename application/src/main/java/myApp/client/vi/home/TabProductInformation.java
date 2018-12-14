@@ -33,28 +33,19 @@ public class TabProductInformation extends ContentPanel {
 	private SmartPrivateBond tabSmartPrivateBond  = new SmartPrivateBond();
 	private GlobalFund tabGlobalFund  = new GlobalFund();
 	
-	protected static final int MAX_WIDTH = 1024;
-	protected static final int MENU_WIDTH = 180;
-	
-	protected static final int CON_WIDTH = 800;
-	protected static final int CON_HEIGHT = 750;
-	
-	protected static final String BTN_WIDTH = ""+MENU_WIDTH;
-	protected static final String BTN_HEIGHT = "40";
-
 	ContentPanel contentPanel  = new ContentPanel();
 
-//	public TabProductInformation() {
-	public TabProductInformation(StartPage startPage) {
+	public TabProductInformation() {
 		this.addResizeHandler(new ResizeHandler() {
 			@Override
 			public void onResize(ResizeEvent event) {
-				resize(startPage);
+				resize();
 			}
 		});
+		resize();
 	}
 	
-	private void resize(StartPage startPage) {
+	private void resize() {
 
 		this.setHeaderVisible(false);
 		this.setBorders(false);
@@ -84,7 +75,7 @@ public class TabProductInformation extends ContentPanel {
 		Image lineImage2 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage3 = new Image(ResourceIcon.INSTANCE.verticalBar());
 
-		headerVBox.add(StartPage.getLabelToolItem((Window.getClientWidth() - (CON_WIDTH+MENU_WIDTH))/2, "상품안내"));
+		headerVBox.add(StartPage.getLabelToolItem((Window.getClientWidth() - (StartPage.CON_WIDTH+StartPage.MENU_WIDTH))/2, "상품안내"));
 
 		menuVBox.add(lineImage0, new BoxLayoutData(new Margins(20, 0, 0, 0)));
 		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ스마트 하이일드　　 </font></div> ");
@@ -95,7 +86,7 @@ public class TabProductInformation extends ContentPanel {
 		TextButton menuButton2 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		TextButton menuButton3 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 //		CellButtonBase menuButton1 = new CellButtonBase<>();
-		menuButton1.setSize(BTN_WIDTH, BTN_HEIGHT);
+		menuButton1.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton1.setHTML(button1Html);
 //		menuButton1.setBorders(true);
 		menuButton1.addSelectHandler(new SelectHandler() {
@@ -108,7 +99,7 @@ public class TabProductInformation extends ContentPanel {
 		menuVBox.add(lineImage1, new BoxLayoutData(lineImageMargins));
 
 //		CellButtonBase menuButton2 = new CellButtonBase<>();
-		menuButton2.setSize(BTN_WIDTH, BTN_HEIGHT);
+		menuButton2.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton2.setHTML(button2Html);
 //		menuButton2.setBorders(true);
 		menuButton2.addSelectHandler(new SelectHandler() {
@@ -121,7 +112,7 @@ public class TabProductInformation extends ContentPanel {
 		menuVBox.add(lineImage2, new BoxLayoutData(lineImageMargins));
 
 //		CellButtonBase menuButton3 = new CellButtonBase<>();
-		menuButton3.setSize(BTN_WIDTH, BTN_HEIGHT);
+		menuButton3.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton3.setHTML(button3Html);
 //		menuButton3.setBorders(true);
 		menuButton3.addSelectHandler(new SelectHandler() {
@@ -133,8 +124,8 @@ public class TabProductInformation extends ContentPanel {
 		menuVBox.add(menuButton3, new BoxLayoutData(buttonMargins));
 		menuVBox.add(lineImage3, new BoxLayoutData(lineImageMargins));
 
-		menuVBox.setWidth(MENU_WIDTH);
-		menuVBox.setHeight(CON_HEIGHT);
+//		menuVBox.setWidth(StartPage.MENU_WIDTH);
+//		menuVBox.setHeight(StartPage.CON_HEIGHT);
 		menuHBar.add(menuVBox, boxLayoutData);
 
 		totalHBar.add(menuHBar);
@@ -150,8 +141,8 @@ public class TabProductInformation extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(CON_WIDTH);
-		contentPanel.setHeight(CON_HEIGHT);
+		contentPanel.setWidth(StartPage.CON_WIDTH);
+		contentPanel.setHeight(StartPage.CON_HEIGHT);
 		contentPanel.setWidget(tabSmartHeild);
 
 		return contentPanel;
@@ -161,8 +152,8 @@ public class TabProductInformation extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(CON_WIDTH);
-		contentPanel.setHeight(CON_HEIGHT);
+		contentPanel.setWidth(StartPage.CON_WIDTH);
+		contentPanel.setHeight(StartPage.CON_HEIGHT);
 		contentPanel.setWidget(tabSmartPrivateBond);
 
 		return contentPanel;
@@ -172,8 +163,8 @@ public class TabProductInformation extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(CON_WIDTH);
-		contentPanel.setHeight(CON_HEIGHT);
+		contentPanel.setWidth(StartPage.CON_WIDTH);
+		contentPanel.setHeight(StartPage.CON_HEIGHT);
 		contentPanel.setWidget(tabGlobalFund);
 
 		return contentPanel;

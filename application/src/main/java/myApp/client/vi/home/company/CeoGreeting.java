@@ -48,17 +48,18 @@ public class CeoGreeting extends ContentPanel {
 		Margins margins = new Margins();
 		margins.setTop(5);
 		margins.setRight(25);
-		margins.setBottom(5);
+		margins.setBottom(0);
 		margins.setLeft(30);
 		hld.setMargins(margins);
 		hld.setWidth(550);
+		hld.setHeight(900);
 //		totalHBar.setWidth(800);
 //		totalHBar.add(content, new BoxLayoutData(new Margins(5, 0, 5, 45)));
 
 	    
 		Label content = new HTML("<font color='#606060' >"
 				+	"<span style=\"font-weight:bold;font-size:1.2em;\">안녕하세요!</span><br>"
-				+	"<br><span style=\"font-weight:bold;font-size:0.9em;\">"
+				+	"<br><span style=\"font-weight:normal;font-size:0.9em;\">"
 				+	"먼저 한국채권투자자문 홈페이지를 찾아주신 데 대해 감사 드립니다.<br>"
 				+	"저희 회사는 채권과 펀드에 특화된 투자자문회사로 투자일임업과 투자자문업을 영위하고 있습니다.<br>"
 				+	"<br>"

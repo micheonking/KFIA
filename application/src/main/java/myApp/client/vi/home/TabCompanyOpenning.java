@@ -9,7 +9,6 @@ import com.google.gwt.user.client.ui.Image;
 import com.sencha.gxt.cell.core.client.TextButtonCell;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.ContentPanel;
-import com.sencha.gxt.widget.core.client.button.CellButtonBase;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
@@ -18,7 +17,6 @@ import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
-import com.sencha.gxt.widget.core.client.info.Info;
 
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.home.company.CeoGreeting;
@@ -34,29 +32,19 @@ public class TabCompanyOpenning extends ContentPanel {
 	private OperationOrganization tabOperationOrganization  = new OperationOrganization();
 	private YourWay tabYourWay  = new YourWay();
 	
-	protected static final int MAX_WIDTH = 1024;
-	protected static final int MENU_WIDTH = 180;
-	
-	protected static final int CON_WIDTH = 800;
-	protected static final int CON_HEIGHT = 750;
-	
-	protected static final String BTN_WIDTH = ""+MENU_WIDTH;
-	protected static final String BTN_HEIGHT = "40";
-
 	ContentPanel contentPanel  = new ContentPanel();
 
-//	public TabCompanyOpenning() {
-	public TabCompanyOpenning(StartPage startPage) {
+	public TabCompanyOpenning() {
 		this.addResizeHandler(new ResizeHandler() {
 			@Override
 			public void onResize(ResizeEvent event) {
-				resize(startPage);
+				resize();
 			}
 		});
+		resize();
 	}
 	
-	private void resize(StartPage startPage) {
-
+	private void resize() {
 		this.setHeaderVisible(false);
 		this.setBorders(false);
 
@@ -86,7 +74,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		Image lineImage3 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage4 = new Image(ResourceIcon.INSTANCE.verticalBar());
 
-		headerVBox.add(StartPage.getLabelToolItem((Window.getClientWidth() - (CON_WIDTH+MENU_WIDTH))/2, "회사소개"));
+		headerVBox.add(StartPage.getLabelToolItem((Window.getClientWidth() - (StartPage.CON_WIDTH+StartPage.MENU_WIDTH))/2, "회사소개"));
 		//, new BoxLayoutData(new Margins(2, 50, 100, 0)));
 //		Label labelHtml = new HTML(
 ////				"<center><font size='2' color=#aaaaaa><p style='background-color: #023d69;'>"+ textHtml +"</p></font></center>");
@@ -141,7 +129,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		TextButton menuButton3 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		TextButton menuButton4 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 //		CellButtonBase menuButton1 = new CellButtonBase<>();
-		menuButton1.setSize(BTN_WIDTH, BTN_HEIGHT);
+		menuButton1.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton1.setHTML(button1Html);
 //		menuButton1.setBorders(true);
 		menuButton1.addSelectHandler(new SelectHandler() {
@@ -154,7 +142,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuVBox.add(lineImage1, new BoxLayoutData(lineImageMargins));
 
 //		CellButtonBase menuButton2 = new CellButtonBase<>();
-		menuButton2.setSize(BTN_WIDTH, BTN_HEIGHT);
+		menuButton2.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton2.setHTML(button2Html);
 //		menuButton2.setBorders(true);
 		menuButton2.addSelectHandler(new SelectHandler() {
@@ -167,7 +155,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuVBox.add(lineImage2, new BoxLayoutData(lineImageMargins));
 
 //		CellButtonBase menuButton3 = new CellButtonBase<>();
-		menuButton3.setSize(BTN_WIDTH, BTN_HEIGHT);
+		menuButton3.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton3.setHTML(button3Html);
 //		menuButton3.setBorders(true);
 		menuButton3.addSelectHandler(new SelectHandler() {
@@ -180,7 +168,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuVBox.add(lineImage3, new BoxLayoutData(lineImageMargins));
 
 //		CellButtonBase menuButton4 = new CellButtonBase<>();
-		menuButton4.setSize(BTN_WIDTH, BTN_HEIGHT);
+		menuButton4.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton4.setHTML(button4Html);
 //		menuButton4.setBorders(true);
 		menuButton4.addSelectHandler(new SelectHandler() {
@@ -192,8 +180,8 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuVBox.add(menuButton4, new BoxLayoutData(buttonMargins));
 		menuVBox.add(lineImage4, new BoxLayoutData(lineImageMargins));
 
-		menuVBox.setWidth(MENU_WIDTH);
-		menuVBox.setHeight(CON_HEIGHT);
+//		menuVBox.setWidth(StartPage.MENU_WIDTH);
+//		menuVBox.setHeight(StartPage.CON_HEIGHT);
 //		menuVBox.setBorders(true);
 
 		menuHBar.add(menuVBox, boxLayoutData);
@@ -209,47 +197,46 @@ public class TabCompanyOpenning extends ContentPanel {
 	}
 
 	private ContentPanel getCeoGreeting() {
-		
+
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(CON_WIDTH);
-		contentPanel.setHeight(CON_HEIGHT);
+		contentPanel.setWidth(StartPage.CON_WIDTH);
+		contentPanel.setHeight(StartPage.CON_HEIGHT);
 		contentPanel.setWidget(tabCeoGreeting);
 
 		return contentPanel;
 	}
 
 	private ContentPanel getCompanyOpening() {
-		
+
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(CON_WIDTH);
-		contentPanel.setHeight(CON_HEIGHT);
+		contentPanel.setWidth(StartPage.CON_WIDTH);
+		contentPanel.setHeight(StartPage.CON_HEIGHT);
 		contentPanel.setWidget(tabCompanyOpening);
 
 		return contentPanel;
 	}
 	
 	private ContentPanel getOperationOrganization() {
-		
+
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(CON_WIDTH);
-		contentPanel.setHeight(CON_HEIGHT);
+		contentPanel.setWidth(StartPage.CON_WIDTH);
+		contentPanel.setHeight(StartPage.CON_HEIGHT);
 		contentPanel.setWidget(tabOperationOrganization);
 
 		return contentPanel;
 	}
 
 	private ContentPanel getYourWay() {
-		
+
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(CON_WIDTH);
-		contentPanel.setHeight(CON_HEIGHT);
+		contentPanel.setWidth(StartPage.CON_WIDTH);
+		contentPanel.setHeight(StartPage.CON_HEIGHT);
 		contentPanel.setWidget(tabYourWay);
 
 		return contentPanel;
 	}
-
 }

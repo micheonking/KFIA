@@ -24,9 +24,6 @@ import myApp.theme.tritium.custom.client.button.white.WhiteButtonCellAppearance;
 
 public class StartPageHeader extends BorderLayoutContainer {
 
-	protected static final String BTN_WIDTH = "80";
-	protected static final String BTN_HEIGHT = "30";
-
 	Viewport viewport = new Viewport();
 
 	public StartPageHeader(StartPage startPage) {
@@ -84,7 +81,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 		TextButton textButton5 = new TextButton("");
 
 		textButton1.setHTML(button1Html);
-		textButton1.setSize(BTN_WIDTH, BTN_HEIGHT);
+		textButton1.setSize(StartPage.WBTN_WIDTH, StartPage.WBTN_HEIGHT);
 //		textButton1.setBorders(true);
 //		textButton1.getElement().getStyle().setProperty("color", "#606060"); // font color 변경
 //		textButton1.getElement().getStyle().setProperty("fontWeight", "bold"); // font color 변경
@@ -98,7 +95,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 			}
 		});
 		textButton2.setHTML(button2Html);
-		textButton2.setSize(BTN_WIDTH, BTN_HEIGHT);
+		textButton2.setSize(StartPage.WBTN_WIDTH, StartPage.WBTN_HEIGHT);
 //		textButton2.setBorders(true);
 		header.add(textButton2, boxLayoutData);
 		header.add(lineImage2, boxLayoutData1);
@@ -109,7 +106,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 			}
 		});
 		textButton3.setHTML(button3Html);
-		textButton3.setSize(BTN_WIDTH, BTN_HEIGHT);
+		textButton3.setSize(StartPage.WBTN_WIDTH, StartPage.WBTN_HEIGHT);
 //		textButton3.setBorders(true);
 		header.add(textButton3, boxLayoutData);
 		header.add(lineImage3, boxLayoutData1);
@@ -120,7 +117,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 			}
 		});
 		textButton4.setHTML(button4Html);
-		textButton4.setSize(BTN_WIDTH, BTN_HEIGHT);
+		textButton4.setSize(StartPage.WBTN_WIDTH, StartPage.WBTN_HEIGHT);
 //		textButton4.setBorders(true);
 		header.add(textButton4, boxLayoutData);
 		textButton4.addSelectHandler(new SelectHandler() {

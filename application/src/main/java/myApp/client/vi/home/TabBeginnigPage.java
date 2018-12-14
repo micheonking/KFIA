@@ -12,21 +12,21 @@ import myApp.client.vi.home.beginning.CoverPageHeader;
 
 public class TabBeginnigPage extends BorderLayoutContainer {
 	
-	protected static final int WIN_WIDTH = Window.getClientWidth();
-	protected static final int WIN_HEIGHT = Window.getClientHeight();
-	protected static final int IMG_WIDTH = 1950;
-	protected static final int IMG_HEIGHT = 378;
+	protected final int WIN_WIDTH = Window.getClientWidth();
+//	protected final int WIN_HEIGHT = Window.getClientHeight();
+	protected final int IMG_WIDTH = 1950;
+	protected final int IMG_HEIGHT = 378;
 	
-	public TabBeginnigPage(StartPage startPage) {
+	public TabBeginnigPage() {
 		this.addResizeHandler(new ResizeHandler() {
 			@Override
 			public void onResize(ResizeEvent event) {
-				resize(startPage);
+				resize();
 			}
 		});
 	}
 	
-	private void resize(StartPage startPage) {
+	private void resize() {
 
 		int imageWidth = Window.getClientWidth();
 		int imageHeight = (IMG_HEIGHT * Window.getClientWidth()) / IMG_WIDTH;

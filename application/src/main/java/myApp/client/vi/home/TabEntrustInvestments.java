@@ -31,29 +31,19 @@ public class TabEntrustInvestments extends ContentPanel {
 
 	private EntrustInvestment tabEntrustInvestment  = new EntrustInvestment();
 	
-	protected static final int MAX_WIDTH = 1024;
-	protected static final int MENU_WIDTH = 180;
-	
-	protected static final int CON_WIDTH = 800;
-	protected static final int CON_HEIGHT = 750;
-	
-	protected static final String BTN_WIDTH = ""+MENU_WIDTH;
-	protected static final String BTN_HEIGHT = "40";
-
 	ContentPanel contentPanel  = new ContentPanel();
 
-//	public TabEntrustInvestments() {
-	public TabEntrustInvestments(StartPage startPage) {
+	public TabEntrustInvestments() {
 		this.addResizeHandler(new ResizeHandler() {
 			@Override
 			public void onResize(ResizeEvent event) {
-				resize(startPage);
+				resize();
 			}
 		});
+		resize();
 	}
 	
-	private void resize(StartPage startPage) {
-
+	private void resize() {
 
 		this.setHeaderVisible(false);
 		this.setBorders(false);
@@ -81,7 +71,7 @@ public class TabEntrustInvestments extends ContentPanel {
 		Image lineImage0 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage1 = new Image(ResourceIcon.INSTANCE.verticalBar());
 
-		headerVBox.add(StartPage.getLabelToolItem((Window.getClientWidth() - (CON_WIDTH+MENU_WIDTH))/2, "투자일임"));
+		headerVBox.add(StartPage.getLabelToolItem((Window.getClientWidth() - (StartPage.CON_WIDTH+StartPage.MENU_WIDTH))/2, "투자일임"));
 
 		menuVBox.add(lineImage0, new BoxLayoutData(new Margins(20, 0, 0, 0)));
 		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ투자일임안내　　　　</font></div> ");
@@ -89,7 +79,7 @@ public class TabEntrustInvestments extends ContentPanel {
 		TextButton menuButton1 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 
 //		CellButtonBase menuButton1 = new CellButtonBase<>();
-		menuButton1.setSize(BTN_WIDTH, BTN_HEIGHT);
+		menuButton1.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton1.setHTML(button1Html);
 //		menuButton1.setBorders(true);
 		menuButton1.addSelectHandler(new SelectHandler() {
@@ -101,8 +91,8 @@ public class TabEntrustInvestments extends ContentPanel {
 		menuVBox.add(menuButton1, new BoxLayoutData(buttonMargins));
 		menuVBox.add(lineImage1, new BoxLayoutData(lineImageMargins));
 
-		menuVBox.setWidth(MENU_WIDTH);
-		menuVBox.setHeight(CON_HEIGHT);
+//		menuVBox.setWidth(StartPage.MENU_WIDTH);
+//		menuVBox.setHeight(StartPage.CON_HEIGHT);
 		menuHBar.add(menuVBox, boxLayoutData);
 
 		totalHBar.add(menuHBar);
@@ -118,8 +108,8 @@ public class TabEntrustInvestments extends ContentPanel {
 		
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
-		contentPanel.setWidth(CON_WIDTH);
-		contentPanel.setHeight(CON_HEIGHT);
+		contentPanel.setWidth(StartPage.CON_WIDTH);
+		contentPanel.setHeight(StartPage.CON_HEIGHT);
 		contentPanel.setWidget(tabEntrustInvestment);
 
 		return contentPanel;

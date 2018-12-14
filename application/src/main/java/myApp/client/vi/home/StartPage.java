@@ -18,17 +18,28 @@ import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 public class StartPage extends BorderLayoutContainer {
 
-	protected static final int WIN_WIDTH = Window.getClientWidth();
-	protected static final int WIN_HEIGHT = Window.getClientHeight();
-	protected static final int HEADER_HEIGHT = 70;
-	protected static final int FOOTER_HEIGHT = 50;
-	protected static final int CENTER_HEIGHT = 250;
-	protected static final int TITLE_HEIGHT = 60;
+	protected final int WIN_WIDTH = Window.getClientWidth();
+	protected final int WIN_HEIGHT = Window.getClientHeight();
+	protected final int HEADER_HEIGHT = 70;
+	protected final int FOOTER_HEIGHT = 50;
+	protected final int CENTER_HEIGHT = 250;
+	protected final static int TITLE_HEIGHT = 60;
+
+	protected static final int MAX_WIDTH = 1024;
+
+	protected static final int MENU_WIDTH = 180;
+	protected static final int MENU_HEIGHT = 900;
+	protected static final int CON_WIDTH = 800;
+	protected static final int CON_HEIGHT = Window.getClientHeight() - 253;
+	protected static final String WBTN_WIDTH = "80";
+	protected static final String WBTN_HEIGHT = "30";
+	protected static final String BTN_WIDTH = ""+MENU_WIDTH;
+	protected static final String BTN_HEIGHT = "40";
 
 	private StartPageHeader startPageHeader = new StartPageHeader(this);
 	private StartPageFooter startPageFooter = new StartPageFooter();
 //	public static PlainTabPanel tabPanel = new PlainTabPanel();
-	private StartPage startPage;
+//	private StartPage startPage;
 	
 	public StartPage() {
 
@@ -60,23 +71,23 @@ public class StartPage extends BorderLayoutContainer {
 
 		switch (pageName) {
 		case "1" :
-			TabCompanyOpenning tabCompanyOpenning = new TabCompanyOpenning(startPage);
+			TabCompanyOpenning tabCompanyOpenning = new TabCompanyOpenning();
 			this.setCenterWidget(tabCompanyOpenning, centerLayoutData);
 			break;
 		case "2" :
-			TabEntrustInvestments tabEntrustInvestments = new TabEntrustInvestments(startPage);
+			TabEntrustInvestments tabEntrustInvestments = new TabEntrustInvestments();
 			this.setCenterWidget(tabEntrustInvestments, centerLayoutData);
 			break;
 		case "3" :
-			TabProductInformation tabProductInformation = new TabProductInformation(startPage);
+			TabProductInformation tabProductInformation = new TabProductInformation();
 			this.setCenterWidget(tabProductInformation, centerLayoutData);
 			break;
 		case "4" :
-			TabReportNews tabReportNews = new TabReportNews(startPage);
+			TabReportNews tabReportNews = new TabReportNews();
 			this.setCenterWidget(tabReportNews, centerLayoutData);
 			break;
 		default :
-			TabBeginnigPage tabBeginnigPage = new TabBeginnigPage(startPage);
+			TabBeginnigPage tabBeginnigPage = new TabBeginnigPage();
 			this.setCenterWidget(tabBeginnigPage, centerLayoutData);
 			break;
 		}
