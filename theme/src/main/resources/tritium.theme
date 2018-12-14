@@ -1148,8 +1148,8 @@ theme {
       overTabItemOpacity = 0.08
       padding {
         bottom = 8
-        left = 10
-        right = 10
+        left = 0
+        right = 0
         top = 8
       }
       paddingWithClosable {
@@ -1185,9 +1185,9 @@ theme {
       plainTabStripSpacerBorder = 0
       scrollerBackgroundColor = "#5fa2dd"
       scrollerLeftDisabledOpacity = 0.5
-      scrollerLeftOverOpacity = 10
+      scrollerLeftOverOpacity = 1
       scrollerRightDisabledOpacity = 0.5
-      scrollerRightOverOpacity = 10
+      scrollerRightOverOpacity = 1
       scrollerWidth = 24
       tabBarBorder = "none" // "solid"	// delete me...
       tabBarBottomHeight = 0
@@ -1212,8 +1212,8 @@ theme {
       }
       tabTextPadding {
         bottom = 10
-        left = 0
-        right = 0
+        left = 10
+        right = 10
         top = 10
       }
     }
