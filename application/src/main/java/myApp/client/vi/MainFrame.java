@@ -16,6 +16,7 @@ import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.core.client.util.Padding;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.PlainTabPanel;
+import com.sencha.gxt.widget.core.client.TabItemConfig;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.button.ToolButton;
 import com.sencha.gxt.widget.core.client.container.AccordionLayoutContainer;
@@ -32,6 +33,7 @@ import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
+import com.sencha.tools.slicer.Model.Widget;
 
 import myApp.client.kfiaEntryPoint;
 import myApp.client.resource.ResourceIcon;
@@ -59,14 +61,22 @@ public class MainFrame extends BorderLayoutContainer {
 		//westLayoutData.setCollapseMini(true);
 		this.setWestWidget(this.getWestLayout(), westLayoutData);
 		//this.setWestWidget(treeMenu.getMenuTree()); 
-				
+
+		tabPanel.getElement().getStyle().clearMarginLeft();
+		//.setLeft(7);
+		//.getElement().get.getStyle().set("color", "#666666"); // font color 변경
+		tabPanel.setTabMargin(8);
 		tabPanel.setTabScroll(true);
 		tabPanel.setBorders(true);
         tabPanel.setAnimScroll(true);
         tabPanel.setTabScroll(true);
         tabPanel.setCloseContextMenu(true);
-        
-		tabPanel.add(new TabBorder(), "Notification..."); // my page setting
+//        
+//        Widget item = t.getSelectedItem();
+//        TabItemConfig config = tabPanel.getConfig(item);
+//        String name = config.getText();
+
+		tabPanel.add(new TabBorder(), "달력"); // my page setting
 
 		VerticalLayoutContainer vlc = new VerticalLayoutContainer(); 
 		vlc.add(tabPanel, new VerticalLayoutData(1, 1, new Margins(0, 0, 0, 0)));
