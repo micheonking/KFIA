@@ -64,8 +64,8 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 		@Override
 		public void onSelectionChanged(SelectionChangedEvent<Bbs02_BoardModel> event) {
 //			popupPage();
-			int xPosition = mainButton.getAbsoluteLeft();
-			startPage.changePage(xPosition, "4");
+//			int xPosition = mainButton.getAbsoluteLeft();
+			startPage.changePage("4");
 		}
 		});
 			
@@ -78,8 +78,8 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 //		@Override
 //		public void onSelect(SelectEvent event) {
 	Info.display("","asd");
-			int xPosition = mainButton.getAbsoluteLeft();
-			startPage.changePage(xPosition, "4");
+//			int xPosition = mainButton.getAbsoluteLeft();
+			startPage.changePage("4");
 //		}
 		
 		Info.display("","123456");

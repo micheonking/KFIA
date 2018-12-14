@@ -1,7 +1,10 @@
 package myApp.client.vi.home;
 
+import com.google.gwt.event.logical.shared.ResizeEvent;
+import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Image;
 import com.sencha.gxt.cell.core.client.TextButtonCell;
 import com.sencha.gxt.core.client.util.Margins;
@@ -41,7 +44,17 @@ public class TabProductInformation extends ContentPanel {
 
 	ContentPanel contentPanel  = new ContentPanel();
 
-	public TabProductInformation() {
+//	public TabProductInformation() {
+	public TabProductInformation(StartPage startPage) {
+		this.addResizeHandler(new ResizeHandler() {
+			@Override
+			public void onResize(ResizeEvent event) {
+				resize(startPage);
+			}
+		});
+	}
+	
+	private void resize(StartPage startPage) {
 
 		this.setHeaderVisible(false);
 		this.setBorders(false);
@@ -71,7 +84,7 @@ public class TabProductInformation extends ContentPanel {
 		Image lineImage2 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage3 = new Image(ResourceIcon.INSTANCE.verticalBar());
 
-		headerVBox.add(StartPage.getLabelToolItem("상품안내"));
+		headerVBox.add(StartPage.getLabelToolItem((Window.getClientWidth() - (CON_WIDTH+MENU_WIDTH))/2, "상품안내"));
 
 		menuVBox.add(lineImage0, new BoxLayoutData(new Margins(20, 0, 0, 0)));
 		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ스마트 하이일드　　 </font></div> ");

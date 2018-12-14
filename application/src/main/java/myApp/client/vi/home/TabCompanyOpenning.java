@@ -1,7 +1,10 @@
 package myApp.client.vi.home;
 
+import com.google.gwt.event.logical.shared.ResizeEvent;
+import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Image;
 import com.sencha.gxt.cell.core.client.TextButtonCell;
 import com.sencha.gxt.core.client.util.Margins;
@@ -15,6 +18,7 @@ import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
+import com.sencha.gxt.widget.core.client.info.Info;
 
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.home.company.CeoGreeting;
@@ -41,7 +45,17 @@ public class TabCompanyOpenning extends ContentPanel {
 
 	ContentPanel contentPanel  = new ContentPanel();
 
-	public TabCompanyOpenning() {
+//	public TabCompanyOpenning() {
+	public TabCompanyOpenning(StartPage startPage) {
+		this.addResizeHandler(new ResizeHandler() {
+			@Override
+			public void onResize(ResizeEvent event) {
+				resize(startPage);
+			}
+		});
+	}
+	
+	private void resize(StartPage startPage) {
 
 		this.setHeaderVisible(false);
 		this.setBorders(false);
@@ -72,7 +86,8 @@ public class TabCompanyOpenning extends ContentPanel {
 		Image lineImage3 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage4 = new Image(ResourceIcon.INSTANCE.verticalBar());
 
-		headerVBox.add(StartPage.getLabelToolItem("회사소개"));//, new BoxLayoutData(new Margins(2, 50, 100, 0)));
+		headerVBox.add(StartPage.getLabelToolItem((Window.getClientWidth() - (CON_WIDTH+MENU_WIDTH))/2, "회사소개"));
+		//, new BoxLayoutData(new Margins(2, 50, 100, 0)));
 //		Label labelHtml = new HTML(
 ////				"<center><font size='2' color=#aaaaaa><p style='background-color: #023d69;'>"+ textHtml +"</p></font></center>");
 ////		SafeHtml label2Html = SafeHtmlUtils.fromTrustedString(	
@@ -188,7 +203,6 @@ public class TabCompanyOpenning extends ContentPanel {
 		totalHBar.add(getCeoGreeting());
 
 		centerVBox.add(totalHBar);
-
 		headerVBox.add(centerVBox);
 		this.add(headerVBox);
 
