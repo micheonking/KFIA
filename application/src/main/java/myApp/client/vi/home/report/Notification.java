@@ -23,6 +23,7 @@ import myApp.client.grid.InterfaceGridOperate;
 import myApp.client.resource.ResourceIcon;
 import myApp.client.service.GridRetrieveData;
 import myApp.client.utils.InterfaceCallbackResult;
+import myApp.client.vi.LoginUser;
 import myApp.client.vi.bbs.model.Bbs01_BoardModel;
 import myApp.client.vi.bbs.model.Bbs02_BoardModel;
 import myApp.client.vi.bbs.model.Bbs02_BoardModelProperties;
@@ -39,7 +40,7 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 	private Grid<Bbs02_BoardModel> grid = this.buildGrid();
 
 	public Notification() {
-		Info.display("","notification~~~~~~~~~~~~~");
+		
 
 		this.setHeaderVisible(false);
 
@@ -73,7 +74,16 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 			
 			@Override
 			public void onSelectionChanged(SelectionChangedEvent<Bbs02_BoardModel> event) {
-					popupPage(); 
+//					popupPage();
+				Bbs02_BoardModel boardModel = grid.getSelectionModel().getSelectedItem();
+				
+				NotificationPopUp lookupResrch = new NotificationPopUp();
+				lookupResrch.open(boardModel, new InterfaceCallbackResult() {
+					@Override
+					public void execute(Object result) {
+						retrieve();
+					}
+				});
 			}
 		});
 
@@ -106,8 +116,11 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 	@Override
 	public void retrieve() {
 		GridRetrieveData<Bbs02_BoardModel> service = new GridRetrieveData<Bbs02_BoardModel>(grid.getStore());
+		Bbs02_BoardModel boardModel = new Bbs02_BoardModel();
+		service.addParam("boardId",boardModel.getBoardId());
 		service.addParam("typeCode", "notice");
 		service.addParam("setCount", (long)1000);
+		Info.display("","boardModel.getBoardId() :======= "+ boardModel.getBoardId());
 		service.retrieve("bbs.Bbs02_Board.selectByTypeCode");
 	}
 
