@@ -16,6 +16,7 @@ import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.core.client.util.Padding;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.PlainTabPanel;
+import com.sencha.gxt.widget.core.client.TabItemConfig;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.button.ToolButton;
 import com.sencha.gxt.widget.core.client.container.AccordionLayoutContainer;
@@ -32,6 +33,7 @@ import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
+import com.sencha.tools.slicer.Model.Widget;
 
 import myApp.client.kfiaEntryPoint;
 import myApp.client.resource.ResourceIcon;
@@ -65,7 +67,11 @@ public class MainFrame extends BorderLayoutContainer {
         tabPanel.setAnimScroll(true);
         tabPanel.setTabScroll(true);
         tabPanel.setCloseContextMenu(true);
-        
+//        
+//        Widget item = t.getSelectedItem();
+//        TabItemConfig config = tabPanel.getConfig(item);
+//        String name = config.getText();
+
 		tabPanel.add(new TabBorder(), "Notification..."); // my page setting
 
 		VerticalLayoutContainer vlc = new VerticalLayoutContainer(); 

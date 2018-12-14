@@ -1133,9 +1133,9 @@ theme {
         size = "13px"
         weight = "400"
       }
-      hoverGradient = "rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%"
+      hoverGradient = "rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%"
       hoverHeadingText = headingText
-      hoverTabItemBackgroundColor = "rgba(0, 0, 0, 0.07)"
+      hoverTabItemBackgroundColor = "rgba(0, 0, 0, 0.08)"
       iconLeftOffset = 6
       iconTopOffset = 5
       iconWidth = 16

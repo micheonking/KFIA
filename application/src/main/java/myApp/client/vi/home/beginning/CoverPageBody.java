@@ -22,6 +22,7 @@ import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.bbs.Bbs02_Tab_Board;
 import myApp.client.vi.bbs.Bbs02_Tab_News;
+import myApp.client.vi.home.StartPage;
 import myApp.theme.tritium.custom.client.button.white.WhiteButtonCellAppearance;
 
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
@@ -40,9 +41,9 @@ public class CoverPageBody extends ContentPanel {
 //		this.setBorders(true);
 
 //		FirmHeadTitle titleLeft = new FirmHeadTitle();
-		CoverPageBodyLeft west = new CoverPageBodyLeft();
-		CoverPageBodyMiddle center = new CoverPageBodyMiddle();
-		CoverPageBodyRight east = new CoverPageBodyRight();
+//		CoverPageBodyLeft west = new CoverPageBodyLeft();
+//		CoverPageBodyMiddle center = new CoverPageBodyMiddle();
+//		CoverPageBodyRight east = new CoverPageBodyRight();
 
 		VBoxLayoutContainer centerVBox = new VBoxLayoutContainer();
 		centerVBox.setVBoxLayoutAlign(VBoxLayoutAlign.CENTER);
@@ -140,6 +141,7 @@ public class CoverPageBody extends ContentPanel {
 //				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
 				Info.display("","1");
 //				startPage.changePage("4");
+//				StartPage.changePage(xPosition, "4");
 			}
 		});
 

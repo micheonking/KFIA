@@ -9,13 +9,13 @@
 
 
 /* Pressed Color */
-@def PRESSED_BACKGROUND_COLOR #e8e8e8;
-@def PRESSED_GRADIENT #e8e8e8;
+@def PRESSED_BACKGROUND_COLOR #ffffff;
+@def PRESSED_GRADIENT #ffffff;
 
 
 /* Focused Color */
-@def OVER_BACKGROUND_COLOR #f0f0f0;
-@def OVER_GRADIENT #f0f0f0;
+@def OVER_BACKGROUND_COLOR #ffffff;
+@def OVER_GRADIENT #ffffff;
 
 
 .button {
