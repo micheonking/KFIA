@@ -1,10 +1,13 @@
 package myApp.client.vi.home.report;
 
+<<<<<<< HEAD
 import java.util.Map;
 
 import org.apache.tools.ant.taskdefs.Javadoc.Html;
 
 import com.gargoylesoftware.htmlunit.html.HtmlArea;
+=======
+>>>>>>> refs/heads/jhJang
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
@@ -12,47 +15,34 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextArea;
-import com.sencha.gxt.cell.core.client.ButtonCell.IconAlign;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.Window;
-import com.sencha.gxt.widget.core.client.button.CellButtonBase;
 import com.sencha.gxt.widget.core.client.button.TextButton;
-import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutPack;
 import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
-import com.sencha.gxt.widget.core.client.event.CollapseEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
-import com.sencha.gxt.widget.core.client.event.CollapseEvent.CollapseHandler;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.form.DateField;
 import com.sencha.gxt.widget.core.client.form.FieldLabel;
 import com.sencha.gxt.widget.core.client.form.FormPanel;
-import com.sencha.gxt.widget.core.client.form.HtmlEditor;
-import com.sencha.gxt.widget.core.client.form.LongField;
 import com.sencha.gxt.widget.core.client.form.TextField;
 import com.sencha.gxt.widget.core.client.grid.Grid;
 import com.sencha.gxt.widget.core.client.info.Info;
-import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.resource.ResourceIcon;
-import myApp.client.service.GridUpdate;
 import myApp.client.service.InterfaceCallback;
-import myApp.client.service.InterfaceServiceCall;
-import myApp.client.service.ServiceResult;
 import myApp.client.utils.FileUpdownForm;
 import myApp.client.utils.InterfaceCallbackResult;
 import myApp.client.utils.JSCaller;
-import myApp.client.utils.SimpleMessage;
 import myApp.client.vi.bbs.model.Bbs02_BoardModel;
 import myApp.client.vi.home.StartPage;
-import myApp.client.vi.pln.model.Pln03_ResrchModel;
 import myApp.client.vi.sys.Sys10_Lookup_MultiFile;
-import myApp.client.vi.sys.model.Sys90_AfterServiceModel;
 
-public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel>  {
+public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel> {
+
 
 	interface EditDriver extends SimpleBeanEditorDriver<Bbs02_BoardModel, NotificationPopUp>{}
 	
@@ -64,27 +54,46 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 	DateField settleDate = new DateField();
 	TextArea contents  = new TextArea();
 	
-	private Long		boardId;
 	private InterfaceCallbackResult callback;
+<<<<<<< HEAD
 	private FileUpdownForm fileUpdownForm = new FileUpdownForm();
+=======
+	
+	Sys10_Lookup_MultiFile fileForm = new Sys10_Lookup_MultiFile(null, "Y", 120) ;
+//	private FileUpdownForm fileUpdownForm = new FileUpdownForm();
+>>>>>>> refs/heads/jhJang
 	
 	
 	public void open( Bbs02_BoardModel boardModel,InterfaceCallbackResult callback) {
 		
-		this.boardId = boardId;
 		this.callback = callback;
+		this.boardModel = boardModel;
 		this.setHeaderVisible(false);
 		this.setModal(true);
 		this.setBorders(false);
 		this.setResizable(false);
-		this.setSize("1000",  "920");
+//		this.setSize("1000",  "920");
 		this.grid = grid;
+		this.setSize("900",  "920");
 		editDriver.initialize(this);
 		editDriver.edit(boardModel);
+		fileForm.retrieve(boardModel.getBoardId());
 		
 		this.setButtonAlign(BoxLayoutPack.CENTER);
 //		editDriver.edit(boardModel);
 		this.add(this.getEditor());
+		
+
+		TextButton updateButton = new TextButton("저장"); 
+		updateButton.setWidth(50);
+		updateButton.addSelectHandler(new SelectHandler(){
+
+			@Override
+			public void onSelect(SelectEvent event) {
+				update(); 
+			}
+		}); 
+		this.getButtonBar().add(updateButton);
 		
 		TextButton closeButton = new TextButton("닫기"); 
 		closeButton.setWidth(50);
@@ -111,13 +120,21 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 //		this.getButtonBar().add(btn);
 		this.show();
 	}
-	
+
+	protected void retrieve() {
+		
+	}
+
+	protected void update() {
+		
+	}
 
 	private FormPanel getEditor() {
 		
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 		
 		HorizontalLayoutContainer row01 = new HorizontalLayoutContainer();
+<<<<<<< HEAD
 
 		row01.add(new FieldLabel(titleName, "제목"), new HorizontalLayoutData(500,-1, new Margins(0, 10, 0, 0)));
 		row01.add(new FieldLabel(settleDate, "작성일"), new HorizontalLayoutData(408,-1, new Margins(0, 10, 0, 0)));
@@ -128,40 +145,66 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 		HorizontalLayoutContainer row03 = new HorizontalLayoutContainer();
 		row03.add(new FieldLabel(contents, "내용"), new HorizontalLayoutData(900,450, new Margins(40,0,0,0)));
 		
+=======
+		row01.add(new FieldLabel(titleName, "제목"), new HorizontalLayoutData(680,-1, new Margins(10, 10, 0, 50)));
+>>>>>>> refs/heads/jhJang
 		
-		Label labelHtml = new HTML(	
-				 "<table width=700 height=160>"
-				+"<tr>"
-				+"<th style='background-color: #f7f7f7;'>제목</th>"
-				+"<td>" + titleName.getText() + "</td>"
-				+"</tr>"
-				+"<tr>"
-				+"<th style='background-color: #f7f7f7;'>작성일</th>"
-				+"<td>"+settleDate.getText()+"</td>"
-				+"</tr>"
-				+"<tr>"
-				+"<th style='background-color: #f7f7f7;'>첨부파일</th>"
-				+"<td>"+contents.getText()+"</td>"
-				+"</tr>"
-				+ "</table>");
-
-//				+	" titleName + "</div>");
-
+		HorizontalLayoutContainer row02 = new HorizontalLayoutContainer();
+		row02.add(new FieldLabel(filePath,"파일"), new HorizontalLayoutData(670,-1, new Margins(20,0,10,50)));
 		
+<<<<<<< HEAD
 //		첨부파일 기능 복구
 //		HorizontalLayoutContainer row04 = new HorizontalLayoutContainer();
 //		row04.add(new LabelToolItem("파일:"));
 //		Sys10_Lookup_MultiFile fileForm = new Sys10_Lookup_MultiFile(boardModel.getBoardId(), "Y", 120) ;//파일업로드
 //		row04.add(fileForm, new HorizontalLayoutData(500, 1, new Margins(40,0,0,0)));
+=======
+		HorizontalLayoutContainer row03 = new HorizontalLayoutContainer();
+		row03.add(new FieldLabel(settleDate,"작성일"), new HorizontalLayoutData(300,-1, new Margins(30,0,10,50)));
+		
+		
+//		Label dateHtml = new HTML(	
+//				"<table>"
+//						+"<tr><td style='background-color: #f7f7f7;' align='center' style= width : 10px;>작성일</td>"
+//						+"<td>"+setdate.getText()+"</td>"
+//						+"</tr>"
+//						+ "</table>");
+//		
+	
+		//html content 내용
+		Label labelHtml = new HTML(	
+				"<div>"
+				+contents.getText()
+				+"</div>"
+				);
+
+		HorizontalLayoutContainer row0 = new HorizontalLayoutContainer();
+		Info.display("","boardModel  :  "+boardModel.getBoardId());
+		Sys10_Lookup_MultiFile fileForm = new Sys10_Lookup_MultiFile(boardModel.getBoardId(), "Y", 120) ;//파일업로드
+		
+		row0.add(fileForm, new HorizontalLayoutData(800, 1, new Margins(80,0,0,90)));
+>>>>>>> refs/heads/jhJang
 
 		
 		VerticalLayoutContainer layout = new VerticalLayoutContainer();
 		layout.add(StartPage.getTextContents("공지사항"));
+<<<<<<< HEAD
 		layout.add(lineBar0,new VerticalLayoutData(1.2,1.2, new Margins(10, 0, 50, 45)));
 //		layout.add(row01, new VerticalLayoutData(1, -1, new Margins(16)));
 //		layout.add(row02, new VerticalLayoutData(1, -1, new Margins(16)));
 //		layout.add(row03, new VerticalLayoutData(1, -1, new Margins(16)));
 		layout.add(labelHtml,new VerticalLayoutData(1,1, new Margins(0, 70, 0, 0)));
+=======
+		layout.add(lineBar0,new VerticalLayoutData(1.2,1.2, new Margins(10, 0, 20, 45)));
+		layout.add(row01, new VerticalLayoutData(1, -1, new Margins(16)));
+		layout.add(row02, new VerticalLayoutData(1, -1, new Margins(16)));
+		layout.add(row03, new VerticalLayoutData(1, -1, new Margins(16)));
+//		layout.add(labelHtml,new VerticalLayoutData(1,1, new Margins(60, 50, 0, 90))); //html content 내용
+		layout.add(row0, new VerticalLayoutData(1, -1, new Margins(70,0,0,0)));  //첨부파일 파일등록 grid
+//		layout.add(titleHtml,new VerticalLayoutData(0,0, new Margins(10, 50, 0, 90)));
+//		layout.add(dateHtml,new VerticalLayoutData(0,0, new Margins(0, 50, 0, 90)));
+//		layout.add(filePathHtml,new VerticalLayoutData(1.1,1.1, new Margins(33, 50, 20, 90)));
+>>>>>>> refs/heads/jhJang
 //		layout.add(row04, new VerticalLayoutData(1, -1, new Margins(16)));
 //		layout.add(fileUpdownForm.getForm(),new VerticalLayoutData(1,1, new Margins(450,0,0,0)));
 //		layout.add(row04, new VerticalLayoutData(1, 0.7, new Margins(16, 16, 0, 16)));
@@ -175,6 +218,8 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 	return form;
 }
 
+
+	
 
 	
 
