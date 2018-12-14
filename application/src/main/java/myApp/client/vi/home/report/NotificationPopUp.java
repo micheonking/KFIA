@@ -1,13 +1,10 @@
 package myApp.client.vi.home.report;
 
-<<<<<<< HEAD
 import java.util.Map;
 
 import org.apache.tools.ant.taskdefs.Javadoc.Html;
 
 import com.gargoylesoftware.htmlunit.html.HtmlArea;
-=======
->>>>>>> refs/heads/jhJang
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
@@ -55,13 +52,8 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 	TextArea contents  = new TextArea();
 	
 	private InterfaceCallbackResult callback;
-<<<<<<< HEAD
-	private FileUpdownForm fileUpdownForm = new FileUpdownForm();
-=======
 	
 	Sys10_Lookup_MultiFile fileForm = new Sys10_Lookup_MultiFile(null, "Y", 120) ;
-//	private FileUpdownForm fileUpdownForm = new FileUpdownForm();
->>>>>>> refs/heads/jhJang
 	
 	
 	public void open( Bbs02_BoardModel boardModel,InterfaceCallbackResult callback) {
@@ -134,7 +126,6 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 		
 		HorizontalLayoutContainer row01 = new HorizontalLayoutContainer();
-<<<<<<< HEAD
 
 		row01.add(new FieldLabel(titleName, "제목"), new HorizontalLayoutData(500,-1, new Margins(0, 10, 0, 0)));
 		row01.add(new FieldLabel(settleDate, "작성일"), new HorizontalLayoutData(408,-1, new Margins(0, 10, 0, 0)));
@@ -142,23 +133,12 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 //		HorizontalLayoutContainer row02 = new HorizontalLayoutContainer();
 //		row02.add(new FieldLabel(filePath,"파일"), new HorizontalLayoutData(900,-1, new Margins(10,0,10,0)));
 		
-		HorizontalLayoutContainer row03 = new HorizontalLayoutContainer();
-		row03.add(new FieldLabel(contents, "내용"), new HorizontalLayoutData(900,450, new Margins(40,0,0,0)));
 		
-=======
 		row01.add(new FieldLabel(titleName, "제목"), new HorizontalLayoutData(680,-1, new Margins(10, 10, 0, 50)));
->>>>>>> refs/heads/jhJang
 		
 		HorizontalLayoutContainer row02 = new HorizontalLayoutContainer();
 		row02.add(new FieldLabel(filePath,"파일"), new HorizontalLayoutData(670,-1, new Margins(20,0,10,50)));
 		
-<<<<<<< HEAD
-//		첨부파일 기능 복구
-//		HorizontalLayoutContainer row04 = new HorizontalLayoutContainer();
-//		row04.add(new LabelToolItem("파일:"));
-//		Sys10_Lookup_MultiFile fileForm = new Sys10_Lookup_MultiFile(boardModel.getBoardId(), "Y", 120) ;//파일업로드
-//		row04.add(fileForm, new HorizontalLayoutData(500, 1, new Margins(40,0,0,0)));
-=======
 		HorizontalLayoutContainer row03 = new HorizontalLayoutContainer();
 		row03.add(new FieldLabel(settleDate,"작성일"), new HorizontalLayoutData(300,-1, new Margins(30,0,10,50)));
 		
@@ -183,18 +163,9 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 		Sys10_Lookup_MultiFile fileForm = new Sys10_Lookup_MultiFile(boardModel.getBoardId(), "Y", 120) ;//파일업로드
 		
 		row0.add(fileForm, new HorizontalLayoutData(800, 1, new Margins(80,0,0,90)));
->>>>>>> refs/heads/jhJang
-
 		
 		VerticalLayoutContainer layout = new VerticalLayoutContainer();
-		layout.add(StartPage.getTextContents("공지사항"));
-<<<<<<< HEAD
-		layout.add(lineBar0,new VerticalLayoutData(1.2,1.2, new Margins(10, 0, 50, 45)));
-//		layout.add(row01, new VerticalLayoutData(1, -1, new Margins(16)));
-//		layout.add(row02, new VerticalLayoutData(1, -1, new Margins(16)));
-//		layout.add(row03, new VerticalLayoutData(1, -1, new Margins(16)));
-		layout.add(labelHtml,new VerticalLayoutData(1,1, new Margins(0, 70, 0, 0)));
-=======
+
 		layout.add(lineBar0,new VerticalLayoutData(1.2,1.2, new Margins(10, 0, 20, 45)));
 		layout.add(row01, new VerticalLayoutData(1, -1, new Margins(16)));
 		layout.add(row02, new VerticalLayoutData(1, -1, new Margins(16)));
@@ -204,9 +175,6 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 //		layout.add(titleHtml,new VerticalLayoutData(0,0, new Margins(10, 50, 0, 90)));
 //		layout.add(dateHtml,new VerticalLayoutData(0,0, new Margins(0, 50, 0, 90)));
 //		layout.add(filePathHtml,new VerticalLayoutData(1.1,1.1, new Margins(33, 50, 20, 90)));
->>>>>>> refs/heads/jhJang
-//		layout.add(row04, new VerticalLayoutData(1, -1, new Margins(16)));
-//		layout.add(fileUpdownForm.getForm(),new VerticalLayoutData(1,1, new Margins(450,0,0,0)));
 //		layout.add(row04, new VerticalLayoutData(1, 0.7, new Margins(16, 16, 0, 16)));
 		
 //		form setting
