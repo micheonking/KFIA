@@ -8,6 +8,17 @@
     <servlet-name>serviceBroker</servlet-name>
     <url-pattern>/kfia/serviceBroker</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HTMLOperating</servlet-name>
+    <servlet-class>myApp.server.home.HTMLOperating</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>HTMLOperating</servlet-name>
+    <url-pattern>/HTMLOperating</url-pattern>
+  </servlet-mapping>
+
   <servlet>
     <servlet-name>FundUpload</servlet-name>
     <servlet-class>myApp.server.utils.file.FundUpload</servlet-class>
