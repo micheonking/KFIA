@@ -47,7 +47,7 @@ public class MenuOpener {
 			return (Widget) GWT.create(myApp.client.vi.sys.Sys90_Tab_AfterService.class);
 		}
 
-		if ("Dbm01_Tab_TabComments".equals(className)) {
+		if ("Dbm01_Tab_TabComments.class".equals(className)) {
 			return (Widget) GWT.create(myApp.client.vi.dbm.Dbm01_Tab_TabComments.class);
 		}
 		if ("Emp10_Tab_AddrBook.class".equals(className)) {

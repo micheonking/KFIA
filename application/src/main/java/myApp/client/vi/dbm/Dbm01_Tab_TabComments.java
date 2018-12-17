@@ -39,6 +39,7 @@ public class Dbm01_Tab_TabComments extends BorderLayoutContainer implements Inte
 	
 	public Dbm01_Tab_TabComments() {
 
+		Info.display("", "Message");
 		this.setBorders(false); 
 		
 		SearchBarBuilder searchBarBuilder = new SearchBarBuilder(this);

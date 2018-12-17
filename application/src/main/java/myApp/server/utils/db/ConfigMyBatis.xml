@@ -112,6 +112,12 @@
 	<mapper resource="myApp/server/fnd/mapper/fnd06_office_work.xml"/>
 	<mapper resource="myApp/server/fnd/mapper/fnd07_issuing_entity.xml"/>
 	<mapper resource="myApp/server/fnd/mapper/fnd08_org_auth.xml"/>
+	
+	<mapper resource="myApp/server/home/mapper/hom03_operating.xml"/>
+	
+	
+	
+	
 </mappers>
 
 </configuration>

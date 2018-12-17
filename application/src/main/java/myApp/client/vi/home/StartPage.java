@@ -36,6 +36,8 @@ public class StartPage extends BorderLayoutContainer {
 	protected static final String BTN_WIDTH = ""+MENU_WIDTH;
 	protected static final String BTN_HEIGHT = "40";
 
+	static String CURRENTPAGE = "0";
+
 	private StartPageHeader startPageHeader = new StartPageHeader(this);
 	private StartPageFooter startPageFooter = new StartPageFooter();
 //	public static PlainTabPanel tabPanel = new PlainTabPanel();

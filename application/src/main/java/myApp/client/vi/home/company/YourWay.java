@@ -1,13 +1,17 @@
 package myApp.client.vi.home.company;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.logical.shared.ResizeEvent;
+import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.sencha.gxt.core.client.XTemplates;
+import com.sencha.gxt.core.client.XTemplates.XTemplate;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
@@ -20,18 +24,36 @@ import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.home.StartPage;
+import myApp.client.vi.home.company.CompanyOpening.HTMLTemplate;
 
 public class YourWay extends ContentPanel {
 	
 	public interface HTMLTemplate extends XTemplates {
 		//웹에디터 HTML 설정
-		@XTemplate(source="yourWay.html")
-		SafeHtml getTemplate();
+//		@XTemplate(source="yourWay.html")
+//		SafeHtml getTemplate();
+	    @XTemplate("<iframe id='yourWay' frameborder=0 src='{pageName}' width='770' height='{pageHeight}'/> ")
+		SafeHtml getTemplate(String pageName, String pageHeight);
 	}
 	
 	public YourWay() {
+		this.addResizeHandler(new ResizeHandler() {
+			@Override
+			public void onResize(ResizeEvent event) {
+				resize();
+			}
+		});
+		resize();
+	}
+	
+	private void resize() {
+//	public YourWay() {
 
 		this.setHeaderVisible(false);
+//		this.isAutoHeight();
+		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
+		String pageName = "htmlhome/yourWay.html";
+		String pageHeight = ""+(Window.getClientHeight() - 300);
 
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
@@ -46,12 +68,13 @@ public class YourWay extends ContentPanel {
 		rightVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
 		
 		
-		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
-		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
+//		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
+//		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
+		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(htmlTemplate.getTemplate(pageName,pageHeight));
 
 		HBoxLayoutContainer totalHBar = new HBoxLayoutContainer();
 		totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
-		totalHBar.add(content, new BoxLayoutData(totalHBarMargins));
+		totalHBar.add(htmlLayoutContainer, new BoxLayoutData(totalHBarMargins));
 		
 		gridVBox.add(StartPage.getTextContents("찾아오시는길"),new BoxLayoutData(getTextMargins));
 		gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));

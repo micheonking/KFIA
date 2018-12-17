@@ -1,13 +1,17 @@
 package myApp.client.vi.home.company;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.logical.shared.ResizeEvent;
+import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.sencha.gxt.core.client.XTemplates;
+import com.sencha.gxt.core.client.XTemplates.XTemplate;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
@@ -20,18 +24,37 @@ import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.home.StartPage;
+import myApp.client.vi.home.company.OperationOrganization.HTMLTemplate;
 
 public class CompanyOpening extends ContentPanel {
 	
 	public interface HTMLTemplate extends XTemplates {
+//		//웹에디터 HTML 설정
+//		@XTemplate(source="companyOpening.html")
 		//웹에디터 HTML 설정
-		@XTemplate(source="companyOpening.html")
-		SafeHtml getTemplate();
+	    @XTemplate("<iframe id='companyOpening' frameborder=0 src='{pageName}' width='770' height='{pageHeight}'/> ")
+		SafeHtml getTemplate(String pageName, String pageHeight);
+//		SafeHtml getTemplate();
 	}
 	
 	public CompanyOpening() {
+		this.addResizeHandler(new ResizeHandler() {
+			@Override
+			public void onResize(ResizeEvent event) {
+				resize();
+			}
+		});
+		resize();
+	}
+	
+	private void resize() {
+//	public CompanyOpening() {
 
 		this.setHeaderVisible(false);
+//		this.isAutoHeight();
+		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
+		String pageName = "htmlhome/companyOpening.html";
+		String pageHeight = ""+(Window.getClientHeight() - 300);
 
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
@@ -49,14 +72,15 @@ public class CompanyOpening extends ContentPanel {
 		totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
 		
 		
-		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
-		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
+//		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
+//		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
+		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(htmlTemplate.getTemplate(pageName,pageHeight));
 		
 //		Label content = new HTML("
 //					);
 //		content.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 //
-		totalHBar.add(content, new BoxLayoutData(totalHBarMargins));
+		totalHBar.add(htmlLayoutContainer, new BoxLayoutData(totalHBarMargins));
 
 		gridVBox.add(StartPage.getTextContents("회사개요"),new BoxLayoutData(getTextMargins));
 		gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));

@@ -34,10 +34,6 @@ public class Dbm02_TabPage_ColComments<Stock> extends ContentPanel implements In
 		this.add(this.grid);
 
 		TextButton xmlGeneratorButton = new TextButton("XML");
-//		xmlGeneratorButton.setWidth(100);
-//		xmlGeneratorButton.setHeight(70);
-		xmlGeneratorButton.getLayoutData().equals(height);
-		xmlGeneratorButton.setSize(""+xmlGeneratorButton.getLayoutData().equals(width)+7, ""+xmlGeneratorButton.getLayoutData().equals(height)+7);
 		xmlGeneratorButton.setBorders(true);
 		xmlGeneratorButton.addSelectHandler(new SelectHandler() {
 			@Override
