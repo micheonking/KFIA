@@ -67,39 +67,22 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		gridVBox.add(this.grid, new BoxLayoutData(totalHBarMargins));
 
 		this.add(gridVBox);
-		
 		retrieve();
-		
 		this.grid.getSelectionModel().addSelectionChangedHandler(new SelectionChangedHandler<Bbs02_BoardModel>(){
-			
 			@Override
 			public void onSelectionChanged(SelectionChangedEvent<Bbs02_BoardModel> event) {
-//					popupPage();
 				Bbs02_BoardModel boardModel = grid.getSelectionModel().getSelectedItem();
-				
-				NotificationPopUp lookupResrch = new NotificationPopUp();
-				lookupResrch.open(boardModel, new InterfaceCallbackResult() {
+				NotificationPopUp popUp = new NotificationPopUp();
+				popUp.open(boardModel, new InterfaceCallbackResult() {
 					@Override
 					public void execute(Object result) {
 						retrieve();
+						//clear();  게시물 팝업 닫고 동일한 게시물 클릭시 팝업 xxxxxx
 					}
 				});
 			}
 		});
 
-	}
-
-	private void popupPage() {
-		
-		Bbs02_BoardModel boardModel = grid.getSelectionModel().getSelectedItem();
-		
-		NotificationPopUp lookupResrch = new NotificationPopUp();
-		lookupResrch.open(boardModel, new InterfaceCallbackResult() {
-			@Override
-			public void execute(Object result) {
-				retrieve();
-			}
-		});
 	}
 
 	private Grid<Bbs02_BoardModel> buildGrid() {
@@ -120,7 +103,6 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		service.addParam("boardId",boardModel.getBoardId());
 		service.addParam("typeCode", "notice");
 		service.addParam("setCount", (long)1000);
-		Info.display("","boardModel.getBoardId() :======= "+ boardModel.getBoardId());
 		service.retrieve("bbs.Bbs02_Board.selectByTypeCode");
 	}
 

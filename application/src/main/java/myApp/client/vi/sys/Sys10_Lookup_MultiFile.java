@@ -22,6 +22,7 @@ import com.sencha.gxt.widget.core.client.form.FormPanel;
 import com.sencha.gxt.widget.core.client.form.FormPanel.Encoding;
 import com.sencha.gxt.widget.core.client.form.FormPanel.Method;
 import com.sencha.gxt.widget.core.client.grid.Grid;
+import com.sencha.gxt.widget.core.client.info.Info;
 
 import myApp.client.grid.GridBuilder;
 import myApp.client.service.GridRetrieveData;
@@ -102,7 +103,7 @@ public class Sys10_Lookup_MultiFile extends VerticalLayoutContainer {
 		this.add(fileDeleteForm);
 
 		if("Y".equals(editYn)) {
-		} else {
+		} else {                                                                                                                                                 
 			uploadButton.hide();
 			grid.setHeight(height + 35);
 			grid.getColumnModel().getColumn(5).setHidden(true);
@@ -139,7 +140,7 @@ public class Sys10_Lookup_MultiFile extends VerticalLayoutContainer {
 				fileDeleteForm.setMethod(Method.POST);
 				fileDeleteForm.setAction(actionUrl);
 				fileDeleteForm.submit(); // form을 submit하려면 Layout에 붙어 있어야 한다. 
-			}
+			}                                           
 		});
 		gridBuilder.addCell(properties.deleteCell(), 80, "파일삭제", deleteCell);
 
@@ -147,8 +148,8 @@ public class Sys10_Lookup_MultiFile extends VerticalLayoutContainer {
 	}
 
     public void retrieve() {
-    	retrieve(parentId);
-    }
+    	retrieve(parentId); 
+    } 
 
     public void retrieve(Long parentId) {
     	this.parentId = parentId;
@@ -159,7 +160,7 @@ public class Sys10_Lookup_MultiFile extends VerticalLayoutContainer {
     
 	public void changeViewLayout() {
 		uploadButton.hide();
-		grid.setHeight(height + 35);
+		grid.setHeight(height + 35);                                                                                                                                                                                                                                                    
 		grid.getColumnModel().getColumn(5).setHidden(true);
 		grid.getColumnModel().getColumn(2).setWidth(370);
 		grid.getView().refresh(true);

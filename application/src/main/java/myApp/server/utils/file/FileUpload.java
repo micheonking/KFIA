@@ -109,7 +109,7 @@ public class FileUpload implements javax.servlet.Servlet {
 		Sys10_FileModel  fileModel = new Sys10_FileModel();
 		
 		
-		System.out.println("오나???????????....."+parentId);
+		System.out.println("오나???????????.....===="+parentId);
 		
 		try {
 			// 등록된 파일인지를 먼저 찾는다. 
