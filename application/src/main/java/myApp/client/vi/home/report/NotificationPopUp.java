@@ -12,6 +12,7 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextArea;
+import com.sencha.gxt.core.client.util.DelayedTask;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.Window;
 import com.sencha.gxt.widget.core.client.button.TextButton;
@@ -24,16 +25,14 @@ import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.form.DateField;
 import com.sencha.gxt.widget.core.client.form.FieldLabel;
+import com.sencha.gxt.widget.core.client.form.FieldSet;
 import com.sencha.gxt.widget.core.client.form.FormPanel;
 import com.sencha.gxt.widget.core.client.form.TextField;
 import com.sencha.gxt.widget.core.client.grid.Grid;
-import com.sencha.gxt.widget.core.client.info.Info;
+import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.resource.ResourceIcon;
-import myApp.client.service.InterfaceCallback;
-import myApp.client.utils.FileUpdownForm;
 import myApp.client.utils.InterfaceCallbackResult;
-import myApp.client.utils.JSCaller;
 import myApp.client.vi.bbs.model.Bbs02_BoardModel;
 import myApp.client.vi.home.StartPage;
 import myApp.client.vi.sys.Sys10_Lookup_MultiFile;
@@ -53,7 +52,7 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 	
 	private InterfaceCallbackResult callback;
 	
-	Sys10_Lookup_MultiFile fileForm = new Sys10_Lookup_MultiFile(null, "Y", 120) ;
+	Sys10_Lookup_MultiFile fileForm = new Sys10_Lookup_MultiFile() ;
 	
 	
 	public void open( Bbs02_BoardModel boardModel,InterfaceCallbackResult callback) {
@@ -69,23 +68,10 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 		this.setSize("900",  "920");
 		editDriver.initialize(this);
 		editDriver.edit(boardModel);
-		fileForm.retrieve(boardModel.getBoardId());
 		
 		this.setButtonAlign(BoxLayoutPack.CENTER);
-//		editDriver.edit(boardModel);
 		this.add(this.getEditor());
-		
-
-		TextButton updateButton = new TextButton("저장"); 
-		updateButton.setWidth(50);
-		updateButton.addSelectHandler(new SelectHandler(){
-
-			@Override
-			public void onSelect(SelectEvent event) {
-				update(); 
-			}
-		}); 
-		this.getButtonBar().add(updateButton);
+		fileForm.retrieve(boardModel.getBoardId());
 		
 		TextButton closeButton = new TextButton("닫기"); 
 		closeButton.setWidth(50);
@@ -98,86 +84,52 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 		}); 
 		this.getButtonBar().add(closeButton);
 		
-//		CellButtonBase btn = new CellButtonBase<>();
-//		btn.setWidth(20);
-//		btn.setIcon(ResourceIcon.INSTANCE.close());
-//		btn.setIconAlign(IconAlign.TOP);
-//		btn.addSelectHandler(new SelectHandler() {
-//			@Override
-//			public void onSelect(SelectEvent event) {
-//				 hide(); 
-//			}
-//		});
-//		
-//		this.getButtonBar().add(btn);
 		this.show();
 	}
 
-	protected void retrieve() {
-		
-	}
-
-	protected void update() {
-		
-	}
 
 	private FormPanel getEditor() {
 		
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 		
 		HorizontalLayoutContainer row01 = new HorizontalLayoutContainer();
-
-		row01.add(new FieldLabel(titleName, "제목"), new HorizontalLayoutData(500,-1, new Margins(0, 10, 0, 0)));
-		row01.add(new FieldLabel(settleDate, "작성일"), new HorizontalLayoutData(408,-1, new Margins(0, 10, 0, 0)));
+		row01.add(new FieldLabel(titleName, "제목"), new HorizontalLayoutData(700,-1, new Margins(10, 10, 0, 50)));
 		
-//		HorizontalLayoutContainer row02 = new HorizontalLayoutContainer();
-//		row02.add(new FieldLabel(filePath,"파일"), new HorizontalLayoutData(900,-1, new Margins(10,0,10,0)));
-		
-		
-		row01.add(new FieldLabel(titleName, "제목"), new HorizontalLayoutData(680,-1, new Margins(10, 10, 0, 50)));
-		
-		HorizontalLayoutContainer row02 = new HorizontalLayoutContainer();
-		row02.add(new FieldLabel(filePath,"파일"), new HorizontalLayoutData(670,-1, new Margins(20,0,10,50)));
 		
 		HorizontalLayoutContainer row03 = new HorizontalLayoutContainer();
 		row03.add(new FieldLabel(settleDate,"작성일"), new HorizontalLayoutData(300,-1, new Margins(30,0,10,50)));
-		
-		
-//		Label dateHtml = new HTML(	
-//				"<table>"
-//						+"<tr><td style='background-color: #f7f7f7;' align='center' style= width : 10px;>작성일</td>"
-//						+"<td>"+setdate.getText()+"</td>"
-//						+"</tr>"
-//						+ "</table>");
-//		
 	
 		//html content 내용
 		Label labelHtml = new HTML(	
-				"<div>"
+				"<div style='overflow:scroll; height:150;'>"
 				+contents.getText()
 				+"</div>"
 				);
 
-		HorizontalLayoutContainer row0 = new HorizontalLayoutContainer();
-		Info.display("","boardModel  :  "+boardModel.getBoardId());
-		Sys10_Lookup_MultiFile fileForm = new Sys10_Lookup_MultiFile(boardModel.getBoardId(), "Y", 120) ;//파일업로드
+		HorizontalLayoutData labelLayout = new HorizontalLayoutData( 120,  -1, new Margins(10,0,0,52));	//라벨Size
 		
-		row0.add(fileForm, new HorizontalLayoutData(800, 1, new Margins(80,0,0,90)));
+		HorizontalLayoutContainer row0 = new HorizontalLayoutContainer();
+		fileForm = new Sys10_Lookup_MultiFile(boardModel.getBoardId(), "Y", 70) ;//파일업로드
+//		row0.add(fileForm, new HorizontalLayoutData(800, 300, new Margins(80,0,0,90)));
+		
+		//첨부파일
+		row0.add(new LabelToolItem("첨부파일:"), labelLayout);
+				FieldSet filefieldSet = new FieldSet();
+				filefieldSet.setCollapsible(false);
+				filefieldSet.add(fileForm);
+				row0.add(filefieldSet, new HorizontalLayoutData(653, -1));
+		
+		
 		
 		VerticalLayoutContainer layout = new VerticalLayoutContainer();
-
-		layout.add(lineBar0,new VerticalLayoutData(1.2,1.2, new Margins(10, 0, 20, 45)));
-		layout.add(row01, new VerticalLayoutData(1, -1, new Margins(16)));
-		layout.add(row02, new VerticalLayoutData(1, -1, new Margins(16)));
-		layout.add(row03, new VerticalLayoutData(1, -1, new Margins(16)));
-//		layout.add(labelHtml,new VerticalLayoutData(1,1, new Margins(60, 50, 0, 90))); //html content 내용
-		layout.add(row0, new VerticalLayoutData(1, -1, new Margins(70,0,0,0)));  //첨부파일 파일등록 grid
-//		layout.add(titleHtml,new VerticalLayoutData(0,0, new Margins(10, 50, 0, 90)));
-//		layout.add(dateHtml,new VerticalLayoutData(0,0, new Margins(0, 50, 0, 90)));
-//		layout.add(filePathHtml,new VerticalLayoutData(1.1,1.1, new Margins(33, 50, 20, 90)));
-//		layout.add(row04, new VerticalLayoutData(1, 0.7, new Margins(16, 16, 0, 16)));
+		layout.add(StartPage.getTextContents("공지사항"));
+		layout.add(lineBar0,new VerticalLayoutData(1.2,1.2, new Margins(10, 0, 10, 45)));
+		layout.add(row01, new VerticalLayoutData(1, -1, new Margins(16))); //제목
+		layout.add(row03, new VerticalLayoutData(1, -1, new Margins(16))); //작성일
+		layout.add(row0, new VerticalLayoutData(1, 300, new Margins(50,0,0,0)));  //첨부파일 파일등록 grid
+		layout.add(labelHtml,new VerticalLayoutData(1,1, new Margins(2, 50, 0, 90))); //html content 내용
 		
-//		form setting
+//		form setting 입니다.
 		FormPanel form = new FormPanel();
 		form.setWidget(layout);
 		form.setLabelWidth(50); // 모든 field 적용 후 설정한다.

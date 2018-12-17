@@ -28,7 +28,7 @@ public class GridRetrieveData<T> implements InterfaceServiceCall {
 		// retrieve all 
 		ServiceRequest request = new ServiceRequest(serviceName);
 		request.getParam().putAll(this.param);
-		
+
 		ServiceCall service = new ServiceCall();
 		service.execute(request, this);
 	}
