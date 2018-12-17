@@ -22,6 +22,7 @@ import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.home.company.CeoGreeting;
 import myApp.client.vi.home.company.CompanyOpening;
 import myApp.client.vi.home.company.OperationOrganization;
+import myApp.client.vi.home.company.OperationOrganization1;
 import myApp.client.vi.home.company.YourWay;
 import myApp.theme.tritium.custom.client.button.white.WhiteButtonCellAppearance;
 
@@ -30,6 +31,7 @@ public class TabCompanyOpenning extends ContentPanel {
 	private CeoGreeting tabCeoGreeting  = new CeoGreeting();
 	private CompanyOpening tabCompanyOpening  = new CompanyOpening();
 	private OperationOrganization tabOperationOrganization  = new OperationOrganization();
+	private OperationOrganization1 tabOperationOrganization1  = new OperationOrganization1();
 	private YourWay tabYourWay  = new YourWay();
 	
 	ContentPanel contentPanel  = new ContentPanel();
@@ -123,11 +125,13 @@ public class TabCompanyOpenning extends ContentPanel {
 		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ회사개요　　　　　　</font></div> ");
 		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ운용조직／전문인력　</font></div> ");
 		SafeHtml button4Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ찾아오시는길　　　　</font></div> ");
+		SafeHtml button5Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍTEST　　　　</font></div> ");
 
 		TextButton menuButton1 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		TextButton menuButton2 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		TextButton menuButton3 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		TextButton menuButton4 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
+		TextButton menuButton5 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 //		CellButtonBase menuButton1 = new CellButtonBase<>();
 		menuButton1.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton1.setHTML(button1Html);
@@ -180,6 +184,18 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuVBox.add(menuButton4, new BoxLayoutData(buttonMargins));
 		menuVBox.add(lineImage4, new BoxLayoutData(lineImageMargins));
 
+//		CellButtonBase menuButton4 = new CellButtonBase<>();
+		menuButton5.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
+		menuButton5.setHTML(button5Html);
+//		menuButton4.setBorders(true);
+		menuButton5.addSelectHandler(new SelectHandler() {
+			@Override
+			public void onSelect(SelectEvent event) {
+				getOperationOrganization1();
+			}
+		});
+		menuVBox.add(menuButton5, new BoxLayoutData(buttonMargins));
+
 //		menuVBox.setWidth(StartPage.MENU_WIDTH);
 //		menuVBox.setHeight(StartPage.CON_HEIGHT);
 //		menuVBox.setBorders(true);
@@ -188,7 +204,27 @@ public class TabCompanyOpenning extends ContentPanel {
 //		menuHBar.setBorders(true);
 
 		totalHBar.add(menuHBar);
-		totalHBar.add(getCeoGreeting());
+		switch (StartPage.CURRENTPAGE) {
+		case "1" :
+			totalHBar.add(getCeoGreeting());
+			break;
+		case "2" :
+			totalHBar.add(getCompanyOpening());
+			break;
+		case "3" :
+			totalHBar.add(getOperationOrganization());
+			break;
+		case "4" :
+			totalHBar.add(getYourWay());
+			break;
+		case "5" :
+			totalHBar.add(getOperationOrganization1());
+			break;
+		default :
+			totalHBar.add(getCeoGreeting());
+			break;
+		}
+//		totalHBar.add(getCeoGreeting());
 
 		centerVBox.add(totalHBar);
 		headerVBox.add(centerVBox);
@@ -198,10 +234,11 @@ public class TabCompanyOpenning extends ContentPanel {
 
 	private ContentPanel getCeoGreeting() {
 
+		StartPage.CURRENTPAGE = "1";
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);
-		contentPanel.setHeight(StartPage.CON_HEIGHT);
+		contentPanel.setHeight(Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
 		contentPanel.setWidget(tabCeoGreeting);
 
 		return contentPanel;
@@ -209,10 +246,11 @@ public class TabCompanyOpenning extends ContentPanel {
 
 	private ContentPanel getCompanyOpening() {
 
+		StartPage.CURRENTPAGE = "2";
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);
-		contentPanel.setHeight(StartPage.CON_HEIGHT);
+		contentPanel.setHeight(Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
 		contentPanel.setWidget(tabCompanyOpening);
 
 		return contentPanel;
@@ -220,10 +258,11 @@ public class TabCompanyOpenning extends ContentPanel {
 	
 	private ContentPanel getOperationOrganization() {
 
+		StartPage.CURRENTPAGE = "3";
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);
-		contentPanel.setHeight(StartPage.CON_HEIGHT);
+		contentPanel.setHeight(Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
 		contentPanel.setWidget(tabOperationOrganization);
 
 		return contentPanel;
@@ -231,11 +270,24 @@ public class TabCompanyOpenning extends ContentPanel {
 
 	private ContentPanel getYourWay() {
 
+		StartPage.CURRENTPAGE = "4";
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);
-		contentPanel.setHeight(StartPage.CON_HEIGHT);
+		contentPanel.setHeight(Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
 		contentPanel.setWidget(tabYourWay);
+
+		return contentPanel;
+	}
+	
+	private ContentPanel getOperationOrganization1() {
+
+		StartPage.CURRENTPAGE = "5";
+		contentPanel.setHeaderVisible(false);
+		contentPanel.setBorders(false);
+		contentPanel.setWidth(StartPage.CON_WIDTH);
+		contentPanel.setHeight(700);//Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
+		contentPanel.setWidget(tabOperationOrganization1);
 
 		return contentPanel;
 	}
