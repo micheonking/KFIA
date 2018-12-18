@@ -32,8 +32,9 @@ public class YourWay extends ContentPanel {
 		//웹에디터 HTML 설정
 //		@XTemplate(source="yourWay.html")
 //		SafeHtml getTemplate();
-	    @XTemplate("<iframe id='yourWay' frameborder=0 src='{pageName}' width='770' height='{pageHeight}'/> ")
-		SafeHtml getTemplate(String pageName, String pageHeight);
+//	    @XTemplate("<iframe id='yourWay' frameborder=0 src='{pageName}' width='770' height='{pageHeight}'/> ")
+	    @XTemplate("<iframe src='{pageName}' align= left marginheight=1 style='border:0px; width:100%; height:97%;'/> ")
+		SafeHtml getTemplate(String pageName);
 	}
 	
 	public YourWay() {
@@ -52,8 +53,7 @@ public class YourWay extends ContentPanel {
 		this.setHeaderVisible(false);
 //		this.isAutoHeight();
 		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
-		String pageName = "htmlhome/yourWay.html";
-		String pageHeight = ""+(Window.getClientHeight() - 300);
+		String pageName = "yourWay.html";
 
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
@@ -70,7 +70,12 @@ public class YourWay extends ContentPanel {
 		
 //		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
 //		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
-		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(htmlTemplate.getTemplate(pageName,pageHeight));
+		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(htmlTemplate.getTemplate(pageName));
+
+		htmlLayoutContainer.setWidth(StartPage.CURRENTWIDTH);
+		StartPage.CURRENTHEIGHT = Window.getClientHeight()-300;//StartPage.startPageFooter.getAbsoluteTop() + 70;
+//		Info.display("",""+StartPage.CURRENTHEIGHT);
+		htmlLayoutContainer.setHeight(StartPage.CURRENTHEIGHT); //600 - StartPage.CURRENTHEIGHT);
 
 		HBoxLayoutContainer totalHBar = new HBoxLayoutContainer();
 		totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);

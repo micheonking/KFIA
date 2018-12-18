@@ -3,7 +3,7 @@
 
 <mapper namespace="hom01_outline">
 
-<resultMap 	id="mapper" type="myApp.client.vi.hom.model.Hom01_OutlineModel" >
+<resultMap 	id="mapper" type="myApp.client.vi.hom.company.model.Hom01_OutlineModel" >
 	<id		column="hom01_outline_id"				property="outlineId"/>
 	<result	column="hom01_company_id"				property="companyId"/>
 	<result	column="hom01_regist_dt"				property="registDt"/>

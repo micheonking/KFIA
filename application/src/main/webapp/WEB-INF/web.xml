@@ -10,13 +10,13 @@
   </servlet-mapping>
 
   <servlet>
-    <servlet-name>HTMLOperating</servlet-name>
-    <servlet-class>myApp.server.hom.HTMLOperating</servlet-class>
+    <servlet-name>HTMLCeo</servlet-name>
+    <servlet-class>myApp.server.hom.HTMLCeo</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>HTMLOperating</servlet-name>
-    <url-pattern>/HTMLOperating</url-pattern>
+    <servlet-name>HTMLCeo</servlet-name>
+    <url-pattern>/HTMLCeo</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -27,6 +27,26 @@
   <servlet-mapping>
     <servlet-name>HTMLOutline</servlet-name>
     <url-pattern>/HTMLOutline</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HTMLOperating</servlet-name>
+    <servlet-class>myApp.server.hom.HTMLOperating</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>HTMLOperating</servlet-name>
+    <url-pattern>/HTMLOperating</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HTMLYourWay</servlet-name>
+    <servlet-class>myApp.server.hom.HTMLYourWay</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>HTMLYourWay</servlet-name>
+    <url-pattern>/HTMLYourWay</url-pattern>
   </servlet-mapping>
 
   <servlet>

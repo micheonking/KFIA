@@ -43,50 +43,76 @@ public class HTMLOutline implements javax.servlet.Servlet {
 		
 		SqlSession sqlSession = DatabaseFactory.openSession(); 
 		
-		List<String> companyList = sqlSession.selectList("hom01_outline.selectByComanyName");
-		
-		String rowString = "";	
-		
-		rowString += this.tdGrey("소속/본부", 50, "center"); 	
-		rowString += this.tdCenter("성명/직책", 70, 1); 
-		rowString += this.tdCenter("담당증권사", 100, 1);
-		rowString += this.tdCenter("주요경력", 150, 1);
-		rowString += this.tdCenter("학력/자격증", 120, 1);
-		rowString += this.tdCenter("연락처", 70, 1);
-		
-		rowList.add(this.tr(rowString)) ; 
+		List<Hom01_OutlineModel> list = sqlSession.selectList("hom01_outline.selectByMaxDate");	
 
-		int	j = 0;
-		for(String maxDate : companyList) {
+		for(int i = 0 ; i<list.size(); i++) {
 			
-			List<Hom01_OutlineModel> list = sqlSession.selectList("hom01_outline.selectByMaxDate", maxDate);	
+			Hom01_OutlineModel outlineModel = list.get(i); 
+			
+			String	rowString = "";
+			rowString += this.tdCenter("회사명", 100, 1); 	
+			rowString += this.tdData("한국채권투자자문주식회사", 250, 1);
+			rowList.add(this.tr(rowString)) ; 
 
-			for(int i = 0 ; i<list.size(); i++) {
-				
-				Hom01_OutlineModel outlineModel = list.get(i); 
-				
-				rowString = "";	
-				
-				if(i == 0) {
-					rowString += this.tdRowSpanGrey(list.size(), outlineModel.getCompanyId()+"", 50, "center"); 	
-				}
+			rowString = "";
+			rowString += this.tdCenter("설립일", 100, 0); 	
+			rowString += this.tdData(outlineModel.getRegistDt()+"", 250, 0);
+			rowList.add(this.tr(rowString)) ; 
 
-//				rowString += this.tdCenter(outlineModel.getNameTitle(), 60, j%2); 
-//				rowString += this.tdCenter(nullString(outlineModel.getChargeStockFirm()), 100, j%2);
-//				rowString += this.tdData(outlineModel.getMajorCareer(), 150, j%2);
-//				rowString += this.tdData(outlineModel.getAcademicCertificate(), 140, j%2);
-//				rowString += this.tdCenter(nullString(outlineModel.getContactInfomation()), 70, j%2);
-				
-				j += 1;
-				rowList.add(this.tr(rowString)) ; 
-			}
+			rowString = "";
+			rowString += this.tdCenter("납입자본금", 100, 1); 	
+			rowString += this.tdData(outlineModel.getPaidInCapital(), 250, 1);
+			rowList.add(this.tr(rowString)) ; 
+
+			rowString = "";
+			rowString += this.tdCenter("자기자본", 100, 0); 	
+			rowString += this.tdData(outlineModel.getOwnersEquity(), 250, 0);
+			rowList.add(this.tr(rowString)) ; 
+
+			rowString = "";
+			rowString += this.tdCenter("계약자산규모", 100, 1); 	
+			rowString += this.tdData(outlineModel.getContractAssetSize(), 250, 1);
+			rowList.add(this.tr(rowString)) ; 
+
+			rowString = "";
+			rowString += this.tdCenter("투자자문", 100, 0); 	
+			rowString += this.tdData(outlineModel.getContractAssetSize(), 250, 0);
+			rowList.add(this.tr(rowString)) ; 
+
+			rowString = "";
+			rowString += this.tdCenter("인력", 100, 1); 	
+			rowString += this.tdData(outlineModel.getProfessionalPersonnel(), 250, 1);
+			rowList.add(this.tr(rowString)) ; 
+
+			rowString = "";
+			rowString += this.tdCenter("주요업무", 100, 0); 	
+			rowString += this.tdData(outlineModel.getMainBusiness(), 250, 0);
+			rowList.add(this.tr(rowString)) ; 
+
+			rowString = "";
+			rowString += this.tdCenter("대표이사", 100, 1); 	
+			rowString += this.tdData(outlineModel.getCeoName(), 250, 1);
+			rowList.add(this.tr(rowString)) ; 
+
+			rowString = "";
+			rowString += this.tdCenter("주주구성", 100, 0); 	
+			rowString += this.tdData(outlineModel.getConstituteStockholder(), 250, 0);
+			rowList.add(this.tr(rowString)) ; 
+
+			rowString = "";
+			rowString += this.tdCenter("주소", 100, 1); 	
+			rowString += this.tdData("서울시 영등포구 의사당대로 143 금융투자협회빌딩 5층", 250, 1);
+			rowList.add(this.tr(rowString)) ; 
+
 		}
 		
 		sqlSession.close();
 		
-		String tableString = "<table border=1 style='width:99%; margin:0px; font-size:12px; border-collapse:collapse; border:1px silver solid; padding:0px;'>";
-		
-		
+//		String tableString = "<table border=1 style='width:99%; margin:0px; font-size:12px; border:1px silver solid; border-top: 2px solid #023d69; border-collapse:collapse; padding:0px;'>";
+//		String tableString = "<table border=1 style='width:99%; margin:0px; font-size:12px; border-bottom:2px silver solid; border-top: 2px solid #023d69; border-collapse:collapse; padding:0px;'>";
+		String tableString = "<table border=1 style='width:99%; margin:0px; font-size:12px; border-botttom:2px silver solid; border-top: 2px solid #023d69; "
+				+	"border-left: 1px solid white; border-right: 1px solid white; border-collapse:collapse; padding:0px;'>";
+
 		for(String rowString1 : rowList) {
 			tableString += rowString1; 
 		}
@@ -99,64 +125,73 @@ public class HTMLOutline implements javax.servlet.Servlet {
 	}
 
 	
+//	tr:td 만들기	/////////////////////////////////////////////////////////////////////////////////////////	
 	private String tr(String data) {
 		return "<tr style='height:auto;'>" + data + "</tr>"; 
 	}
 
 	private String tdData(String data, int width, int rowcount) {
-		if(rowcount == 1) {
-			return "<td style='width:" + width + "px; background-color:#f5f5f5; padding:5px; height:auto; word-wrap:break-word;' >" + data + "</td>" ; 
-		}
-		else {
-			return "<td style='width:" + width + "px; padding:5px; height:auto; word-wrap:break-word;' >" + data + "</td>" ;
-		}
+		String rowChange = " ";
+		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
+
+		return "<td style='width:" + width + "px;" + rowChange + "padding:10px; height:auto; word-wrap:break-word; border-bottom:1px silver solid;' >" + data + "</td>" ; 
 	}
 
 	private String tdCenter(String data, int width, int rowcount) {
-		if(rowcount == 1) {
-			return "<td style='text-align:center; width:" + width + "px; background-color:#f5f5f5; padding:5px; height:auto; word-wrap:break-word;' >" + data + "</td>" ; 
-		}
-		else {
-			return "<td style='text-align:center; width:" + width + "px; padding:5px; height:auto; word-wrap:break-word;' >" + data + "</td>" ; 
-		}
+		String rowChange = " ";
+		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
+
+		return "<td style='text-align:center; width:" + width + "px;" + rowChange + "padding:10px; height:auto; word-wrap:break-word; border-bottom: 1px solid #aaa; ' >" + data + "</td>" ; 
 	}
 
-	private String tdRowSpan(int rowSpan, String data, int width, String align) {
+	private String tdRowSpan(int rowSpan, String data, int width, String align, int rowcount) {
 		
 		int rs = rowSpan; 
 		if(rs<1) rs = 1 ;
 		
+		String rowChange = " ";
+		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
+
 		return "<td rowspan=" + rs 
 				+ " style='text-align:" + align + "; width:" + width 
-				+ "px; padding:5px; height:auto; word-wrap:break-word;' >" + data 
+				+ "px;" + rowChange + "padding:10px; height:auto; word-wrap:break-word;' >" + data 
 				+ "</td>" ; 
 	}
 	
-	private String tdGrey(String data, int width, String align) {
-		return "<td bgcolor='#ebebec' style='text-align:" + align + "; width:" + width+ "px; "
-				+ " padding:5px; height:auto; word-wrap:break-word;' >" + data 
+	private String tdGrey(String data, int width, String align, int rowcount) {
+		String rowChange = " ";
+		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
+
+		return "<td bgcolor='#ebebec' style='text-align:" + align + "; width:" + width
+				+ "px;" + rowChange + "padding:10px; height:auto; word-wrap:break-word;' >" + data 
 				+ "</td>" ; 
 	}
 
-	private String tdColSpanGrey(int colSpan, String data, int width, String align) {
+	private String tdColSpanGrey(int colSpan, String data, int width, String align, int rowcount) {
+		String rowChange = " ";
+		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
+
 		return "<td bgcolor='#ebebec' colSpan =" + colSpan
-				+ " style='text-align:" + align + "; width:" + width + "px; "
-				+ "padding:5px; height:auto; word-wrap:break-word;' >" + data 
+				+ " style='text-align:" + align + "; width:" + width
+				+ "px;" + rowChange + "padding:10px; height:auto; word-wrap:break-word;' >" + data 
 				+ "</td>" ; 
 	}
 
 	
-	private String tdRowSpanGrey(int rowSpan, String data, int width, String align) {
+	private String tdRowSpanGrey(int rowSpan, String data, int width, String align, int rowcount) {
 		int rs = rowSpan; 
 		if(rs<1) rs = 1 ;
 	
+		String rowChange = " ";
+		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
+
 		return "<td bgcolor='#ebebec' rowspan=" + rs 
 				+ " style='text-align:" + align + "; width:" + width 
-				+ "px; padding:5px; height:auto; word-wrap:break-word;' >" + data 
+				+ "px;" + rowChange + "padding:10px; height:auto; word-wrap:break-word;' >" + data 
 				+ "</td>" ; 
 	}
-	
-		 
+//	tr:td 만들기	/////////////////////////////////////////////////////////////////////////////////////////	
+
 	@Override
 	public void service(ServletRequest arg0, ServletResponse arg1) throws ServletException, IOException {
 		

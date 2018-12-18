@@ -2,6 +2,7 @@ package myApp.client.vi.hom.entrust;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Image;
 import com.sencha.gxt.core.client.XTemplates;
 import com.sencha.gxt.core.client.util.Margins;
@@ -29,8 +30,8 @@ public class EntrustInvestment extends ContentPanel {
 
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
-		gridVBox.setWidth(800);
-		gridVBox.setHeight(1000);
+//		gridVBox.setWidth(800);
+//		gridVBox.setHeight(1000);
 
 		Margins getTextMargins = new Margins(0, 0, 15, 0);
 		Margins totalHBarMargins = new Margins(5, 0, 5, 30);
@@ -42,11 +43,16 @@ public class EntrustInvestment extends ContentPanel {
 		rightVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
 
 		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
-		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
+		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(htmlTemplate.getTemplate());
+
+		htmlLayoutContainer.setWidth(StartPage.CURRENTWIDTH);
+		StartPage.CURRENTHEIGHT = Window.getClientHeight()-300;//StartPage.startPageFooter.getAbsoluteTop() + 70;
+//		Info.display("",""+StartPage.CURRENTHEIGHT);
+		htmlLayoutContainer.setHeight(StartPage.CURRENTHEIGHT); //600 - StartPage.CURRENTHEIGHT);
 
 		HBoxLayoutContainer totalHBar = new HBoxLayoutContainer();
 		totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
-		totalHBar.add(content, new BoxLayoutData(totalHBarMargins));
+		totalHBar.add(htmlLayoutContainer, new BoxLayoutData(totalHBarMargins));
 
 		gridVBox.add(StartPage.getTextContents("투자일임"), new BoxLayoutData(getTextMargins));
 		gridVBox.add(lineBar0, new BoxLayoutData(lineBar0Margins));

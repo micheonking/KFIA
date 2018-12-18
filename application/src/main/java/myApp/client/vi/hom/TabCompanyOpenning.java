@@ -22,6 +22,7 @@ import com.sencha.gxt.widget.core.client.info.Info;
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.hom.company.CeoGreeting;
 import myApp.client.vi.hom.company.CompanyOpening;
+import myApp.client.vi.hom.company.CompanyOpening1;
 import myApp.client.vi.hom.company.OperatingOrganization;
 import myApp.client.vi.hom.company.OperatingOrganization1;
 import myApp.client.vi.hom.company.YourWay;
@@ -31,6 +32,7 @@ public class TabCompanyOpenning extends ContentPanel {
 
 	private CeoGreeting tabCeoGreeting  = new CeoGreeting();
 	private CompanyOpening tabCompanyOpening  = new CompanyOpening();
+	private CompanyOpening1 tabCompanyOpening1  = new CompanyOpening1();
 	private OperatingOrganization tabOperatingOrganization  = new OperatingOrganization();
 	private OperatingOrganization1 tabOperatingOrganization1  = new OperatingOrganization1();
 	private YourWay tabYourWay  = new YourWay();
@@ -127,13 +129,15 @@ public class TabCompanyOpenning extends ContentPanel {
 		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ회사개요　　　　　　</font></div> ");
 		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ운용조직／전문인력　</font></div> ");
 		SafeHtml button4Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ찾아오시는길　　　　</font></div> ");
-		SafeHtml button5Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ여기는 테스트.　　　</font></div> ");
+		SafeHtml button5Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ여기는 테스트1　　　</font></div> ");
+		SafeHtml button6Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ여기는 테스트2　　　</font></div> ");
 
 		TextButton menuButton1 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		TextButton menuButton2 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		TextButton menuButton3 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		TextButton menuButton4 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		TextButton menuButton5 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
+		TextButton menuButton6 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 //		CellButtonBase menuButton1 = new CellButtonBase<>();
 		menuButton1.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton1.setHTML(button1Html);
@@ -186,18 +190,26 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuVBox.add(menuButton4, new BoxLayoutData(buttonMargins));
 		menuVBox.add(lineImage4, new BoxLayoutData(lineImageMargins));
 
-//		CellButtonBase menuButton4 = new CellButtonBase<>();
 		menuButton5.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton5.setHTML(button5Html);
-//		menuButton4.setBorders(true);
 		menuButton5.addSelectHandler(new SelectHandler() {
+			@Override
+			public void onSelect(SelectEvent event) {
+				getCompanyOpening1();
+			}
+		});
+		menuVBox.add(menuButton5, new BoxLayoutData(buttonMargins));
+		menuVBox.add(lineImage5, new BoxLayoutData(lineImageMargins));
+
+		menuButton6.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
+		menuButton6.setHTML(button6Html);
+		menuButton6.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
 				getOperatingOrganization1();
 			}
 		});
-		menuVBox.add(menuButton5, new BoxLayoutData(buttonMargins));
-		menuVBox.add(lineImage5, new BoxLayoutData(lineImageMargins));
+		menuVBox.add(menuButton6, new BoxLayoutData(buttonMargins));
 
 //		menuVBox.setWidth(StartPage.MENU_WIDTH);
 //		menuVBox.setHeight(StartPage.CON_HEIGHT);
@@ -221,6 +233,9 @@ public class TabCompanyOpenning extends ContentPanel {
 			totalHBar.add(getYourWay());
 			break;
 		case "5" :
+			totalHBar.add(getCompanyOpening1());
+			break;
+		case "6" :
 			totalHBar.add(getOperatingOrganization1());
 			break;
 		default :
@@ -284,9 +299,21 @@ public class TabCompanyOpenning extends ContentPanel {
 		return contentPanel;
 	}
 	
-	private ContentPanel getOperatingOrganization1() {
+	private ContentPanel getCompanyOpening1() {
 
 		StartPage.CURRENTPAGE = "5";
+		contentPanel.setHeaderVisible(false);
+		contentPanel.setBorders(false);
+		contentPanel.setWidth(StartPage.CON_WIDTH);
+		contentPanel.setHeight(Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
+		contentPanel.setWidget(tabCompanyOpening1);
+
+		return contentPanel;
+	}
+	
+	private ContentPanel getOperatingOrganization1() {
+
+		StartPage.CURRENTPAGE = "6";
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);

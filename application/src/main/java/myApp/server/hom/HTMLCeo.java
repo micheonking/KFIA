@@ -20,7 +20,7 @@ import com.sencha.gxt.widget.core.client.info.Info;
 import myApp.client.vi.hom.company.model.Hom03_OperatingModel;
 import myApp.server.utils.db.DatabaseFactory;
 
-public class HTMLOperating implements javax.servlet.Servlet {
+public class HTMLCeo implements javax.servlet.Servlet {
 
 	private String actionCode = "retrieve"; 
 
@@ -98,9 +98,8 @@ public class HTMLOperating implements javax.servlet.Servlet {
 		
 		sqlSession.close();
 		
-//		String tableString = "<table border=1 style='width:99%; margin:0px; font-size:12px; border:1px silver solid; border-top: 2px solid #023d69; border-collapse:collapse; padding:0px;'>";
-		String tableString = "<table border=1 style='width:99%; margin:0px; font-size:12px; border-top: 2px solid #023d69; border-bottom:1px solid #ddd;"
-							+	"border-left: 1px solid white; border-right: 1px solid white; border-collapse:collapse; padding:0px;'>";
+		String tableString = "<table border=1 style='width:99%; margin:0px; font-size:12px; border-collapse:collapse; border:1px silver solid; padding:0px;'>";
+		
 		
 		for(String rowString1 : rowList) {
 			tableString += rowString1; 
@@ -113,7 +112,7 @@ public class HTMLOperating implements javax.servlet.Servlet {
 		return returnHtml; 
 	}
 
-//	tr:td 만들기	/////////////////////////////////////////////////////////////////////////////////////////	
+	
 	private String tr(String data) {
 		return "<tr style='height:auto;'>" + data + "</tr>"; 
 	}
@@ -178,7 +177,6 @@ public class HTMLOperating implements javax.servlet.Servlet {
 				+ "px;" + rowChange + "padding:5px; height:auto; word-wrap:break-word;' >" + data 
 				+ "</td>" ; 
 	}
-//	tr:td 만들기	/////////////////////////////////////////////////////////////////////////////////////////	
 	
 		 
 	@Override

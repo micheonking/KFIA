@@ -2,6 +2,7 @@ package myApp.client.vi.hom.product;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Image;
 import com.sencha.gxt.core.client.XTemplates;
 import com.sencha.gxt.core.client.XTemplates.XTemplate;
@@ -50,11 +51,15 @@ public class SmartHeild extends ContentPanel {
 		HBoxLayoutContainer totalHBar = new HBoxLayoutContainer();
 		totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
 		
-		
 		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
-		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
+		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(htmlTemplate.getTemplate());
 //
-		totalHBar.add(content, new BoxLayoutData(totalHBarMargins));
+		htmlLayoutContainer.setWidth(StartPage.CURRENTWIDTH);
+		StartPage.CURRENTHEIGHT = Window.getClientHeight()-300;//StartPage.startPageFooter.getAbsoluteTop() + 70;
+//		Info.display("",""+StartPage.CURRENTHEIGHT);
+		htmlLayoutContainer.setHeight(StartPage.CURRENTHEIGHT); //600 - StartPage.CURRENTHEIGHT);
+
+		totalHBar.add(htmlLayoutContainer, new BoxLayoutData(totalHBarMargins));
 		gridVBox.add(StartPage.getTextContents("스마트 하이일드 일임투자"),new BoxLayoutData(getTextMargins));
 		gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));
 		gridVBox.add(totalHBar);

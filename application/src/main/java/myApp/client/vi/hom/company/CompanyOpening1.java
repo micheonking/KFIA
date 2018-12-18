@@ -4,6 +4,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.logical.shared.ResizeEvent;
 import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Image;
 import com.sencha.gxt.core.client.XTemplates;
 import com.sencha.gxt.core.client.util.Margins;
@@ -42,7 +43,7 @@ public class CompanyOpening1 extends ContentPanel {
 	}
 	
 	private void resize() {
-//	public OperatingOrganization1() {
+//	public CompanyOpening1() {
 		
 		this.setHeaderVisible(false);
 
@@ -65,9 +66,9 @@ public class CompanyOpening1 extends ContentPanel {
 //		htmlLayoutContainer.setBorders(true);
 //		this.add(htmlLayoutContainer, new MarginData(10));
 
-		htmlLayoutContainer.setWidth(770);
-		StartPage.CURRENTHEIGHT = com.google.gwt.user.client.Window.getClientHeight()-300;//StartPage.startPageFooter.getAbsoluteTop() + 70;
-		Info.display("",""+StartPage.CURRENTHEIGHT);
+		htmlLayoutContainer.setWidth(StartPage.CURRENTWIDTH);
+		StartPage.CURRENTHEIGHT = Window.getClientHeight()-300;//StartPage.startPageFooter.getAbsoluteTop() + 70;
+//		Info.display("",""+StartPage.CURRENTHEIGHT);
 		htmlLayoutContainer.setHeight(StartPage.CURRENTHEIGHT); //600 - StartPage.CURRENTHEIGHT);
 		totalHBar.add(htmlLayoutContainer, new BoxLayoutData(totalHBarMargins));
 		

@@ -34,8 +34,8 @@ public class OperatingOrganization extends ContentPanel {
 	
 	public interface HTMLTemplate extends XTemplates {
 		//웹에디터 HTML 설정
-	    @XTemplate("<iframe id='operationOrganization' frameborder=0 src='{pageName}' width='770' height='{pageHeight}'/> ")
-		SafeHtml getTemplate(String pageName, String pageHeight);
+	    @XTemplate("<iframe src='{pageName}' align= left marginheight=1 style='border:0px; width:100%; height:97%;'/> ")
+		SafeHtml getTemplate(String pageName);
 	}
 	
 	public OperatingOrganization() {
@@ -54,8 +54,7 @@ public class OperatingOrganization extends ContentPanel {
 		this.setHeaderVisible(false);
 //		this.isAutoHeight();
 		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
-		String pageName = "htmlhome/operationOrganization.html";
-		String pageHeight = ""+(Window.getClientHeight() - 300);
+		String pageName = "operationOrganization.html";
 
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
@@ -73,7 +72,7 @@ public class OperatingOrganization extends ContentPanel {
 		totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
 
 //		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
-		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(htmlTemplate.getTemplate(pageName,pageHeight));
+		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(htmlTemplate.getTemplate(pageName));
 
 
 //		Label content = new HTML("
@@ -82,6 +81,11 @@ public class OperatingOrganization extends ContentPanel {
 //
 //		totalHBar.add(htmlLayoutContainer, new Margins(10));
 		
+		htmlLayoutContainer.setWidth(StartPage.CURRENTWIDTH);
+		StartPage.CURRENTHEIGHT = Window.getClientHeight()-300;//StartPage.startPageFooter.getAbsoluteTop() + 70;
+//		Info.display("",""+StartPage.CURRENTHEIGHT);
+		htmlLayoutContainer.setHeight(StartPage.CURRENTHEIGHT); //600 - StartPage.CURRENTHEIGHT);
+
 		totalHBar.add(htmlLayoutContainer, new BoxLayoutData(totalHBarMargins));
 		
 		gridVBox.add(StartPage.getTextContents("운용조직 및 조직인력"), new BoxLayoutData(getTextMargins));

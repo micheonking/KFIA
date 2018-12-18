@@ -29,13 +29,14 @@ public class StartPage extends BorderLayoutContainer {
 
 	protected static final int MENU_WIDTH = 180;
 	protected static final int MENU_HEIGHT = 900;
-	protected static final int CON_WIDTH = 800;
+	protected static final int CON_WIDTH = 770;
 	protected static final int CON_HEIGHT = Window.getClientHeight() - 253;
 	protected static final String WBTN_WIDTH = "80";
 	protected static final String WBTN_HEIGHT = "30";
 	protected static final String BTN_WIDTH = ""+MENU_WIDTH;
 	protected static final String BTN_HEIGHT = "40";
 
+	public static int CURRENTWIDTH = 770;
 	public static int CURRENTHEIGHT = 0;
 	static String CURRENTPAGE = "0";
 

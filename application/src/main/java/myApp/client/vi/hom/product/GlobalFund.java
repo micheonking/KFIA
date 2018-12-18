@@ -2,6 +2,7 @@ package myApp.client.vi.hom.product;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Image;
 import com.sencha.gxt.core.client.XTemplates;
 import com.sencha.gxt.core.client.XTemplates.XTemplate;
@@ -30,8 +31,8 @@ public class GlobalFund extends ContentPanel {
 
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
-		gridVBox.setWidth(800);
-		gridVBox.setHeight(1000);
+//		gridVBox.setWidth(800);
+//		gridVBox.setHeight(1000);
 
 		Margins getTextMargins = new Margins(0, 0, 15, 0);
 		Margins totalHBarMargins = new Margins(5, 0, 5, 30);
@@ -46,11 +47,16 @@ public class GlobalFund extends ContentPanel {
 		rightVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
 
 		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
-		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
+		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(htmlTemplate.getTemplate());
+
+		htmlLayoutContainer.setWidth(StartPage.CURRENTWIDTH);
+		StartPage.CURRENTHEIGHT = Window.getClientHeight()-300;//StartPage.startPageFooter.getAbsoluteTop() + 70;
+//		Info.display("",""+StartPage.CURRENTHEIGHT);
+		htmlLayoutContainer.setHeight(StartPage.CURRENTHEIGHT); //600 - StartPage.CURRENTHEIGHT);
 
 		HBoxLayoutContainer totalHBar = new HBoxLayoutContainer();
 		totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
-		totalHBar.add(content, new BoxLayoutData(totalHBarMargins));
+		totalHBar.add(htmlLayoutContainer, new BoxLayoutData(totalHBarMargins));
 
 		gridVBox.add(StartPage.getTextContents("글로벌 펀드일임 투자"), new BoxLayoutData(getTextMargins));
 		gridVBox.add(verticalTitle, new BoxLayoutData(lineBar0Margins));

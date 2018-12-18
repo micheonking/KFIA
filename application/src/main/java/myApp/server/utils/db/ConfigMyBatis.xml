@@ -113,10 +113,8 @@
 	<mapper resource="myApp/server/fnd/mapper/fnd07_issuing_entity.xml"/>
 	<mapper resource="myApp/server/fnd/mapper/fnd08_org_auth.xml"/>
 	
+	<mapper resource="myApp/server/hom/mapper/hom01_outline.xml"/>
 	<mapper resource="myApp/server/hom/mapper/hom03_operating.xml"/>
-	
-	
-	
 	
 </mappers>
 

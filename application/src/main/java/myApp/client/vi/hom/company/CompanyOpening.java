@@ -32,8 +32,9 @@ public class CompanyOpening extends ContentPanel {
 //		//웹에디터 HTML 설정
 //		@XTemplate(source="companyOpening.html")
 		//웹에디터 HTML 설정
-	    @XTemplate("<iframe id='companyOpening' frameborder=0 src='{pageName}' width='770' height='{pageHeight}'/> ")
-		SafeHtml getTemplate(String pageName, String pageHeight);
+//	    @XTemplate("<iframe id='companyOpening' frameborder=0 src='{pageName}' width='770' height='{pageHeight}'/> ")
+	    @XTemplate("<iframe src='{pageName}' align= left marginheight=1 style='border:0px; width:100%; height:97%;'/> ")
+		SafeHtml getTemplate(String pageName);
 //		SafeHtml getTemplate();
 	}
 	
@@ -53,8 +54,7 @@ public class CompanyOpening extends ContentPanel {
 		this.setHeaderVisible(false);
 //		this.isAutoHeight();
 		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
-		String pageName = "htmlhome/companyOpening.html";
-		String pageHeight = ""+(Window.getClientHeight() - 300);
+		String pageName = "companyOpening.html";
 
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
@@ -74,12 +74,16 @@ public class CompanyOpening extends ContentPanel {
 		
 //		HTMLTemplate htmlTemplate = GWT.create(HTMLTemplate.class);
 //		HtmlLayoutContainer content = new HtmlLayoutContainer(htmlTemplate.getTemplate());
-		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(htmlTemplate.getTemplate(pageName,pageHeight));
+		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(htmlTemplate.getTemplate(pageName));
 		
 //		Label content = new HTML("
 //					);
 //		content.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 //
+		htmlLayoutContainer.setWidth(StartPage.CURRENTWIDTH);
+		StartPage.CURRENTHEIGHT = Window.getClientHeight()-300;//StartPage.startPageFooter.getAbsoluteTop() + 70;
+//		Info.display("",""+StartPage.CURRENTHEIGHT);
+		htmlLayoutContainer.setHeight(StartPage.CURRENTHEIGHT); //600 - StartPage.CURRENTHEIGHT);
 		totalHBar.add(htmlLayoutContainer, new BoxLayoutData(totalHBarMargins));
 
 		gridVBox.add(StartPage.getTextContents("회사개요"),new BoxLayoutData(getTextMargins));
