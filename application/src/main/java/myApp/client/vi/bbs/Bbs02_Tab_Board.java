@@ -26,8 +26,8 @@ import myApp.client.vi.MenuOpener;
 import myApp.client.vi.MenuTree;
 import myApp.client.vi.bbs.model.Bbs02_BoardModel;
 import myApp.client.vi.bbs.model.Bbs02_BoardModelProperties;
-import myApp.client.vi.home.StartPage;
-import myApp.client.vi.home.report.Notification;
+import myApp.client.vi.hom.StartPage;
+import myApp.client.vi.hom.report.Notification;
 
 public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceGridOperate {
 

@@ -11,7 +11,7 @@
 
   <servlet>
     <servlet-name>HTMLOperating</servlet-name>
-    <servlet-class>myApp.server.home.HTMLOperating</servlet-class>
+    <servlet-class>myApp.server.hom.HTMLOperating</servlet-class>
   </servlet>
   
   <servlet-mapping>

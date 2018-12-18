@@ -214,7 +214,7 @@ public class MenuOpener {
 		}
 		
 		if ("Notification.class".equals(className)) {
-			return (Widget) GWT.create(myApp.client.vi.home.report.Notification.class);
+			return (Widget) GWT.create(myApp.client.vi.hom.report.Notification.class);
 		}
 	 
 	

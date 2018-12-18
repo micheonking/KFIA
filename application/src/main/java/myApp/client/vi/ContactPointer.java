@@ -5,7 +5,7 @@ import com.sencha.gxt.widget.core.client.container.CenterLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.MarginData;
 import com.sencha.gxt.widget.core.client.container.Viewport;
 
-import myApp.client.vi.home.StartPage;
+import myApp.client.vi.hom.StartPage;
 
 public class ContactPointer {
 
