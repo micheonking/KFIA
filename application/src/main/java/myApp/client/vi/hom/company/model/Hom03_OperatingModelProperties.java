@@ -19,5 +19,8 @@ public interface Hom03_OperatingModelProperties extends PropertyAccess<Hom03_Ope
 	ValueProvider<Hom03_OperatingModel,	String>	academicCertificate();
 	ValueProvider<Hom03_OperatingModel,	String>	contactInfomation();
 	ValueProvider<Hom03_OperatingModel,	String>	numericalOrder();
+	ValueProvider<Hom03_OperatingModel,	String>	orgName();
+	ValueProvider<Hom03_OperatingModel,	Integer>	chargeStockFirmCnt();
+	ValueProvider<Hom03_OperatingModel,	Integer>	chargeStockFirmMax();
 
 }

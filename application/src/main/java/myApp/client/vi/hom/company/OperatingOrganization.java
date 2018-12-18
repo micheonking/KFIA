@@ -30,7 +30,7 @@ import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.dbm.Dbm01_RDPage_ColComments.RDTemplate;
 import myApp.client.vi.hom.StartPage;
 
-public class OperationOrganization extends ContentPanel {
+public class OperatingOrganization extends ContentPanel {
 	
 	public interface HTMLTemplate extends XTemplates {
 		//웹에디터 HTML 설정
@@ -38,7 +38,7 @@ public class OperationOrganization extends ContentPanel {
 		SafeHtml getTemplate(String pageName, String pageHeight);
 	}
 	
-	public OperationOrganization() {
+	public OperatingOrganization() {
 		this.addResizeHandler(new ResizeHandler() {
 			@Override
 			public void onResize(ResizeEvent event) {
@@ -49,7 +49,7 @@ public class OperationOrganization extends ContentPanel {
 	}
 	
 	private void resize() {
-//	public OperationOrganization() {
+//	public OperatingOrganization() {
 
 		this.setHeaderVisible(false);
 //		this.isAutoHeight();

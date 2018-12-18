@@ -15,16 +15,16 @@ theme {
       backgroundColor = "#ffffff"
       frameHeight = 0
       frameWidth = 0
-      headerBackgroundColor = "#ECECEC"
-      headerGradient = "#5fa2dd 0%, #5fa2dd 100%"
+      headerBackgroundColor = "#2b579a" // "#ECECEC"
+      headerGradient = "#2b579a 0%, #2b579a 100%" // "#5fa2dd 0%, #5fa2dd 100%"
       headerLineHeight = "18px"
       border {
-        bottom = 5
+        bottom = 0 // 5
         color = "#ececec"
         left = 0
         right = 5
         style = "solid"
-        top = 1
+        top = 0
       }
       font {
         color = "#f6f6f6"
@@ -54,10 +54,10 @@ theme {
       }
     }
     borderLayout {
-      panelBackgroundColor = "#5fa2dd" // "#ececec"
+      panelBackgroundColor = "#2b579a" // "#5fa2dd" // "#ececec"
       collapsePanelBackgroundColor = "#5fa2dd"
       collapsePanelBorder {
-        bottom = 1
+        bottom = 0 // 1
         color = "#ececec"
         left = 0
         right = 0
@@ -473,20 +473,20 @@ theme {
     }
     framedPanel {
       backgroundColor = "#ffffff"
-      borderRadius = 0
+      borderRadius = 2
       frameHeight = 0
       frameWidth = 0
-      headerBackgroundColor = "#5fa2dd"
-      headerGradient = "#5fa2dd 0%, #5fa2dd 100%"
+      headerBackgroundColor = "#2b579a" // "#5fa2dd"
+      headerGradient = "#2b579a 0%, #2b579a 100%" // "#5fa2dd 0%, #5fa2dd 100%"
       headerLineHeight = "20px"
       radiusMinusBorderWidth = util.radiusMinusBorderWidth(border, borderRadius)
       border {
-        bottom = 0
+        bottom = 1 // 0
         color = "#ececec" // "#5fa2dd"
-        left = 0 // 1
-        right = 0
+        left = 1 // 0 // 1
+        right = 1 // 0
         style = "solid"
-        top = 0
+        top = 1 // 0
       }
       font {
         color = "#f0f0f0"
@@ -669,7 +669,7 @@ theme {
     }
     info {
       backgroundColor = "#ffffff"
-      borderRadius = 0
+      borderRadius = 2
       opacity = 1
       radiusMinusBorderWidth = util.radiusMinusBorderWidth(border, borderRadius)
       border {
@@ -1058,7 +1058,7 @@ theme {
       dragColor = "#B4B4B4"
       handleHeight = 48
       handleOpacity = 0.5
-      handleWidth = 8
+      handleWidth = 5
     }
     status {
       lineHeight = "16px"
@@ -1123,7 +1123,7 @@ theme {
 
       borderColor = "#ececec" // "#5fa2dd"
       bodyBackgroundColor = "#ffffff"
-      borderRadius = 0
+      borderRadius = 2
       closeIconWidth = 11
       headingColor = "#ffffff"
       gradient = "#ffffff 0%, #ffffff 100%"
@@ -1133,9 +1133,9 @@ theme {
         size = "13px"
         weight = "400"
       }
-      hoverGradient = "rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%"
+      hoverGradient = "rgba(0, 0, 0, 0.09) 0%, rgba(0, 0, 0, 0.09) 100%"
       hoverHeadingText = headingText
-      hoverTabItemBackgroundColor = "rgba(0, 0, 0, 0.08)"
+      hoverTabItemBackgroundColor = "rgba(0, 0, 0, 0.09)"
       iconLeftOffset = 6
       iconTopOffset = 5
       iconWidth = 16
@@ -1171,7 +1171,7 @@ theme {
         weight = "400"
       }
       plainHeadingText {
-        color = "#eeeeee"
+        color = "#cfcfcf" // "#eeeeee"
         family = "'D2Coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "400"
@@ -1196,7 +1196,7 @@ theme {
       tabCloseOverIconColor = "#ffffff"
       tabHeight = 32 // 36		// Fix me...
       tabItemBorderBottom = "none"
-      tabItemBorderLeft = "solid 8px #5fa2dd" // "solid" // delete me...
+      tabItemBorderLeft = "none" // "solid 8px #5fa2dd" // "solid" // delete me...
       tabItemBorderRight = "none"
       tabItemBorderTop = "none"
       tabSpacing = 1

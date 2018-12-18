@@ -14,6 +14,9 @@ public class Hom03_OperatingModel implements GridDataModel {
 	private	String	academicCertificate;
 	private	String	contactInfomation;
 	private	String	numericalOrder;
+	private	String	orgName;
+	private	Integer	chargeStockFirmCnt;
+	private	Integer	chargeStockFirmMax;
 	
 	@Override
 	public void setKeyId(Long id) {
@@ -76,5 +79,23 @@ public class Hom03_OperatingModel implements GridDataModel {
 	}
 	public void setNumericalOrder(String numericalOrder) {
 		this.numericalOrder = numericalOrder;
+	}
+	public String getOrgName() {
+		return orgName;
+	}
+	public void setOrgName(String orgName) {
+		this.orgName = orgName;
+	}
+	public Integer getChargeStockFirmCnt() {
+		return chargeStockFirmCnt;
+	}
+	public void setChargeStockFirmCnt(Integer chargeStockFirmCnt) {
+		this.chargeStockFirmCnt = chargeStockFirmCnt;
+	}
+	public Integer getChargeStockFirmMax() {
+		return chargeStockFirmMax;
+	}
+	public void setChargeStockFirmMax(Integer chargeStockFirmMax) {
+		this.chargeStockFirmMax = chargeStockFirmMax;
 	}
 }

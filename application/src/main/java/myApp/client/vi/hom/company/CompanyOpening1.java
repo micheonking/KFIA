@@ -8,34 +8,18 @@ import com.google.gwt.user.client.ui.Image;
 import com.sencha.gxt.core.client.XTemplates;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.ContentPanel;
-import com.sencha.gxt.widget.core.client.Window;
-import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
-import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutPack;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.MarginData;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
-import com.sencha.gxt.widget.core.client.event.BeforeHideEvent;
-import com.sencha.gxt.widget.core.client.event.BeforeHideEvent.BeforeHideHandler;
-import com.sencha.gxt.widget.core.client.event.SelectEvent;
-import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.info.Info;
 
 import myApp.client.resource.ResourceIcon;
-import myApp.client.service.InterfaceCallback;
-import myApp.client.service.InterfaceServiceCall;
-import myApp.client.service.ServiceCall;
-import myApp.client.service.ServiceRequest;
-import myApp.client.service.ServiceResult;
-import myApp.client.utils.InterfaceCallbackResult;
-import myApp.client.utils.SimpleMessage;
 import myApp.client.vi.hom.StartPage;
-import myApp.client.vi.hom.company.model.Hom03_OperatingModel;
 
-public class OperationOrganization1 extends ContentPanel {
+public class CompanyOpening1 extends ContentPanel {
 	
 	SimpleHTMLTemplate htmlTemplate = GWT.create(SimpleHTMLTemplate.class);
 	
@@ -43,11 +27,11 @@ public class OperationOrganization1 extends ContentPanel {
 	private HtmlLayoutContainer htmlLayoutContainer ; 
 	
 	public interface SimpleHTMLTemplate extends XTemplates {
-		@XTemplate(source="HTMLOperating.html") 
+		@XTemplate(source="HTMLCompany.html") 
 		SafeHtml setParam(String actionCode);
 	}
 	
-	public OperationOrganization1() {
+	public CompanyOpening1() {
 		this.addResizeHandler(new ResizeHandler() {
 			@Override
 			public void onResize(ResizeEvent event) {
@@ -58,7 +42,7 @@ public class OperationOrganization1 extends ContentPanel {
 	}
 	
 	private void resize() {
-//	public OperationOrganization1() {
+//	public OperatingOrganization1() {
 		
 		this.setHeaderVisible(false);
 
@@ -87,7 +71,7 @@ public class OperationOrganization1 extends ContentPanel {
 		htmlLayoutContainer.setHeight(StartPage.CURRENTHEIGHT); //600 - StartPage.CURRENTHEIGHT);
 		totalHBar.add(htmlLayoutContainer, new BoxLayoutData(totalHBarMargins));
 		
-		gridVBox.add(StartPage.getTextContents("운용조직 및 조직인력"), new BoxLayoutData(getTextMargins));
+		gridVBox.add(StartPage.getTextContents("회사개요"), new BoxLayoutData(getTextMargins));
 		gridVBox.add(lineBar0, new BoxLayoutData(lineBar0Margins));
 		gridVBox.add(totalHBar, new BoxLayoutData(new Margins(1, 0, 1, 0)));
 

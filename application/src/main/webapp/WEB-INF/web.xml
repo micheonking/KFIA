@@ -20,6 +20,16 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>HTMLOutline</servlet-name>
+    <servlet-class>myApp.server.hom.HTMLOutline</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>HTMLOutline</servlet-name>
+    <url-pattern>/HTMLOutline</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>FundUpload</servlet-name>
     <servlet-class>myApp.server.utils.file.FundUpload</servlet-class>
   </servlet>

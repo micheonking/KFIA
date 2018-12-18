@@ -13,9 +13,11 @@ public class Sys00_Admin extends ContentPanel {
 
 		this.setBorders(true);
 //		this.setHeading("시스템 관리자");
-		SafeHtml titleHtml = SafeHtmlUtils.fromTrustedString("<div style='background-color: #023d69;'><font color='#ffffff' style='font-size:18px;font-weight:bold'><br>&nbsp;&nbsp;시스템 관리자<br><br></font></div>");
+		this.setBodyStyle("backgroundColor:#2b579a; color:#eeeeee");
+		SafeHtml titleHtml = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#f2f2f2' style='font-size:18px;font-weight:bold'>&nbsp;&nbsp;시스템 관리자<br></font></div>");
 		this.setHeading(titleHtml);
-		this.setBodyStyle("backgroundColor:#5fa2dd; color:#eeeeee");
+		this.setHeaderVisible(false);
+//		this.setBodyStyle("backgroundColor:#5fa2dd; color:#eeeeee");
 		
 		
 		PlainTabPanel tabPanel = new PlainTabPanel();

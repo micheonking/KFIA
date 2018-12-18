@@ -22,8 +22,8 @@ import com.sencha.gxt.widget.core.client.info.Info;
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.hom.company.CeoGreeting;
 import myApp.client.vi.hom.company.CompanyOpening;
-import myApp.client.vi.hom.company.OperationOrganization;
-import myApp.client.vi.hom.company.OperationOrganization1;
+import myApp.client.vi.hom.company.OperatingOrganization;
+import myApp.client.vi.hom.company.OperatingOrganization1;
 import myApp.client.vi.hom.company.YourWay;
 import myApp.theme.tritium.custom.client.button.white.WhiteButtonCellAppearance;
 
@@ -31,8 +31,8 @@ public class TabCompanyOpenning extends ContentPanel {
 
 	private CeoGreeting tabCeoGreeting  = new CeoGreeting();
 	private CompanyOpening tabCompanyOpening  = new CompanyOpening();
-	private OperationOrganization tabOperationOrganization  = new OperationOrganization();
-	private OperationOrganization1 tabOperationOrganization1  = new OperationOrganization1();
+	private OperatingOrganization tabOperatingOrganization  = new OperatingOrganization();
+	private OperatingOrganization1 tabOperatingOrganization1  = new OperatingOrganization1();
 	private YourWay tabYourWay  = new YourWay();
 	
 	ContentPanel contentPanel  = new ContentPanel();
@@ -167,7 +167,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuButton3.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				getOperationOrganization();
+				getOperatingOrganization();
 			}
 		});
 		menuVBox.add(menuButton3, new BoxLayoutData(buttonMargins));
@@ -193,7 +193,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuButton5.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				getOperationOrganization1();
+				getOperatingOrganization1();
 			}
 		});
 		menuVBox.add(menuButton5, new BoxLayoutData(buttonMargins));
@@ -215,13 +215,13 @@ public class TabCompanyOpenning extends ContentPanel {
 			totalHBar.add(getCompanyOpening());
 			break;
 		case "3" :
-			totalHBar.add(getOperationOrganization());
+			totalHBar.add(getOperatingOrganization());
 			break;
 		case "4" :
 			totalHBar.add(getYourWay());
 			break;
 		case "5" :
-			totalHBar.add(getOperationOrganization1());
+			totalHBar.add(getOperatingOrganization1());
 			break;
 		default :
 			totalHBar.add(getCeoGreeting());
@@ -259,14 +259,14 @@ public class TabCompanyOpenning extends ContentPanel {
 		return contentPanel;
 	}
 	
-	private ContentPanel getOperationOrganization() {
+	private ContentPanel getOperatingOrganization() {
 
 		StartPage.CURRENTPAGE = "3";
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);
 		contentPanel.setHeight(Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
-		contentPanel.setWidget(tabOperationOrganization);
+		contentPanel.setWidget(tabOperatingOrganization);
 
 		return contentPanel;
 	}
@@ -284,14 +284,14 @@ public class TabCompanyOpenning extends ContentPanel {
 		return contentPanel;
 	}
 	
-	private ContentPanel getOperationOrganization1() {
+	private ContentPanel getOperatingOrganization1() {
 
 		StartPage.CURRENTPAGE = "5";
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);
 		contentPanel.setHeight(Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
-		contentPanel.setWidget(tabOperationOrganization1);
+		contentPanel.setWidget(tabOperatingOrganization1);
 
 		return contentPanel;
 	}

@@ -1,4 +1,4 @@
-package myApp.client.vi.hom.company;
+package myApp.client.vi.hom;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.Label;

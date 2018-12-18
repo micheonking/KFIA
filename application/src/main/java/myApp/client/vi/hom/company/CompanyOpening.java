@@ -24,7 +24,7 @@ import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.hom.StartPage;
-import myApp.client.vi.hom.company.OperationOrganization.HTMLTemplate;
+import myApp.client.vi.hom.company.OperatingOrganization.HTMLTemplate;
 
 public class CompanyOpening extends ContentPanel {
 	

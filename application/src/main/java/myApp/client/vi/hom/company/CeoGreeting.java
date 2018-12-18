@@ -36,6 +36,7 @@ public class CeoGreeting extends ContentPanel {
 		gridHBox.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
 		
 		HTML ceoimage = new HTML("<div><img src='img/ceo.jpg' width='217' height='267'></div>"); //인물사진
+		Image addButton = new Image(ResourceIcon.INSTANCE.addButton());
 
 		VBoxLayoutContainer leftVBox = new VBoxLayoutContainer();
 		leftVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
@@ -99,6 +100,7 @@ public class CeoGreeting extends ContentPanel {
 		
 		gridVBox.add(StartPage.getTextContents("CEO 인사말"),new BoxLayoutData(getTextMargins));
 		gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));
+		gridVBox.add(addButton,new BoxLayoutData(lineBar0Margins));
 
 		rightVBox.add(ceoimage, new BoxLayoutData(new Margins(5, 0, 0, 0)));
 		rightVBox.add(education,new BoxLayoutData(new Margins(0, 0, 0, 0)));

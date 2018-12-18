@@ -76,7 +76,10 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 //		Image borderBar = new Image(ResourceIcon.INSTANCE.borderBox());
 
 		ContentPanel cp = new ContentPanel();
-		cp.setBodyStyle("backgroundColor:white; color:red"); // http://www.w3schools.com/colors/colors_names.asp 페이지 참조
+		cp.setBodyStyle("backgroundColor:#ffffff; color:red"); // http://www.w3schools.com/colors/colors_names.asp 페이지 참조
+//		cp.setBodyStyle("backgroundColor:#217346; color:red"); // http://www.w3schools.com/colors/colors_names.asp 페이지 참조
+//		cp.setBodyStyle("backgroundColor:#024059; color:red"); // http://www.w3schools.com/colors/colors_names.asp 페이지 참조
+//		cp.setBodyStyle("backgroundColor:#28384a; color:red"); // http://www.w3schools.com/colors/colors_names.asp 페이지 참조
 
 		cp.add(header);
 //		cp.add(header, new BoxLayoutData(new Margins(0, 0, 0, 0)));
@@ -86,7 +89,7 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 		cp.setHeaderVisible(false);
 //		cp.setHeight(90);
 		cp.getButtonBar().setHeight(0);
-		cp.setBorders(true);
+//		cp.setBorders(true);
 		
 		this.add(cp);
 	}
