@@ -45,6 +45,7 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 
 		this.setHeaderVisible(false);
 
+		
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
 
