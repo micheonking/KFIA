@@ -9,6 +9,8 @@ import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
+import com.sencha.gxt.widget.core.client.event.RowClickEvent;
+import com.sencha.gxt.widget.core.client.event.RowClickEvent.RowClickHandler;
 import com.sencha.gxt.widget.core.client.grid.Grid;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
@@ -16,6 +18,7 @@ import myApp.client.grid.GridBuilder;
 import myApp.client.grid.InterfaceGridOperate;
 import myApp.client.resource.ResourceIcon;
 import myApp.client.service.GridRetrieveData;
+import myApp.client.utils.InterfaceCallbackResult;
 import myApp.client.vi.bbs.model.Bbs02_BoardModel;
 import myApp.client.vi.bbs.model.Bbs02_BoardModelProperties;
 import myApp.client.vi.home.StartPage;
@@ -58,10 +61,24 @@ public class ReportNews extends ContentPanel implements InterfaceGridOperate {
 		gridVBox.add(StartPage.getTextContents("보도자료"),new BoxLayoutData(getTextMargins));
 		gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));
 		gridVBox.add(this.grid, new BoxLayoutData(totalHBarMargins));
-
 		this.add(gridVBox);
-		
 		retrieve();
+		
+		this.grid.addRowClickHandler(new RowClickHandler() {
+					
+			@Override
+			public void onRowClick(RowClickEvent event) {
+				Bbs02_BoardModel boardModel = grid.getSelectionModel().getSelectedItem();
+				ReportNewsPopUp popUp = new ReportNewsPopUp();
+				popUp.open(boardModel, new InterfaceCallbackResult() {
+					@Override
+					public void execute(Object result) {
+						retrieve();
+					}
+				});
+			}
+		});
+
 
 	}
 

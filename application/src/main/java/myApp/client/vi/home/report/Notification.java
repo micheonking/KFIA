@@ -12,6 +12,8 @@ import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
+import com.sencha.gxt.widget.core.client.event.RowClickEvent;
+import com.sencha.gxt.widget.core.client.event.RowClickEvent.RowClickHandler;
 import com.sencha.gxt.widget.core.client.grid.Grid;
 import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.selection.SelectionChangedEvent;
@@ -67,20 +69,22 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 
 		this.add(gridVBox);
 		retrieve();
-		this.grid.getSelectionModel().addSelectionChangedHandler(new SelectionChangedHandler<Bbs02_BoardModel>(){
+		this.grid.addRowClickHandler(new RowClickHandler() {
+			
 			@Override
-			public void onSelectionChanged(SelectionChangedEvent<Bbs02_BoardModel> event) {
+			public void onRowClick(RowClickEvent event) {
 				Bbs02_BoardModel boardModel = grid.getSelectionModel().getSelectedItem();
 				NotificationPopUp popUp = new NotificationPopUp();
 				popUp.open(boardModel, new InterfaceCallbackResult() {
 					@Override
 					public void execute(Object result) {
+						// TODO Auto-generated method stub
 						retrieve();
-						//clear();  게시물 팝업 닫고 동일한 게시물 클릭시 팝업 xxxxxx
 					}
 				});
 			}
 		});
+		
 
 	}
 

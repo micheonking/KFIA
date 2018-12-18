@@ -5,13 +5,11 @@ import java.util.Map;
 import org.apache.tools.ant.taskdefs.Javadoc.Html;
 
 import com.gargoylesoftware.htmlunit.html.HtmlArea;
-import com.google.gwt.cell.client.ActionCell;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextArea;
 import com.sencha.gxt.core.client.util.DelayedTask;
@@ -34,18 +32,15 @@ import com.sencha.gxt.widget.core.client.grid.Grid;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.resource.ResourceIcon;
-import myApp.client.service.InterfaceCallback;
-import myApp.client.utils.FileUpdownForm;
 import myApp.client.utils.InterfaceCallbackResult;
 import myApp.client.vi.bbs.model.Bbs02_BoardModel;
 import myApp.client.vi.home.StartPage;
 import myApp.client.vi.sys.Sys10_Lookup_MultiFile;
-import myApp.client.vi.sys.Sys10_Lookup_MultiFile2;
 
-public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel> {
+public class OfficialNoticePopUp extends Window implements Editor<Bbs02_BoardModel> {
 
 
-	interface EditDriver extends SimpleBeanEditorDriver<Bbs02_BoardModel, NotificationPopUp>{}
+	interface EditDriver extends SimpleBeanEditorDriver<Bbs02_BoardModel, OfficialNoticePopUp>{}
 	
 	EditDriver editDriver = GWT.create(EditDriver.class);
 	Grid<Bbs02_BoardModel> grid;
@@ -57,9 +52,7 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 	
 	private InterfaceCallbackResult callback;
 	
-	Sys10_Lookup_MultiFile2 fileForm = new Sys10_Lookup_MultiFile2() ;
-	
-	private FileUpdownForm fileUpdownForm = new FileUpdownForm();
+	Sys10_Lookup_MultiFile fileForm = new Sys10_Lookup_MultiFile() ;
 	
 	
 	public void open( Bbs02_BoardModel boardModel,InterfaceCallbackResult callback) {
@@ -91,18 +84,6 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 		}); 
 		this.getButtonBar().add(closeButton);
 		
-		
-//		TextButton downLoad = new TextButton("다운로드");
-//		downLoad.setWidth(60);
-//		downLoad.addSelectHandler(new SelectHandler() {
-//			@Override
-//			public void onSelect(SelectEvent event) {
-//				String actionUrl = "FileDownload?fileType=file&fileId=" + 
-//			
-//			}
-//		});
-//		this.getButtonBar().add(downLoad);
-		
 		this.show();
 	}
 
@@ -128,18 +109,20 @@ public class NotificationPopUp extends Window implements Editor<Bbs02_BoardModel
 		HorizontalLayoutData labelLayout = new HorizontalLayoutData( 120,  -1, new Margins(10,0,0,52));	//라벨Size
 		
 		HorizontalLayoutContainer row0 = new HorizontalLayoutContainer();
-		fileForm = new Sys10_Lookup_MultiFile2(boardModel.getBoardId(), "N", 60) ;//파일업로드
+		fileForm = new Sys10_Lookup_MultiFile(boardModel.getBoardId(), "N", 80) ;//파일업로드
 //		row0.add(fileForm, new HorizontalLayoutData(800, 300, new Margins(80,0,0,90)));
 		
-//		첨부파일
+		//첨부파일
 		row0.add(new LabelToolItem("첨부파일:"), labelLayout);
 				FieldSet filefieldSet = new FieldSet();
 				filefieldSet.setCollapsible(false);
 				filefieldSet.add(fileForm);
 				row0.add(filefieldSet, new HorizontalLayoutData(653, -1));
 		
+		
+		
 		VerticalLayoutContainer layout = new VerticalLayoutContainer();
-		layout.add(StartPage.getTextContents("공지사항"));
+		layout.add(StartPage.getTextContents("공시사항"));
 		layout.add(lineBar0,new VerticalLayoutData(1.2,1.2, new Margins(10, 0, 10, 45)));
 		layout.add(row01, new VerticalLayoutData(1, -1, new Margins(16))); //제목
 		layout.add(row03, new VerticalLayoutData(1, -1, new Margins(16))); //작성일

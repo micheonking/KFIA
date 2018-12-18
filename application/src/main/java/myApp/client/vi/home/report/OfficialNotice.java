@@ -9,6 +9,8 @@ import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
+import com.sencha.gxt.widget.core.client.event.RowClickEvent;
+import com.sencha.gxt.widget.core.client.event.RowClickEvent.RowClickHandler;
 import com.sencha.gxt.widget.core.client.grid.Grid;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
@@ -16,6 +18,7 @@ import myApp.client.grid.GridBuilder;
 import myApp.client.grid.InterfaceGridOperate;
 import myApp.client.resource.ResourceIcon;
 import myApp.client.service.GridRetrieveData;
+import myApp.client.utils.InterfaceCallbackResult;
 import myApp.client.vi.bbs.model.Bbs02_BoardModel;
 import myApp.client.vi.bbs.model.Bbs02_BoardModelProperties;
 import myApp.client.vi.home.StartPage;
@@ -39,16 +42,11 @@ public class OfficialNotice extends ContentPanel implements InterfaceGridOperate
 
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 
-//		grid.setHideHeaders(true);
-//		grid.setBorders(true);
-//		grid.setVisible(false);
 		grid.setColumnResize(false);
 		grid.setColumnReordering(false);
 		grid.getView().setStripeRows(false);
 		grid.getView().setColumnLines(false); 
 		grid.getView().setAdjustForHScroll(true);
-//		grid.getView().setTrackMouseOver(false);
-//		grid.getView().setEnableRowBody(false);
 		grid.getView().setStripeRows(false);
 		grid.getView().setShowDirtyCells(false);
 		grid.getElement().setBorders(false);
@@ -58,30 +56,39 @@ public class OfficialNotice extends ContentPanel implements InterfaceGridOperate
 		gridVBox.add(StartPage.getTextContents("공시사항"),new BoxLayoutData(getTextMargins));
 		gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));
 		gridVBox.add(this.grid, new BoxLayoutData(totalHBarMargins));
-
 		this.add(gridVBox);
-		
 		retrieve();
+		this.grid.addRowClickHandler(new RowClickHandler() {
+			
+			@Override
+			public void onRowClick(RowClickEvent event) {
+				Bbs02_BoardModel boardModel = grid.getSelectionModel().getSelectedItem();
+				OfficialNoticePopUp popUp = new OfficialNoticePopUp();
+				popUp.open(boardModel, new InterfaceCallbackResult() {
+					@Override
+					public void execute(Object result) {
+						retrieve();
+					}
+				});
+			}
+		});
 
+		
+		
+		
 	}
 
 	private Grid<Bbs02_BoardModel> buildGrid() {
-		// TODO Auto-generated method stub
 		GridBuilder<Bbs02_BoardModel> gridBuilder = new GridBuilder<Bbs02_BoardModel>(properties.keyId());
-//		gridBuilder.setChecked(SelectionMode.SINGLE);
-
 		gridBuilder.addText(properties.titleName(), 500, "제목");
 		gridBuilder.addDate(properties.settleDate(), 110, "작성일");
 		gridBuilder.addLong(properties.cnt(), 50, "조회수");
 
-//		gridBuilder.setMenuDisable(true);
-//		gridBuilder.rowNum.setHidden(true);
 		return gridBuilder.getGrid();
 	}
 
 	@Override
 	public void retrieve() {
-		// TODO Auto-generated method stub
 		GridRetrieveData<Bbs02_BoardModel> service = new GridRetrieveData<Bbs02_BoardModel>(grid.getStore());
 		service.addParam("typeCode", "disclosure");
 		service.addParam("setCount", (long)1000);
@@ -90,19 +97,13 @@ public class OfficialNotice extends ContentPanel implements InterfaceGridOperate
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void insertRow() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void deleteRow() {
-		// TODO Auto-generated method stub
-		
 	}
 }
