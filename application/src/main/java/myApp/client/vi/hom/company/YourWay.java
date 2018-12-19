@@ -33,7 +33,7 @@ public class YourWay extends ContentPanel {
 //		@XTemplate(source="yourWay.html")
 //		SafeHtml getTemplate();
 //	    @XTemplate("<iframe id='yourWay' frameborder=0 src='{pageName}' width='770' height='{pageHeight}'/> ")
-	    @XTemplate("<iframe src='{pageName}' align= left marginheight=1 style='border:0px; width:100%; height:97%;'/> ")
+	    @XTemplate("<iframe src='{pageName}' align= left marginheight=1 style='border:0px; width:97%; height:100%;'/> ")
 		SafeHtml getTemplate(String pageName);
 	}
 	

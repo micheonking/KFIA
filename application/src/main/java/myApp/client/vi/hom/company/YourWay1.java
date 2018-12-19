@@ -4,38 +4,30 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.logical.shared.ResizeEvent;
 import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.Label;
 import com.sencha.gxt.core.client.XTemplates;
+import com.sencha.gxt.core.client.XTemplates.XTemplate;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.ContentPanel;
-import com.sencha.gxt.widget.core.client.button.TextButton;
-import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
-import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutPack;
-import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayoutAlign;
-import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.MarginData;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
-import com.sencha.gxt.widget.core.client.event.BeforeHideEvent;
-import com.sencha.gxt.widget.core.client.event.BeforeHideEvent.BeforeHideHandler;
-import com.sencha.gxt.widget.core.client.event.SelectEvent;
-import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
-import com.sencha.gxt.widget.core.client.info.Info;
+import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
+import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayoutAlign;
+import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
+import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.resource.ResourceIcon;
-import myApp.client.service.InterfaceCallback;
-import myApp.client.service.InterfaceServiceCall;
-import myApp.client.service.ServiceCall;
-import myApp.client.service.ServiceRequest;
-import myApp.client.service.ServiceResult;
-import myApp.client.utils.InterfaceCallbackResult;
-import myApp.client.utils.SimpleMessage;
 import myApp.client.vi.hom.StartPage;
-import myApp.client.vi.hom.company.model.Hom03_OperatingModel;
+import myApp.client.vi.hom.company.CompanyOpening.HTMLTemplate;
+import myApp.client.vi.hom.company.OperatingOrganization1.SimpleHTMLTemplate;
 
-public class OperatingOrganization1 extends ContentPanel {
+public class YourWay1 extends ContentPanel {
 	
 	SimpleHTMLTemplate htmlTemplate = GWT.create(SimpleHTMLTemplate.class);
 	
@@ -43,11 +35,11 @@ public class OperatingOrganization1 extends ContentPanel {
 	private HtmlLayoutContainer htmlLayoutContainer ; 
 	
 	public interface SimpleHTMLTemplate extends XTemplates {
-		@XTemplate(source="HTMLOperating.html") 
+		@XTemplate(source="HTMLYourWay.html") 
 		SafeHtml setParam(String actionCode);
 	}
 	
-	public OperatingOrganization1() {
+	public YourWay1() {
 		this.addResizeHandler(new ResizeHandler() {
 			@Override
 			public void onResize(ResizeEvent event) {
@@ -58,8 +50,8 @@ public class OperatingOrganization1 extends ContentPanel {
 	}
 	
 	private void resize() {
-//	public OperatingOrganization1() {
-		
+//	public YourWay() {
+
 		this.setHeaderVisible(false);
 
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
@@ -85,12 +77,11 @@ public class OperatingOrganization1 extends ContentPanel {
 
 		totalHBar.add(htmlLayoutContainer, new BoxLayoutData(totalHBarMargins));
 		
-		gridVBox.add(StartPage.getTextContents("운용조직 및 조직인력"), new BoxLayoutData(getTextMargins));
+		gridVBox.add(StartPage.getTextContents("찾아오시는길"), new BoxLayoutData(getTextMargins));
 		gridVBox.add(lineBar0, new BoxLayoutData(lineBar0Margins));
 		gridVBox.add(totalHBar, new BoxLayoutData(new Margins(1, 0, 1, 0)));
 
 		this.add(gridVBox);
 
 	}
-	
 }

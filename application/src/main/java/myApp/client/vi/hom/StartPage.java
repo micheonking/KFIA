@@ -36,6 +36,9 @@ public class StartPage extends BorderLayoutContainer {
 	protected static final String BTN_WIDTH = ""+MENU_WIDTH;
 	protected static final String BTN_HEIGHT = "40";
 
+	protected static final int NOTE_HEIGHT = 100;	//	내용부분 높이조절용 : 높이에서 뺄 Size...
+	public static final int SNOTE_HEIGHT = 300;	//	내용부분 높이조절용 : 높이에서 뺄 Size...
+	
 	public static int CURRENTWIDTH = 770;
 	public static int CURRENTHEIGHT = 0;
 	static String CURRENTPAGE = "0";

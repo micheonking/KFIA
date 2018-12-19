@@ -9,11 +9,11 @@
     <url-pattern>/kfia/serviceBroker</url-pattern>
   </servlet-mapping>
 
+<!-- HTML -->
   <servlet>
     <servlet-name>HTMLCeo</servlet-name>
     <servlet-class>myApp.server.hom.HTMLCeo</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>HTMLCeo</servlet-name>
     <url-pattern>/HTMLCeo</url-pattern>
@@ -23,7 +23,6 @@
     <servlet-name>HTMLOutline</servlet-name>
     <servlet-class>myApp.server.hom.HTMLOutline</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>HTMLOutline</servlet-name>
     <url-pattern>/HTMLOutline</url-pattern>
@@ -33,7 +32,6 @@
     <servlet-name>HTMLOperating</servlet-name>
     <servlet-class>myApp.server.hom.HTMLOperating</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>HTMLOperating</servlet-name>
     <url-pattern>/HTMLOperating</url-pattern>
@@ -43,11 +41,20 @@
     <servlet-name>HTMLYourWay</servlet-name>
     <servlet-class>myApp.server.hom.HTMLYourWay</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>HTMLYourWay</servlet-name>
     <url-pattern>/HTMLYourWay</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>HTMLEntrustInvestment</servlet-name>
+    <servlet-class>myApp.server.hom.HTMLEntrustInvestment</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HTMLEntrustInvestment</servlet-name>
+    <url-pattern>/HTMLEntrustInvestment</url-pattern>
+  </servlet-mapping>
+<!-- HTML -->
 
   <servlet>
     <servlet-name>FundUpload</servlet-name>

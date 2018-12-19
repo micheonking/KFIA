@@ -50,57 +50,52 @@ public class HTMLOutline implements javax.servlet.Servlet {
 			Hom01_OutlineModel outlineModel = list.get(i); 
 			
 			String	rowString = "";
-			rowString += this.tdCenter("회사명", 100, 1); 	
-			rowString += this.tdData("한국채권투자자문주식회사", 250, 1);
+			rowString += this.tdCenterBold("설립일", 100, 0); 	
+			rowString += this.tdData("한국채권투자자문주식회사", 250, 0);
 			rowList.add(this.tr(rowString)) ; 
 
 			rowString = "";
-			rowString += this.tdCenter("설립일", 100, 0); 	
-			rowString += this.tdData(outlineModel.getRegistDt()+"", 250, 0);
+			rowString += this.tdCenterBold("설립일", 100, 1); 	
+			rowString += this.tdData(outlineModel.getRegistDt()+"", 250, 1);
 			rowList.add(this.tr(rowString)) ; 
 
 			rowString = "";
-			rowString += this.tdCenter("납입자본금", 100, 1); 	
-			rowString += this.tdData(outlineModel.getPaidInCapital(), 250, 1);
+			rowString += this.tdCenterBold("납입자본금", 100, 0); 	
+			rowString += this.tdData(outlineModel.getPaidInCapital(), 250, 0);
 			rowList.add(this.tr(rowString)) ; 
 
 			rowString = "";
-			rowString += this.tdCenter("자기자본", 100, 0); 	
-			rowString += this.tdData(outlineModel.getOwnersEquity(), 250, 0);
+			rowString += this.tdCenterBold("자기자본", 100, 1); 	
+			rowString += this.tdData(outlineModel.getOwnersEquity(), 250, 1);
 			rowList.add(this.tr(rowString)) ; 
 
 			rowString = "";
-			rowString += this.tdCenter("계약자산규모", 100, 1); 	
-			rowString += this.tdData(outlineModel.getContractAssetSize(), 250, 1);
-			rowList.add(this.tr(rowString)) ; 
-
-			rowString = "";
-			rowString += this.tdCenter("투자자문", 100, 0); 	
+			rowString += this.tdCenterBold("계약자산규모", 100, 0); 	
 			rowString += this.tdData(outlineModel.getContractAssetSize(), 250, 0);
 			rowList.add(this.tr(rowString)) ; 
 
 			rowString = "";
-			rowString += this.tdCenter("인력", 100, 1); 	
+			rowString += this.tdCenterBold("인력", 100, 1); 	
 			rowString += this.tdData(outlineModel.getProfessionalPersonnel(), 250, 1);
 			rowList.add(this.tr(rowString)) ; 
 
 			rowString = "";
-			rowString += this.tdCenter("주요업무", 100, 0); 	
+			rowString += this.tdCenterBold("주요업무", 100, 0); 	
 			rowString += this.tdData(outlineModel.getMainBusiness(), 250, 0);
 			rowList.add(this.tr(rowString)) ; 
 
 			rowString = "";
-			rowString += this.tdCenter("대표이사", 100, 1); 	
+			rowString += this.tdCenterBold("대표이사", 100, 1); 	
 			rowString += this.tdData(outlineModel.getCeoName(), 250, 1);
 			rowList.add(this.tr(rowString)) ; 
 
 			rowString = "";
-			rowString += this.tdCenter("주주구성", 100, 0); 	
+			rowString += this.tdCenterBold("주주구성", 100, 0); 	
 			rowString += this.tdData(outlineModel.getConstituteStockholder(), 250, 0);
 			rowList.add(this.tr(rowString)) ; 
 
 			rowString = "";
-			rowString += this.tdCenter("주소", 100, 1); 	
+			rowString += this.tdCenterBold("주소", 100, 1); 	
 			rowString += this.tdData("서울시 영등포구 의사당대로 143 금융투자협회빌딩 5층", 250, 1);
 			rowList.add(this.tr(rowString)) ; 
 
@@ -110,7 +105,7 @@ public class HTMLOutline implements javax.servlet.Servlet {
 		
 //		String tableString = "<table border=1 style='width:99%; margin:0px; font-size:12px; border:1px silver solid; border-top: 2px solid #023d69; border-collapse:collapse; padding:0px;'>";
 //		String tableString = "<table border=1 style='width:99%; margin:0px; font-size:12px; border-bottom:2px silver solid; border-top: 2px solid #023d69; border-collapse:collapse; padding:0px;'>";
-		String tableString = "<table border=1 style='width:99%; margin:0px; font-size:12px; border-botttom:2px silver solid; border-top: 2px solid #023d69; "
+		String tableString = "<table border=1 style='width:99%; margin:0px; font-size:13px; border-botttom:2px silver solid; border-top: 2px solid #023d69; "
 				+	"border-left: 1px solid white; border-right: 1px solid white; border-collapse:collapse; padding:0px;'>";
 
 		for(String rowString1 : rowList) {
@@ -134,14 +129,21 @@ public class HTMLOutline implements javax.servlet.Servlet {
 		String rowChange = " ";
 		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
 
-		return "<td style='width:" + width + "px;" + rowChange + "padding:10px; height:auto; word-wrap:break-word; border-bottom:1px silver solid;' >" + data + "</td>" ; 
+		return "<td style='width:" + width + "px;" + rowChange + "padding:15px; height:auto; word-wrap:break-word; border-bottom:1px silver solid;' >" + data + "</td>" ; 
 	}
 
 	private String tdCenter(String data, int width, int rowcount) {
 		String rowChange = " ";
 		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
 
-		return "<td style='text-align:center; width:" + width + "px;" + rowChange + "padding:10px; height:auto; word-wrap:break-word; border-bottom: 1px solid #aaa; ' >" + data + "</td>" ; 
+		return "<td style='text-align:center; width:" + width + "px;" + rowChange + "padding:15px; height:auto; word-wrap:break-word; border-bottom: 1px solid #aaa; ' >" + data + "</td>" ; 
+	}
+
+	private String tdCenterBold(String data, int width, int rowcount) {
+		String rowChange = " ";
+		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
+
+		return "<td style='text-align:center; width:" + width + "px;" + rowChange + "padding:5px; font-weight:bold; height:auto; word-wrap:break-word;' >" + data + "</td>" ; 
 	}
 
 	private String tdRowSpan(int rowSpan, String data, int width, String align, int rowcount) {
@@ -154,7 +156,7 @@ public class HTMLOutline implements javax.servlet.Servlet {
 
 		return "<td rowspan=" + rs 
 				+ " style='text-align:" + align + "; width:" + width 
-				+ "px;" + rowChange + "padding:10px; height:auto; word-wrap:break-word;' >" + data 
+				+ "px;" + rowChange + "padding:15px; height:auto; word-wrap:break-word;' >" + data 
 				+ "</td>" ; 
 	}
 	
@@ -163,7 +165,7 @@ public class HTMLOutline implements javax.servlet.Servlet {
 		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
 
 		return "<td bgcolor='#ebebec' style='text-align:" + align + "; width:" + width
-				+ "px;" + rowChange + "padding:10px; height:auto; word-wrap:break-word;' >" + data 
+				+ "px;" + rowChange + "padding:15px; height:auto; word-wrap:break-word;' >" + data 
 				+ "</td>" ; 
 	}
 
@@ -173,7 +175,7 @@ public class HTMLOutline implements javax.servlet.Servlet {
 
 		return "<td bgcolor='#ebebec' colSpan =" + colSpan
 				+ " style='text-align:" + align + "; width:" + width
-				+ "px;" + rowChange + "padding:10px; height:auto; word-wrap:break-word;' >" + data 
+				+ "px;" + rowChange + "padding:15px; height:auto; word-wrap:break-word;' >" + data 
 				+ "</td>" ; 
 	}
 
@@ -187,7 +189,7 @@ public class HTMLOutline implements javax.servlet.Servlet {
 
 		return "<td bgcolor='#ebebec' rowspan=" + rs 
 				+ " style='text-align:" + align + "; width:" + width 
-				+ "px;" + rowChange + "padding:10px; height:auto; word-wrap:break-word;' >" + data 
+				+ "px;" + rowChange + "padding:15px; height:auto; word-wrap:break-word;' >" + data 
 				+ "</td>" ; 
 	}
 //	tr:td 만들기	/////////////////////////////////////////////////////////////////////////////////////////	

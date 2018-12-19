@@ -21,21 +21,26 @@ import com.sencha.gxt.widget.core.client.info.Info;
 
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.hom.company.CeoGreeting;
+import myApp.client.vi.hom.company.CeoGreeting1;
 import myApp.client.vi.hom.company.CompanyOpening;
 import myApp.client.vi.hom.company.CompanyOpening1;
 import myApp.client.vi.hom.company.OperatingOrganization;
 import myApp.client.vi.hom.company.OperatingOrganization1;
 import myApp.client.vi.hom.company.YourWay;
+import myApp.client.vi.hom.company.YourWay1;
 import myApp.theme.tritium.custom.client.button.white.WhiteButtonCellAppearance;
 
 public class TabCompanyOpenning extends ContentPanel {
 
 	private CeoGreeting tabCeoGreeting  = new CeoGreeting();
 	private CompanyOpening tabCompanyOpening  = new CompanyOpening();
-	private CompanyOpening1 tabCompanyOpening1  = new CompanyOpening1();
 	private OperatingOrganization tabOperatingOrganization  = new OperatingOrganization();
-	private OperatingOrganization1 tabOperatingOrganization1  = new OperatingOrganization1();
 	private YourWay tabYourWay  = new YourWay();
+
+	private CeoGreeting1 tabCeoGreeting1  = new CeoGreeting1();
+	private CompanyOpening1 tabCompanyOpening1  = new CompanyOpening1();
+	private OperatingOrganization1 tabOperatingOrganization1  = new OperatingOrganization1();
+	private YourWay1 tabYourWay1  = new YourWay1();
 	
 	ContentPanel contentPanel  = new ContentPanel();
 
@@ -79,58 +84,18 @@ public class TabCompanyOpenning extends ContentPanel {
 		Image lineImage3 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage4 = new Image(ResourceIcon.INSTANCE.verticalBar());
 		Image lineImage5 = new Image(ResourceIcon.INSTANCE.verticalBar());
+		Image lineImage6 = new Image(ResourceIcon.INSTANCE.verticalBar());
+		Image lineImage7 = new Image(ResourceIcon.INSTANCE.verticalBar());
+		Image lineImage8 = new Image(ResourceIcon.INSTANCE.verticalBar());
 
-		headerVBox.add(StartPage.getLabelToolItem((Window.getClientWidth() - (StartPage.CON_WIDTH+StartPage.MENU_WIDTH))/2, "회사소개"));
-		//, new BoxLayoutData(new Margins(2, 50, 100, 0)));
-//		Label labelHtml = new HTML(
-////				"<center><font size='2' color=#aaaaaa><p style='background-color: #023d69;'>"+ textHtml +"</p></font></center>");
-////		SafeHtml label2Html = SafeHtmlUtils.fromTrustedString(	
-//				"<div style='background-color: #023d69; line-height:90%; '>"
-//				+	"<span style='font-size:0.1em;'><br><br></span>"
-//				+	"<span style='font-weight:bold; font-size:2.3em;'><font color='#ffffff'>" + "회사소개" + "<br></font></span>"
-//				+	"<span style='font-size:0.1em;'><br></span>"
-//				+	"</div>"
-//				);
-//		labelHtml.setWidth("350");
-//		labelHtml.setHeight("70");
-//		
-////		HBoxLayoutContainer labelHBar = new HBoxLayoutContainer();
-////		labelHBar.setHBoxLayoutAlign(HBoxLayoutAlign.MIDDLE);
-////
-////		labelHBar.add(labelHtml);
-//
-//		ContentPanel contentPanel = new ContentPanel();
-//		contentPanel.setHeaderVisible(false);
-//		contentPanel.setBorders(true);
-//		contentPanel.setBodyStyle("backgroundColor:#023d69");
-//
-//		contentPanel.add(labelHtml, new BoxLayoutData(new Margins(5, 5, 5, 450)));
-//		contentPanel.setWidth(2000); 
-//		contentPanel.setHeight(80);
-//		
-//		HorizontalLayoutContainer row01 = new HorizontalLayoutContainer();
-//		HorizontalLayoutData hld = new HorizontalLayoutData(1, 90, new Margins(1, 1, 1, 1));
-//
-//		row01.setBorders(true);
-////		Margins margins = new Margins();
-////		margins.setTop(0);
-////		margins.setLeft(0);
-////		margins.setRight(0);
-////		margins.setBottom(0);
-////
-////		row01.setWidth(3000);
-////		row01.setHeight(100);
-////		hld.setMargins(margins);
-//		row01.add(contentPanel, hld);
-//		headerVBox.add(row01, new BoxLayoutData(new Margins(10, 1, 100, 1)));
-
-		menuVBox.add(lineImage0, new BoxLayoutData(new Margins(20, 0, 0, 0)));
 		SafeHtml button1Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍCEO 인사말　　　　　</font></div> ");
 		SafeHtml button2Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ회사개요　　　　　　</font></div> ");
 		SafeHtml button3Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ운용조직／전문인력　</font></div> ");
 		SafeHtml button4Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ찾아오시는길　　　　</font></div> ");
-		SafeHtml button5Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ여기는 테스트1　　　</font></div> ");
-		SafeHtml button6Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ여기는 테스트2　　　</font></div> ");
+		SafeHtml button5Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍCEO 인사말　　　　　</font></div> ");
+		SafeHtml button6Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ회사개요　　　　　　</font></div> ");
+		SafeHtml button7Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ운용조직／전문인력　</font></div> ");
+		SafeHtml button8Html = SafeHtmlUtils.fromTrustedString("<left><div style='background-color: transparent;'><font color='#606060' style='font-size:14px;'>ㆍ찾아오시는길　　　　</font></div> ");
 
 		TextButton menuButton1 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		TextButton menuButton2 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
@@ -138,7 +103,13 @@ public class TabCompanyOpenning extends ContentPanel {
 		TextButton menuButton4 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		TextButton menuButton5 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		TextButton menuButton6 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
-//		CellButtonBase menuButton1 = new CellButtonBase<>();
+		TextButton menuButton7 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
+		TextButton menuButton8 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
+
+		// 타이틀 넣기
+		headerVBox.add(StartPage.getLabelToolItem((Window.getClientWidth() - (StartPage.CON_WIDTH+StartPage.MENU_WIDTH))/2, "회사소개"));
+		menuVBox.add(lineImage0, new BoxLayoutData(new Margins(20, 0, 0, 0)));
+
 		menuButton1.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton1.setHTML(button1Html);
 //		menuButton1.setBorders(true);
@@ -151,7 +122,6 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuVBox.add(menuButton1, new BoxLayoutData(buttonMargins));
 		menuVBox.add(lineImage1, new BoxLayoutData(lineImageMargins));
 
-//		CellButtonBase menuButton2 = new CellButtonBase<>();
 		menuButton2.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton2.setHTML(button2Html);
 //		menuButton2.setBorders(true);
@@ -164,7 +134,6 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuVBox.add(menuButton2, new BoxLayoutData(buttonMargins));
 		menuVBox.add(lineImage2, new BoxLayoutData(lineImageMargins));
 
-//		CellButtonBase menuButton3 = new CellButtonBase<>();
 		menuButton3.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton3.setHTML(button3Html);
 //		menuButton3.setBorders(true);
@@ -177,7 +146,6 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuVBox.add(menuButton3, new BoxLayoutData(buttonMargins));
 		menuVBox.add(lineImage3, new BoxLayoutData(lineImageMargins));
 
-//		CellButtonBase menuButton4 = new CellButtonBase<>();
 		menuButton4.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
 		menuButton4.setHTML(button4Html);
 //		menuButton4.setBorders(true);
@@ -195,7 +163,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuButton5.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				getCompanyOpening1();
+				getCeoGreeting1();
 			}
 		});
 		menuVBox.add(menuButton5, new BoxLayoutData(buttonMargins));
@@ -206,14 +174,33 @@ public class TabCompanyOpenning extends ContentPanel {
 		menuButton6.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				getOperatingOrganization1();
+				getCompanyOpening1();
 			}
 		});
 		menuVBox.add(menuButton6, new BoxLayoutData(buttonMargins));
+		menuVBox.add(lineImage6, new BoxLayoutData(lineImageMargins));
 
-//		menuVBox.setWidth(StartPage.MENU_WIDTH);
-//		menuVBox.setHeight(StartPage.CON_HEIGHT);
-//		menuVBox.setBorders(true);
+		menuButton7.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
+		menuButton7.setHTML(button7Html);
+		menuButton7.addSelectHandler(new SelectHandler() {
+			@Override
+			public void onSelect(SelectEvent event) {
+				getOperatingOrganization1();
+			}
+		});
+		menuVBox.add(menuButton7, new BoxLayoutData(buttonMargins));
+		menuVBox.add(lineImage7, new BoxLayoutData(lineImageMargins));
+
+		menuButton8.setSize(StartPage.BTN_WIDTH, StartPage.BTN_HEIGHT);
+		menuButton8.setHTML(button8Html);
+		menuButton8.addSelectHandler(new SelectHandler() {
+			@Override
+			public void onSelect(SelectEvent event) {
+				getYourWay1();
+			}
+		});
+		menuVBox.add(menuButton8, new BoxLayoutData(buttonMargins));
+		menuVBox.add(lineImage8, new BoxLayoutData(lineImageMargins));
 
 		menuHBar.add(menuVBox, boxLayoutData);
 //		menuHBar.setBorders(true);
@@ -233,21 +220,24 @@ public class TabCompanyOpenning extends ContentPanel {
 			totalHBar.add(getYourWay());
 			break;
 		case "5" :
-			totalHBar.add(getCompanyOpening1());
+			totalHBar.add(getCeoGreeting1());
 			break;
 		case "6" :
+			totalHBar.add(getCompanyOpening1());
+			break;
+		case "7" :
 			totalHBar.add(getOperatingOrganization1());
+			break;
+		case "8" :
+			totalHBar.add(getYourWay1());
 			break;
 		default :
 			totalHBar.add(getCeoGreeting());
 			break;
 		}
-//		totalHBar.add(getCeoGreeting());
-
 		centerVBox.add(totalHBar);
 		headerVBox.add(centerVBox);
 		this.add(headerVBox);
-
 	}
 
 	private ContentPanel getCeoGreeting() {
@@ -256,7 +246,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);
-		contentPanel.setHeight(Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
+		contentPanel.setHeight(Window.getClientHeight() - StartPage.NOTE_HEIGHT);
 		contentPanel.setWidget(tabCeoGreeting);
 
 		return contentPanel;
@@ -268,7 +258,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);
-		contentPanel.setHeight(Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
+		contentPanel.setHeight(Window.getClientHeight() - StartPage.NOTE_HEIGHT);
 		contentPanel.setWidget(tabCompanyOpening);
 
 		return contentPanel;
@@ -280,7 +270,7 @@ public class TabCompanyOpenning extends ContentPanel {
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);
-		contentPanel.setHeight(Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
+		contentPanel.setHeight(Window.getClientHeight() - StartPage.NOTE_HEIGHT);
 		contentPanel.setWidget(tabOperatingOrganization);
 
 		return contentPanel;
@@ -292,20 +282,31 @@ public class TabCompanyOpenning extends ContentPanel {
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);
-		contentPanel.setHeight(Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
-		Info.display("", ""+Window.getClientHeight());
+		contentPanel.setHeight(Window.getClientHeight() - StartPage.NOTE_HEIGHT);
 		contentPanel.setWidget(tabYourWay);
 
 		return contentPanel;
 	}
 	
-	private ContentPanel getCompanyOpening1() {
+	private ContentPanel getCeoGreeting1() {
 
 		StartPage.CURRENTPAGE = "5";
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);
-		contentPanel.setHeight(Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
+		contentPanel.setHeight(Window.getClientHeight() - StartPage.NOTE_HEIGHT);
+		contentPanel.setWidget(tabCeoGreeting1);
+
+		return contentPanel;
+	}
+
+	private ContentPanel getCompanyOpening1() {
+
+		StartPage.CURRENTPAGE = "6";
+		contentPanel.setHeaderVisible(false);
+		contentPanel.setBorders(false);
+		contentPanel.setWidth(StartPage.CON_WIDTH);
+		contentPanel.setHeight(Window.getClientHeight() - StartPage.NOTE_HEIGHT);
 		contentPanel.setWidget(tabCompanyOpening1);
 
 		return contentPanel;
@@ -313,12 +314,24 @@ public class TabCompanyOpenning extends ContentPanel {
 	
 	private ContentPanel getOperatingOrganization1() {
 
-		StartPage.CURRENTPAGE = "6";
+		StartPage.CURRENTPAGE = "7";
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);
-		contentPanel.setHeight(Window.getClientHeight() - 100); //StartPage.CON_HEIGHT);
+		contentPanel.setHeight(Window.getClientHeight() - StartPage.NOTE_HEIGHT);
 		contentPanel.setWidget(tabOperatingOrganization1);
+
+		return contentPanel;
+	}
+
+	private ContentPanel getYourWay1() {
+
+		StartPage.CURRENTPAGE = "8";
+		contentPanel.setHeaderVisible(false);
+		contentPanel.setBorders(false);
+		contentPanel.setWidth(StartPage.CON_WIDTH);
+		contentPanel.setHeight(Window.getClientHeight() - StartPage.NOTE_HEIGHT);
+		contentPanel.setWidget(tabYourWay1);
 
 		return contentPanel;
 	}

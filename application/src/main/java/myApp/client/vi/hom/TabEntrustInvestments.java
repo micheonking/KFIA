@@ -106,10 +106,11 @@ public class TabEntrustInvestments extends ContentPanel {
 
 	private ContentPanel getEntrustInvestment() {
 		
+		StartPage.CURRENTPAGE = "1";
 		contentPanel.setHeaderVisible(false);
 		contentPanel.setBorders(false);
 		contentPanel.setWidth(StartPage.CON_WIDTH);
-		contentPanel.setHeight(StartPage.CON_HEIGHT);
+		contentPanel.setHeight(Window.getClientHeight() - StartPage.NOTE_HEIGHT);
 		contentPanel.setWidget(tabEntrustInvestment);
 
 		return contentPanel;

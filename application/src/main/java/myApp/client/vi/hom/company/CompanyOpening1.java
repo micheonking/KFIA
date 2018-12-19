@@ -63,13 +63,10 @@ public class CompanyOpening1 extends ContentPanel {
 		totalHBar.setHBoxLayoutAlign(HBoxLayoutAlign.TOP);
 
 		this.htmlLayoutContainer = new HtmlLayoutContainer(htmlTemplate.setParam(this.actionCode));
-//		htmlLayoutContainer.setBorders(true);
-//		this.add(htmlLayoutContainer, new MarginData(10));
 
 		htmlLayoutContainer.setWidth(StartPage.CURRENTWIDTH);
-		StartPage.CURRENTHEIGHT = Window.getClientHeight()-300;//StartPage.startPageFooter.getAbsoluteTop() + 70;
-//		Info.display("",""+StartPage.CURRENTHEIGHT);
-		htmlLayoutContainer.setHeight(StartPage.CURRENTHEIGHT); //600 - StartPage.CURRENTHEIGHT);
+		StartPage.CURRENTHEIGHT = Window.getClientHeight() - StartPage.SNOTE_HEIGHT;
+		htmlLayoutContainer.setHeight(StartPage.CURRENTHEIGHT);
 		totalHBar.add(htmlLayoutContainer, new BoxLayoutData(totalHBarMargins));
 		
 		gridVBox.add(StartPage.getTextContents("회사개요"), new BoxLayoutData(getTextMargins));

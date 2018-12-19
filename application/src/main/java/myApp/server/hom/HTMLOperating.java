@@ -47,12 +47,12 @@ public class HTMLOperating implements javax.servlet.Servlet {
 		
 		String rowString = "";	
 		
-		rowString += this.tdGrey("소속(본부)", 50, "center",1); 	
-		rowString += this.tdGrey("성명/직책", 70, "center",1); 
-		rowString += this.tdGrey("담당증권사", 100, "center",1);
+		rowString += this.tdGreyBold("소속<br>(본부)", 40, "center",1); 	
+		rowString += this.tdGreyBold("성명/직책", 75, "center",1); 
+		rowString += this.tdGrey("담당증권사", 90, "center",1);
 		rowString += this.tdGrey("주요경력", 150, "center",1);
-		rowString += this.tdGrey("학력/자격증", 120, "center",1);
-		rowString += this.tdGrey("연락처", 70, "center",1);
+		rowString += this.tdGrey("학력/자격증", 155, "center",1);
+		rowString += this.tdGrey("연락처", 75, "center",1);
 		
 		rowList.add(this.tr(rowString)) ; 
 
@@ -69,10 +69,10 @@ public class HTMLOperating implements javax.servlet.Servlet {
 				
 				if(i == 0) {
 //					rowString += this.tdRowSpanGrey(list.size(), operatingModel.getOrgName(), 50, "center");
-					rowString += this.tdRowSpan(list.size(), operatingModel.getOrgName(), 50, "center", j%2);
+					rowString += this.tdRowSpanBold(list.size(), operatingModel.getOrgName(), 50, "center", j%2);
 				}
 
-				rowString += this.tdCenter(operatingModel.getNameTitle(), 60, j%2); 
+				rowString += this.tdCenterBold(operatingModel.getNameTitle(), 60, j%2); 
 
 				if(operatingModel.getChargeStockFirmCnt() == operatingModel.getChargeStockFirmMax()) {
 					if(operatingModel.getChargeStockFirmMax() > 1) {
@@ -113,11 +113,12 @@ public class HTMLOperating implements javax.servlet.Servlet {
 		return returnHtml; 
 	}
 
-//	tr:td 만들기	/////////////////////////////////////////////////////////////////////////////////////////	
+//	tr 만들기	/////////////////////////////////////////////////////////////////////////////////////////	
 	private String tr(String data) {
 		return "<tr style='height:auto;'>" + data + "</tr>"; 
 	}
 
+//	td 만들기	/////////////////////////////////////////////////////////////////////////////////////////	
 	private String tdData(String data, int width, int rowcount) {
 		String rowChange = " ";
 		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
@@ -155,16 +156,17 @@ public class HTMLOperating implements javax.servlet.Servlet {
 				+ "</td>" ; 
 	}
 
+//	td Bold 만들기	/////////////////////////////////////////////////////////////////////////////////////////	
+
 	private String tdColSpanGrey(int colSpan, String data, int width, String align, int rowcount) {
 		String rowChange = " ";
 		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
 
 		return "<td bgcolor='#ebebec' colSpan =" + colSpan
 				+ " style='text-align:" + align + "; width:" + width
-				+ "px;" + rowChange + "padding:5px; height:auto; word-wrap:break-word;' >" + data 
+				+ "px;" + rowChange + "padding:5px; font-weight:bold; height:auto; word-wrap:break-word;' >" + data 
 				+ "</td>" ; 
 	}
-
 	
 	private String tdRowSpanGrey(int rowSpan, String data, int width, String align, int rowcount) {
 		int rs = rowSpan; 
@@ -175,7 +177,67 @@ public class HTMLOperating implements javax.servlet.Servlet {
 
 		return "<td bgcolor='#ebebec' rowspan=" + rs 
 				+ " style='text-align:" + align + "; width:" + width 
-				+ "px;" + rowChange + "padding:5px; height:auto; word-wrap:break-word;' >" + data 
+				+ "px;" + rowChange + "padding:5px; font-weight:bold; height:auto; word-wrap:break-word;' >" + data 
+				+ "</td>" ; 
+	}
+
+	private String tdDataBold(String data, int width, int rowcount) {
+		String rowChange = " ";
+		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
+
+		return "<td style='width:" + width + "px;" + rowChange + "padding:5px; font-weight:bold; height:auto; word-wrap:break-word;' >" + data + "</td>" ; 
+	}
+
+	private String tdCenterBold(String data, int width, int rowcount) {
+		String rowChange = " ";
+		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
+
+		return "<td style='text-align:center; width:" + width + "px;" + rowChange + "padding:5px; font-weight:bold; height:auto; word-wrap:break-word;' >" + data + "</td>" ; 
+	}
+
+	private String tdRowSpanBold(int rowSpan, String data, int width, String align, int rowcount) {
+		
+		int rs = rowSpan; 
+		if(rs<1) rs = 1 ;
+		
+		String rowChange = " ";
+		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
+
+		return "<td rowspan=" + rs 
+				+ " style='text-align:" + align + "; width:" + width 
+				+ "px;" + rowChange + "padding:5px; font-weight:bold; height:auto; word-wrap:break-word;' >" + data 
+				+ "</td>" ; 
+	}
+	
+	private String tdGreyBold(String data, int width, String align, int rowcount) {
+		String rowChange = " ";
+		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
+
+		return "<td bgcolor='#ebebec' style='text-align:" + align + "; width:" + width
+				+ "px;" + rowChange + "padding:5px; font-weight:bold; height:auto; word-wrap:break-word;' >" + data 
+				+ "</td>" ; 
+	}
+
+	private String tdColSpanGreyBold(int colSpan, String data, int width, String align, int rowcount) {
+		String rowChange = " ";
+		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
+
+		return "<td bgcolor='#ebebec' colSpan =" + colSpan
+				+ " style='text-align:" + align + "; width:" + width
+				+ "px;" + rowChange + "padding:5px; font-weight:bold; height:auto; word-wrap:break-word;' >" + data 
+				+ "</td>" ; 
+	}
+
+	private String tdRowSpanGreyBold(int rowSpan, String data, int width, String align, int rowcount) {
+		int rs = rowSpan; 
+		if(rs<1) rs = 1 ;
+	
+		String rowChange = " ";
+		if(rowcount == 1) rowChange = " background-color:#f5f5f5; "; 
+
+		return "<td bgcolor='#ebebec' rowspan=" + rs 
+				+ " style='text-align:" + align + "; width:" + width 
+				+ "px;" + rowChange + "padding:5px; font-weight:bold; height:auto; word-wrap:break-word;' >" + data 
 				+ "</td>" ; 
 	}
 //	tr:td 만들기	/////////////////////////////////////////////////////////////////////////////////////////	
