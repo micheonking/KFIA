@@ -4,6 +4,7 @@ import com.google.gwt.core.shared.GWT;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.PlainTabPanel;
+import com.sencha.gxt.widget.core.client.TabPanel;
 import com.sencha.gxt.widget.core.client.container.AccordionLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.AccordionLayoutContainer.AccordionLayoutAppearance;
 import com.sencha.gxt.widget.core.client.container.AccordionLayoutContainer.ExpandMode;
@@ -11,9 +12,12 @@ import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
 
+import myApp.client.vi.cst.Cst01_Tab_BaseInfo;
+import myApp.client.vi.hom.StartPage;
+
 public class MainFrame extends BorderLayoutContainer {
 
-	private PlainTabPanel tabPanel = new PlainTabPanel();
+	private TabPanel tabPanel = new TabPanel();
 	private MainFrameNorthLayout mainFrameNorthLayout = new MainFrameNorthLayout();
 	private MenuTree treeMenu = new MenuTree(tabPanel); 
 	
@@ -32,6 +36,8 @@ public class MainFrame extends BorderLayoutContainer {
 		westLayoutData.setCollapsible(true);
 		westLayoutData.setCollapseHeaderVisible(true);
 		westLayoutData.setSplit(true);
+		westLayoutData.setMargins(new Margins(0,8,0,0));
+
 
 		//westLayoutData.setCollapseMini(true);
 		this.setWestWidget(this.getWestLayout(), westLayoutData);
@@ -55,8 +61,18 @@ public class MainFrame extends BorderLayoutContainer {
 //        TabItemConfig config = tabPanel.getConfig(item);
 //        String name = config.getText();
 
-		tabPanel.add(new TabBorder(), "달력"); // my page setting
+//		tabPanel.add(new TabBackGround(), ""); // my page setting
+//		tabPanel.add(new TabBorder(), "스케쥴"); // my page setting
+		switch (""+LoginUser.getCompanyId()) {
+		case "2062721" :
+			tabPanel.add(new Cst01_Tab_BaseInfo(), "기본정보");
+			break;
+		default :
+			tabPanel.add(new TabBorder(), "스케쥴");
+			break;
+		}
 
+//		tabPanel.add(new Cst01_Tab_BaseInfo(), "기본정보");
 		VerticalLayoutContainer vlc = new VerticalLayoutContainer(); 
 		vlc.add(tabPanel, new VerticalLayoutData(1, 1, new Margins(0, 0, 0, 0)));
 		

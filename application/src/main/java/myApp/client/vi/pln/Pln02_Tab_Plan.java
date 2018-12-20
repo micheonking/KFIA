@@ -65,8 +65,9 @@ public class Pln02_Tab_Plan extends BorderLayoutContainer implements InterfaceGr
 
 		FieldLabel fundTypeField = new FieldLabel(fundTypeComboBox, "펀드유형 ");
 		fundTypeComboBox.setValue("전체");
-		fundTypeField.setLabelWidth(56);
-		fundTypeField.setWidth(200);
+		fundTypeField.setLabelWidth(100);
+		fundTypeField.setWidth(250);
+//		fundTypeField.setBorders(true);
 		searchBarBuilder.getSearchBar().add(fundTypeField);
 		searchBarBuilder.getSearchBar().add(new LabelToolItem(""));
 
@@ -78,6 +79,7 @@ public class Pln02_Tab_Plan extends BorderLayoutContainer implements InterfaceGr
 //			}
 //		}); 
 		fundSearchTextField.setEmptyText("전체");
+		fundSearchTextField.setWidth(350);
 		fundSearchTextField.addKeyPressHandler(new KeyPressHandler() {
 			@Override
 			public void onKeyPress(KeyPressEvent event) {
@@ -87,13 +89,15 @@ public class Pln02_Tab_Plan extends BorderLayoutContainer implements InterfaceGr
 			}
 		});
 		FieldLabel planFundNameLabel = new FieldLabel(fundSearchTextField, "기획펀드 ");
-		planFundNameLabel.setLabelWidth(76);
-		planFundNameLabel.setWidth(400);
+//		planFundNameLabel.setLabelWidth(100);
+//		planFundNameLabel.setBorders(true);
 		searchBarBuilder.getSearchBar().add(planFundNameLabel); 
 
 		closeYnCheckBox.setBoxLabel("완료건포함");
 		closeYnCheckBox.setValue(false);
-		searchBarBuilder.addCheckBox(closeYnCheckBox, 90, 0);
+//		closeYnCheckBox.setBorders(true);
+//		closeYnCheckBox.setLayoutData(new BorderLayoutData(55));
+		searchBarBuilder.addCheckBox(closeYnCheckBox, 120, 0);
 
 		searchBarBuilder.addRetrieveButton(); 
 		
@@ -101,16 +105,18 @@ public class Pln02_Tab_Plan extends BorderLayoutContainer implements InterfaceGr
 		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(50)); 
 
 		BorderLayoutData centerLayoutData = new BorderLayoutData(0.4);
-		centerLayoutData.setMargins(new Margins(0, 4, 0, 0));
+		centerLayoutData.setMargins(new Margins(8,0,0,0));
 		centerLayoutData.setSplit(true);
+//		centerLayoutData.setMargins(new Margins(4,4,4,0));
 		centerLayoutData.setMaxSize(1000);
 
 		this.setCenterWidget(this.grid, centerLayoutData);
 
 		BorderLayoutData southLayoutData = new BorderLayoutData(0.6);	//	전체화면의 60%
-		southLayoutData.setMargins(new Margins(2, 0, 0, 0)); 
+		southLayoutData.setMargins(new Margins(8,0,0,0)); 
 		southLayoutData.setMaxSize(900);
 		southLayoutData.setSplit(true);
+//		southLayoutData.setMargins(new Margins(4,4,4,4));
 		this.setSouthWidget(pln02_TabPage_Plan, southLayoutData);
 		
 		grid.addRowClickHandler(new RowClickHandler() {

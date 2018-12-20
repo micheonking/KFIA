@@ -45,6 +45,9 @@ public interface ResourceIcon extends ClientBundle {
 	  @Source("files/search_button_green.png")
 	  ImageResource searchButton();
 
+	  @Source("files/search1.png")
+	  ImageResource search1Button();
+
 	  @Source("files/1462692039_stock_person.png")
 	  ImageResource searchPerson();
 
@@ -53,6 +56,9 @@ public interface ResourceIcon extends ClientBundle {
 
 	  @Source("files/closeFolder.png")
 	  ImageResource closeFolder();
+
+	  @Source("files/closeButton.png")
+	  ImageResource closeButton();
 	  
 	  @Source("files/icon_left.png")
 	  ImageResource iconLeft();

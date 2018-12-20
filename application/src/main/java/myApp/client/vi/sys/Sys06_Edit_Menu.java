@@ -100,7 +100,7 @@ public class Sys06_Edit_Menu extends Window implements Editor<Sys06_MenuModel>{
 		layout.add(new FieldLabel(seq, "정렬순서"), new VerticalLayoutData(1, 40, new Margins(5, 15, 0, 15)));
 		
 		useYnFlag.setBoxLabel("사용여부");
-		layout.add(useYnFlag, new VerticalLayoutData(1, 40, new Margins(5, 15, 0, 80)));
+		layout.add(useYnFlag, new VerticalLayoutData(1, 40, new Margins(5, 0, 0, 80)));
 
 		layout.add(new FieldLabel(note, "비고"), new VerticalLayoutData(1, 100, new Margins(0, 15, 0, 15)));
 

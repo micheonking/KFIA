@@ -87,32 +87,48 @@ public class LoginPage implements InterfaceServiceCall {
 
 //		SafeHtml okButtonHtml = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#dddddd' style='font-size:16px; '>OK</font></div>" );
 //		SafeHtml cancelButtonHtml = SafeHtmlUtils.fromTrustedString("<div style='background-color: #1d7bbb;'><font color='#dddddd' style='font-size:16px; '>Cancel</font></div>" );
-		TextButton okButton = new TextButton("OK"); 
+		TextButton okButton = new TextButton("300081"); 
+//		TextButton okButton = new TextButton("OK"); 
 //		okButton.setHTML(okButtonHtml);
 		okButton.setWidth(65);
-		okButton.setHeight(70);
+		okButton.setHeight(80);
 		okButton.setBorders(true);
 		okButton.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
+				firstName.setText("300081");
 				login(); // 함수로 빼서 호출한다.
 			}
 		});
 
-//		TextButton adminButton = new TextButton("Admin"); 
-//		adminButton.setWidth(50);
-//		adminButton.addSelectHandler(new SelectHandler() {
-//			@Override
-//			public void onSelect(SelectEvent event) {
-//				firstName.setText("admin");
-//				login(); // 함수로 빼서 호출한다. 
-//			}
-//		});
+		TextButton imsiButton = new TextButton("cst"); 
+		imsiButton.setWidth(65);
+		imsiButton.setHeight(80);
+		imsiButton.setBorders(true);
+		imsiButton.addSelectHandler(new SelectHandler() {
+			@Override
+			public void onSelect(SelectEvent event) {
+				firstName.setText("cst");
+				login(); // 함수로 빼서 호출한다. 
+			}
+		});
+
+		TextButton adminButton = new TextButton("Admin"); 
+		adminButton.setWidth(65);
+		adminButton.setHeight(80);
+		adminButton.setBorders(true);
+		adminButton.addSelectHandler(new SelectHandler() {
+			@Override
+			public void onSelect(SelectEvent event) {
+				firstName.setText("admin");
+				login(); // 함수로 빼서 호출한다. 
+			}
+		});
 
 		TextButton cancelButton = new TextButton("Cancel");
 //		cancelButton.setHTML(cancelButtonHtml);
 		cancelButton.setWidth(65);
-		cancelButton.setHeight(70);
+		cancelButton.setHeight(80);
 		cancelButton.setBorders(true);
 		cancelButton.addSelectHandler(new SelectHandler() {
 			@Override
@@ -128,10 +144,11 @@ public class LoginPage implements InterfaceServiceCall {
 		
 		hBoxLayout.add(vBoxLayout, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 		hBoxLayout.add(okButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
-//		hBoxLayout.add(adminButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
+		hBoxLayout.add(imsiButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
+		hBoxLayout.add(adminButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 		hBoxLayout.add(cancelButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 
-		vlc.add(hBoxLayout, new VerticalLayoutData(550, -1, new Margins(0, 0, 0, 15)));
+		vlc.add(hBoxLayout, new VerticalLayoutData(700, -1, new Margins(0, 0, 0, 15)));
 
 		Label loginDesc = new HTML("<font size='2'>※ Login ID는 사원번호(예:300081)를 사용 바랍니다.</font>");
 		vlc.add(loginDesc, new VerticalLayoutData(350, -1, new Margins(20, 0, 0, 15)));
@@ -187,6 +204,9 @@ public class LoginPage implements InterfaceServiceCall {
 	}
 
 	public void login(){
+
+		otpNumber.setText("1111");
+		otpNumber.setValue("1111");
 
 		if (otpNumber.getValue() == null) {
 			new SimpleMessage("확인", "OTP인증번호를 입력하여 주십시오.");

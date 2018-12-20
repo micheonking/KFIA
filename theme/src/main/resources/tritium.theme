@@ -22,7 +22,7 @@ theme {
         bottom = 0 // 5
         color = "#ececec"
         left = 0
-        right = 5
+        right = 0 // 8 // 5
         style = "solid"
         top = 0
       }
@@ -48,14 +48,14 @@ theme {
       }
       firstPanelPadding { // = util.padding(5)
         bottom = 0
-        left = 0 // 5
-        right = 0 // 5
+        left = 5
+        right = 5
         top = 0
       }
     }
     borderLayout {
-      panelBackgroundColor = "#2b579a" // "#5fa2dd" // "#ececec"
-      collapsePanelBackgroundColor = "#5fa2dd"
+      panelBackgroundColor = "#ececec" // "#2b579a" // "#5fa2dd" // "#ececec"
+      collapsePanelBackgroundColor = "#ffffff" // "#5fa2dd"
       collapsePanelBorder {
         bottom = 0 // 1
         color = "#ececec"
@@ -66,8 +66,8 @@ theme {
       }
     }
     button {
-      backgroundColor = "#5fa2dd" // "#ffffff" // 
-      gradient = "#5fa2dd 0%, #5fa2dd 100%" // "#ffffff 0%, #ffffff 100%"
+      backgroundColor = "#2b579a" // "#5fa2dd" // "#ffffff" // 
+      gradient = "#2b579a 0%, #2b579a 100%" // "#5fa2dd 0%, #5fa2dd 100%" // "#ffffff 0%, #ffffff 100%"
       arrowColor = "#f0f0f0"
       borderRadius = 0
       largeFontSize = "18"
@@ -82,25 +82,25 @@ theme {
       smallFontSize = "14"
       smallLineHeight = "18"
       border {
-        bottom = 0 // 1
+        bottom = 1
         color = "#5897ce"
-        left = 0 // 1
-        right = 0 // 1
+        left = 1
+        right = 1
         style = "solid"
-        top = 0 // 1
+        top = 1
       }
       overBorder = util.border('solid', '#518BBD', 1)
       pressedBorder = util.border('solid', '#42719A', 1)
       font {
         color = "#f0f0f0"
         family = "'D2Coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
-        size = "14px"
+        size = "13px"
         weight = "400"
       }
       padding {
         bottom = 7
-        left = 7
-        right = 7
+        left = 10
+        right = 10
         top = 7
       }
     }
@@ -325,11 +325,11 @@ theme {
         boxLabel = text
         padding {
           bottom = 0
-          left = 0
+          left = 18
           right = 0
           top = 0
         }
-        color = "#919191"
+        color = "#61616a" // "#919191"
       }
       radio {
         boxLabel = text
@@ -339,7 +339,7 @@ theme {
           right = 10
           top = 0
         }
-        color = "#919191"
+        color = "#61616a" // "#919191"
       }
       padding {
         bottom = 9
@@ -359,13 +359,13 @@ theme {
           bottom = 0
           left = 0
           right = 5
-          top = 5
+          top = 8 // 6
         }
         padding {
-          bottom = 10
+          bottom = 2 // 0
           left = 0
           right = 0
-          top = 0
+          top = 2 // 5
         }
         text {
           color = "#404041" // Label
@@ -846,13 +846,13 @@ theme {
         weight = "bold"
       }
       bar {
-        activeItemBackgroundColor = "#5fa2dd"
-        activeItemGradient = "#5fa2dd 0%, #5fa2dd 100%"
+        activeItemBackgroundColor = "#ececec" // "#5fa2dd"
+        activeItemGradient = "#ececec 0%, #ececec 100%" // "#5fa2dd 0%, #5fa2dd 100%"
         activeItemText = menu.activeItemText
         backgroundColor = "#ffffff"
         gradient = "#ffffff 0%, #ffffff 100%"
-        hoverItemBackgroundColor = "#5fa2dd"
-        hoverItemGradient = "#5fa2dd 0%, #5fa2dd 100%"
+        hoverItemBackgroundColor = "#ececec" // "#5fa2dd"
+        hoverItemGradient = "#ececec 0%, #ececec 100%" // "#5fa2dd 0%, #5fa2dd 100%"
         hoverItemText = menu.activeItemText
         itemLineHeight = "24px"
         activeItemBorder {
@@ -1103,10 +1103,10 @@ theme {
     }
     tabs {
       activeHeadingText {
-        color = "#4C82B1"
+        color = "#2b579a" // "#4C82B1"
         family = "'D2Coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
-        weight = "400"
+        weight = "bold"
       }
       activePlainTabCloseIconColor = "#919191"
       activePlainTabCloseOverIconColor = "#919191"
@@ -1202,8 +1202,8 @@ theme {
       tabSpacing = 1
       tabStripBottomBorder = "none"
       tabStripTopBorder = "none"
-      tabStripBackgroundColor = "#5fa2dd"
-      tabStripGradient = "#5fa2dd 0%, #5fa2dd 100%"
+      tabStripBackgroundColor = "#2b579a" // "#5fa2dd"
+      tabStripGradient = "#2b579a 0%, #2b579a 100%" // "#5fa2dd 0%, #5fa2dd 100%"
       tabStripPadding {
         bottom = 0
         left = 8
@@ -1214,7 +1214,7 @@ theme {
         bottom = 10
         left = 10
         right = 10
-        top = 10
+        top = 8
       }
     }
     tip {

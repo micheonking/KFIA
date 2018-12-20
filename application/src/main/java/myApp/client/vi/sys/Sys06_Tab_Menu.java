@@ -47,7 +47,7 @@ public class Sys06_Tab_Menu extends BorderLayoutContainer implements InterfaceSe
 		ButtonBar buttonBar = new ButtonBar();
 
 		TextButton retrieveButton = new TextButton("메뉴 조회"); 
-		retrieveButton.setWidth(70);
+//		retrieveButton.setWidth(70);
 		retrieveButton.addSelectHandler(new SelectHandler(){
 			@Override
 			public void onSelect(SelectEvent event) {
@@ -57,7 +57,7 @@ public class Sys06_Tab_Menu extends BorderLayoutContainer implements InterfaceSe
 		buttonBar.add(retrieveButton);
 
 		TextButton createRoot = new TextButton("루트메뉴 등록"); 
-		createRoot.setWidth(100);
+//		createRoot.setWidth(100);
 		createRoot.addSelectHandler(new SelectHandler(){
 			@Override
 			public void onSelect(SelectEvent event) {
@@ -68,7 +68,7 @@ public class Sys06_Tab_Menu extends BorderLayoutContainer implements InterfaceSe
 		buttonBar.add(createRoot);
 
 		TextButton addSubMenu = new TextButton("하위메뉴 등록");
-		addSubMenu.setWidth(100);
+//		addSubMenu.setWidth(100);
 		addSubMenu.addSelectHandler(new SelectHandler(){
 			@Override
 			public void onSelect(SelectEvent event) {

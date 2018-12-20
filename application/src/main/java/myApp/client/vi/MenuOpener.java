@@ -205,7 +205,10 @@ public class MenuOpener {
 			return (Widget) GWT.create(myApp.client.vi.bbs.Bbs01_Tab_Board.class);
 		}
 
-		// RD 테스트
+		// RD 테스트	Cst01_Tab_BaseInfo
+		if ("Cst01_Tab_BaseInfo".equals(className)) {
+			return (Widget) GWT.create(myApp.client.vi.cst.Cst01_Tab_BaseInfo.class);
+		}
 		if ("Dbm01_RD_TabComments.class".equals(className)) {
 			return (Widget) GWT.create(myApp.client.vi.dbm.Dbm01_RD_TabComments.class);
 		}

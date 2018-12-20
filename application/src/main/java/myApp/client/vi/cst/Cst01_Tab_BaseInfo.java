@@ -1,4 +1,4 @@
-package myApp.client.vi.dbm;
+package myApp.client.vi.cst;
 
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.safehtml.shared.SafeHtml;
@@ -17,9 +17,10 @@ import myApp.client.field.LookupTriggerField;
 import myApp.client.grid.InterfaceGridOperate;
 import myApp.client.grid.SearchBarBuilder;
 import myApp.client.utils.InterfaceCallbackResult;
+import myApp.client.vi.dbm.Dbm01_Lookup_Tables;
 import myApp.client.vi.dbm.model.Dbm01_TabCommentsModel;
 
-public class Dbm99_Tab_RDTest extends BorderLayoutContainer implements InterfaceGridOperate {
+public class Cst01_Tab_BaseInfo extends BorderLayoutContainer implements InterfaceGridOperate {
 	
 	private Dbm01_TabCommentsModel findTableModel = new Dbm01_TabCommentsModel(); 
 	private LookupTriggerField lookupTableField = new LookupTriggerField();
@@ -27,11 +28,11 @@ public class Dbm99_Tab_RDTest extends BorderLayoutContainer implements Interface
 	VerticalLayoutContainer rdLayoutContainer = new VerticalLayoutContainer();
 
 	public interface RDTemplate extends XTemplates {
-	    @XTemplate("<iframe id='reportDesinger' border=0 src='{pageName}' width='100%' height='99%'/> ")
+	    @XTemplate("<iframe id='reportDesinger' border=1 src='{pageName}' width='100%' height='100%' /> ")
 	    SafeHtml getTemplate(String pageName);
 	}
 
-	public Dbm99_Tab_RDTest() {
+	public Cst01_Tab_BaseInfo() {
 		this.setBorders(false); 
 		
 		SearchBarBuilder searchBarBuilder = new SearchBarBuilder(this);
@@ -42,38 +43,49 @@ public class Dbm99_Tab_RDTest extends BorderLayoutContainer implements Interface
 			}
 		}); 
 		
-		FieldLabel tableNameLabel = new FieldLabel(lookupTableField, "Table 찾기:");
-		tableNameLabel.setLabelWidth(120);
+		FieldLabel tableNameLabel = new FieldLabel(lookupTableField, "Table 찾기");
+		tableNameLabel.setLabelWidth(100);
 		tableNameLabel.setWidth(350);
+//		tableNameLabel.setBorders(true);
 		searchBarBuilder.getSearchBar().add(tableNameLabel); 
 		lookupTableField.setEmptyText("전체");
 
-		searchBarBuilder.addRetrieveButton(); 
+		searchBarBuilder.addRetrieveButton();
 
-		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(50));
+		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(55));
 
 		this.setCenterWidget(rdLayoutContainer);
+		
+		retrieve();
 	}
 
 	private void setReportDesigner() {
 		
-		String tableName = lookupTableField.getValue(); 
-		if(tableName != null) {
-			tableName = "%" + tableName + "%";  
-		}
-		else {
-			tableName = "%"; 
-		}
+		String tableName = lookupTableField.getValue();
+		String pageName = "";
 
 		RDTemplate rdTemplate = GWT.create(RDTemplate.class);
-		
-		String pageName = "http://172.20.200.252:8283/ReportingServer/html5/RDhtml/rd_Table_Define.html?table_in=" + tableName;
 
-		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(rdTemplate.getTemplate(pageName));
-		rdLayoutContainer.clear();
-		rdLayoutContainer.add(htmlLayoutContainer, new VerticalLayoutData(1, 1));
-		this.setCenterWidget(rdLayoutContainer);
-		
+		if(tableName != null) {
+			tableName = "%" + tableName + "%";  
+			pageName = "http://172.20.200.252:8283/ReportingServer/html5/RDhtml/rd_Table_Define.html?table_in=" + tableName;
+			HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(rdTemplate.getTemplate(pageName));
+
+			rdLayoutContainer.clear();
+			rdLayoutContainer.add(htmlLayoutContainer, new VerticalLayoutData(1, 1));
+			this.setCenterWidget(rdLayoutContainer);
+
+		}
+		else {
+			pageName = "http://172.20.200.252:8283/ReportingServer/html5/RDhtml/sample.html";
+			HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(rdTemplate.getTemplate(pageName));
+
+			rdLayoutContainer.clear();
+			rdLayoutContainer.add(htmlLayoutContainer, new VerticalLayoutData(1, 1));
+			this.setCenterWidget(rdLayoutContainer);
+
+		}
+
 	}
 
 	private void openLookupTable() {

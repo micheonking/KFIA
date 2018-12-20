@@ -13,6 +13,7 @@ import com.sencha.gxt.widget.core.client.grid.Grid;
 import com.sencha.gxt.widget.core.client.info.Info;
 
 import myApp.client.grid.GridBuilder;
+import myApp.client.resource.ResourceIcon;
 import myApp.client.service.GridRetrieveData;
 import myApp.client.service.GridUpdate;
 import myApp.client.service.InterfaceServiceCall;
@@ -35,6 +36,8 @@ public class Dbm02_TabPage_ColComments<Stock> extends ContentPanel implements In
 
 		TextButton xmlGeneratorButton = new TextButton("XML");
 		xmlGeneratorButton.setBorders(true);
+		xmlGeneratorButton.setIcon(ResourceIcon.INSTANCE.search1Button());
+
 		xmlGeneratorButton.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {

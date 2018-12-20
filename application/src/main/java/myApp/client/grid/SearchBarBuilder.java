@@ -28,7 +28,7 @@ public class SearchBarBuilder {
 	}
 	
 	public ButtonBar getSearchBar(){
-		this.searchBar.setPadding(new Padding(5, 0, 0, 0));
+		this.searchBar.setPadding(new Padding(1, 1, 1, 1));
 		return this.searchBar; 
 	}
 	
