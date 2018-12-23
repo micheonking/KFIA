@@ -45,9 +45,6 @@ public interface ResourceIcon extends ClientBundle {
 	  @Source("files/search_button_green.png")
 	  ImageResource searchButton();
 
-	  @Source("files/search1.png")
-	  ImageResource search1Button();
-
 	  @Source("files/1462692039_stock_person.png")
 	  ImageResource searchPerson();
 
@@ -93,4 +90,40 @@ public interface ResourceIcon extends ClientBundle {
 	  @Source("files/close.png")
 	  ImageResource close();
 	  
+	  @Source("files/xmlButton.png")
+	  ImageResource xmlButton();
+	  
+	  @Source("files/xmlButton16.png")
+	  ImageResource xml16Button();
+	  
+	  @Source("files/search16Btn.png")
+	  ImageResource search16Button();
+
+	  @Source("files/delete16Btn.png")
+	  ImageResource delete16Button();
+
+	  @Source("files/save16Btn.png")
+	  ImageResource save16Button();
+
+	  @Source("files/insert16Btn.png")
+	  ImageResource insert16Button();
+
+	  @Source("files/update16Btn.png")
+	  ImageResource update16Button();
+
+	  @Source("files/trash16Btn.png")
+	  ImageResource trash16Button();
+
+	  @Source("files/eraser16Btn.png")
+	  ImageResource eraser16Button();
+
+	  @Source("files/close16Btn.png")
+	  ImageResource close16Button();
+
+	  @Source("files/close24Btn.png")
+	  ImageResource close24Button();
+
+	  @Source("files/tabs24Btn.png")
+	  ImageResource tabs24Button();
+
 }

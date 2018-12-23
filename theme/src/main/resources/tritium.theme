@@ -55,14 +55,14 @@ theme {
     }
     borderLayout {
       panelBackgroundColor = "#ececec" // "#2b579a" // "#5fa2dd" // "#ececec"
-      collapsePanelBackgroundColor = "#ffffff" // "#5fa2dd"
+      collapsePanelBackgroundColor = "#5fa2dd" // "#ffffff" // "#5fa2dd"
       collapsePanelBorder {
-        bottom = 0 // 1
+        bottom = 1 // 0 // 1
         color = "#ececec"
-        left = 0
-        right = 0
+        left = 1 // 0
+        right = 1 // 0
         style = "solid"
-        top = 0
+        top = 1 // 0
       }
     }
     button {

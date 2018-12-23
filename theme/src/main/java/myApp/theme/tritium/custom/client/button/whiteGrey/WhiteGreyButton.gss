@@ -4,18 +4,18 @@
 @def BORDER_COLOR #ffffff;
 
 /* Over Color */
-@def OVER_BACKGROUND_COLOR #f8f8f8;
-@def PRESSED_BACKGROUND_COLOR #f8f8f8;
+@def OVER_BACKGROUND_COLOR #ef5350;
+@def PRESSED_BACKGROUND_COLOR #ef5350;
 
 
 /* Pressed Color */
-@def PRESSED_BACKGROUND_COLOR #ffffff;
-@def PRESSED_GRADIENT #ffffff;
+@def PRESSED_BACKGROUND_COLOR #ececec;
+@def PRESSED_GRADIENT #ececec;
 
 
 /* Focused Color */
-@def OVER_BACKGROUND_COLOR #ffffff;
-@def OVER_GRADIENT #ffffff;
+@def OVER_BACKGROUND_COLOR #e0e0e0;
+@def OVER_GRADIENT #e0e0e0;
 
 
 .button {

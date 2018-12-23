@@ -24,7 +24,9 @@ import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.LoginUser;
+import myApp.theme.tritium.custom.client.button.red.RedButtonCellAppearance;
 import myApp.theme.tritium.custom.client.button.white.WhiteButtonCellAppearance;
+import myApp.theme.tritium.custom.client.button.whiteGrey.WhiteGreyButtonCellAppearance;
 
 public class MainFrameNorthLayout extends BorderLayoutContainer {
 
@@ -62,14 +64,14 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 //		SafeHtml logoutButtonHtml = SafeHtmlUtils.fromTrustedString("<div style='background-color: #1d7bbb;'><font color='#dddddd' style='font-size:16px; '>종료</font></div>" );
 //		SafeHtml logoutButtonHtml = SafeHtmlUtils.fromTrustedString("<center><div></div> "); //  img='img/closeButton.png' width='16' height='16'
 
-		TextButton logoutButton = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
+		TextButton logoutButton = new TextButton(new TextButtonCell(new WhiteGreyButtonCellAppearance<>()));
 //		TextButton logoutButton = new TextButton("종료");
-		logoutButton.setText("종료");
+		logoutButton.setText("");
 		logoutButton.setIcon(ResourceIcon.INSTANCE.closeButton());
 //		logoutButton.setHTML(logoutButtonHtml);
 //		logoutButton.setWidth(65);
 //		logoutButton.setHeight(40);
-		logoutButton.setBorders(true);
+		logoutButton.setBorders(false);
 		logoutButton.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
