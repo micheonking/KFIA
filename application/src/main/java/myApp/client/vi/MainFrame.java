@@ -1,49 +1,28 @@
 package myApp.client.vi;
 
-import com.gargoylesoftware.htmlunit.javascript.host.Window;
 import com.google.gwt.core.shared.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.MouseOverEvent;
-import com.google.gwt.event.dom.client.MouseOverHandler;
-import com.google.gwt.resources.client.ImageResource;
-import com.google.gwt.safehtml.shared.SafeHtml;
-import com.google.gwt.safehtml.shared.SafeHtmlUtils;
-import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.sencha.gxt.core.client.util.Margins;
-import com.sencha.gxt.core.client.util.Padding;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.PlainTabPanel;
-import com.sencha.gxt.widget.core.client.TabItemConfig;
-import com.sencha.gxt.widget.core.client.button.TextButton;
-import com.sencha.gxt.widget.core.client.button.ToolButton;
+import com.sencha.gxt.widget.core.client.TabPanel;
 import com.sencha.gxt.widget.core.client.container.AccordionLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.AccordionLayoutContainer.AccordionLayoutAppearance;
 import com.sencha.gxt.widget.core.client.container.AccordionLayoutContainer.ExpandMode;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
-import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
-import com.sencha.gxt.widget.core.client.event.FocusEvent;
-import com.sencha.gxt.widget.core.client.event.SelectEvent;
-import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
-import com.sencha.gxt.widget.core.client.info.Info;
-import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
-import com.sencha.tools.slicer.Model.Widget;
 
-import myApp.client.kfiaEntryPoint;
-import myApp.client.resource.ResourceIcon;
+import myApp.client.vi.cst.Cst01_Tab_BaseInfo;
+import myApp.client.vi.hom.StartPage;
 
 public class MainFrame extends BorderLayoutContainer {
 
-	private PlainTabPanel tabPanel = new PlainTabPanel();
+	private TabPanel tabPanel = new TabPanel();
 	private MainFrameNorthLayout mainFrameNorthLayout = new MainFrameNorthLayout();
 	private MenuTree treeMenu = new MenuTree(tabPanel); 
 	
+	private MainFrameSouthLayout mainFrameSouthLayout = new MainFrameSouthLayout();
+
 	public MainFrame getMainWindow() {
 		
 		// 상단 Bar 등록  
@@ -57,17 +36,23 @@ public class MainFrame extends BorderLayoutContainer {
 		westLayoutData.setCollapsible(true);
 		westLayoutData.setCollapseHeaderVisible(true);
 		westLayoutData.setSplit(true);
+		westLayoutData.setMargins(new Margins(0,8,0,0));
+
 
 		//westLayoutData.setCollapseMini(true);
 		this.setWestWidget(this.getWestLayout(), westLayoutData);
 		//this.setWestWidget(treeMenu.getMenuTree()); 
+
+		BorderLayoutData southLayoutData = new BorderLayoutData(25);
+		southLayoutData.setMargins(new Margins(0, 0, 0, 0)); // 앞쪽에 보이는 가로 줄을 없애준다
+		this.setSouthWidget(mainFrameSouthLayout, southLayoutData);
 
 		tabPanel.getElement().getStyle().clearMarginLeft();
 		//.setLeft(7);
 		//.getElement().get.getStyle().set("color", "#666666"); // font color 변경
 		tabPanel.setTabMargin(8);
 		tabPanel.setTabScroll(true);
-		tabPanel.setBorders(true);
+//		tabPanel.setBorders(true);
         tabPanel.setAnimScroll(true);
         tabPanel.setTabScroll(true);
         tabPanel.setCloseContextMenu(true);
@@ -76,8 +61,18 @@ public class MainFrame extends BorderLayoutContainer {
 //        TabItemConfig config = tabPanel.getConfig(item);
 //        String name = config.getText();
 
-		tabPanel.add(new TabBorder(), "달력"); // my page setting
+//		tabPanel.add(new TabBackGround(), ""); // my page setting
+//		tabPanel.add(new TabBorder(), "스케쥴"); // my page setting
+		switch (""+LoginUser.getCompanyId()) {
+		case "2062721" :
+			tabPanel.add(new Cst01_Tab_BaseInfo(), "기본정보");
+			break;
+		default :
+			tabPanel.add(new TabBorder(), "스케쥴");
+			break;
+		}
 
+//		tabPanel.add(new Cst01_Tab_BaseInfo(), "기본정보");
 		VerticalLayoutContainer vlc = new VerticalLayoutContainer(); 
 		vlc.add(tabPanel, new VerticalLayoutData(1, 1, new Margins(0, 0, 0, 0)));
 		
@@ -99,7 +94,7 @@ public class MainFrame extends BorderLayoutContainer {
 		accordianContainer.setExpandMode(ExpandMode.SINGLE_FILL);
 		accordianContainer.setHideCollapseTool(true); // 감추기 버튼 감추기
 		accordianContainer.setTitleCollapse(false); // 감추기 버튼 작동안하기 
-		accordianContainer.setBorders(true);
+//		accordianContainer.setBorders(true);
 
 		accordianContainer.add(treeAccordianPanel);
 		accordianContainer.setActiveWidget(treeAccordianPanel);

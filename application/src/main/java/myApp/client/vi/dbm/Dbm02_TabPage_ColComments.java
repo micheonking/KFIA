@@ -3,8 +3,11 @@ package myApp.client.vi.dbm;
 import com.google.gwt.core.client.GWT;
 import com.sencha.gxt.core.client.Style.SelectionMode;
 import com.sencha.gxt.core.client.Style.Side;
+import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.TextButton;
+import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutPack;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
@@ -13,6 +16,7 @@ import com.sencha.gxt.widget.core.client.grid.Grid;
 import com.sencha.gxt.widget.core.client.info.Info;
 
 import myApp.client.grid.GridBuilder;
+import myApp.client.resource.ResourceIcon;
 import myApp.client.service.GridRetrieveData;
 import myApp.client.service.GridUpdate;
 import myApp.client.service.InterfaceServiceCall;
@@ -24,21 +28,22 @@ import myApp.client.vi.RDViewer;
 import myApp.client.vi.dbm.model.Dbm02_ColCommentsModel;
 import myApp.client.vi.dbm.model.Dbm02_ColCommentsModelProperties;
 
-public class Dbm02_TabPage_ColComments<Stock> extends ContentPanel implements InterfaceServiceCall {
+public class Dbm02_TabPage_ColComments<Stock> extends BorderLayoutContainer implements InterfaceServiceCall {
 
 	private Grid<Dbm02_ColCommentsModel> grid = this.buildGrid();
 	private String tableName;
 
 	public Dbm02_TabPage_ColComments() {
-		this.setHeaderVisible(false); 
-		this.add(this.grid);
+		
+		ContentPanel contentPanel = new ContentPanel();
+		contentPanel.setHeaderVisible(false); 
+		contentPanel.add(this.grid);
 
 		TextButton xmlGeneratorButton = new TextButton("XML");
-//		xmlGeneratorButton.setWidth(100);
-//		xmlGeneratorButton.setHeight(70);
-		xmlGeneratorButton.getLayoutData().equals(height);
-		xmlGeneratorButton.setSize(""+xmlGeneratorButton.getLayoutData().equals(width)+7, ""+xmlGeneratorButton.getLayoutData().equals(height)+7);
 		xmlGeneratorButton.setBorders(true);
+//		xmlGeneratorButton.setIcon(ResourceIcon.INSTANCE.search1Button());
+		xmlGeneratorButton.setIcon(ResourceIcon.INSTANCE.xmlButton());
+
 		xmlGeneratorButton.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
@@ -46,7 +51,7 @@ public class Dbm02_TabPage_ColComments<Stock> extends ContentPanel implements In
 				popupXML();
 			}
 		});
-		this.getButtonBar().add(xmlGeneratorButton); 
+		contentPanel.getButtonBar().add(xmlGeneratorButton); 
 
 		TextButton modelGeneratorButton = new TextButton("Model");
 		modelGeneratorButton.addSelectHandler(new SelectHandler() {
@@ -56,7 +61,7 @@ public class Dbm02_TabPage_ColComments<Stock> extends ContentPanel implements In
 				popupModel();
 			}
 		});
-		this.getButtonBar().add(modelGeneratorButton); 
+		contentPanel.getButtonBar().add(modelGeneratorButton); 
 
 		TextButton modelPropertiesButton = new TextButton("Properties");
 		modelPropertiesButton.addSelectHandler(new SelectHandler() {
@@ -66,7 +71,7 @@ public class Dbm02_TabPage_ColComments<Stock> extends ContentPanel implements In
 				popupProperties();
 			}
 		});
-		this.getButtonBar().add(modelPropertiesButton); 
+		contentPanel.getButtonBar().add(modelPropertiesButton); 
 
 		TextButton gridBuilderButton = new TextButton("GridBuilder");
 		gridBuilderButton.addSelectHandler(new SelectHandler() {
@@ -76,7 +81,7 @@ public class Dbm02_TabPage_ColComments<Stock> extends ContentPanel implements In
 				popupGridBuilder();
 			}
 		});
-		this.getButtonBar().add(gridBuilderButton); 
+		contentPanel.getButtonBar().add(gridBuilderButton); 
 
 		TextButton retrievePDFButton = new TextButton("Table Print");
 	    retrievePDFButton.addSelectHandler(new SelectHandler() {
@@ -88,7 +93,7 @@ public class Dbm02_TabPage_ColComments<Stock> extends ContentPanel implements In
 				viewer.open("className=dbm.Dbm02_ColCommentsPDF&tableName=" + tableName);
 			}
 		});
-		this.getButtonBar().add(retrievePDFButton); 
+		contentPanel.getButtonBar().add(retrievePDFButton); 
 
 		TextButton retrievePDF2Button = new TextButton("Report Print");
 	    retrievePDF2Button.addSelectHandler(new SelectHandler() {
@@ -102,7 +107,7 @@ public class Dbm02_TabPage_ColComments<Stock> extends ContentPanel implements In
 				viewer.open("className=dcr.Dcr10_MailSenderPDF");
 			}
 		});
-		this.getButtonBar().add(retrievePDF2Button); 
+		contentPanel.getButtonBar().add(retrievePDF2Button); 
 
 		TextButton retrieveRDButton = new TextButton("RD Print");
 		retrieveRDButton.addSelectHandler(new SelectHandler() {
@@ -123,7 +128,7 @@ public class Dbm02_TabPage_ColComments<Stock> extends ContentPanel implements In
 				viewer.open("rd_Table_Define.html?table_in=" + tableName);
 			}
 		});
-		this.getButtonBar().add(retrieveRDButton); 
+		contentPanel.getButtonBar().add(retrieveRDButton); 
 
 //		TextButton sendMailSMTPButton = new TextButton("send Mail");
 //		sendMailSMTPButton.addSelectHandler(new SelectHandler() {
@@ -135,7 +140,7 @@ public class Dbm02_TabPage_ColComments<Stock> extends ContentPanel implements In
 //
 //			}
 //		});
-//		this.getButtonBar().add(sendMailSMTPButton); 
+//		contentPanel.getButtonBar().add(sendMailSMTPButton); 
 
 		TextButton updateButton = new TextButton("Comment Save"); 
 	    updateButton.addSelectHandler(new SelectHandler() {
@@ -145,8 +150,15 @@ public class Dbm02_TabPage_ColComments<Stock> extends ContentPanel implements In
 			}
 		}); 
 	    
-	    this.getButtonBar().add(updateButton); 
-		this.setButtonAlign(BoxLayoutPack.CENTER);
+	    contentPanel.getButtonBar().add(updateButton); 
+		contentPanel.setButtonAlign(BoxLayoutPack.CENTER);
+
+		BorderLayoutData centerLayoutData = new BorderLayoutData(1);
+		centerLayoutData.setMargins(new Margins(8, 8, 8, 0));
+		centerLayoutData.setSplit(true);
+		centerLayoutData.setMaxSize(1000);
+
+		this.setWestWidget(contentPanel, centerLayoutData);
 	}
 
 	public Grid<Dbm02_ColCommentsModel> buildGrid(){

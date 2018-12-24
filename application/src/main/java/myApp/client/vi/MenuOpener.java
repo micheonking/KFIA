@@ -47,7 +47,7 @@ public class MenuOpener {
 			return (Widget) GWT.create(myApp.client.vi.sys.Sys90_Tab_AfterService.class);
 		}
 
-		if ("Dbm01_Tab_TabComments".equals(className)) {
+		if ("Dbm01_Tab_TabComments.class".equals(className)) {
 			return (Widget) GWT.create(myApp.client.vi.dbm.Dbm01_Tab_TabComments.class);
 		}
 		if ("Emp10_Tab_AddrBook.class".equals(className)) {
@@ -205,7 +205,10 @@ public class MenuOpener {
 			return (Widget) GWT.create(myApp.client.vi.bbs.Bbs01_Tab_Board.class);
 		}
 
-		// RD 테스트
+		// RD 테스트	Cst01_Tab_BaseInfo
+		if ("Cst01_Tab_BaseInfo".equals(className)) {
+			return (Widget) GWT.create(myApp.client.vi.cst.Cst01_Tab_BaseInfo.class);
+		}
 		if ("Dbm01_RD_TabComments.class".equals(className)) {
 			return (Widget) GWT.create(myApp.client.vi.dbm.Dbm01_RD_TabComments.class);
 		}
@@ -214,7 +217,7 @@ public class MenuOpener {
 		}
 		
 		if ("Notification.class".equals(className)) {
-			return (Widget) GWT.create(myApp.client.vi.home.report.Notification.class);
+			return (Widget) GWT.create(myApp.client.vi.hom.report.Notification.class);
 		}
 	 
 	

@@ -4,8 +4,8 @@
 @def BORDER_COLOR #ffffff;
 
 /* Over Color */
-@def OVER_BACKGROUND_COLOR #ffffff;
-@def PRESSED_BACKGROUND_COLOR #ffffff;
+@def OVER_BACKGROUND_COLOR #f8f8f8;
+@def PRESSED_BACKGROUND_COLOR #f8f8f8;
 
 
 /* Pressed Color */

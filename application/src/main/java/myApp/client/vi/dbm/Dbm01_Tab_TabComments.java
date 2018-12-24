@@ -39,6 +39,7 @@ public class Dbm01_Tab_TabComments extends BorderLayoutContainer implements Inte
 	
 	public Dbm01_Tab_TabComments() {
 
+//		Info.display("", "Message");
 		this.setBorders(false); 
 		
 		SearchBarBuilder searchBarBuilder = new SearchBarBuilder(this);
@@ -50,8 +51,8 @@ public class Dbm01_Tab_TabComments extends BorderLayoutContainer implements Inte
 			}
 		}); 
 		
-		FieldLabel tableNameLabel = new FieldLabel(lookupTableField, "Table 찾기:");
-		tableNameLabel.setLabelWidth(70);
+		FieldLabel tableNameLabel = new FieldLabel(lookupTableField, "Table 찾기");
+		tableNameLabel.setLabelWidth(90);
 		tableNameLabel.setWidth(350);
 		searchBarBuilder.getSearchBar().add(tableNameLabel); 
 
@@ -60,9 +61,10 @@ public class Dbm01_Tab_TabComments extends BorderLayoutContainer implements Inte
 		
 		this.setBorders(false);
 		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(50));
+//		this.setMargins(new Margins(8,0,0,0));
 
-		BorderLayoutData westLayoutData = new BorderLayoutData(0.4);
-		westLayoutData .setMargins(new Margins(0, 4, 0, 0));
+		BorderLayoutData westLayoutData = new BorderLayoutData(0.45);
+		westLayoutData .setMargins(new Margins(8, 8, 8, 0));
 		westLayoutData .setSplit(true);
 		westLayoutData .setMaxSize(1000);
 

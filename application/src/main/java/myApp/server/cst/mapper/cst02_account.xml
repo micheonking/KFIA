@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cst02_account">
+
+<resultMap 	id="mapper" type="myApp.client.vi.cst.model.Cst02_AccountModel" >
+	<id		column="cst02_account_id"	property="accountId"/>
+	<result	column="cst02_user_id"		property="userId"/>
+	<result	column="cst02_mg_cd"		property="mgCode"/>
+	<result	column="cst02_account_no"	property="accountNo"/>
+	<result	column="cst02_fund_cd"		property="fundCode"/>
+	<result	column="cst02_account_nm"	property="accountName"/>
+	<result	column="cst02_account_branch"	property="accountBranch"/>
+	<result	column="cst02_branch_manager"	property="branchManager"/>
+	<result	column="cst02_manager_contact"	property="managerContact"/>
+</resultMap>
+
+<resultMap type="myApp.client.sys.model.ComboBoxModel" id="mapper2">
+	<id     column="code"           		property="code"/>
+	<result column="name"          			property="name"/>
+</resultMap>
+
+<resultMap type="myApp.client.sys.model.CommonComboBoxModel" id="mapper2">
+	<id     column="code"           		property="code"/>
+	<result column="name"          			property="name"/>
+</resultMap>
+
+<select id="selectById" resultMap="mapper" parameterType="Long" >
+	select	*
+	from	cst02_account
+	where	cst02_account_id	=	#{accountId}
+</select>
+
+<select id="selectByUserId" resultMap="mapper" parameterType="Long">
+	select *
+	  from cst02_account
+	 where cst02_user_id = #{userId}
+</select>
+
+<select id="selectByFundCodeCombo" resultMap="mapper2" parameterType="HashMap">
+	select concat(rpad(substr(cst02_acc_no,1,3),12,'*'),' '||cst02_acc_name) as name
+	     , cst02_fund_cd                                                     as code
+	  from cst02_account
+	 where cst02_user_id = #{userId}
+	 order by cst02_acc_id
+</select>
+
+<select id="selectByYearCombo" resultMap="mapper2" parameterType="HashMap">
+	select substr(tr_ymd,1,4)||'년' as name
+	     , substr(tr_ymd,1,4) as code
+	  from cst06_icam_unyong
+	 where fund_cd = #{fundCode}
+	 group by substr(tr_ymd,1,4)
+	 order by 1
+</select>
+
+<select id="getPreDate" resultType="String" parameterType="HashMap">
+    select to_char(sysdate - 1,'yyyy-mm-dd') as preDate
+      from dual
+</select>
+
+</mapper>

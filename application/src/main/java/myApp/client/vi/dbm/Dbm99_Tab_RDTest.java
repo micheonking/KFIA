@@ -43,7 +43,7 @@ public class Dbm99_Tab_RDTest extends BorderLayoutContainer implements Interface
 		}); 
 		
 		FieldLabel tableNameLabel = new FieldLabel(lookupTableField, "Table 찾기:");
-		tableNameLabel.setLabelWidth(70);
+		tableNameLabel.setLabelWidth(120);
 		tableNameLabel.setWidth(350);
 		searchBarBuilder.getSearchBar().add(tableNameLabel); 
 		lookupTableField.setEmptyText("전체");
