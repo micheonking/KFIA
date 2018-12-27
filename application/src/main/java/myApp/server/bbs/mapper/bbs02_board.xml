@@ -26,7 +26,7 @@
 	select 	a.*
 	from 	bbs02_board a
 	where	bbs02_type_cd like #{typeCode}
-	and		rownum	<![CDATA[<=]]>	#{setCount}
+	order by bbs02_settle_dt desc
 </select>
 
 </mapper>
