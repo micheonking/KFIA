@@ -15,6 +15,7 @@ public class Cst01_UserModel implements GridDataModel {
 	private	Date	startDt;
 	private	Date	endDt;
 	private	String	mrdRole;
+	private	Long	companyId;
 
 	@Override
 	public void setKeyId(Long id) {
@@ -104,6 +105,14 @@ public class Cst01_UserModel implements GridDataModel {
 
 	public void setMrdRole(String mrdRole) {
 		this.mrdRole = mrdRole;
+	}
+
+	public Long getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(Long companyId) {
+		this.companyId = companyId;
 	}
 
 }

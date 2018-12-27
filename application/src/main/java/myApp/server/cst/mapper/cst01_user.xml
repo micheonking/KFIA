@@ -14,12 +14,19 @@
 	<result	column="cst01_start_dt"		property="startDt"/>
 	<result	column="cst01_end_dt"		property="endDt"/>
 	<result	column="cst01_mrd_role"		property="mrdRole"/>
+	<result	column="cst01_company_id"	property="companyId"/>
 </resultMap>
 
 <select id="selectById" resultMap="mapper" parameterType="Long" >
 	select	*
 	from	cst01_user
 	where	cst01_user_id	=	#{userId}
+</select>
+
+<select id="selectByLoginId" resultMap="mapper" parameterType="String" > 
+	select 	* 
+    from 	cst01_user
+    where 	cst01_email		=	#{loginId}
 </select>
 
 </mapper>

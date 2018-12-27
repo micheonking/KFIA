@@ -20,16 +20,20 @@ import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayou
 import com.sencha.gxt.widget.core.client.container.Viewport;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
+import com.sencha.gxt.widget.core.client.form.FieldLabel;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
+import myApp.client.grid.ComboBoxField;
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.LoginUser;
+import myApp.client.vi.cst.ComboBoxFundCode;
 import myApp.theme.tritium.custom.client.button.red.RedButtonCellAppearance;
 import myApp.theme.tritium.custom.client.button.white.WhiteButtonCellAppearance;
 import myApp.theme.tritium.custom.client.button.whiteGrey.WhiteGreyButtonCellAppearance;
 
 public class MainFrameNorthLayout extends BorderLayoutContainer {
 
+	private ComboBoxFundCode fundCodeComboBox = new ComboBoxFundCode("");
 	Viewport viewport = new Viewport();
 
 	public MainFrameNorthLayout() {
@@ -52,8 +56,18 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 		
 		header.add(new Label(), boxLayoutData);
 		 
+		if(LoginUser.getCompanyId()==2062721) {
+			FieldLabel fundCodeField = new FieldLabel(fundCodeComboBox, "계좌 ");
+//			fundCodeComboBox.setEmptyText("계좌를 선택하세요.");
+			fundCodeField.setLabelWidth(60);
+			fundCodeField.setWidth(400);
+			
+			header.add(fundCodeField, new BoxLayoutData(new Margins(9, 30, 0, 0)));
+		}
+		
+//		String userInfo = LoginUser.getCompanyId() + " " + LoginUser.getUserName();
 		String userInfo = LoginUser.getUserName() + " 님" ; ;
-		userInfo = "<p style='color:#808080; font-size:14px; font-weight:bold'>" +  userInfo + "</p>" ;  
+		userInfo = "<p style='color:#808080; font-size:14px; font-weight:normal'>" +  userInfo + "</p>" ;  
 		
 		SafeHtml safeEscapedHtml = SafeHtmlUtils.fromTrustedString(userInfo);
 		
@@ -61,16 +75,10 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 		
 		header.add(label, new BoxLayoutData(new Margins(9, 0, 0, 0)));
 		
-//		SafeHtml logoutButtonHtml = SafeHtmlUtils.fromTrustedString("<div style='background-color: #1d7bbb;'><font color='#dddddd' style='font-size:16px; '>종료</font></div>" );
-//		SafeHtml logoutButtonHtml = SafeHtmlUtils.fromTrustedString("<center><div></div> "); //  img='img/closeButton.png' width='16' height='16'
-
 		TextButton logoutButton = new TextButton(new TextButtonCell(new WhiteGreyButtonCellAppearance<>()));
-//		TextButton logoutButton = new TextButton("종료");
 		logoutButton.setText("");
 		logoutButton.setIcon(ResourceIcon.INSTANCE.closeButton());
-//		logoutButton.setHTML(logoutButtonHtml);
-//		logoutButton.setWidth(65);
-//		logoutButton.setHeight(40);
+
 		logoutButton.setBorders(false);
 		logoutButton.addSelectHandler(new SelectHandler() {
 			@Override

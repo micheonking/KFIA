@@ -126,4 +126,10 @@ public interface ResourceIcon extends ClientBundle {
 	  @Source("files/tabs24Btn.png")
 	  ImageResource tabs24Button();
 
+	  @Source("files/select16Btn.png")
+	  ImageResource select16Button();
+
+	  @Source("files/cancel16Btn.png")
+	  ImageResource cancel16Button();
+
 }

@@ -209,6 +209,18 @@ public class MenuOpener {
 		if ("Cst01_Tab_BaseInfo".equals(className)) {
 			return (Widget) GWT.create(myApp.client.vi.cst.Cst01_Tab_BaseInfo.class);
 		}
+		if ("Cst02_Tab_AssetSpecification".equals(className)) {
+			return (Widget) GWT.create(myApp.client.vi.cst.Cst02_Tab_AssetSpecification.class);
+		}
+		if ("Cst03_Tab_EntrustInvestment".equals(className)) {
+			return (Widget) GWT.create(myApp.client.vi.cst.Cst03_Tab_EntrustInvestment.class);
+		}
+		if ("Cst04_Tab_BalanceAccounts".equals(className)) {
+			return (Widget) GWT.create(myApp.client.vi.cst.Cst04_Tab_BalanceAccounts.class);
+		}
+		if ("Cst05_Tab_TerminationAll".equals(className)) {
+			return (Widget) GWT.create(myApp.client.vi.cst.Cst05_Tab_TerminationAll.class);
+		}
 		if ("Dbm01_RD_TabComments.class".equals(className)) {
 			return (Widget) GWT.create(myApp.client.vi.dbm.Dbm01_RD_TabComments.class);
 		}
