@@ -163,150 +163,60 @@ theme {
       }
     }
     datePicker {
-      additionalCssStyles = "x-toolbar-mark"
-      backgroundColor = "#ffffff"
-      dayDisabledBackgroundColor = "#ffffff"
-      dayLineHeight = "36px"
-      dayNextBackgroundColor = "#ffffff"
-      dayOfWeekBackgroundColor = "#ececec"
-      dayOfWeekLineHeight = "36px"
-      dayPreviousBackgroundColor = "#ffffff"
-      footerBackgroundColor = "#ffffff"
-      headerBackgroundColor = "#ececec"
-      itemOverBackgroundColor = "#ececec"
-      itemOverColor = "#404040"
-      itemSelectedBackgroundColor = "#5fa2dd"
-      monthLeftButtonColor = "#919191"
-      monthLeftButtonOpacity = 0.7
-      monthRightButtonColor = "#919191"
-      monthRightButtonOpacity = 0.7
-      width = "308px"
-      border {
-        bottom = 1
-        color = "#d0d0d0"
-        left = 1
-        right = 1
-        style = "solid"
-        top = 1
-      }
-      buttonMargin {
-        bottom = 0
-        left = 2
-        right = 3
-        top = 0
-      }
-      dayBorder {
-        bottom = 0
-        color = "#ffffff"
-        left = 0
-        right = 0
-        style = "solid"
-        top = 0
-      }
-      dayDisabledText {
-        color = "#d0d0d0"
-        family = "'D2Coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "13px"
-        weight = "normal"
-      }
-      dayNextText {
-        color = "#bfbfbf"
-        family = "'D2Coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "13px"
-        weight = "normal"
-      }
-      dayOfWeekPadding {
-        bottom = 0
-        left = 0
-        right = 15
-        top = 0
-      }
-      dayOfWeekText {
-        color = "#404040"
-        family = "'D2Coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "13px"
-        weight = "normal"
-      }
-      dayPadding {
-        bottom = 0
-        left = 0
-        right = 15
-        top = 0
-      }
+
+	  
+	  backgroundColor = '#ffffff'
+      dayDisabledBackgroundColor = '#eeeeee'
+      dayLineHeight = '23px'
+      dayNextBackgroundColor = '#ffffff'
+      dayOfWeekBackgroundColor = '#ffffff'
+      dayOfWeekLineHeight = '24px'
+      dayPreviousBackgroundColor = '#ffffff'
+      footerBackgroundColor = '#f5f5f5'
+      headerBackgroundColor = "#f5f5f5"
+      itemOverBackgroundColor = "#eaf3fa"
+      itemOverColor = "#000000"
+      itemSelectedBackgroundColor = '#d6e8f6'
+      monthLeftButtonColor = "#ffffff"
+      monthLeftButtonOpacity = 1
+      monthRightButtonColor = "#ffffff"
+      monthRightButtonOpacity = 1
+
+	  width = "212px"
+      border = util.border("solid", "#e1e1e1", 1)
+
+      buttonMargin = util.margin(0, 3, 0, 2)
+
+      dayBorder = util.border('solid', '#ffffff', 1)
+      dayDisabledText = util.extend(dayText, {
+        color = '#808080'
+      })
+      dayNextText = util.extend(dayText, {
+        color = '#bfbfbf'
+      })
+      dayOfWeekPadding = util.padding(0, 9, 0, 0)
+      dayOfWeekText = util.fontStyle('helvetica,arial,verdana,sans-serif', '12px', '#000000', 'bold')
+
+      dayPadding = util.padding(0, 3, 0, 0)
       dayPreviousText = dayNextText
-      dayText {
-        color = "#404040"
-        family = "'D2Coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "13px"
-        weight = "400"
-      }
-      footerPadding {
-        bottom = 6
-        left = 0
-        right = 0
-        top = 6
-      }
-      headerPadding {
-        bottom = 0
-        left = 0
-        right = 0
-        top = 0
-      }
-      headerText {
-        color = "#404040"
-        family = "'D2Coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "15px"
-        weight = "400"
-      }
-      headerTextPadding {
-        bottom = 14
-        left = 14
-        right = 14
-        top = 14
-      }
-      itemOverBorder {
-        bottom = 0
-        color = "#ececec"
-        left = 0
-        right = 0
-        style = "solid"
-        top = 0
-      }
-      itemSelectedBorder {
-        bottom = 0
-        color = "#3892d3"
-        left = 0
-        right = 0
-        style = "solid"
-        top = 0
-      }
-      itemSelectedText {
-        color = "#ffffff"
-        family = "'D2Coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
-        size = "13px"
-        weight = "400"
-      }
-      monthLeftButtonMargin {
-        bottom = 0
-        left = 10
-        right = 0
-        top = 0
-      }
-      monthRightButtonMargin {
-        bottom = 0
-        left = 0
-        right = 10
-        top = 0
-      }
-      todayBorder {
-        bottom = 1
-        color = "#8b0000"
-        left = 1
-        right = 1
-        style = "solid"
-        top = 1
-      }
-    }
+      dayText = util.fontStyle('helvetica,arial,verdana,sans-serif', '12px', '#000000')
+      footerPadding = util.padding(3, 0)
+	  headerPadding = util.padding(8, 6)
+      headerText = util.fontStyle("helvetica,arial,verdana,sans-serif", '12px', '#3892d3', 'bold')
+      headerTextPadding = util.padding(0, 5)
+
+      itemOverBorder = util.border('solid', '#ffffff', 1)
+      itemSelectedBorder = util.border('solid', '#3892d3', 1)
+      itemSelectedText = util.extend(dayText, {
+        weight = 'bold'
+      })
+
+      monthLeftButtonMargin = util.margin(0, 0)
+      monthRightButtonMargin = util.margin(0, 0)
+
+      todayBorder = util.border('solid', '#8b0000', 1)
+	}
+
     errortip = tip
     field {
       backgroundColor = "#ffffff"

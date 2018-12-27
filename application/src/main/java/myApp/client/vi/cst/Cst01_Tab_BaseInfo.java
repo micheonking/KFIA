@@ -3,6 +3,7 @@ package myApp.client.vi.cst;
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.sencha.gxt.core.client.XTemplates;
+import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
@@ -47,9 +48,23 @@ public class Cst01_Tab_BaseInfo extends BorderLayoutContainer implements Interfa
 		
 		searchBarBuilder.addRetrieveButton();
 
-		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(55));
+		this.setBorders(false);
 
-		this.setCenterWidget(rdLayoutContainer);
+		BorderLayoutData northLayoutData = new BorderLayoutData(50);
+		northLayoutData.setMargins(new Margins(0, 8, 0, 0));
+		northLayoutData.setSplit(true);
+		northLayoutData.setMaxSize(1000);
+		this.setNorthWidget(searchBarBuilder.getSearchBar(), northLayoutData);
+		
+		BorderLayoutData centerLayoutData = new BorderLayoutData();
+		centerLayoutData.setSplit(true);
+		centerLayoutData.setMaxSize(1000);
+		centerLayoutData.setMargins(new Margins(8, 10, 10, 0));
+		this.setCenterWidget(rdLayoutContainer,centerLayoutData);
+
+//		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(55));
+//
+//		this.setCenterWidget(rdLayoutContainer);
 		
 //		retrieve();
 	}

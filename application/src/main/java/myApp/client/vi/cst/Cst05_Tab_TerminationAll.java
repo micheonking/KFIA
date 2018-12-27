@@ -6,9 +6,11 @@ import com.google.gwt.core.shared.GWT;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.sencha.gxt.core.client.XTemplates;
+import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
 import com.sencha.gxt.widget.core.client.form.FieldLabel;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
@@ -49,9 +51,23 @@ public class Cst05_Tab_TerminationAll extends BorderLayoutContainer implements I
 		
 		searchBarBuilder.addRetrieveButton();
 
-		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(55));
-		this.setCenterWidget(rdLayoutContainer);
+		this.setBorders(false);
 
+		BorderLayoutData northLayoutData = new BorderLayoutData(50);
+		northLayoutData.setMargins(new Margins(0, 8, 0, 0));
+		northLayoutData.setSplit(true);
+		northLayoutData.setMaxSize(1000);
+		this.setNorthWidget(searchBarBuilder.getSearchBar(), northLayoutData);
+		
+		BorderLayoutData centerLayoutData = new BorderLayoutData();
+		centerLayoutData.setSplit(true);
+		centerLayoutData.setMaxSize(1000);
+		centerLayoutData.setMargins(new Margins(8, 10, 10, 0));
+		this.setCenterWidget(rdLayoutContainer,centerLayoutData);
+
+//		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(55));
+//
+//		this.setCenterWidget(rdLayoutContainer);
 	}
 
 	private void setReportDesigner() {
