@@ -23,10 +23,13 @@
 </select>
 
 <select id="selectByTypeCode" resultMap="mapper" parameterType="HashMap">
+select	*
+from	(
 	select 	a.*
 	from 	bbs02_board a
 	where	bbs02_type_cd like #{typeCode}
 	order by bbs02_settle_dt desc
+)	where	rownum	<![CDATA[<=]]>    #{setCount}
 </select>
 
 </mapper>
