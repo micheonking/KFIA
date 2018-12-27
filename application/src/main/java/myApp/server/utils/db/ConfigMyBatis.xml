@@ -33,6 +33,8 @@
 <mappers>
 	<!-- database 공통 처리 -->
 	<mapper resource="myApp/server/utils/db/mapper/DBConfig.xml"/>
+	<mapper resource="myApp/server/cst/mapper/cst01_user.xml"/>
+	<mapper resource="myApp/server/cst/mapper/cst02_account.xml"/>
 	
 	<!-- Report 업무단 처리  -->
 	<mapper resource="myApp/server/rpt/mapper/rpt01_DailyAccount.xml"/>

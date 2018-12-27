@@ -38,6 +38,7 @@ import myApp.client.service.ServiceResult;
 import myApp.client.utils.SimpleMessage;
 import myApp.client.vi.emp.model.Emp00_InfoModel;
 import myApp.client.vi.MainFrame;
+import myApp.client.vi.cst.model.Cst01_UserModel;
 import myApp.client.vi.sys.Sys00_Admin;
 import myApp.client.vi.sys.model.Sys02_UserModel;
 
@@ -87,7 +88,7 @@ public class LoginPage implements InterfaceServiceCall {
 
 //		SafeHtml okButtonHtml = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#dddddd' style='font-size:16px; '>OK</font></div>" );
 //		SafeHtml cancelButtonHtml = SafeHtmlUtils.fromTrustedString("<div style='background-color: #1d7bbb;'><font color='#dddddd' style='font-size:16px; '>Cancel</font></div>" );
-		TextButton okButton = new TextButton("300081"); 
+		TextButton okButton = new TextButton("miCheon"); 
 //		TextButton okButton = new TextButton("OK"); 
 //		okButton.setHTML(okButtonHtml);
 		okButton.setWidth(65);
@@ -96,7 +97,7 @@ public class LoginPage implements InterfaceServiceCall {
 		okButton.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				firstName.setText("300081");
+				firstName.setText("miCheon@k-fs.co.kr");
 				login(); // 함수로 빼서 호출한다.
 			}
 		});
@@ -259,6 +260,12 @@ public class LoginPage implements InterfaceServiceCall {
 				// get userModel
 				Sys02_UserModel userModel = (Sys02_UserModel) result.getResult(0); 
 				LoginUser.setUserModel(userModel); 
+			}
+			else if(result.getStatus() == 30) { // 회사관리자 접속
+				// get userModel
+				Cst01_UserModel cstUserModel = (Cst01_UserModel) result.getResult(0); 
+//				Info.display("", ""+result.getStatus());
+				LoginUser.setCstUserModel(cstUserModel); 
 			}
 			else { // 로그인 정보를 찾을 수 없다.  
 				new SimpleMessage("로그인 정보 확인", result.getMessage());

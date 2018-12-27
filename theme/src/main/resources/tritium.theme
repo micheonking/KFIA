@@ -83,7 +83,7 @@ theme {
       smallLineHeight = "18"
       border {
         bottom = 1
-        color = "#5897ce"
+        color = "#f1f1f1" // "#5897ce"
         left = 1
         right = 1
         style = "solid"
@@ -94,14 +94,14 @@ theme {
       font {
         color = "#f0f0f0"
         family = "'D2Coding', 'Nanum Gothic', 'NanumGothic', 'Dotum', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
-        size = "13px"
+        size = "12px"
         weight = "400"
       }
       padding {
-        bottom = 7
+        bottom = 6
         left = 10
         right = 10
-        top = 7
+        top = 6
       }
     }
     buttonGroup {

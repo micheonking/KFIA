@@ -86,7 +86,10 @@ public class FileUpload implements javax.servlet.Servlet {
 		        }
 		
 		        File file = new File(fileModel.getServerPath(), fileModel.getFileId().toString());
-			    //file.deleteOnExit(); // Update할것. 
+			    //file.deleteOnExit(); // Update할것.
+		        if(file.exists()) {
+		        	file.delete();
+		        }
 		        fileItem.write(file);
 			}
 			catch (FileUploadException e) {

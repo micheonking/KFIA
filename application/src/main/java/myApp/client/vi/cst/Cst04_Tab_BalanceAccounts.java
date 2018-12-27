@@ -1,33 +1,28 @@
 package myApp.client.vi.cst;
 
+import java.util.Date;
+
 import com.google.gwt.core.shared.GWT;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.sencha.gxt.core.client.XTemplates;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
-import com.sencha.gxt.widget.core.client.event.TriggerClickEvent;
-import com.sencha.gxt.widget.core.client.event.TriggerClickEvent.TriggerClickHandler;
 import com.sencha.gxt.widget.core.client.form.FieldLabel;
-import com.sencha.gxt.widget.core.client.form.TextField;
-import com.sencha.gxt.widget.core.client.info.Info;
+import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
-import myApp.client.field.LookupTriggerField;
+import myApp.client.field.MyDateField;
 import myApp.client.grid.InterfaceGridOperate;
 import myApp.client.grid.SearchBarBuilder;
-import myApp.client.utils.InterfaceCallbackResult;
-import myApp.client.vi.MainFrameNorthLayout;
-import myApp.client.vi.cst.model.Cst02_AccountModel;
-import myApp.client.vi.dbm.Dbm01_Lookup_Tables;
-import myApp.client.vi.dbm.model.Dbm01_TabCommentsModel;
+import myApp.client.vi.LoginUser;
 
-public class Cst01_Tab_BaseInfo extends BorderLayoutContainer implements InterfaceGridOperate {
+public class Cst04_Tab_BalanceAccounts extends BorderLayoutContainer implements InterfaceGridOperate {
 	
-	private Cst02_AccountModel cst02AccountModel = new Cst02_AccountModel();
-	private LookupTriggerField lookupAccountField = new LookupTriggerField();
+	private MyDateField startDate  	= new MyDateField();
 	private ComboBox1FundCode fundCodeComboBox = new ComboBox1FundCode("");
+
 	VerticalLayoutContainer rdLayoutContainer = new VerticalLayoutContainer();
 
 	public interface RDTemplate extends XTemplates {
@@ -35,10 +30,17 @@ public class Cst01_Tab_BaseInfo extends BorderLayoutContainer implements Interfa
 	    SafeHtml getTemplate(String pageName);
 	}
 
-	public Cst01_Tab_BaseInfo() {
+	public Cst04_Tab_BalanceAccounts() {
 		this.setBorders(false); 
 		
 		SearchBarBuilder searchBarBuilder = new SearchBarBuilder(this);
+
+		searchBarBuilder.getSearchBar().add(new LabelToolItem("기준일 :"));
+
+		Date date = LoginUser.getToday();
+		startDate.setValue(date);
+		startDate.setWidth(110);
+		searchBarBuilder.getSearchBar().add(startDate);
 
 		FieldLabel fundCodeField = new FieldLabel(fundCodeComboBox, "계좌 ");	//	펀드코드 선택
 		fundCodeField.setLabelWidth(60);
@@ -48,20 +50,20 @@ public class Cst01_Tab_BaseInfo extends BorderLayoutContainer implements Interfa
 		searchBarBuilder.addRetrieveButton();
 
 		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(55));
-
 		this.setCenterWidget(rdLayoutContainer);
-		
-//		retrieve();
+
 	}
 
 	private void setReportDesigner() {
+		
+		String ymd = DateTimeFormat.getFormat("yyyy-MM-dd").format(startDate.getValue());
+		String fundCode = fundCodeComboBox.getCurrentFundCode(); 
 		String pageName = "";
 
 		RDTemplate rdTemplate = GWT.create(RDTemplate.class);
 
-		if(fundCodeComboBox.getCurrentFundCode() != null) {
-			
-			pageName = "http://172.20.200.252:8283/ReportingServer/html5/RDhtml/web_cs_info.html?fund_cd=" + fundCodeComboBox.getCurrentFundCode();
+		if(fundCode != null) {
+			pageName = "http://172.20.200.252:8283/ReportingServer/html5/RDhtml/web_sja020.html?ymd=" + ymd + "&fund_cd=" + fundCodeComboBox.getCurrentFundCode();
 			HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(rdTemplate.getTemplate(pageName));
 
 			rdLayoutContainer.clear();
@@ -69,28 +71,6 @@ public class Cst01_Tab_BaseInfo extends BorderLayoutContainer implements Interfa
 			this.setCenterWidget(rdLayoutContainer);
 
 		}
-//		else {
-//			pageName = "http://172.20.200.252:8283/ReportingServer/html5/RDhtml/sample.html";
-//			HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(rdTemplate.getTemplate(pageName));
-//
-//			rdLayoutContainer.clear();
-//			rdLayoutContainer.add(htmlLayoutContainer, new VerticalLayoutData(1, 1));
-//			this.setCenterWidget(rdLayoutContainer);
-//
-//		}
-
-	}
-
-	private void openLookupAccount() {
-		Cst02_LookupAccount lookupAccount = new Cst02_LookupAccount();
-		lookupAccount.open(new InterfaceCallbackResult() {
-			@Override
-			public void execute(Object result) {
-				cst02AccountModel = (Cst02_AccountModel)result;
-				lookupAccountField.setValue(cst02AccountModel.getAccountName());
-			}
-		});
-
 	}
 
 	@Override

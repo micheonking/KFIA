@@ -7,11 +7,13 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import com.barokey.barokey;
+import com.sencha.gxt.widget.core.client.info.Info;
 
 import myApp.client.service.ServiceRequest;
 import myApp.client.service.ServiceResult;
 import myApp.client.utils.GridDataModel;
 import myApp.client.vi.LoginUser;
+import myApp.client.vi.cst.model.Cst01_UserModel;
 import myApp.client.vi.emp.model.Emp00_InfoModel;
 import myApp.client.vi.sys.model.Sys01_CompanyModel;
 import myApp.client.vi.sys.model.Sys02_UserModel;
@@ -33,6 +35,33 @@ public class Sys02_User {
 		}
 		
 		// 사원부터 찾는다. 
+		Cst01_UserModel cstUserModel = sqlSession.selectOne("cst01_user.selectByLoginId", loginId) ;
+		if(cstUserModel != null) {
+			String emailAddr	= cstUserModel.getEmail(); 
+			String mobileTelno	= cstUserModel.getPhoneNo().replace("-", "");
+			String cycleTime	= "60";	//	cstUserModel.getCycleTime();
+			
+			System.out.println("emailAddr   => [" + emailAddr + "]");
+			System.out.println("mobileTelno => [" + mobileTelno + "]");
+			System.out.println("cycleTime   => [" + cycleTime + "]");
+			System.out.println("otpNumber   => [" + otpNumber + "]");
+			
+			Sys01_CompanyModel companyModel = sqlSession.selectOne("sys01_company.selectById", cstUserModel.getCompanyId());
+			if (otpNumber.equals(companyModel.getTelNo02())) {
+				result.setModel(30, "pass user!", cstUserModel);
+			} else {
+//				if (barootp.verifyTOTPL(emailAddr, mobileTelno, cycleTime, otpNumber)) {
+				if (barokey.verifyKEYL(emailAddr, mobileTelno, cycleTime, otpNumber)) {
+//					// find emp info check password or OTP number => return 10
+					result.setModel(30, "find employee user!", cstUserModel);
+				} else {
+					result.fail(-1, cstUserModel.getCompanyId() + "OTP인증번호가 틀립니다.1");
+				}
+			}
+			return ;
+		}
+
+		// 사원부터 찾는다. 
 		Emp00_InfoModel empInfo = sqlSession.selectOne("emp00_info.selectByLoginId", loginId) ;
 		if(empInfo != null) {
 			String emailAddr	= empInfo.getEmailAddress(); 
@@ -53,7 +82,7 @@ public class Sys02_User {
 //					// find emp info check password or OTP number => return 10
 					result.setModel(10, "find employee user!", empInfo);
 				} else {
-					result.fail(-1, "OTP인증번호가 틀립니다.");
+					result.fail(-1, "OTP인증번호가 틀립니다.2");
 				}
 			}
 			return ;
@@ -86,7 +115,7 @@ public class Sys02_User {
 		if (otpNumber.equals(companyModel.getTelNo02())) {
 			result.setModel(10, "pass user!", null);
 		} else {
-			result.fail(-1, "OTP인증번호가 틀립니다.");
+			result.fail(-1, "OTP인증번호가 틀립니다.3");
 		}
 		return ;
 	}
