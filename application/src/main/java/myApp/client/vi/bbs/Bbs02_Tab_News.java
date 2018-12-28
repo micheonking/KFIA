@@ -78,7 +78,7 @@ public class Bbs02_Tab_News extends BorderLayoutContainer implements InterfaceGr
     	GridRetrieveData<Bbs02_BoardModel> service = new GridRetrieveData<Bbs02_BoardModel>(grid.getStore());
 		service.addParam("typeCode", "release");
 		service.addParam("setCount", (long)4);
-        service.retrieve("bbs.Bbs02_Board.selectByTypeCode");
+        service.retrieve("bbs.Bbs02_Board.selectByTypeCode2");
 	}
 
 	@Override

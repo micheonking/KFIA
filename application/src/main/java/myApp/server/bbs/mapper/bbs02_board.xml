@@ -28,6 +28,17 @@ from	(
 	select 	a.*
 	from 	bbs02_board a
 	where	bbs02_type_cd like #{typeCode}
+	and		bbs02_title_nm like #{titleName}
+	order by bbs02_settle_dt desc
+)	where	rownum	<![CDATA[<=]]>    #{setCount}
+</select>
+
+<select id="selectByTypeCode2" resultMap="mapper" parameterType="HashMap">
+select	*
+from	(
+	select 	a.*
+	from 	bbs02_board a
+	where	bbs02_type_cd like #{typeCode}
 	order by bbs02_settle_dt desc
 )	where	rownum	<![CDATA[<=]]>    #{setCount}
 </select>

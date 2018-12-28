@@ -20,13 +20,25 @@ public class Bbs02_Board {
 	}
 
 	public void selectByTypeCode(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+		
 
 		request.putStringParam("typeCode", "%"+request.getStringParam("typeCode")+"%");
+		request.putStringParam("titleName", "%"+request.getStringParam("titleName")+"%");
 		request.putLongParam("setCount", request.getLongParam("setCount"));
 
 		System.out.println("typeCode param: " + request.getStringParam("typeCode"));
 		System.out.println("setCount param: " + request.getLongParam("setCount"));
 		List<GridDataModel> list = sqlSession.selectList(mapperName + ".selectByTypeCode", request.getParam());
+		result.setRetrieveResult(1, "select ok", list);
+	}
+	public void selectByTypeCode2(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+		
+		request.putStringParam("typeCode", "%"+request.getStringParam("typeCode")+"%");
+		request.putLongParam("setCount", request.getLongParam("setCount"));
+		
+		System.out.println("typeCode param: " + request.getStringParam("typeCode"));
+		System.out.println("setCount param: " + request.getLongParam("setCount"));
+		List<GridDataModel> list = sqlSession.selectList(mapperName + ".selectByTypeCode2", request.getParam());
 		result.setRetrieveResult(1, "select ok", list);
 	}
 
