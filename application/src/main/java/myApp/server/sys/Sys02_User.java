@@ -30,6 +30,7 @@ public class Sys02_User {
 		if ((otpNumber == null)||("".equals(otpNumber))) {
 			result.fail(-1, "OTP인증번호를 입력하여 주십시오.");
 			return;
+			
 		}
 		
 		// 사원부터 찾는다. 
