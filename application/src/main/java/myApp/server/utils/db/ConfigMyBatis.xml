@@ -61,6 +61,7 @@
 	<mapper resource="myApp/server/sys/mapper/sys09_code.xml"/>
 	<mapper resource="myApp/server/sys/mapper/sys10_file.xml"/>
 	<mapper resource="myApp/server/sys/mapper/sys12_calendar.xml"/>
+	<mapper resource="myApp/server/sys/mapper/sys13_year_month.xml"/>
 	<mapper resource="myApp/server/sys/mapper/sys21_license_code.xml"/>
 	<mapper resource="myApp/server/sys/mapper/sys90_after_service.xml"/>
 

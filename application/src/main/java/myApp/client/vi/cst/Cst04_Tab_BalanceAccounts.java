@@ -19,6 +19,7 @@ import myApp.client.field.MyDateField;
 import myApp.client.grid.InterfaceGridOperate;
 import myApp.client.grid.SearchBarBuilder;
 import myApp.client.vi.LoginUser;
+import myApp.client.vi.cst.Cst03_Tab_EntrustInvestment.RDTemplate;
 
 public class Cst04_Tab_BalanceAccounts extends BorderLayoutContainer implements InterfaceGridOperate {
 	
@@ -37,6 +38,11 @@ public class Cst04_Tab_BalanceAccounts extends BorderLayoutContainer implements 
 		
 		SearchBarBuilder searchBarBuilder = new SearchBarBuilder(this);
 
+		FieldLabel fundCodeField = new FieldLabel(fundCodeComboBox, "계좌 ");	//	펀드코드 선택
+		fundCodeField.setLabelWidth(60);
+		fundCodeField.setWidth(400);
+		searchBarBuilder.getSearchBar().add(fundCodeField);
+		
 		searchBarBuilder.getSearchBar().add(new LabelToolItem("기준일 :"));
 
 		Date date = LoginUser.getToday();
@@ -44,11 +50,6 @@ public class Cst04_Tab_BalanceAccounts extends BorderLayoutContainer implements 
 		startDate.setWidth(110);
 		searchBarBuilder.getSearchBar().add(startDate);
 
-		FieldLabel fundCodeField = new FieldLabel(fundCodeComboBox, "계좌 ");	//	펀드코드 선택
-		fundCodeField.setLabelWidth(60);
-		fundCodeField.setWidth(400);
-		searchBarBuilder.getSearchBar().add(fundCodeField);
-		
 		searchBarBuilder.addRetrieveButton();
 
 		this.setBorders(false);
@@ -65,6 +66,7 @@ public class Cst04_Tab_BalanceAccounts extends BorderLayoutContainer implements 
 		centerLayoutData.setMargins(new Margins(8, 10, 10, 0));
 		this.setCenterWidget(rdLayoutContainer,centerLayoutData);
 
+		retrieve();
 //		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(55));
 //
 //		this.setCenterWidget(rdLayoutContainer);
@@ -72,21 +74,23 @@ public class Cst04_Tab_BalanceAccounts extends BorderLayoutContainer implements 
 
 	private void setReportDesigner() {
 		
+		String pageName = "http://172.20.200.252:8283/ReportingServer/html5/RDhtml/";
 		String ymd = DateTimeFormat.getFormat("yyyy-MM-dd").format(startDate.getValue());
 		String fundCode = fundCodeComboBox.getCurrentFundCode(); 
-		String pageName = "";
 
 		RDTemplate rdTemplate = GWT.create(RDTemplate.class);
 
-		if(fundCode != null) {
-			pageName = "http://172.20.200.252:8283/ReportingServer/html5/RDhtml/web_sja020.html?ymd=" + ymd + "&fund_cd=" + fundCodeComboBox.getCurrentFundCode();
-			HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(rdTemplate.getTemplate(pageName));
-
-			rdLayoutContainer.clear();
-			rdLayoutContainer.add(htmlLayoutContainer, new VerticalLayoutData(1, 1));
-			this.setCenterWidget(rdLayoutContainer);
-
+		if(fundCode != "null") {
+			pageName = pageName + "web_sja020.html?ymd=" + ymd + "&fund_cd=" + fundCode;
 		}
+		else {
+			pageName = pageName + "sample.html";
+		}
+		
+		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(rdTemplate.getTemplate(pageName));
+		rdLayoutContainer.clear();
+		rdLayoutContainer.add(htmlLayoutContainer, new VerticalLayoutData(1, 1));
+		this.setCenterWidget(rdLayoutContainer);
 	}
 
 	@Override

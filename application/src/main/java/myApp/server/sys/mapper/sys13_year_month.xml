@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sys13_year_month">
+
+<resultMap 	id="mapper" type="myApp.client.vi.sys.model.Sys13_YearMonthModel" >
+	<id		column="sys13_year_month_id"	property="yearMonthId"/>
+	<result	column="sys13_year_month"	property="yearMonth"/>
+	<result	column="sys13_year_month_kor"	property="yearMonthKor"/>
+	<result	column="sys13_year_month_eng"	property="yearMonthEng"/>
+	<result	column="sys13_year_month_point"	property="yearMonthPoint"/>
+</resultMap>
+
+<select id="selectById" resultMap="mapper" parameterType="Long" >
+	select	*
+	from	sys13_year_month
+<!-- 	where	sys13_year_month_id	=	#{yearMonthId} -->
+</select>
+
+</mapper>

@@ -4,6 +4,8 @@ import com.google.gwt.core.shared.GWT;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.sencha.gxt.core.client.XTemplates;
 import com.sencha.gxt.core.client.util.Margins;
+import com.sencha.gxt.core.client.util.ToggleGroup;
+import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
@@ -11,7 +13,9 @@ import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderL
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
 import com.sencha.gxt.widget.core.client.event.TriggerClickEvent;
 import com.sencha.gxt.widget.core.client.event.TriggerClickEvent.TriggerClickHandler;
+import com.sencha.gxt.widget.core.client.form.CheckBox;
 import com.sencha.gxt.widget.core.client.form.FieldLabel;
+import com.sencha.gxt.widget.core.client.form.Radio;
 import com.sencha.gxt.widget.core.client.form.TextField;
 import com.sencha.gxt.widget.core.client.info.Info;
 
@@ -45,7 +49,7 @@ public class Cst01_Tab_BaseInfo extends BorderLayoutContainer implements Interfa
 		fundCodeField.setLabelWidth(60);
 		fundCodeField.setWidth(400);
 		searchBarBuilder.getSearchBar().add(fundCodeField);
-		
+
 		searchBarBuilder.addRetrieveButton();
 
 		this.setBorders(false);
@@ -62,21 +66,19 @@ public class Cst01_Tab_BaseInfo extends BorderLayoutContainer implements Interfa
 		centerLayoutData.setMargins(new Margins(8, 10, 10, 0));
 		this.setCenterWidget(rdLayoutContainer,centerLayoutData);
 
-//		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(55));
-//
-//		this.setCenterWidget(rdLayoutContainer);
-		
-//		retrieve();
+		retrieve();
 	}
 
 	private void setReportDesigner() {
-		String pageName = "";
-
+		String pageName = "http://172.20.200.252:8283/ReportingServer/html5/RDhtml/";
+		String fundCode = fundCodeComboBox.getCurrentFundCode();
 		RDTemplate rdTemplate = GWT.create(RDTemplate.class);
 
-		if(fundCodeComboBox.getCurrentFundCode() != null) {
-			
-			pageName = "http://172.20.200.252:8283/ReportingServer/html5/RDhtml/web_cs_info.html?fund_cd=" + fundCodeComboBox.getCurrentFundCode();
+		if(fundCode != "null") {
+			pageName = pageName + "web_cs_info.html?fund_cd=" + fundCode;
+		}
+		else {
+			pageName = pageName + "sample.html";
 			HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(rdTemplate.getTemplate(pageName));
 
 			rdLayoutContainer.clear();
@@ -84,29 +86,24 @@ public class Cst01_Tab_BaseInfo extends BorderLayoutContainer implements Interfa
 			this.setCenterWidget(rdLayoutContainer);
 
 		}
-//		else {
-//			pageName = "http://172.20.200.252:8283/ReportingServer/html5/RDhtml/sample.html";
-//			HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(rdTemplate.getTemplate(pageName));
-//
-//			rdLayoutContainer.clear();
-//			rdLayoutContainer.add(htmlLayoutContainer, new VerticalLayoutData(1, 1));
-//			this.setCenterWidget(rdLayoutContainer);
-//
-//		}
+		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(rdTemplate.getTemplate(pageName));
 
+		rdLayoutContainer.clear();
+		rdLayoutContainer.add(htmlLayoutContainer, new VerticalLayoutData(1, 1));
+		this.setCenterWidget(rdLayoutContainer);
 	}
 
-	private void openLookupAccount() {
-		Cst02_LookupAccount lookupAccount = new Cst02_LookupAccount();
-		lookupAccount.open(new InterfaceCallbackResult() {
-			@Override
-			public void execute(Object result) {
-				cst02AccountModel = (Cst02_AccountModel)result;
-				lookupAccountField.setValue(cst02AccountModel.getAccountName());
-			}
-		});
-
-	}
+//	private void openLookupAccount() {
+//		Cst02_LookupAccount lookupAccount = new Cst02_LookupAccount();
+//		lookupAccount.open(new InterfaceCallbackResult() {
+//			@Override
+//			public void execute(Object result) {
+//				cst02AccountModel = (Cst02_AccountModel)result;
+//				lookupAccountField.setValue(cst02AccountModel.getAccountName());
+//			}
+//		});
+//
+//	}
 
 	@Override
 	public void retrieve() {
