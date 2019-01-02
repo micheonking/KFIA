@@ -147,11 +147,11 @@ public class LoginPage implements InterfaceServiceCall {
 			}
 		});
 
-		TextButton imsiButton1 = new TextButton("cst"); 
-//		imsiButton.setWidth(65);
-//		imsiButton.setHeight(80);
-//		imsiButton.setBorders(true);
-		imsiButton.addSelectHandler(new SelectHandler() {
+		TextButton imsiButton1 = new TextButton("Cst"); 
+//		imsiButton1.setWidth(65);
+//		imsiButton1.setHeight(80);
+//		imsiButton1.setBorders(true);
+		imsiButton1.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
 				firstName.setText("cst");
@@ -167,7 +167,6 @@ public class LoginPage implements InterfaceServiceCall {
 		
 		hBoxLayout.add(vBoxLayout, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 		hBoxLayout.add(okButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
-//		hBoxLayout.add(imsiButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 		hBoxLayout.add(adminButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 		hBoxLayout.add(cancelButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 

@@ -1,6 +1,5 @@
 package myApp.client.vi;
 
-import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.Window;
@@ -8,32 +7,25 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.sencha.gxt.cell.core.client.TextButtonCell;
 import com.sencha.gxt.core.client.util.Margins;
-import com.sencha.gxt.core.client.util.Padding;
 import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayoutAlign;
-import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.container.Viewport;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
-import com.sencha.gxt.widget.core.client.form.FieldLabel;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
-import myApp.client.grid.ComboBoxField;
 import myApp.client.resource.ResourceIcon;
 import myApp.client.vi.LoginUser;
 import myApp.client.vi.cst.ComboBoxFundCode;
-import myApp.theme.tritium.custom.client.button.red.RedButtonCellAppearance;
-import myApp.theme.tritium.custom.client.button.white.WhiteButtonCellAppearance;
 import myApp.theme.tritium.custom.client.button.whiteGrey.WhiteGreyButtonCellAppearance;
 
 public class MainFrameNorthLayout extends BorderLayoutContainer {
 
-	private ComboBoxFundCode fundCodeComboBox = new ComboBoxFundCode("");
+//	private ComboBoxFundCode fundCodeComboBox = new ComboBoxFundCode("");
 	Viewport viewport = new Viewport();
 
 	public MainFrameNorthLayout() {
@@ -56,14 +48,14 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 		
 		header.add(new Label(), boxLayoutData);
 		 
-		if(LoginUser.getCompanyId()==2062721) {
-			FieldLabel fundCodeField = new FieldLabel(fundCodeComboBox, "계좌 ");
-//			fundCodeComboBox.setEmptyText("계좌를 선택하세요.");
-			fundCodeField.setLabelWidth(60);
-			fundCodeField.setWidth(400);
-			
-			header.add(fundCodeField, new BoxLayoutData(new Margins(9, 30, 0, 0)));
-		}
+//		if(LoginUser.getCompanyId()==2062721) {
+//			FieldLabel fundCodeField = new FieldLabel(fundCodeComboBox, "계좌 ");
+////			fundCodeComboBox.setEmptyText("계좌를 선택하세요.");
+//			fundCodeField.setLabelWidth(60);
+//			fundCodeField.setWidth(400);
+//			
+//			header.add(fundCodeField, new BoxLayoutData(new Margins(9, 30, 0, 0)));
+//		}
 		
 //		String userInfo = LoginUser.getCompanyId() + " " + LoginUser.getUserName();
 		String userInfo = LoginUser.getUserName() + " 님" ; ;
