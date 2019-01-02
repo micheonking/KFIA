@@ -88,7 +88,7 @@ public class LoginPage implements InterfaceServiceCall {
 
 //		SafeHtml okButtonHtml = SafeHtmlUtils.fromTrustedString("<div style='background-color: #ffffff;'><font color='#dddddd' style='font-size:16px; '>OK</font></div>" );
 //		SafeHtml cancelButtonHtml = SafeHtmlUtils.fromTrustedString("<div style='background-color: #1d7bbb;'><font color='#dddddd' style='font-size:16px; '>Cancel</font></div>" );
-		TextButton okButton = new TextButton("miCheon"); 
+		TextButton okButton = new TextButton("확인"); 
 //		TextButton okButton = new TextButton("OK"); 
 //		okButton.setHTML(okButtonHtml);
 		okButton.setWidth(65);
@@ -97,36 +97,12 @@ public class LoginPage implements InterfaceServiceCall {
 		okButton.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
-				firstName.setText("miCheon@k-fs.co.kr");
+//				firstName.setText("miCheon@k-fs.co.kr");
 				login(); // 함수로 빼서 호출한다.
 			}
 		});
 
-		TextButton imsiButton = new TextButton("cst"); 
-		imsiButton.setWidth(65);
-		imsiButton.setHeight(80);
-		imsiButton.setBorders(true);
-		imsiButton.addSelectHandler(new SelectHandler() {
-			@Override
-			public void onSelect(SelectEvent event) {
-				firstName.setText("cst");
-				login(); // 함수로 빼서 호출한다. 
-			}
-		});
-
-		TextButton adminButton = new TextButton("Admin"); 
-		adminButton.setWidth(65);
-		adminButton.setHeight(80);
-		adminButton.setBorders(true);
-		adminButton.addSelectHandler(new SelectHandler() {
-			@Override
-			public void onSelect(SelectEvent event) {
-				firstName.setText("admin");
-				login(); // 함수로 빼서 호출한다. 
-			}
-		});
-
-		TextButton cancelButton = new TextButton("Cancel");
+		TextButton cancelButton = new TextButton("취소");
 //		cancelButton.setHTML(cancelButtonHtml);
 		cancelButton.setWidth(65);
 		cancelButton.setHeight(80);
@@ -140,21 +116,70 @@ public class LoginPage implements InterfaceServiceCall {
 			}
 		});
 
+		TextButton adminButton = new TextButton("관리자"); 
+		adminButton.setWidth(65);
+		adminButton.setHeight(80);
+		adminButton.setBorders(true);
+		adminButton.addSelectHandler(new SelectHandler() {
+			@Override
+			public void onSelect(SelectEvent event) {
+				firstName.setText("admin");
+				otpNumber.setText("1111");
+				otpNumber.setValue("1111");
+
+				login(); // 함수로 빼서 호출한다. 
+			}
+		});
+
+		TextButton imsiButton = new TextButton("miCheon@k-fs.co.kr"); 
+//		imsiButton.setWidth(65);
+//		imsiButton.setHeight(80);
+//		imsiButton.setBorders(true);
+		imsiButton.addSelectHandler(new SelectHandler() {
+			@Override
+			public void onSelect(SelectEvent event) {
+				firstName.setText("miCheon@k-fs.co.kr");
+				otpNumber.setText("1111");
+				otpNumber.setValue("1111");
+
+//				firstName.setText("cst");
+				login(); // 함수로 빼서 호출한다. 
+			}
+		});
+
+		TextButton imsiButton1 = new TextButton("cst"); 
+//		imsiButton.setWidth(65);
+//		imsiButton.setHeight(80);
+//		imsiButton.setBorders(true);
+		imsiButton.addSelectHandler(new SelectHandler() {
+			@Override
+			public void onSelect(SelectEvent event) {
+				firstName.setText("cst");
+				otpNumber.setText("1111");
+				otpNumber.setValue("1111");
+
+				login(); // 함수로 빼서 호출한다. 
+			}
+		});
+
 		vBoxLayout.add(loginFieldLabel, new BoxLayoutData(new Margins(1, 0, 0, 0)));
 		vBoxLayout.add(otpNumberFieldLabel, new BoxLayoutData(new Margins(1, 0, 0, 0)));
 		
 		hBoxLayout.add(vBoxLayout, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 		hBoxLayout.add(okButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
-		hBoxLayout.add(imsiButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
+//		hBoxLayout.add(imsiButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 		hBoxLayout.add(adminButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 		hBoxLayout.add(cancelButton, new BoxLayoutData(new Margins(0, 0, 0, 6)));
 
 		vlc.add(hBoxLayout, new VerticalLayoutData(700, -1, new Margins(0, 0, 0, 15)));
 
-		Label loginDesc = new HTML("<font size='2'>※ Login ID는 사원번호(예:300081)를 사용 바랍니다.</font>");
+		vlc.add(imsiButton, new VerticalLayoutData(1, -1, new Margins(20, 0, 0, 15)));
+		vlc.add(imsiButton1, new VerticalLayoutData(1, -1, new Margins(0, 0, 0, 15)));
+
+		Label loginDesc = new HTML("<font size='2'>※ 로그인ID는 E-mail을 사용합니다.</font>");
 		vlc.add(loginDesc, new VerticalLayoutData(350, -1, new Margins(20, 0, 0, 15)));
 
-		Label otpDesc = new HTML("<font size='2'>※ 핸드폰 OTP인증번호 App설치 및 사용방법 </font>");
+		Label otpDesc = new HTML("<font size='2'>※ 핸드폰 OTP인증 앱설치 및 사용방법을 확인하세요.<br> </font>");
 		Label otpandroid = new HTML("<font size='2'> ▶ <a href=\"#\">Android</a>");
 		otpandroid.addClickHandler(new ClickHandler() {
 			@Override
@@ -176,21 +201,23 @@ public class LoginPage implements InterfaceServiceCall {
 		hblc.add(otpIphone, new BoxLayoutData(new Margins(0, 5, 0, 0)));
 		vlc.add(hblc, new VerticalLayoutData(1, -1, new Margins(0, 0, 0, 15)));
 
-		Label browserDesc = new HTML("<font size='2'>※ 본 시스템은 크롬(Chrome)브라우즈에 최적화 되어 있습니다.<br>&nbsp;&nbsp;&nbsp;크롬(Chrome)을 내려 받아 사용하시기 바랍니다.<br></font>");
+//		Label browserDesc = new HTML("<font size='2'>※ 본 시스템은 크롬(Chrome)브라우즈에 최적화 되어 있습니다.<br>&nbsp;&nbsp;&nbsp;크롬(Chrome)을 내려 받아 사용하시기 바랍니다.<br></font>");
+		Label browserDesc = new HTML("<font size='2'>※ 본 시스템은 크롬(Chrome)브라우즈에 최적화되어 있습니다.<br></font>");
 		vlc.add(browserDesc, new VerticalLayoutData(440, -1, new Margins(0, 0, 0, 15)));
 
-		Label chromeDesc = new HTML("<font size='2'>&nbsp;&nbsp;&nbsp;▶<a href=\"#\"> CHROME 다운로드 (https://www.google.com/intl/ko_ALL/chrome/)</a></font>");
-		chromeDesc.addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				Window.open("https://www.google.com/intl/ko_ALL/chrome/", "chromewin", "width=1200,height=700,menubars=0,toolbars=0,location=0,scrollbars=yes");
-			}
-		});
-		vlc.add(chromeDesc, new VerticalLayoutData(440, -1, new Margins(0, 0, 0, 15)));
+//		Label chromeDesc = new HTML("<font size='2'>&nbsp;&nbsp;&nbsp;▶<a href=\"#\"> CHROME 다운로드 (https://www.google.com/intl/ko_ALL/chrome/)</a></font>");
+//		chromeDesc.addClickHandler(new ClickHandler() {
+//			@Override
+//			public void onClick(ClickEvent event) {
+//				Window.open("https://www.google.com/intl/ko_ALL/chrome/", "chromewin", "width=1200,height=700,menubars=0,toolbars=0,location=0,scrollbars=yes");
+//			}
+//		});
+//		vlc.add(chromeDesc, new VerticalLayoutData(440, -1, new Margins(0, 0, 0, 15)));
 
 		FormPanel formPanel = new FormPanel();
 		formPanel.setWidth(500);
-		formPanel.setHeight(350);
+//		formPanel.setHeight(350);
+		formPanel.setHeight(420);
 
 		formPanel.setWidget(vlc);
 		formPanel.setBorders(false);
@@ -205,9 +232,6 @@ public class LoginPage implements InterfaceServiceCall {
 	}
 
 	public void login(){
-
-		otpNumber.setText("1111");
-		otpNumber.setValue("1111");
 
 		if (otpNumber.getValue() == null) {
 			new SimpleMessage("확인", "OTP인증번호를 입력하여 주십시오.");

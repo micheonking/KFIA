@@ -25,8 +25,11 @@ import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
+import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
+import com.sencha.gxt.widget.core.client.event.ExpandItemEvent.ExpandItemHandler;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.form.TextField;
@@ -68,8 +71,9 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 	public Notification() {
 
 		this.setHeaderVisible(false);
-		searchButton.setWidth(50);
+//		searchButton.setWidth(50);
 		searchButton.setText("검색");
+		searchButton.setIcon(ResourceIcon.INSTANCE.search16Button());
 		searchButton.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
@@ -86,10 +90,11 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
                 }				
 			}
         });
+		searchText.setWidth(400);
 		
-		HorizontalLayoutContainer hzl = new HorizontalLayoutContainer();
-		hzl.add(searchText);
-		hzl.add(searchButton);
+		HBoxLayoutContainer hblc = new HBoxLayoutContainer();
+		hblc.add(searchText, new BoxLayoutData(new Margins(0,5,0,0)));
+		hblc.add(searchButton, new BoxLayoutData(new Margins(0,0,0,0)));
 		
 		VBoxLayoutContainer gridVBox = new VBoxLayoutContainer();
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
@@ -111,8 +116,8 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		
 		gridVBox.add(StartPage.getTextContents("공지사항"),new BoxLayoutData(getTextMargins));
 		gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));
-		gridVBox.add(hzl, new BoxLayoutData(new Margins(0,0,20,30)));
-		gridVBox.add(rowTest(),new BoxLayoutData(new Margins(20,0,0,30)));
+		gridVBox.add(hblc, new BoxLayoutData(new Margins(0,20,0,300)));
+		gridVBox.add(rowTest(),new BoxLayoutData(new Margins(5,0,0,30)));
 		
 		this.add(gridVBox);
 		retrieve();
@@ -124,8 +129,8 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		RowExpander<Bbs02_BoardModel> rowExpander = new RowExpander<>(new AbstractCell<Bbs02_BoardModel>() {
 			@Override
 			public void render(Context context, Bbs02_BoardModel value, SafeHtmlBuilder sb) {
-				sb.appendHtmlConstant("<p style='margin:10px 20px 30px;font-size: 12px'><b> </b>"+value.getContents()+"</p>");
-				
+				sb.appendHtmlConstant("<p style='margin:5px 5px 10px;font-size: 15px; line-height:150%'><b>"+value.getTitleName()+"</b></p>");
+				sb.appendHtmlConstant("<p style='margin:5px 5px 10px;font-size: 15px; line-height:150%'><br>"+value.getContents()+"</p>");
 			}
 		});
 
@@ -156,6 +161,14 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		rowExpander.initPlugin(grid);
 		ContentPanel panel = new ContentPanel();
 	    panel.add(grid);
+		grid.getSelectionModel().addSelectionChangedHandler(new SelectionChangedHandler<Bbs02_BoardModel>(){
+			private ExpandItemHandler<Bbs02_BoardModel> handler;
+
+			@Override
+			public void onSelectionChanged(SelectionChangedEvent<Bbs02_BoardModel> event) {
+				rowExpander.addExpandHandler(handler);
+			}
+		});
 	    grid.setHeight(600);
 	    panel.setHeaderVisible(false);
 	    return panel;
