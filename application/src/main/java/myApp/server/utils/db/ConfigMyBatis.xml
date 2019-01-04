@@ -119,6 +119,9 @@
 	<mapper resource="myApp/server/hom/mapper/hom01_outline.xml"/>
 	<mapper resource="myApp/server/hom/mapper/hom03_operating.xml"/>
 	
+<!-- cst계좌추가 -->
+	<mapper resource="myApp/server/cst/mapper/cst99_user.xml"/> 
+	
 </mappers>
 
 </configuration>

@@ -27,6 +27,16 @@
 	where	cst02_user_id	=	#{userId}
 </select>
 
+<select id="selectByAccountList2" resultMap="mapper" parameterType="Long">
+	select	*   
+	
+	
+	
+	
+	from	cst02_account
+<!-- 	where	cst02_user_id	=	#{userId} -->
+</select>
+
 <select id="selectByAccountName" resultMap="mapper" parameterType="HashMap">
 	select	*
 	from	cst02_account
