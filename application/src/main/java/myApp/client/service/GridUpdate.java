@@ -64,13 +64,17 @@ public class GridUpdate<T> implements InterfaceServiceCall{
 	
 	
 	public void update(ListStore<T> listStore, T updateModel, String serviceName){
-		// 단일건(updateModel)을 저장한다. - form update (tabpage_user, form_student 등) 
+		// 단일건(updateModel)을 저장한다. - form update (tabpage_user, form_student 등)
+		Info.display("1","1");
 		this.listStore = listStore;
-			
+		Info.display("2","2");	
 		List<GridDataModel> updateList = new ArrayList<GridDataModel>();
+		Info.display("3","3");	
 		updateList.add((GridDataModel)updateModel);  
+		Info.display("4","4");	
 		
 		request = new ServiceRequest(serviceName);
+		Info.display("5","5");	
 		request.setList(updateList);
 		request.getParam().putAll(param);
 		ServiceCall service = new ServiceCall();

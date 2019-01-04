@@ -231,6 +231,10 @@ public class MenuOpener {
 		if ("Notification.class".equals(className)) {
 			return (Widget) GWT.create(myApp.client.vi.hom.report.Notification.class);
 		}
+		//cst
+		if ("Cst99_Tab_account.class".equals(className)) {
+			return (Widget) GWT.create(myApp.client.vi.cst.Cst99_Tab_account.class);
+		}
 	 
 	
 		

@@ -19,7 +19,7 @@ import myApp.client.vi.pln.model.Pln02_PlanModel;
 import myApp.server.apr.Apr04_ApprStep;
 import myApp.server.utils.db.UpdateDataModel;
 
-public class Cst02_Account { 
+public class Cst99_Account { 
 	
 	private	String mapperName = "cst02_account"; 
 
@@ -33,18 +33,8 @@ public class Cst02_Account {
 
 		request.putLongParam("userId", request.getLongParam("userId") );
 		System.out.println("userId   param: " + request.getLongParam("userId") ); 
-
 		List<GridDataModel> list = sqlSession.selectList(mapperName + ".selectByAccountList", request.getLongParam("userId"));
-		result.setRetrieveResult(1, "select ok", list);
-	}
-	public void selectByAccountList2(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
-		
-		request.putLongParam("userId", request.getLongParam("userId") );
-		System.out.println("userId   param: " + request.getLongParam("userId") ); 
-		
-		List<GridDataModel> list = sqlSession.selectList(mapperName + ".selectByAccountList2", request.getLongParam("userId"));
-		
-		System.out.println("ListSize    :  "+list.size());
+		System.out.println("listSize "+ list.size());
 		result.setRetrieveResult(1, "select ok", list);
 	}
 
