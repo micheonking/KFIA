@@ -20,8 +20,8 @@ import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.resource.ResourceIcon;
-import myApp.client.vi.bbs.Bbs02_Tab_Board;
-import myApp.client.vi.bbs.Bbs02_Tab_News;
+import myApp.client.vi.hom.Hom02_Tab_Board;
+import myApp.client.vi.hom.Hom02_Tab_News;
 import myApp.client.vi.hom.StartPage;
 import myApp.theme.tritium.custom.client.button.white.WhiteButtonCellAppearance;
 
@@ -31,8 +31,8 @@ import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayou
 
 public class CoverPageBody extends ContentPanel {
 
-	private Bbs02_Tab_Board westBoard = new Bbs02_Tab_Board();
-	private Bbs02_Tab_News eastBoard = new Bbs02_Tab_News();
+	private Hom02_Tab_Board westBoard = new Hom02_Tab_Board();
+	private Hom02_Tab_News eastBoard = new Hom02_Tab_News();
 
 	// 운용현황 라벨 3개
 	public CoverPageBody(int WIDTH, int HEIGHT, StartPage startPage) {

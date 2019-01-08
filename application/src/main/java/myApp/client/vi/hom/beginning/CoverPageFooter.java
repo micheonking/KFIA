@@ -15,14 +15,14 @@ import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
-import myApp.client.vi.bbs.Bbs02_Tab_Board;
-import myApp.client.vi.bbs.Bbs02_Tab_News;
+import myApp.client.vi.hom.Hom02_Tab_Board;
+import myApp.client.vi.hom.Hom02_Tab_News;
 import myApp.client.vi.hom.StartPage;
 
 public class CoverPageFooter extends ContentPanel {
 	
-	private Bbs02_Tab_Board west = new Bbs02_Tab_Board();
-	private Bbs02_Tab_News east = new Bbs02_Tab_News();
+	private Hom02_Tab_Board west = new Hom02_Tab_Board();
+	private Hom02_Tab_News east = new Hom02_Tab_News();
 	private StartPage startPage;
 
 	public CoverPageFooter(StartPage startPage) {

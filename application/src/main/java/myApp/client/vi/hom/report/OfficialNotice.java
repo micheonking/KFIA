@@ -32,15 +32,15 @@ import com.sencha.gxt.widget.core.client.grid.RowExpander;
 import myApp.client.grid.InterfaceGridOperate;
 import myApp.client.resource.ResourceIcon;
 import myApp.client.service.GridRetrieveData;
-import myApp.client.vi.bbs.model.Bbs02_BoardModel;
-import myApp.client.vi.bbs.model.Bbs02_BoardModelProperties;
+import myApp.client.vi.hom.model.Hom02_BoardModel;
+import myApp.client.vi.hom.model.Hom02_BoardModelProperties;
 import myApp.client.vi.hom.StartPage;
 
 public class OfficialNotice extends ContentPanel implements InterfaceGridOperate{
 	
-	private Grid<Bbs02_BoardModel> grid;
-	Bbs02_BoardModelProperties properties = GWT.create(Bbs02_BoardModelProperties.class);
-	Bbs02_BoardModel bbsModel = new Bbs02_BoardModel();
+	private Grid<Hom02_BoardModel> grid;
+	Hom02_BoardModelProperties properties = GWT.create(Hom02_BoardModelProperties.class);
+	Hom02_BoardModel bbsModel = new Hom02_BoardModel();
 	
 	TextField searchText = new TextField();
 	TextButton searchButton = new TextButton();
@@ -84,19 +84,19 @@ public class OfficialNotice extends ContentPanel implements InterfaceGridOperate
 	}
 
 	private Widget rowTest() {
-		RowExpander<Bbs02_BoardModel> rowExpander = new RowExpander<>(new AbstractCell<Bbs02_BoardModel>() {
+		RowExpander<Hom02_BoardModel> rowExpander = new RowExpander<>(new AbstractCell<Hom02_BoardModel>() {
 			@Override
-			public void render(Context context, Bbs02_BoardModel value, SafeHtmlBuilder sb) {
+			public void render(Context context, Hom02_BoardModel value, SafeHtmlBuilder sb) {
 				sb.appendHtmlConstant("<p style='margin:10px 20px 30px;font-size: 12px'><b> </b>"+value.getContents()+"</p>");
 				
 			}
 		});
 
-		ColumnConfig<Bbs02_BoardModel, String> titleName = new ColumnConfig<Bbs02_BoardModel,String>(properties.titleName(),40,"제목");
-		ColumnConfig<Bbs02_BoardModel, Date> setDate = new ColumnConfig<Bbs02_BoardModel, Date>(properties.settleDate(), 100, "작성일");
-		ColumnConfig<Bbs02_BoardModel, Long> cnt = new ColumnConfig<Bbs02_BoardModel, Long>(properties.cnt(), 100, "조회수");
+		ColumnConfig<Hom02_BoardModel, String> titleName = new ColumnConfig<Hom02_BoardModel,String>(properties.titleName(),40,"제목");
+		ColumnConfig<Hom02_BoardModel, Date> setDate = new ColumnConfig<Hom02_BoardModel, Date>(properties.settleDate(), 100, "작성일");
+		ColumnConfig<Hom02_BoardModel, Long> cnt = new ColumnConfig<Hom02_BoardModel, Long>(properties.cnt(), 100, "조회수");
 		
-		List<ColumnConfig<Bbs02_BoardModel, ?>> columns = new ArrayList<ColumnConfig<Bbs02_BoardModel, ?>>();
+		List<ColumnConfig<Hom02_BoardModel, ?>> columns = new ArrayList<ColumnConfig<Hom02_BoardModel, ?>>();
 		columns.add(rowExpander);
 		columns.add(titleName);
 		
@@ -107,10 +107,10 @@ public class OfficialNotice extends ContentPanel implements InterfaceGridOperate
 		cnt.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER );
 		columns.add(cnt);
 		
-		ColumnModel<Bbs02_BoardModel> cm = new ColumnModel<Bbs02_BoardModel>(columns);
-		ListStore<Bbs02_BoardModel> store = new ListStore<Bbs02_BoardModel>(properties.keyId());
+		ColumnModel<Hom02_BoardModel> cm = new ColumnModel<Hom02_BoardModel>(columns);
+		ListStore<Hom02_BoardModel> store = new ListStore<Hom02_BoardModel>(properties.keyId());
 		
-		grid = new Grid<Bbs02_BoardModel>(store,cm);
+		grid = new Grid<Hom02_BoardModel>(store,cm);
 		grid.getView().setAutoExpandColumn(titleName);
 		grid.setBorders(false);
 		grid.getView().setStripeRows(true);
@@ -127,11 +127,11 @@ public class OfficialNotice extends ContentPanel implements InterfaceGridOperate
 	@Override
 	public void retrieve() {
 		
-		GridRetrieveData<Bbs02_BoardModel> service2 = new GridRetrieveData<Bbs02_BoardModel>(grid.getStore());
+		GridRetrieveData<Hom02_BoardModel> service2 = new GridRetrieveData<Hom02_BoardModel>(grid.getStore());
 		service2.addParam("typeCode", "disclosure");
 		service2.addParam("setCount", (long)1000);
 		service2.addParam("titleName",searchText.getText());
-		service2.retrieve("bbs.Bbs02_Board.selectByTypeCode");
+		service2.retrieve("hom.Hom02_Board.selectByTypeCode");
 		
 	}
 

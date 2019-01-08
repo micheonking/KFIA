@@ -93,7 +93,6 @@
 	<mapper resource="myApp/server/dcr/mapper/dcr10_mail_history.xml"/>
 	
 	<mapper resource="myApp/server/bbs/mapper/bbs01_board.xml"/>
-	<mapper resource="myApp/server/bbs/mapper/bbs02_board.xml"/>
 
 	<mapper resource="myApp/server/opr/mapper/opr01_create.xml"/>
 	<mapper resource="myApp/server/opr/mapper/opr02_fund.xml"/>
@@ -117,6 +116,7 @@
 	<mapper resource="myApp/server/fnd/mapper/fnd08_org_auth.xml"/>
 	
 	<mapper resource="myApp/server/hom/mapper/hom01_outline.xml"/>
+	<mapper resource="myApp/server/hom/mapper/hom02_board.xml"/>
 	<mapper resource="myApp/server/hom/mapper/hom03_operating.xml"/>
 	
 <!-- cst계좌추가 -->

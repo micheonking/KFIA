@@ -49,9 +49,8 @@ import myApp.client.resource.ResourceIcon;
 import myApp.client.service.GridRetrieveData;
 import myApp.client.utils.InterfaceCallbackResult;
 import myApp.client.vi.LoginUser;
-import myApp.client.vi.bbs.model.Bbs01_BoardModel;
-import myApp.client.vi.bbs.model.Bbs02_BoardModel;
-import myApp.client.vi.bbs.model.Bbs02_BoardModelProperties;
+import myApp.client.vi.hom.model.Hom02_BoardModel;
+import myApp.client.vi.hom.model.Hom02_BoardModelProperties;
 import myApp.client.vi.fnd.model.Fnd01_FundCodeModel;
 import myApp.client.vi.hom.StartPage;
 import myApp.client.vi.pln.Pln03_Lookup_ResrchDetail;
@@ -60,8 +59,8 @@ import myApp.client.vi.sys.model.Sys90_AfterServiceModel;
 
 public class Notification extends ContentPanel implements InterfaceGridOperate {
 
-	private Grid<Bbs02_BoardModel> grid;
-	Bbs02_BoardModelProperties properties = GWT.create(Bbs02_BoardModelProperties.class);
+	private Grid<Hom02_BoardModel> grid;
+	Hom02_BoardModelProperties properties = GWT.create(Hom02_BoardModelProperties.class);
 	
 	TextField searchText = new TextField();
 	TextButton searchButton = new TextButton();
@@ -126,19 +125,19 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 	}
 
 	private Widget rowTest() {
-		RowExpander<Bbs02_BoardModel> rowExpander = new RowExpander<>(new AbstractCell<Bbs02_BoardModel>() {
+		RowExpander<Hom02_BoardModel> rowExpander = new RowExpander<>(new AbstractCell<Hom02_BoardModel>() {
 			@Override
-			public void render(Context context, Bbs02_BoardModel value, SafeHtmlBuilder sb) {
+			public void render(Context context, Hom02_BoardModel value, SafeHtmlBuilder sb) {
 				sb.appendHtmlConstant("<p style='margin:5px 5px 10px;font-size: 15px; line-height:150%'><b>"+value.getTitleName()+"</b></p>");
 				sb.appendHtmlConstant("<p style='margin:5px 5px 10px;font-size: 15px; line-height:150%'><br>"+value.getContents()+"</p>");
 			}
 		});
 
-		ColumnConfig<Bbs02_BoardModel, String> titleName = new ColumnConfig<Bbs02_BoardModel,String>(properties.titleName(),40,"제목");
-		ColumnConfig<Bbs02_BoardModel, Date> setDate = new ColumnConfig<Bbs02_BoardModel, Date>(properties.settleDate(), 100, "작성일");
-		ColumnConfig<Bbs02_BoardModel, Long> cnt = new ColumnConfig<Bbs02_BoardModel, Long>(properties.cnt(), 100, "조회수");
+		ColumnConfig<Hom02_BoardModel, String> titleName = new ColumnConfig<Hom02_BoardModel,String>(properties.titleName(),40,"제목");
+		ColumnConfig<Hom02_BoardModel, Date> setDate = new ColumnConfig<Hom02_BoardModel, Date>(properties.settleDate(), 100, "작성일");
+		ColumnConfig<Hom02_BoardModel, Long> cnt = new ColumnConfig<Hom02_BoardModel, Long>(properties.cnt(), 100, "조회수");
 		
-		List<ColumnConfig<Bbs02_BoardModel, ?>> columns = new ArrayList<ColumnConfig<Bbs02_BoardModel, ?>>();
+		List<ColumnConfig<Hom02_BoardModel, ?>> columns = new ArrayList<ColumnConfig<Hom02_BoardModel, ?>>();
 		columns.add(rowExpander);
 		columns.add(titleName);
 		
@@ -149,10 +148,10 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		cnt.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER );
 		columns.add(cnt);
 		
-		ColumnModel<Bbs02_BoardModel> cm = new ColumnModel<Bbs02_BoardModel>(columns);
-		ListStore<Bbs02_BoardModel> store = new ListStore<Bbs02_BoardModel>(properties.keyId());
+		ColumnModel<Hom02_BoardModel> cm = new ColumnModel<Hom02_BoardModel>(columns);
+		ListStore<Hom02_BoardModel> store = new ListStore<Hom02_BoardModel>(properties.keyId());
 		
-		grid = new Grid<Bbs02_BoardModel>(store,cm);
+		grid = new Grid<Hom02_BoardModel>(store,cm);
 		grid.getView().setAutoExpandColumn(titleName);
 		grid.setBorders(false);
 		grid.getView().setStripeRows(true);
@@ -161,11 +160,11 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		rowExpander.initPlugin(grid);
 		ContentPanel panel = new ContentPanel();
 	    panel.add(grid);
-		grid.getSelectionModel().addSelectionChangedHandler(new SelectionChangedHandler<Bbs02_BoardModel>(){
-			private ExpandItemHandler<Bbs02_BoardModel> handler;
+		grid.getSelectionModel().addSelectionChangedHandler(new SelectionChangedHandler<Hom02_BoardModel>(){
+			private ExpandItemHandler<Hom02_BoardModel> handler;
 
 			@Override
-			public void onSelectionChanged(SelectionChangedEvent<Bbs02_BoardModel> event) {
+			public void onSelectionChanged(SelectionChangedEvent<Hom02_BoardModel> event) {
 				rowExpander.addExpandHandler(handler);
 			}
 		});
@@ -176,13 +175,13 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 
 	@Override
 	public void retrieve() {
-		GridRetrieveData<Bbs02_BoardModel> service = new GridRetrieveData<Bbs02_BoardModel>(grid.getStore());
-		Bbs02_BoardModel boardModel = new Bbs02_BoardModel();
+		GridRetrieveData<Hom02_BoardModel> service = new GridRetrieveData<Hom02_BoardModel>(grid.getStore());
+		Hom02_BoardModel boardModel = new Hom02_BoardModel();
 		service.addParam("boardId",boardModel.getBoardId());
 		service.addParam("typeCode", "notice");
 		service.addParam("setCount", (long)1000);
 		service.addParam("titleName",searchText.getText());
-		service.retrieve("bbs.Bbs02_Board.selectByTypeCode");
+		service.retrieve("hom.Hom02_Board.selectByTypeCode");
 		
 		
 		

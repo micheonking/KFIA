@@ -46,7 +46,7 @@ import myApp.client.utils.InterfaceCallbackResult;
 import myApp.client.utils.SimpleMessage;
 import myApp.client.vi.LoginUser;
 import myApp.client.vi.bbs.model.Bbs01_BoardModel;
-import myApp.client.vi.bbs.model.Bbs02_BoardModel;
+import myApp.client.vi.hom.model.Hom02_BoardModel;
 import myApp.client.vi.cst.model.Cst01_UserModel;
 import myApp.client.vi.cst.model.Cst02_AccountModel;
 import myApp.client.vi.fnd.model.Fnd01_FundCodeModel;

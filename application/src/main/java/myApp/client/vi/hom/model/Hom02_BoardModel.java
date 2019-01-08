@@ -1,10 +1,10 @@
-package myApp.client.vi.bbs.model;
+package myApp.client.vi.hom.model;
 
 import java.util.Date;
 
 import myApp.client.utils.GridDataModel;
 
-public class Bbs02_BoardModel implements GridDataModel {
+public class Hom02_BoardModel implements GridDataModel {
 	private	Long	boardId;
 	private	String	typeCode;
 	private	String	titleName;
@@ -14,7 +14,7 @@ public class Bbs02_BoardModel implements GridDataModel {
 	private	String	filePath;
 	private	String	writer;
 	private	String	contents;
-	
+
 	@Override
 	public void setKeyId(Long id) {
 		this.setBoardId(id);

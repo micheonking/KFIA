@@ -1,4 +1,4 @@
-package myApp.client.vi.bbs;
+package myApp.client.vi.hom;
 
 import java.util.List;
 
@@ -24,22 +24,22 @@ import myApp.client.service.GridRetrieveData;
 import myApp.client.service.GridUpdate;
 import myApp.client.vi.MenuOpener;
 import myApp.client.vi.MenuTree;
-import myApp.client.vi.bbs.model.Bbs02_BoardModel;
-import myApp.client.vi.bbs.model.Bbs02_BoardModelProperties;
+import myApp.client.vi.hom.model.Hom02_BoardModel;
+import myApp.client.vi.hom.model.Hom02_BoardModelProperties;
 import myApp.client.vi.hom.StartPage;
 import myApp.client.vi.hom.report.Notification;
 
-public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceGridOperate {
+public class Hom02_Tab_Board extends BorderLayoutContainer implements InterfaceGridOperate {
 
-	Bbs02_BoardModelProperties properties = GWT.create(Bbs02_BoardModelProperties.class);
+	Hom02_BoardModelProperties properties = GWT.create(Hom02_BoardModelProperties.class);
 
-	private Grid<Bbs02_BoardModel> grid = this.buildGrid();
+	private Grid<Hom02_BoardModel> grid = this.buildGrid();
 
 	private StartPage startPage;
 	
 	public 	CellButtonBase mainButton = new CellButtonBase<>();
 	
-	public Bbs02_Tab_Board() {
+	public Hom02_Tab_Board() {
 
 		
 		BorderLayoutData centerBorLayoutData = new BorderLayoutData(1);
@@ -54,15 +54,20 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 		grid.getView().setAdjustForHScroll(false);
 //		grid.getView().setTrackMouseOver(false);	// 마우스 Over
 		grid.getView().setEnableRowBody(false);
+		grid.getView().setStripeRows(false);
+		grid.setBorders(true);
+		grid.getElement().setBorders(false);
+		grid.getView().setShowDirtyCells(false);
+		grid.getView().setAdjustForHScroll(false);
 //		grid.setVisible(false);
 		grid.setColumnResize(true);
 		grid.setHeight(20);
 
 		this.setCenterWidget(this.grid, centerBorLayoutData);
-		this.grid.getSelectionModel().addSelectionChangedHandler(new SelectionChangedHandler<Bbs02_BoardModel>(){
+		this.grid.getSelectionModel().addSelectionChangedHandler(new SelectionChangedHandler<Hom02_BoardModel>(){
 		
 		@Override
-		public void onSelectionChanged(SelectionChangedEvent<Bbs02_BoardModel> event) {
+		public void onSelectionChanged(SelectionChangedEvent<Hom02_BoardModel> event) {
 //			popupPage();
 //			int xPosition = mainButton.getAbsoluteLeft();
 			startPage.changePage("4");
@@ -87,8 +92,8 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 		notification.show();	
 	}
 
-	public Grid<Bbs02_BoardModel> buildGrid() {
-		GridBuilder<Bbs02_BoardModel> gridBuilder = new GridBuilder<Bbs02_BoardModel>(properties.keyId());
+	public Grid<Hom02_BoardModel> buildGrid() {
+		GridBuilder<Hom02_BoardModel> gridBuilder = new GridBuilder<Hom02_BoardModel>(properties.keyId());
 //		gridBuilder.setChecked(SelectionMode.SINGLE);
 
 		gridBuilder.addText(properties.titleName(), 321, "제목");
@@ -101,33 +106,33 @@ public class Bbs02_Tab_Board extends BorderLayoutContainer implements InterfaceG
 
 	@Override
 	public void retrieve() {
-		GridRetrieveData<Bbs02_BoardModel> service = new GridRetrieveData<Bbs02_BoardModel>(grid.getStore());
+		GridRetrieveData<Hom02_BoardModel> service = new GridRetrieveData<Hom02_BoardModel>(grid.getStore());
 		service.addParam("typeCode", "notice");
 		service.addParam("setCount", (long)4);
-		service.retrieve("bbs.Bbs02_Board.selectByTypeCode2");
+		service.retrieve("hom.Hom02_Board.selectByTypeCode2");
 	}
 
 	@Override
 	public void update() {
-		GridUpdate<Bbs02_BoardModel> service = new GridUpdate<Bbs02_BoardModel>();
+		GridUpdate<Hom02_BoardModel> service = new GridUpdate<Hom02_BoardModel>();
 		// service.addParam("boardId", LoginUser.getUserId());
-		service.update(grid.getStore(), "bbs.Bbs02_Board.update");
+		service.update(grid.getStore(), "hom.Hom02_Board.update");
 		
 	}
 
 	@Override
 	public void insertRow() {
-		GridInsertRow<Bbs02_BoardModel> service = new GridInsertRow<Bbs02_BoardModel>();
-		Bbs02_BoardModel addrBookModel = new Bbs02_BoardModel();
+		GridInsertRow<Hom02_BoardModel> service = new GridInsertRow<Hom02_BoardModel>();
+		Hom02_BoardModel addrBookModel = new Hom02_BoardModel();
 		// addrBookModel.setEmpId(LoginUser.getUserId());
 		service.insertRow(grid, addrBookModel);
 	}
 
 	@Override
 	public void deleteRow() {
-		GridDeleteData<Bbs02_BoardModel> service = new GridDeleteData<Bbs02_BoardModel>();
-		List<Bbs02_BoardModel> checkedList = grid.getSelectionModel().getSelectedItems();
-		service.delete(grid.getStore(), checkedList, "bbs.Bbs02_Board.delete");
+		GridDeleteData<Hom02_BoardModel> service = new GridDeleteData<Hom02_BoardModel>();
+		List<Hom02_BoardModel> checkedList = grid.getSelectionModel().getSelectedItems();
+		service.delete(grid.getStore(), checkedList, "hom.Hom02_Board.delete");
 	}
 
 	protected void businessDown() {
