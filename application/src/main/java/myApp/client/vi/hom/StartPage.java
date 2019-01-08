@@ -39,6 +39,7 @@ public class StartPage extends BorderLayoutContainer {
 	protected static final int NOTE_HEIGHT = 100;	//	내용부분 높이조절용 : 높이에서 뺄 Size...
 	public static final int SNOTE_HEIGHT = 300;	//	내용부분 높이조절용 : 높이에서 뺄 Size...
 	
+	public static int newsPage = 1;
 	public static int CURRENTWIDTH = 770;
 	public static int CURRENTHEIGHT = 0;
 	static String CURRENTPAGE = "0";
@@ -94,7 +95,7 @@ public class StartPage extends BorderLayoutContainer {
 			this.setCenterWidget(tabReportNews, centerLayoutData);
 			break;
 		default :
-			TabBeginnigPage tabBeginnigPage = new TabBeginnigPage();
+			TabBeginnigPage tabBeginnigPage = new TabBeginnigPage(this);
 			this.setCenterWidget(tabBeginnigPage, centerLayoutData);
 			break;
 		}

@@ -35,7 +35,7 @@ public class CoverPageBody extends ContentPanel {
 	private Bbs02_Tab_News eastBoard = new Bbs02_Tab_News();
 
 	// 운용현황 라벨 3개
-	public CoverPageBody(int WIDTH, int HEIGHT) {
+	public CoverPageBody(int WIDTH, int HEIGHT, StartPage startPage) {
 		
 		this.setHeaderVisible(false);
 //		this.setBorders(true);
@@ -128,7 +128,9 @@ public class CoverPageBody extends ContentPanel {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
-//				startPage.changePage("4");
+				StartPage.newsPage = 1;
+//				Info.display("StartPage.newsPage : ",""+StartPage.newsPage);
+				startPage.changePage("4");
 			}
 		});
 		textButton2.setHTML(button5Html);
@@ -139,8 +141,9 @@ public class CoverPageBody extends ContentPanel {
 			@Override
 			public void onSelect(SelectEvent event) {
 //				StartPage.openTabPage(StartPage.tabPanel, "KFIA소식");
-				Info.display("","1");
-//				startPage.changePage("4");
+				StartPage.newsPage = 3;
+//				Info.display("StartPage.newsPage : ",""+StartPage.newsPage);
+				startPage.changePage("4");
 //				StartPage.changePage(xPosition, "4");
 			}
 		});
@@ -167,10 +170,6 @@ public class CoverPageBody extends ContentPanel {
 		this.add(centerVBox);
 		this.setWidth(WIDTH);
 		this.setHeight(HEIGHT);
-	
-		
-		
-		
-		
+
 	}
 }

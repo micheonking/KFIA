@@ -123,6 +123,7 @@ public class StartPageHeader extends BorderLayoutContainer {
 		textButton4.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
+				StartPage.newsPage = 1;
 				startPage.changePage("4");
 			}
 		});

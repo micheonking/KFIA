@@ -129,7 +129,22 @@ public class TabReportNews extends ContentPanel {
 		menuHBar.add(menuVBox, boxLayoutData);
 
 		totalHBar.add(menuHBar);
-		totalHBar.add(getNotification());
+		
+		switch (StartPage.newsPage) {
+		case 1 :
+			totalHBar.add(getNotification());
+			break;
+		case 2 :
+			totalHBar.add(getOfficialNotice());
+			break;
+		case 3 :
+			totalHBar.add(getNews());
+			break;
+		default :
+			totalHBar.add(getNotification());
+			break;
+		}
+//		totalHBar.add(getNotification());
 		centerVBox.add(totalHBar);
 
 		headerVBox.add(centerVBox);
