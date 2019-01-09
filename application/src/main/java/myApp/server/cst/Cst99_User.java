@@ -61,21 +61,39 @@ public class Cst99_User {
 		List<GridDataModel> list = sqlSession.selectList(mapperName + ".selectByUserId", request.getLongParam("userId"));
 		result.setRetrieveResult(1, "select ok", list);
 	}
+	
+	public void checkEmail (SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+		
+		System.out.println("이렇게하면 오나??");
+		
+		String message = " ID(Email) 중복확인중 오류발생. 고객지원실에 문의바랍니다.";
+		result.setMessage(message);
+
+		System.out.println("email ====> " + request.getStringParam("email")); 
+
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("email", request.getStringParam("email"));
+
+		Long count = sqlSession.selectOne("sys02_user.checkEmail", param);
+		System.out.println("count is " + count); 
+
+		if(count == 0) {
+			result.setMessage("사용가능한 ID(Email)입니다.");
+		} else {
+			result.setMessage("이미 등록된 ID(Email)입니다.");
+		}
+		result.setStatus(1); 
+	}
+	
 
 	public void update(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
 
-		System.out.println("0000000000");
-
 		String message = "회원가입 처리중 오류발생.고객지원실에 문의바랍니다.";
 		result.setMessage(message);
-		
-		System.out.println("1111111111111");
 
 		//User정보 생성
 		Cst01_UserModel userModel = (Cst01_UserModel)request.getModelParam("userModel");
 		sqlSession.update(mapperName + ".insert", userModel);
-
-		System.out.println("2222222222");
 
 		//계좌정보 생성
 		List<GridDataModel> list = request.getList();
@@ -85,36 +103,34 @@ public class Cst99_User {
 		//펀드코드 셋팅
 		for(GridDataModel data : list) {
 			System.out.println("4444444444444");
-
 			Cst02_AccountModel accModel = (Cst02_AccountModel)data ; 
+			Map<String, Object> param = new HashMap<String, Object>();
+			param.put("mgCode", accModel.getMgCode()); 
+			param.put("accNo" , accModel.getAccountNo()); 
 
-//			Map<String, Object> param = new HashMap<String, Object>();
-//			param.put("mgCode", accModel.getMgCode()); 
-//			param.put("accNo" , accModel.getAccountNo()); 
-//
-//			String fundCode = sqlSession.selectOne("cst03_icam_acc.getFundCode", param);
-//			if(fundCode == null) {
-//				result.setMessage("계좌정보 가져오기 실패. 증권사와 계좌번호를 확인하여 주십시오.");
-//				result.setStatus(-1); 
-//				return; 
-//			} else {
-//				System.out.println("fundCode ====>" + fundCode);
-//				accModel.setFundCode(fundCode);
-//			}
+			String fundCode = sqlSession.selectOne("cst03_icam_acc.getFundCode", param);
+			if(fundCode == null) {
+				result.setMessage("계좌정보 가져오기 실패. 증권사와 계좌번호를 확인하여 주십시오.");
+				System.out.println("111");
+				result.setStatus(-1); 
+				return; 
+			} else {
+				System.out.println("fundCode ====>" + fundCode);
+				accModel.setFundCode(fundCode);
+			}
 			updateList.add((GridDataModel)accModel); 
 		}
 		System.out.println("555555555555555555");
+		System.out.println("333");
 
 		//계좌정보 Insert
 		UpdateDataModel<Cst02_AccountModel> updateModel = new UpdateDataModel<Cst02_AccountModel>();
 		updateModel.updateModel(sqlSession, updateList, "cst02_account", result);
 		System.out.println("66666666666666666");
 
-//		userModel.setMrdRole("kjkk");
-//		userModel.setRefreshTime("k123jkk");
-		System.out.println("Cst99_User입니다.======!!!!!" + userModel.getUserId());
-		System.out.println("Cst99_User입니다.======!!!!!" + userModel.getEmail());
-		System.out.println("Cst99_User입니다.======!!!!!" + userModel.getUserName());
+		System.out.println("Cst99_User입니다.==getUserId====!!!!!" + userModel.getUserId());
+		System.out.println("Cst99_User입니다.==getEmail===!!!!!" + userModel.getEmail());
+		System.out.println("Cst99_User입니다.==getUserName====!!!!!" + userModel.getUserName());
 		
 //		sqlSession.update(mapperName + ".insert", userModel);
 		
