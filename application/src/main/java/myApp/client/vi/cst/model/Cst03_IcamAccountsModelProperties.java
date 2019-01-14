@@ -24,11 +24,11 @@ public interface Cst03_IcamAccountsModelProperties extends PropertyAccess<Cst03_
 	ValueProvider<Cst03_IcamAccountsModel,	Long>	successPer();
 	ValueProvider<Cst03_IcamAccountsModel,	String>	unyongName();
 	ValueProvider<Cst03_IcamAccountsModel,	String>	csGb();
-	ValueProvider<Cst03_IcamAccountsModel,	Long>	aek();
-	ValueProvider<Cst03_IcamAccountsModel,	String>	code();
-	ValueProvider<Cst03_IcamAccountsModel,	String>	codeName();
-	ValueProvider<Cst03_IcamAccountsModel,	String>	name();
-	ValueProvider<Cst03_IcamAccountsModel,	String>	jjName();
+	ValueProvider<Cst03_IcamAccountsModel,	Long>	seoljAek();
+	ValueProvider<Cst03_IcamAccountsModel,	String>	mgCode();
+	ValueProvider<Cst03_IcamAccountsModel,	String>	mgCodeName();
+	ValueProvider<Cst03_IcamAccountsModel,	String>	mgName();
+	ValueProvider<Cst03_IcamAccountsModel,	String>	mgjjName();
 	ValueProvider<Cst03_IcamAccountsModel,	Date>	gyulDate();
 
 }

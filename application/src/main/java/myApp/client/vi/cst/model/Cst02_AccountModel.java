@@ -4,15 +4,16 @@ import myApp.client.utils.GridDataModel;
 
 public class Cst02_AccountModel implements GridDataModel {
 
-	private	Long	accountId;
-	private	Long	userId;
-	private	String	mgCode;
-	private	String	accountNo;
-	private	String	fundCode;
-	private	String	accountName;
-	private	String	accountBranch;
-	private	String	branchManager;
-	private	String	managerContact;
+	private Long accountId;
+	private Long userId;
+	private String mgCode;
+	private String mgName;
+	private String accountNo;
+	private String fundCode;
+	private String accountName;
+	private String accountBranch;
+	private String branchManager;
+	private String managerContact;
 
 	@Override
 	public void setKeyId(Long id) {
@@ -24,8 +25,8 @@ public class Cst02_AccountModel implements GridDataModel {
 		return this.getAccountId();
 	}
 
-	public	Long getAccountId() {
-		return	accountId;
+	public Long getAccountId() {
+		return accountId;
 	}
 
 	public void setAccountId(Long accountId) {
@@ -46,6 +47,14 @@ public class Cst02_AccountModel implements GridDataModel {
 
 	public void setMgCode(String mgCode) {
 		this.mgCode = mgCode;
+	}
+
+	public String getMgName() {
+		return mgName;
+	}
+
+	public void setMgName(String mgName) {
+		this.mgName = mgName;
 	}
 
 	public String getAccountNo() {
