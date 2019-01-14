@@ -55,7 +55,6 @@ public class Cst99_Edit_account extends BorderLayoutContainer implements Interfa
 
 		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(50));
 
-
 		VerticalLayoutContainer vlc = new VerticalLayoutContainer();
 		vlc.add(grid, new VerticalLayoutData(1,1, new Margins(0,0,0,0)));
 		this.setCenterWidget(vlc);
@@ -67,8 +66,6 @@ public class Cst99_Edit_account extends BorderLayoutContainer implements Interfa
 		
 	}
 	
-	
-
 	public Grid<Cst02_AccountModel> buildGrid(){
 		
 		GridBuilder<Cst02_AccountModel> gridBuilder = new GridBuilder<Cst02_AccountModel>(properties.keyId());  
@@ -79,9 +76,6 @@ public class Cst99_Edit_account extends BorderLayoutContainer implements Interfa
 		gridBuilder.addText	(properties.accountNo()		, 250, "계좌번호",new TextField()		);
 		gridBuilder.addText	(properties.fundCode()		,  150, "펀드코드"	, new TextField()	);
 		gridBuilder.addText	(properties.accountName()	,  150, "지점명",new TextField()		);
-//		gridBuilder.addText	(properties.accountBranch()	,  150, "지점"		);
-//		gridBuilder.addText	(properties.branchManager()	,  150, "매니저"		);
-//		gridBuilder.addText	(properties.managerContact(),  150, "담당자연락처"			);
 
 		return gridBuilder.getGrid(); 
 	}
