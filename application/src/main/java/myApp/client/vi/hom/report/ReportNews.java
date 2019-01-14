@@ -22,7 +22,10 @@ import com.sencha.gxt.widget.core.client.ContentPanel;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
+import com.sencha.gxt.widget.core.client.event.SelectEvent;
+import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.form.TextField;
+import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
@@ -52,10 +55,16 @@ public class ReportNews extends ContentPanel implements InterfaceGridOperate{
 	public ReportNews() {
 
 		this.setHeaderVisible(false);
-		searchButton.setWidth(50);
+//		searchButton.setWidth(50);
 		searchButton.setText("검색");
+		searchButton.setIcon(ResourceIcon.INSTANCE.search16Button());
+		searchButton.addSelectHandler(new SelectHandler() {
+			@Override
+			public void onSelect(SelectEvent event) {
+				retrieve();
+			}
+		});
 		searchText.addKeyPressHandler(new KeyPressHandler() {
-
 			@Override
 			public void onKeyPress(KeyPressEvent event) {
 				if(event.getCharCode() == 13) { // enter key event
@@ -63,36 +72,39 @@ public class ReportNews extends ContentPanel implements InterfaceGridOperate{
                 }				
 			}
         });
-		
-		HorizontalLayoutData hld = new HorizontalLayoutData();
-		hld.setMargins(new Margins(0,0,0,5));
-		
-		HorizontalLayoutData hld2 = new HorizontalLayoutData();
-		hld.setMargins(new Margins(0,80,0,0));
-		
-		HorizontalLayoutContainer hzl = new HorizontalLayoutContainer();
-		hzl.add(searchText,hld2);
-		hzl.add(searchButton,hld);
+		searchText.setWidth(400);
+
+		HBoxLayoutContainer hblc = new HBoxLayoutContainer();
+		hblc.add(searchText, new BoxLayoutData(new Margins(0,5,0,0)));
+		hblc.add(searchButton, new BoxLayoutData(new Margins(0,0,0,0)));
 		
 		VBoxLayoutContainer gridBox = new VBoxLayoutContainer();
 		gridBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
+
+		Margins getTextMargins = new Margins(0, 0, 15, 0);
+//		Margins totalHBarMargins = new Margins(20, 0, 5, 30);
+		Margins lineBar0Margins = new Margins(10, 0, 20, 30);
+
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
-		gridBox.add(StartPage.getTextContents("보도자료"),new BoxLayoutData(new Margins(0,0,15,0)));
+
+		gridBox.add(StartPage.getTextContents("보도자료"),new BoxLayoutData(getTextMargins));
 		gridBox.add(lineBar0, new BoxLayoutData(new Margins(10,0,20,30)));
-		gridBox.add(hzl, new BoxLayoutData(new Margins(0,0,20,30)));
-		gridBox.add(rowTest(),new BoxLayoutData(new Margins(20,0,0,30)));
+		gridBox.add(hblc, new BoxLayoutData(lineBar0Margins));
+		gridBox.add(rowExpander(),new BoxLayoutData(new Margins(20,0,0,30)));
+
 		this.add(gridBox);
-		
-		
 		retrieve();
+
 	}
 
-	private Widget rowTest() {
+	private Widget rowExpander() {
+
 		RowExpander<Hom02_BoardModel> rowExpander = new RowExpander<>(new AbstractCell<Hom02_BoardModel>() {
 			@Override
 			public void render(Context context, Hom02_BoardModel value, SafeHtmlBuilder sb) {
-				sb.appendHtmlConstant("<p style='margin:10px 20px 30px;font-size: 12px'><b> </b>"+value.getContents()+"</p>");
-				
+				sb.appendHtmlConstant("<p style='margin:5px 5px 10px;font-size: 15px; line-height:150%'><b>"+value.getTitleName()+"</b></p>");
+				sb.appendHtmlConstant("<p style='margin:5px 5px 10px;font-size: 15px; line-height:150%'><br>"+value.getContents()+"</p>");
+				sb.appendHtmlConstant("<p style='margin:5px 5px 10px;font-size: 15px; line-height:150%'><br>"+value.getFileName()+"</p>");
 			}
 		});
 
@@ -130,13 +142,13 @@ public class ReportNews extends ContentPanel implements InterfaceGridOperate{
 
 	@Override
 	public void retrieve() {
-		
-		GridRetrieveData<Hom02_BoardModel> service2 = new GridRetrieveData<Hom02_BoardModel>(grid.getStore());
-		service2.addParam("typeCode", "release");
-		service2.addParam("setCount", (long)1000);
-		service2.addParam("titleName",searchText.getText());
-		service2.retrieve("hom.Hom02_Board.selectByTypeCode");
-		
+		GridRetrieveData<Hom02_BoardModel> service = new GridRetrieveData<Hom02_BoardModel>(grid.getStore());
+		Hom02_BoardModel boardModel = new Hom02_BoardModel();
+		service.addParam("boardId",boardModel.getBoardId());
+		service.addParam("typeCode", "release");
+		service.addParam("setCount", (long)1000);
+		service.addParam("titleName",searchText.getText());
+		service.retrieve("hom.Hom02_Board.selectByTypeCode");
 	}
 
 	@Override

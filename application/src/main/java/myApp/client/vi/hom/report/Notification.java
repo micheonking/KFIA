@@ -2,20 +2,15 @@ package myApp.client.vi.hom.report;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.google.gwt.cell.client.AbstractCell;
 import com.google.gwt.cell.client.DateCell;
-import com.google.gwt.cell.client.Cell.Context;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.KeyPressEvent;
 import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
-import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Widget;
@@ -26,8 +21,6 @@ import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.HorizontalLayoutContainer.HorizontalLayoutData;
 import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer.VBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.event.ExpandItemEvent.ExpandItemHandler;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
@@ -37,25 +30,15 @@ import com.sencha.gxt.widget.core.client.grid.ColumnConfig;
 import com.sencha.gxt.widget.core.client.grid.ColumnModel;
 import com.sencha.gxt.widget.core.client.grid.Grid;
 import com.sencha.gxt.widget.core.client.grid.RowExpander;
-import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.selection.SelectionChangedEvent;
 import com.sencha.gxt.widget.core.client.selection.SelectionChangedEvent.SelectionChangedHandler;
-import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
-import myApp.client.grid.GridBuilder;
 import myApp.client.grid.InterfaceGridOperate;
-import myApp.client.grid.SearchBarBuilder;
 import myApp.client.resource.ResourceIcon;
 import myApp.client.service.GridRetrieveData;
-import myApp.client.utils.InterfaceCallbackResult;
-import myApp.client.vi.LoginUser;
 import myApp.client.vi.hom.model.Hom02_BoardModel;
 import myApp.client.vi.hom.model.Hom02_BoardModelProperties;
-import myApp.client.vi.fnd.model.Fnd01_FundCodeModel;
 import myApp.client.vi.hom.StartPage;
-import myApp.client.vi.pln.Pln03_Lookup_ResrchDetail;
-import myApp.client.vi.pln.model.Pln03_ResrchModel;
-import myApp.client.vi.sys.model.Sys90_AfterServiceModel;
 
 public class Notification extends ContentPanel implements InterfaceGridOperate {
 
@@ -65,8 +48,6 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 	TextField searchText = new TextField();
 	TextButton searchButton = new TextButton();
 	
-	
-
 	public Notification() {
 
 		this.setHeaderVisible(false);
@@ -81,7 +62,6 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		});
 		
 		searchText.addKeyPressHandler(new KeyPressHandler() {
-
 			@Override
 			public void onKeyPress(KeyPressEvent event) {
 				if(event.getCharCode() == 13) { // enter key event
@@ -99,37 +79,29 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		gridVBox.setVBoxLayoutAlign(VBoxLayoutAlign.LEFT);
 
 		Margins getTextMargins = new Margins(0, 0, 15, 0);
-		Margins totalHBarMargins = new Margins(20, 0, 5, 30);
+//		Margins totalHBarMargins = new Margins(20, 0, 5, 30);
 		Margins lineBar0Margins = new Margins(10, 0, 20, 30);
 
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
-//		grid.setColumnResize(false);
-//		grid.setColumnReordering(false);
-//		grid.getView().setStripeRows(false);
-//		grid.getView().setColumnLines(false); 
-//		grid.getView().setAdjustForHScroll(true);
-//		grid.getView().setShowDirtyCells(false);
-//		grid.getElement().setBorders(false);
-//		grid.setWidth(730);
-//		grid.setHeight(1000);
 		
 		gridVBox.add(StartPage.getTextContents("공지사항"),new BoxLayoutData(getTextMargins));
 		gridVBox.add(lineBar0,new BoxLayoutData(lineBar0Margins));
-		gridVBox.add(hblc, new BoxLayoutData(new Margins(0,20,0,300)));
-		gridVBox.add(rowTest(),new BoxLayoutData(new Margins(5,0,0,30)));
+		gridVBox.add(hblc, new BoxLayoutData(new Margins(0,20,0,277)));
+		gridVBox.add(rowExpander(),new BoxLayoutData(new Margins(5,0,0,30)));
 		
 		this.add(gridVBox);
 		retrieve();
 
-
 	}
 
-	private Widget rowTest() {
+	private Widget rowExpander() {
+
 		RowExpander<Hom02_BoardModel> rowExpander = new RowExpander<>(new AbstractCell<Hom02_BoardModel>() {
 			@Override
 			public void render(Context context, Hom02_BoardModel value, SafeHtmlBuilder sb) {
 				sb.appendHtmlConstant("<p style='margin:5px 5px 10px;font-size: 15px; line-height:150%'><b>"+value.getTitleName()+"</b></p>");
 				sb.appendHtmlConstant("<p style='margin:5px 5px 10px;font-size: 15px; line-height:150%'><br>"+value.getContents()+"</p>");
+				sb.appendHtmlConstant("<p style='margin:5px 5px 10px;font-size: 15px; line-height:150%'><br>"+value.getFileName()+"</p>");
 			}
 		});
 
@@ -156,18 +128,12 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		grid.setBorders(false);
 		grid.getView().setStripeRows(true);
 		grid.getView().setColumnLines(true);
-		
+		grid.getView().setEnableRowBody(true);
+		grid.getView().setTrackMouseOver(true);
+
 		rowExpander.initPlugin(grid);
 		ContentPanel panel = new ContentPanel();
 	    panel.add(grid);
-		grid.getSelectionModel().addSelectionChangedHandler(new SelectionChangedHandler<Hom02_BoardModel>(){
-			private ExpandItemHandler<Hom02_BoardModel> handler;
-
-			@Override
-			public void onSelectionChanged(SelectionChangedEvent<Hom02_BoardModel> event) {
-				rowExpander.addExpandHandler(handler);
-			}
-		});
 	    grid.setHeight(600);
 	    panel.setHeaderVisible(false);
 	    return panel;
@@ -182,9 +148,6 @@ public class Notification extends ContentPanel implements InterfaceGridOperate {
 		service.addParam("setCount", (long)1000);
 		service.addParam("titleName",searchText.getText());
 		service.retrieve("hom.Hom02_Board.selectByTypeCode");
-		
-		
-		
 	}
 
 	@Override
