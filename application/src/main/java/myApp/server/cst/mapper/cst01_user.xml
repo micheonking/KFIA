@@ -29,4 +29,10 @@
     where 	cst01_email		=	#{loginId}
 </select>
 
+<select id="checkEmail" resultType="Long" parameterType="HashMap" > 
+	select 	count(*)
+	from 	cst01_user  
+	where	cst01_email = #{email}
+</select>
+
 </mapper>

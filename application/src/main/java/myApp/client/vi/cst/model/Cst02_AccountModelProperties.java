@@ -12,6 +12,7 @@ public interface Cst02_AccountModelProperties extends PropertyAccess<Cst02_Accou
 	ValueProvider<Cst02_AccountModel,	Long>	accountId();
 	ValueProvider<Cst02_AccountModel,	Long>	userId();
 	ValueProvider<Cst02_AccountModel,	String>	mgCode();
+	ValueProvider<Cst02_AccountModel,	String>	mgName();
 	ValueProvider<Cst02_AccountModel,	String>	accountNo();
 	ValueProvider<Cst02_AccountModel,	String>	fundCode();
 	ValueProvider<Cst02_AccountModel,	String>	accountName();

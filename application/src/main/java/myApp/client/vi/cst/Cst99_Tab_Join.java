@@ -4,7 +4,11 @@ package myApp.client.vi.cst;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.Label;
 import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.widget.core.client.Window;
 import com.sencha.gxt.widget.core.client.button.TextButton;
@@ -57,14 +61,8 @@ public class Cst99_Tab_Join extends Window implements Editor<Cst01_UserModel>, I
 	DateField startDt = new DateField();
 	Cst99_Edit_account accountPage = new Cst99_Edit_account();
 	
-	
 	private String		actionName;
-	
-	private TextButton checkEmail = new TextButton("중복확인");
-	
-	
 	private InterfaceCallbackResult callback;
-	
 	
 	public void open( Cst01_UserModel userModel2,InterfaceCallbackResult callback) {
 		
@@ -77,7 +75,7 @@ public class Cst99_Tab_Join extends Window implements Editor<Cst01_UserModel>, I
 		this.setResizable(false);
 //		this.setSize("1000",  "920");
 		this.grid = grid;
-		this.setSize("900",  "920");
+		this.setSize("600",  "700");
 		editDriver.edit(userModel);
 		
 		this.setButtonAlign(BoxLayoutPack.CENTER);
@@ -122,8 +120,7 @@ public class Cst99_Tab_Join extends Window implements Editor<Cst01_UserModel>, I
 	private FormPanel getEditor(Cst01_UserModel userModel2) {
 		
 		TextButton emailCheckButton = new TextButton("중복확인"); 
-		emailCheckButton.setWidth(30);
-		emailCheckButton.setHeight(25);
+		emailCheckButton.setWidth(75);
 		emailCheckButton.addSelectHandler(new SelectHandler() {
 			@Override
 			public void onSelect(SelectEvent event) {
@@ -134,29 +131,58 @@ public class Cst99_Tab_Join extends Window implements Editor<Cst01_UserModel>, I
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
 		
 		HorizontalLayoutContainer row01 = new HorizontalLayoutContainer();
-		row01.add(new FieldLabel(email, "email"), new HorizontalLayoutData(310 ,-1, new Margins(10, 0, 0, 50)));
-		row01.add(new FieldLabel(emailCheckButton, " "), new HorizontalLayoutData(150 ,-1, new Margins(10, 10, 0, 0)));
+		row01.add(new FieldLabel(email, "email"), new HorizontalLayoutData(300 ,-1, new Margins(15, 0, 0, 50)));
+
+		
+		HorizontalLayoutContainer row02 = new HorizontalLayoutContainer();
+//		row01.add(new Label(email, "email"), new HorizontalLayoutData(300 ,-1, new Margins(15, 0, 0, 50)));
 		
 		HorizontalLayoutContainer row03 = new HorizontalLayoutContainer();
-		row03.add(new FieldLabel(userName,"이름"), new HorizontalLayoutData(300,-1, new Margins(30,0,10,50)));
+		row03.add(new FieldLabel(userName,"이름"), new HorizontalLayoutData(300,-1, new Margins(0,0,10,50)));
+
 		
 		HorizontalLayoutContainer row05 = new HorizontalLayoutContainer();
-		row05.add(new FieldLabel(phoneNo,"휴대폰번호"), new HorizontalLayoutData(300,-1, new Margins(60,0,10,50)));
+		FieldLabel phoneNoLabel = new FieldLabel();
+		phoneNoLabel.setWidth(300);
+//		phoneNoLabel.set
+		row05.add(new FieldLabel(phoneNo,"휴대폰번호"), new HorizontalLayoutData(300,-1, new Margins(30,0,15,50)));
+		
+		Label otpDesc = new HTML("<font size='2'>※ 개인정보보호를 위해 인증수단으로 핸드폰 OTP인증번호를 사용합니다.<br> </font>");
+		Label otpDesc2 = new HTML("<font size='2'>※ 핸드폰 OTP인증 앱설치 및 사용방법을 확인하세요.<br> </font>");
+		
+		Label otpandroid = new HTML("<font size='2'> ▶ <a href=\"#\">Android</a>");
+		otpandroid.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		Label otpIphone = new HTML("<font size='2'> ▶ <a href=\"#\">IOS(iPhone)</a>");
 		
 		HorizontalLayoutContainer row07 = new HorizontalLayoutContainer();
-		row07.add(new FieldLabel(startDt,"등록일"), new HorizontalLayoutData(300,-1, new Margins(90,0,10,50)));
+		row07.add(otpandroid);
+		row07.add(otpIphone);
 		
+		
+		Label emailLabel = new HTML("<font size='2'>※증권사 계좌 개설시 등록된 E-Mail을 입력하여 주십시오.<br> </font>");
+		Label phonLabel = new HTML("<font size='2'>※증권사 계좌 개설시 등록된 핸드폰 번호를 입력하여 주십시오.<br> </font>");
 		HorizontalLayoutContainer row04 = new HorizontalLayoutContainer();
-		row04.add(accountPage, new HorizontalLayoutData(800, 500, new Margins(160,0,0,60)));
+		row04.add(accountPage, new HorizontalLayoutData(800, 500, new Margins(80,0,0,60)));
 		
 		VerticalLayoutContainer layout = new VerticalLayoutContainer();
 		layout.add(StartPage.getTextContents("계좌등록 및 회원가입"));
 		layout.add(lineBar0,new VerticalLayoutData(1.2,1.2, new Margins(0, 0, 10, 45)));
-		layout.add(row01, new VerticalLayoutData(1, -1, new Margins(16))); //제목
-		layout.add(row03, new VerticalLayoutData(1, -1, new Margins(16))); //작성일
-		layout.add(row05, new VerticalLayoutData(1, -1, new Margins(16))); //휴대폰번호
-		layout.add(row07, new VerticalLayoutData(1, -1, new Margins(16))); //등록일
-		layout.add(row04, new VerticalLayoutData(1, -1, new Margins(16))); //계좌추가 grid 
+		layout.add(row01, new VerticalLayoutData(1, -1, new Margins(10))); //제목
+		layout.add(emailCheckButton, new VerticalLayoutData(250, -1, new Margins(8,0,0,315)));//제목
+		layout.add(emailLabel, new VerticalLayoutData(1, -1, new Margins(0,0,0,110)));//email 라벨 
+		layout.add(row03, new VerticalLayoutData(1, -1, new Margins(10))); //작성일
+		layout.add(row05, new VerticalLayoutData(1, -1, new Margins(10))); //휴대폰번호
+		layout.add(phonLabel, new VerticalLayoutData(1, -1, new Margins(70,0,0,110))); //휴대폰번호 라벨
+		layout.add(otpDesc, new VerticalLayoutData(1, -1, new Margins(20,0,0,110))); //otp 라벨
+		layout.add(otpDesc2, new VerticalLayoutData(1, -1, new Margins(20,0,0,110))); //otp 라벨
+		layout.add(row07, new VerticalLayoutData(1, -1, new Margins(0,0,0,110))); //otp 라벨
+		layout.add(row04, new VerticalLayoutData(1, -1, new Margins(0,0,0,0))); //계좌추가 grid 
 		
 //		form setting 입니다.
 		FormPanel form = new FormPanel();
@@ -169,15 +195,11 @@ public class Cst99_Tab_Join extends Window implements Editor<Cst01_UserModel>, I
 
 	protected void checkEmail() {
 		this.actionName = "checkEmail";
-		Info.display("","버튼체크-=== ");
 		this.userModel  = this.editDriver.flush();
 		if (this.userModel.getEmail().length() == 0) {
-			Info.display("","22222222");
 			new SimpleMessage("입력확인","ID(E-Mail) 을(를) 입력하여 주십시오.");
 			return;
 		}
-
-		Info.display("","444444");
 		ServiceRequest request = new ServiceRequest("cst.Cst99_User.checkEmail");
 		request.addParam("email", this.userModel.getEmail());
 		
@@ -186,29 +208,25 @@ public class Cst99_Tab_Join extends Window implements Editor<Cst01_UserModel>, I
 		
 	}
 
-
 	protected void update() {
 		userModel  = editDriver.flush();
 		GridUpdate<Cst02_AccountModel> service = new GridUpdate<Cst02_AccountModel>();
 		service.addParam("userModel", userModel);
-//		service.addParam("mgCode", accountPage.grid.get);
+//		service.addParam("mgCode", userModel.get);
 //		service.addParam("accNo", userModel);
-		service.update(accountPage.grid.getStore(), "cst.Cst99_User.update") ; 
+//		service.addParam(accountPage.mgCodeComboBox, data);
+		Info.display("",""+ accountPage.grid.getStore().get(0).getMgCode());
+		
+		service.update(accountPage.grid.getStore(), "cst.Cst99_User.update") ;
+		hide();
 	}
-
-//	private void update2 (Cst01_UserModel userModel) {
-//		ServiceRequest request = new ServiceRequest("cst.Cst99_User.update");
-//		request.putModelParam("userModel", userModel);
-//		Info.display("aaaaaa",""+userModel.getEmail());
-//		ServiceCall service = new ServiceCall();
-//		service.execute(request, this);
-//		
-//	}
 
 	@Override
 	public void getServiceResult(ServiceResult result) {
-		// TODO Auto-generated method stub
 		
+		if ("checkEmail".equals(this.actionName)) {
+			new SimpleMessage("확인",result.getMessage());
+		}
 	}
 	
 }
