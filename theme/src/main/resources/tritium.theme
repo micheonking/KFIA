@@ -28,7 +28,7 @@ theme {
       }
       font {
         color = "#f6f6f6"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "15px"
         weight = "400"
       }
@@ -48,14 +48,14 @@ theme {
       }
       firstPanelPadding { // = util.padding(5)
         bottom = 0
-        left = 5
-        right = 5
+        left = 0 // 5
+        right = 0 // 5
         top = 0
       }
     }
     borderLayout {
       panelBackgroundColor = "#ececec" // "#2b579a" // "#5fa2dd" // "#ececec"
-      collapsePanelBackgroundColor = "#5fa2dd" // "#ffffff" // "#5fa2dd"
+      collapsePanelBackgroundColor = "#5fa2dd" // "#2b579a" // "#ffffff" // 
       collapsePanelBorder {
         bottom = 1 // 0 // 1
         color = "#ececec"
@@ -93,7 +93,7 @@ theme {
       pressedBorder = util.border('solid', '#42719A', 1)
       font {
         color = "#f0f0f0"
-        family = "'D2Coding', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "12px"
         weight = "400"
       }
@@ -124,7 +124,7 @@ theme {
       }
       font {
         color = "#606060"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "14px"
         weight = "400"
       }
@@ -165,7 +165,7 @@ theme {
     datePicker {
 	  backgroundColor = '#ffffff'
       dayDisabledBackgroundColor = '#eeeeee'
-      dayLineHeight = '23px'
+      dayLineHeight = '24px'
       dayNextBackgroundColor = '#ffffff'
       dayOfWeekBackgroundColor = '#ffffff'
       dayOfWeekLineHeight = '24px'
@@ -180,7 +180,7 @@ theme {
       monthRightButtonColor = "#ffffff"
       monthRightButtonOpacity = 1
 
-	  width = "212px"
+	  width = "312px"
       border = util.border("solid", "#e1e1e1", 1)
 
       buttonMargin = util.margin(0, 3, 0, 2)
@@ -192,12 +192,12 @@ theme {
       dayNextText = util.extend(dayText, {
         color = '#bfbfbf'
       })
-      dayOfWeekPadding = util.padding(0, 6, 0, 0)
-      dayOfWeekText = util.fontStyle('Open Sans,helvetica,arial,verdana,sans-serif', '12px', '#000000', 'bold')
+      dayOfWeekPadding = util.padding(0, 13, 0, 0)
+      dayOfWeekText = util.fontStyle('Open Sans,helvetica,arial,verdana,sans-serif', '13px', '#000000', 'bold')
 
-      dayPadding = util.padding(0, 3, 0, 0)
+      dayPadding = util.padding(0, 10, 0, 0)
       dayPreviousText = dayNextText
-      dayText = util.fontStyle('Open Sans,helvetica,arial,verdana,sans-serif', '12px', '#000000')
+      dayText = util.fontStyle('Open Sans,helvetica,arial,verdana,sans-serif', '13px', '#000000')
       footerPadding = util.padding(3, 0)
 	  headerPadding = util.padding(8, 6)
       headerText = util.fontStyle("Open Sans,helvetica,arial,verdana,sans-serif", '14px', '#f1f1f1', 'bold') // '#3892d3', 'bold')
@@ -277,7 +277,7 @@ theme {
         }
         text {
           color = "#404041" // Label
-          family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "400"
         }
@@ -309,7 +309,7 @@ theme {
       }
       text {
         color = "#404042"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "400"
       }
@@ -335,7 +335,7 @@ theme {
         }
         text {
           color = "#404043"
-          family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "400"
         }
@@ -374,7 +374,7 @@ theme {
       }
       text {
         color = "#919191"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "400"
       }
@@ -398,7 +398,7 @@ theme {
       }
       font {
         color = "#f0f0f0"
-        family = "'D2Coding', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "14px"
         weight = "400"
       }
@@ -422,7 +422,7 @@ theme {
         left = 0
         right = 0
         style = "solid"
-        top = 2
+        top = 0 // 2
       }
       cellAltBackgroundColor = "#fafafa"
       cellBackgroundColor = "#ffffff"
@@ -450,7 +450,7 @@ theme {
       }
       cellText {
         color = "#404040"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "400"
       }
@@ -488,7 +488,7 @@ theme {
         }
         text {
           color = "#404040"
-          family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "normal"
         }
@@ -505,7 +505,7 @@ theme {
         }
         text {
           color = "#000000"
-          family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "bold"
         }
@@ -531,7 +531,7 @@ theme {
           backgroundColor = "#ffffff"
           text {
             color = "#000000"
-            family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+            family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
             size = "13px"
             weight = "bold"
           }
@@ -558,7 +558,7 @@ theme {
         }
         text {
           color = "#000000"
-          family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "normal"
         }
@@ -694,7 +694,7 @@ theme {
       }
       text {
         color = "#000000"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "400"
       }
@@ -718,7 +718,7 @@ theme {
         }
         text {
           color = "#666666"
-          family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "normal"
         }
@@ -828,7 +828,7 @@ theme {
         }
         itemText {
           color = "#ffffff"
-          family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+          family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
           size = "13px"
           weight = "400"
         }
@@ -841,7 +841,7 @@ theme {
       }
       itemText {
         color = "#404040"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "400"
       }
@@ -884,7 +884,7 @@ theme {
       }
       text {
         color = "#000000"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
       }
@@ -893,8 +893,8 @@ theme {
       backgroundColor = "#ffffff"
       frameHeight = 0
       frameWidth = 0
-      headerBackgroundColor = "#5fa2dd"
-      headerGradient = "#5fa2dd 0%, #5fa2dd 100%"
+      headerBackgroundColor = "#2b579a" // "#ECECEC"
+      headerGradient = "#2b579a 0%, #2b579a 100%" // "#5fa2dd 0%, #5fa2dd 100%"
       headerLineHeight = "20px"
       border {
         bottom = 0
@@ -906,7 +906,7 @@ theme {
       }
       font {
         color = "#f6f6f6"
-        family = "'D2Coding', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "14px"
         weight = "400"
       }
@@ -946,7 +946,7 @@ theme {
       }
       text {
         color = "#666666"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "bold"
       }
@@ -986,7 +986,7 @@ theme {
       }
       text {
         color = "#000000"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
       }
@@ -1004,7 +1004,7 @@ theme {
       }
       text {
         color = "#000000"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "normal"
       }
@@ -1012,7 +1012,7 @@ theme {
     tabs {
       activeHeadingText {
         color = "#2b579a" // "#4C82B1"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "bold"
       }
@@ -1037,7 +1037,7 @@ theme {
       gradient = "#ffffff 0%, #ffffff 100%"
       headingText {
         color = "#f0f0f0"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "400"
       }
@@ -1074,13 +1074,13 @@ theme {
       }
       plainActiveHeadingText {
         color = "#2b579a" // "#4c82b1" // "#404040" 
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "400"
       }
       plainHeadingText {
         color = "#cfcfcf" // "#eeeeee"
-        family = "'D2Coding', 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
+        family = "'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif"
         size = "13px"
         weight = "400"
       }
@@ -1146,7 +1146,7 @@ theme {
       }
       headerText {
         color = "#f0f0f0"
-        family = "'D2Coding', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "13px"
         weight = "bold"
       }
@@ -1164,7 +1164,7 @@ theme {
       }
       messageText {
         color = "#f0f0f0"
-        family = "'D2Coding', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "13px"
         weight = "400"
       }
@@ -1212,7 +1212,7 @@ theme {
         smallLineHeight = "18"
         font {
           color = "#606060"
-          family = "'D2Coding', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+          family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
           size = "14px"
           weight = "400"
         }
@@ -1271,10 +1271,10 @@ theme {
         top = 8
       }
       dragOverBackgroundColor = "#eaeff4"
-      dropBackgroundColor = "#ffefbb"
+      dropBackgroundColor = "#d6e0ea" // "#ffefbb"
       itemHeight = "32px"
       overBackgroundColor = "#eaeff4"
-      selectedBackgroundColor = "#ffefbb"
+      selectedBackgroundColor = "#d6e0ea" // "#ffefbb"
       iconMargin {
         bottom = 0
         left = 2
@@ -1289,7 +1289,7 @@ theme {
       }
       text {
         color = "#404044"
-        family = "'D2Coding', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "13px"
         weight = "400"
       }
@@ -1313,7 +1313,7 @@ theme {
       }
       font {
         color = "#f6f6f6"
-        family = "'D2Coding', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+        family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
         size = "16px"
         weight = "400"
       }
@@ -1333,7 +1333,7 @@ theme {
   }
   headerText {
     color = "#ffffff"
-    family = "'D2Coding', 'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
+    family = "'Open Sans','Helvetica Neue',helvetica,arial,verdana,sans-serif"
     size = "16px"
     weight = "bold"
   }
