@@ -6,6 +6,7 @@ import com.google.gwt.editor.client.Editor;
 import com.google.gwt.editor.client.SimpleBeanEditorDriver;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.ui.Frame;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
@@ -26,6 +27,7 @@ import com.sencha.gxt.widget.core.client.form.LongField;
 import com.sencha.gxt.widget.core.client.form.TextField;
 import com.sencha.gxt.widget.core.client.grid.Grid;
 import com.sencha.gxt.widget.core.client.info.Info;
+import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.resource.ResourceIcon;
 import myApp.client.service.DBUtil;
@@ -129,23 +131,21 @@ public class Cst99_Tab_Join extends Window implements Editor<Cst01_UserModel>, I
 		});
 		
 		Image lineBar0 = new Image(ResourceIcon.INSTANCE.verticalTitle());
-		
 		HorizontalLayoutContainer row01 = new HorizontalLayoutContainer();
-		row01.add(new FieldLabel(email, "email"), new HorizontalLayoutData(300 ,-1, new Margins(15, 0, 0, 50)));
-
+		row01.add(new LabelToolItem("이메일"), new HorizontalLayoutData(50,-1, new Margins(20,0,10,50)));
+		row01.add(email, new HorizontalLayoutData(230,-1, new Margins(15,0,10,55)));
 		
-		HorizontalLayoutContainer row02 = new HorizontalLayoutContainer();
-//		row01.add(new Label(email, "email"), new HorizontalLayoutData(300 ,-1, new Margins(15, 0, 0, 50)));
+//		row01.add(new FieldLabel(email, "email"), new HorizontalLayoutData(300 ,-1, new Margins(15, 0, 0, 50)));
 		
 		HorizontalLayoutContainer row03 = new HorizontalLayoutContainer();
-		row03.add(new FieldLabel(userName,"이름"), new HorizontalLayoutData(300,-1, new Margins(0,0,10,50)));
-
+		row03.add(new LabelToolItem("이름"), new HorizontalLayoutData(50,-1, new Margins(10,0,10,60)));
+		row03.add(userName, new HorizontalLayoutData(230,-1, new Margins(0,0,10,55)));
+		
+//		row03.add(new FieldLabel(userName,"이름"), new HorizontalLayoutData(300,-1, new Margins(0,0,10,50)));
 		
 		HorizontalLayoutContainer row05 = new HorizontalLayoutContainer();
-		FieldLabel phoneNoLabel = new FieldLabel();
-		phoneNoLabel.setWidth(300);
-//		phoneNoLabel.set
-		row05.add(new FieldLabel(phoneNo,"휴대폰번호"), new HorizontalLayoutData(300,-1, new Margins(30,0,15,50)));
+		row05.add(new LabelToolItem("휴대폰 번호 "), new HorizontalLayoutData(70,-1, new Margins(35,0,15,20)));
+		row05.add(phoneNo, new HorizontalLayoutData(210, -1, new Margins(30,0,0,35)));
 		
 		Label otpDesc = new HTML("<font size='2'>※ 개인정보보호를 위해 인증수단으로 핸드폰 OTP인증번호를 사용합니다.<br> </font>");
 		Label otpDesc2 = new HTML("<font size='2'>※ 핸드폰 OTP인증 앱설치 및 사용방법을 확인하세요.<br> </font>");
@@ -154,11 +154,31 @@ public class Cst99_Tab_Join extends Window implements Editor<Cst01_UserModel>, I
 		otpandroid.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				// TODO Auto-generated method stub
-				
+				 Window w = new Window();
+				 w.setHeading("BaroOTP 설명서 (Android Ver)");
+				 w.setModal(false);
+				 w.setPixelSize(800, 700);
+				 w.setMaximizable(true);
+//				 w.setToolTip("The GXT product page...");
+				 w.setWidget(new Frame("/BaroOTP_Android.html"));
+				 w.show();
+				 
+//				Window.open("/KFIA/BaroOTP_Android.html", "optwin", "width=800,height=800,menubars=0,toolbars=0,location=0,scrollbars=yes");
 			}
 		});
 		Label otpIphone = new HTML("<font size='2'> ▶ <a href=\"#\">IOS(iPhone)</a>");
+		otpIphone.addClickHandler(new ClickHandler() {
+			
+			@Override
+			public void onClick(ClickEvent event) {
+				Window w = new Window();
+				w.setHeading("BaroOTP 설명서 (iphone Ver)");
+				w.setPixelSize(800, 700);
+				w.setWidget(new Frame("/BaroOTP_iPhone.html"));
+				w.show();
+			}
+		});
+		
 		
 		HorizontalLayoutContainer row07 = new HorizontalLayoutContainer();
 		row07.add(otpandroid);
@@ -172,17 +192,17 @@ public class Cst99_Tab_Join extends Window implements Editor<Cst01_UserModel>, I
 		
 		VerticalLayoutContainer layout = new VerticalLayoutContainer();
 		layout.add(StartPage.getTextContents("계좌등록 및 회원가입"));
-		layout.add(lineBar0,new VerticalLayoutData(1.2,1.2, new Margins(0, 0, 10, 45)));
-		layout.add(row01, new VerticalLayoutData(1, -1, new Margins(10))); //제목
-		layout.add(emailCheckButton, new VerticalLayoutData(250, -1, new Margins(8,0,0,315)));//제목
-		layout.add(emailLabel, new VerticalLayoutData(1, -1, new Margins(0,0,0,110)));//email 라벨 
-		layout.add(row03, new VerticalLayoutData(1, -1, new Margins(10))); //작성일
-		layout.add(row05, new VerticalLayoutData(1, -1, new Margins(10))); //휴대폰번호
-		layout.add(phonLabel, new VerticalLayoutData(1, -1, new Margins(70,0,0,110))); //휴대폰번호 라벨
-		layout.add(otpDesc, new VerticalLayoutData(1, -1, new Margins(20,0,0,110))); //otp 라벨
-		layout.add(otpDesc2, new VerticalLayoutData(1, -1, new Margins(20,0,0,110))); //otp 라벨
-		layout.add(row07, new VerticalLayoutData(1, -1, new Margins(0,0,0,110))); //otp 라벨
-		layout.add(row04, new VerticalLayoutData(1, -1, new Margins(0,0,0,0))); //계좌추가 grid 
+		layout.add(lineBar0,new VerticalLayoutData(1.2,1.2, new Margins(0, 0, 10, 45)));		//상단 이미지
+		layout.add(row01, new VerticalLayoutData(1, -1, new Margins(10))); 						//제목
+		layout.add(emailCheckButton, new VerticalLayoutData(250, -1, new Margins(5,0,0,315)));	//중복확인
+		layout.add(emailLabel, new VerticalLayoutData(1, -1, new Margins(0,0,0,110)));			//email 라벨 
+		layout.add(row03, new VerticalLayoutData(1, -1, new Margins(10))); 						//작성일
+		layout.add(row05, new VerticalLayoutData(1, -1, new Margins(10))); 						//휴대폰번호
+		layout.add(phonLabel, new VerticalLayoutData(1, -1, new Margins(70,0,0,110))); 			//휴대폰번호 라벨
+		layout.add(otpDesc, new VerticalLayoutData(1, -1, new Margins(20,0,0,110)));		    //otp 라벨
+		layout.add(otpDesc2, new VerticalLayoutData(1, -1, new Margins(20,0,0,110))); 			//otp 라벨
+		layout.add(row07, new VerticalLayoutData(1, -1, new Margins(0,0,0,110))); 				//otp 라벨
+		layout.add(row04, new VerticalLayoutData(1, -1, new Margins(0,0,0,0))); 				//계좌추가 grid 
 		
 //		form setting 입니다.
 		FormPanel form = new FormPanel();
