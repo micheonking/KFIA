@@ -20,7 +20,7 @@ public class MgComboBoxField extends StringComboBox implements InterfaceServiceC
 	private Map<String, Cst03_IcamAccountsModel> mgCodeList = new HashMap<String, Cst03_IcamAccountsModel>();
 	
 	public MgComboBoxField(){
-		ServiceRequest request = new ServiceRequest("cst.IcamAcc.selectByMgCombo");
+		ServiceRequest request = new ServiceRequest("cst.Cst03_Icam_Accounts.selectByMgCombo");
 		ServiceCall service = new ServiceCall();
 		service.execute(request, this);
 		this.setTriggerAction(TriggerAction.ALL);
@@ -28,25 +28,18 @@ public class MgComboBoxField extends StringComboBox implements InterfaceServiceC
 	
 	public String getCode(){
 		
-		Info.display("combobox IN", "IN!!!!");
-		Info.display("comboBox", "" + this.getCurrentValue());
 		mgCodeList.get("");
 		Cst03_IcamAccountsModel code = mgCodeList.get(this.getCurrentValue());
-		
   		if(code != null){
-  			Info.display("comboBox", "데이터 있음");
   			return code.getMgCode(); 
   		}
   		else {
-  			Info.display("comboBox", "데이터 없음 null");
   			return null; 
   		}
   	}
 
 	@Override
 	public void getServiceResult(ServiceResult result) {
-		// TODO Auto-generated method stub
-		
 		if(result.getStatus() < 0){
 			Info.display("error", result.getMessage());
 			return ; 
@@ -57,7 +50,6 @@ public class MgComboBoxField extends StringComboBox implements InterfaceServiceC
 			this.add(mgCode.getMcCodeName());
 		}
 	}
-	
 }
 
 

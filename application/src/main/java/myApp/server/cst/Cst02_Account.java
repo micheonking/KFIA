@@ -10,13 +10,8 @@ import org.apache.ibatis.session.SqlSession;
 import myApp.client.service.ServiceRequest;
 import myApp.client.service.ServiceResult;
 import myApp.client.utils.GridDataModel;
-import myApp.client.vi.apr.model.Apr01_ApprModel;
-import myApp.client.vi.apr.model.Apr03_RelateFundModel;
-import myApp.client.vi.apr.model.Apr04_ApprStepModel;
-import myApp.client.vi.dcr.model.Dcr01_ClassTreeModel;
-import myApp.client.vi.opr.model.Opr01_CreateModel;
-import myApp.client.vi.pln.model.Pln02_PlanModel;
-import myApp.server.apr.Apr04_ApprStep;
+import myApp.client.vi.cst.model.Cst02_AccountModel;
+import myApp.client.vi.sys.model.Sys00_CommonComboBoxModel;
 import myApp.server.utils.db.UpdateDataModel;
 
 public class Cst02_Account { 
@@ -29,66 +24,46 @@ public class Cst02_Account {
 		result.setRetrieveResult(1, sqlId, list);
 	}
 
-	public void selectByAccountList(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+	public void getAccInfo(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
 
-		request.putLongParam("userId", request.getLongParam("userId") );
-		System.out.println("userId   param: " + request.getLongParam("userId") ); 
+		Cst02_AccountModel accModel = (Cst02_AccountModel)request.getModelParam("accModel");
 
-		List<GridDataModel> list = sqlSession.selectList(mapperName + ".selectByAccountList", request.getLongParam("userId"));
-		result.setRetrieveResult(1, "select ok", list);
-	}
-	public void selectByAccountList2(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+		System.out.println("mgCode    : " + accModel.getMgCode());
+		System.out.println("accountNo : " + accModel.getAccountNo());
 		
-		request.putLongParam("userId", request.getLongParam("userId") );
-		System.out.println("userId   param: " + request.getLongParam("userId") ); 
-		
-		List<GridDataModel> list = sqlSession.selectList(mapperName + ".selectByAccountList2", request.getLongParam("userId"));
-		
-		System.out.println("ListSize    :  "+list.size());
-		result.setRetrieveResult(1, "select ok", list);
-	}
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("mgCode"   , accModel.getMgCode());
+		param.put("accountNo", accModel.getAccountNo().replaceAll(" ", ""));
 
-	public void selectByAccountName(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
-
-		request.putLongParam("userId", request.getLongParam("userId") );
-		request.putStringParam("accountName", request.getStringParam("accountName") );
-
-		System.out.println("userId   param: " + request.getLongParam("userId") ); 
-		System.out.println("accountName  param: " + request.getStringParam("accountName") ); 
-
-		List<GridDataModel> list = sqlSession.selectList(mapperName + ".selectByAccountName", request.getParam());
-		result.setRetrieveResult(1, "select ok", list);
+		List<GridDataModel> list = sqlSession.selectList("cst02_account.getAccInfo", param);
+		System.out.println("size : " + list.size());
+		if (list.size() == 0) {
+			result.setMessage("계좌정보 조회 실패. 증권사 및 계좌번호를 확인하여 주십시오.");
+			result.setStatus(-1);
+		} else {
+			result.setRetrieveResult(list.size(), "select ok", list);
+		}
 	}
 
-	public void selectByUserId(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+	public void selectFundCodeList(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+		String sqlId = "cst02_account.selectFundCodeList"; 
+		List<GridDataModel> list = sqlSession.selectList(sqlId, request.getLongParam("userId")) ;
+		result.setRetrieveResult(1, sqlId, list);
+	}
 
-		System.out.println("userId   param: " + request.getLongParam("userId") ); 
-
-		List<GridDataModel> list = sqlSession.selectList(mapperName + ".selectByUserId", request.getLongParam("userId"));
-		result.setRetrieveResult(1, "select ok", list);
+	public void selectMgCombo(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+		String sqlId = "cst02_account.selectMgCombo"; 
+		List<GridDataModel> list = sqlSession.selectList(sqlId) ;
+		result.setRetrieveResult(1, sqlId, list);
 	}
 
 	public void update(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
-		
-//		for(GridDataModel data : request.getList()) {
-//			Pln02_PlanModel planModel = (Pln02_PlanModel)data; 
-//			if(planModel.getFundId() == null) {
-//				result.setRetrieveResult(-1, "펀드선택이 되지 않았습니다.", null);
-//				return; 
-//			}
-//		}
-		UpdateDataModel<Pln02_PlanModel> updateModel = new UpdateDataModel<Pln02_PlanModel>(); 
+		UpdateDataModel<Cst02_AccountModel> updateModel = new UpdateDataModel<Cst02_AccountModel>(); 
 		updateModel.updateModel(sqlSession, request.getList(), mapperName, result);
 	}
 
 	public void delete(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
-//		for (GridDataModel data : request.getList()) {
-//			Pln02_PlanModel deleteModel = (Pln02_PlanModel) data;
-//			if (deleteModel.getApprId() != null) {
-//				deleteAppr(sqlSession, deleteModel.getApprId());
-//			}
-//		}
-		UpdateDataModel<Pln02_PlanModel> updateModel = new UpdateDataModel<Pln02_PlanModel>(); 
+		UpdateDataModel<Cst02_AccountModel> updateModel = new UpdateDataModel<Cst02_AccountModel>(); 
 		updateModel.deleteModel(sqlSession, request.getList(), mapperName, result);
 	}
 	

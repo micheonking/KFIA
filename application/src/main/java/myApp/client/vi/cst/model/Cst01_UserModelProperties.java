@@ -22,5 +22,7 @@ public interface Cst01_UserModelProperties extends PropertyAccess<Cst01_UserMode
 	ValueProvider<Cst01_UserModel,	Date>	endDt();
 	ValueProvider<Cst01_UserModel,	String>	mrdRole();
 	ValueProvider<Cst01_UserModel,	Long>	companyId();
+	
+	ValueProvider<Cst01_UserModel,	String>	emailChk();
 
 }

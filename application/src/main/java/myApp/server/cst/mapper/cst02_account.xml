@@ -3,50 +3,57 @@
 
 <mapper namespace="cst02_account">
 
-<resultMap 	id="mapper" type="myApp.client.vi.cst.model.Cst02_AccountModel" >
-	<id		column="cst02_account_id"		property="accountId"/>
-	<result	column="cst02_user_id"			property="userId"/>
-	<result	column="cst02_mg_cd"			property="mgCode"/>
-	<result	column="cst02_account_no"		property="accountNo"/>
-	<result	column="cst02_fund_cd"			property="fundCode"/>
-	<result	column="cst02_account_nm"		property="accountName"/>
-	<result	column="cst02_account_branch"	property="accountBranch"/>
-	<result	column="cst02_branch_manager"	property="branchManager"/>
-	<result	column="cst02_manager_contact"	property="managerContact"/>
-</resultMap>
+	<resultMap 	id="mapper" type="myApp.client.vi.cst.model.Cst02_AccountModel" >
+		<id		column="cst02_account_id"		property="accountId"/>
+		<result	column="cst02_user_id"			property="userId"/>
+		<result	column="cst02_mg_cd"			property="mgCode"/>
+		<result	column="cst02_account_no"		property="accountNo"/>
+		<result	column="cst02_fund_cd"			property="fundCode"/>
+		<result	column="cst02_account_nm"		property="accountName"/>
+		<result	column="cst02_account_branch"	property="accountBranch"/>
+		<result	column="cst02_branch_manager"	property="branchManager"/>
+		<result	column="cst02_manager_contact"	property="managerContact"/>
+	</resultMap>
 
-<select id="selectById" resultMap="mapper" parameterType="Long" >
-	select	*
-	from	cst02_account
-	where	cst02_account_id	=	#{accountId}
-</select>
+	<resultMap type="myApp.client.vi.sys.model.Sys00_CommonComboBoxModel" id="mapper2">
+		<id     column="code"           		property="code"/>
+		<result column="name"          			property="name"/>
+	</resultMap>
 
-<select id="selectByAccountList" resultMap="mapper" parameterType="Long">
-	select	*
-	from	cst02_account
-	where	cst02_user_id	=	#{userId}
-</select>
+	<select id="selectById" resultMap="mapper" parameterType="Long" >
+		select	*
+		from	cst02_account
+		where	cst02_account_id	=	#{accountId}
+	</select>
 
-<select id="selectByAccountList2" resultMap="mapper" parameterType="Long">
-	select	*   
-	
-	
-	
-	
-	from	cst02_account
-<!-- 	where	cst02_user_id	=	#{userId} -->
-</select>
+	<select id="getAccInfo" resultMap="mapper" parameterType="HashMap">
+		select	fund_cd as cst02_fund_cd
+		     ,  fund_nm as cst02_account_nm 
+		  from	cst03_icam_accounts
+	  	 where	mg_cd   = #{mgCode}
+		   and	acc_no	= #{accountNo}
+		   and  rownum = 1
+	</select>
 
-<select id="selectByAccountName" resultMap="mapper" parameterType="HashMap">
-	select	*
-	from	cst02_account
-	where	cst02_user_id = #{userId}
-	and		cst02_account_nm like #{accountName}
-</select>
+	<select id="selectFundCodeList" resultMap="mapper2" parameterType="HashMap">
+		select concat(rpad(substr(cst02_account_no,1,3),12,'*'),'  '||cst02_account_nm) as name
+		     , cst02_fund_cd as code
+		  from cst02_account
+		 where cst02_user_id = #{userId}
+		 order by cst02_account_id
+	</select>
 
-<select id="getPreDate" resultType="String" parameterType="HashMap">
-    select to_char(sysdate - 1,'yyyy-mm-dd') as preDate
-      from dual
-</select>
+	<select id="selectMgCombo" resultMap="mapper2" parameterType="HashMap">
+		select	mg_cd_nm||decode(mg_cd,'00028','(구)') as name
+		     ,  mg_cd as code
+		  from	cst03_icam_accounts
+		 group	by mg_cd_nm, mg_cd 
+		 order	by 2
+	</select>
+
+	<select id="getPreDate" resultType="String" parameterType="HashMap">
+	    select to_char(sysdate - 1,'yyyy-mm-dd') as preDate
+	      from dual
+	</select>
 
 </mapper>

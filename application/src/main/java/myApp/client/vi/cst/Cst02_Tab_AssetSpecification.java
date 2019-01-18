@@ -19,7 +19,6 @@ import myApp.client.field.MyDateField;
 import myApp.client.grid.InterfaceGridOperate;
 import myApp.client.grid.SearchBarBuilder;
 import myApp.client.vi.LoginUser;
-import myApp.client.vi.cst.Cst01_Tab_BaseInfo.RDTemplate;
 
 public class Cst02_Tab_AssetSpecification extends BorderLayoutContainer implements InterfaceGridOperate {
 	

@@ -206,8 +206,8 @@ public class MenuOpener {
 		}
 
 		// RD 테스트	Cst01_Tab_BaseInfo
-		if ("Cst01_Tab_BaseInfo".equals(className)) {
-			return (Widget) GWT.create(myApp.client.vi.cst.Cst01_Tab_BaseInfo.class);
+		if ("Rpt01_Tab_BaseInfo".equals(className)) {
+			return (Widget) GWT.create(myApp.client.vi.rpt.Rpt01_Tab_BaseInfo.class);
 		}
 		if ("Cst02_Tab_AssetSpecification".equals(className)) {
 			return (Widget) GWT.create(myApp.client.vi.cst.Cst02_Tab_AssetSpecification.class);
@@ -231,13 +231,6 @@ public class MenuOpener {
 		if ("Notification.class".equals(className)) {
 			return (Widget) GWT.create(myApp.client.vi.hom.report.Notification.class);
 		}
-		//cst
-		if ("Cst99_Tab_account.class".equals(className)) {
-			return (Widget) GWT.create(myApp.client.vi.cst.Cst99_Tab_account.class);
-		}
-	 
-	
-		
 		
 		return null;
 	}

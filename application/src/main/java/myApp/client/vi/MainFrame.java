@@ -12,7 +12,7 @@ import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
 
-import myApp.client.vi.cst.Cst01_Tab_BaseInfo;
+import myApp.client.vi.rpt.Rpt01_Tab_BaseInfo;
 import myApp.client.vi.hom.StartPage;
 
 public class MainFrame extends BorderLayoutContainer {
@@ -65,7 +65,7 @@ public class MainFrame extends BorderLayoutContainer {
 //		tabPanel.add(new TabBorder(), "스케쥴"); // my page setting
 		switch (""+LoginUser.getCompanyId()) {
 		case "2062721" :
-			tabPanel.add(new Cst01_Tab_BaseInfo(), "기본정보");
+			tabPanel.add(new Rpt01_Tab_BaseInfo(), "기본정보");
 			break;
 		default :
 			tabPanel.add(new TabBorder(), "스케쥴");

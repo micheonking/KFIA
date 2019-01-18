@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="cst03_icam_acc">
+<mapper namespace="cst03_icam_accounts">
 
 <resultMap 	id="mapper" type="myApp.client.vi.cst.model.Cst03_IcamAccountsModel" >
 	<id		column="icam_account_id"	property="icamAccountId"/>
@@ -31,23 +31,14 @@
 	where	fund_cd	=	#{code}
 </select>
 
-<select id="selectByMgCombo" resultMap="mapper" parameterType="Long">
-
-	select	to_number(mg_cd) as icam_account_id 
-	     ,	mg_cd as mg_cd
-	 	 ,	mg_cd_nm||decode(mg_cd,'00028','(구)') as mg_cd_nm
-	     ,	mg_cd as fund_cd
-	  from	cst03_icam_accounts
-	 group	by mg_cd_nm, mg_cd 
-	 order	by 2
-</select>
-
-
-<select id="getFundCode" resultType="String" parameterType="HashMap">
-   select	fund_cd
-   from		cst03_icam_accounts
-   where	mg_cd  = #{mgCode}
-   and		acc_no = #{accNo}
-</select>
+<!-- <select id="selectByMgCombo" resultMap="mapper" parameterType="Long"> -->
+<!-- 	select	to_number(mg_cd) as icam_account_id  -->
+<!-- 	     ,	mg_cd as mg_cd -->
+<!-- 	 	 ,	mg_cd_nm||decode(mg_cd,'00028','(구)') as mg_cd_nm -->
+<!-- 	     ,	mg_cd as fund_cd -->
+<!-- 	  from	cst03_icam_accounts -->
+<!-- 	 group	by mg_cd_nm, mg_cd  -->
+<!-- 	 order	by 2 -->
+<!-- </select> -->
 
 </mapper>

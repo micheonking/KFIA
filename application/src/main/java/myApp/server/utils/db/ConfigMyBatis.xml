@@ -37,11 +37,11 @@
 	<!-- database KFIA 처리 -->
 	<mapper resource="myApp/server/cst/mapper/cst01_user.xml"/>
 	<mapper resource="myApp/server/cst/mapper/cst02_account.xml"/>
-	<mapper resource="myApp/server/cst/mapper/cst03_icam_acc.xml"/>
+	<mapper resource="myApp/server/cst/mapper/cst03_icam_accounts.xml"/>
+
 	<mapper resource="myApp/server/hom/mapper/hom01_outline.xml"/>
 	<mapper resource="myApp/server/hom/mapper/hom02_board.xml"/>
 	<mapper resource="myApp/server/hom/mapper/hom03_operating.xml"/>
-	<mapper resource="myApp/server/cst/mapper/cst99_user.xml"/> 
 	
 	<!-- Report 업무단 처리  -->
 	<mapper resource="myApp/server/rpt/mapper/rpt01_DailyAccount.xml"/>

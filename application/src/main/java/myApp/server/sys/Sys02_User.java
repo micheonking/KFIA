@@ -25,77 +25,75 @@ public class Sys02_User {
 	
 	public void getLoginInfo(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
 		
-		String loginId = request.getStringParam("loginId");
+		Long companyId = request.getLongParam("companyId");
+		String loginId = request.getStringParam("loginId").replaceAll(" ", "");
 //		String passwd = request.getStringParam("passwd");
 		String otpNumber = request.getStringParam("otpNumber");
 		
-		if ((otpNumber == null)||("".equals(otpNumber))) {
+		if ((otpNumber == null)||("".equals(otpNumber.replaceAll(" ", "")))) {
 			result.fail(-1, "OTP인증번호를 입력하여 주십시오.");
 			return;
-			
 		}
 		
-		// 사원부터 찾는다. 
-		Cst01_UserModel cstUserModel = sqlSession.selectOne("cst01_user.selectByLoginId", loginId) ;
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("companyId",  companyId);
+		param.put("loginId", loginId);
+		
+		System.out.println("companyId : " + companyId);
+		System.out.println("loginId   : " + loginId);
+		
+		Cst01_UserModel cstUserModel = sqlSession.selectOne("cst01_user.selectByLoginId", param) ;
 		if(cstUserModel != null) {
 			String emailAddr	= cstUserModel.getEmail(); 
 			String mobileTelno	= cstUserModel.getPhoneNo().replace("-", "");
-			String cycleTime	= "60";	//	cstUserModel.getCycleTime();
-			
+			String cycleTime	= "60";
+
 			System.out.println("emailAddr   => [" + emailAddr + "]");
 			System.out.println("mobileTelno => [" + mobileTelno + "]");
-			System.out.println("cycleTime   => [" + cycleTime + "]");
 			System.out.println("otpNumber   => [" + otpNumber + "]");
-			
-			Sys01_CompanyModel companyModel = sqlSession.selectOne("sys01_company.selectById", cstUserModel.getCompanyId());
-			if (otpNumber.equals(companyModel.getTelNo02())) {
-				result.setModel(30, "pass user!", cstUserModel);
-			} else {
-//				if (barootp.verifyTOTPL(emailAddr, mobileTelno, cycleTime, otpNumber)) {
-				if (barokey.verifyKEYL(emailAddr, mobileTelno, cycleTime, otpNumber)) {
-//					// find emp info check password or OTP number => return 10
-					result.setModel(30, "find employee user!", cstUserModel);
-				} else {
-					result.fail(-1, cstUserModel.getCompanyId() + "OTP인증번호가 틀립니다.1");
-				}
-			}
+
+//			if (barokey.verifyKEYL(emailAddr, mobileTelno, cycleTime, otpNumber)) {
+				result.setModel(30, "find employee user!", cstUserModel);
+//			} else {
+//				result.fail(-1, "OTP인증번호가 틀립니다.");
+//			}
 			return ;
 		}
 
 		// 사원부터 찾는다. 
-		Emp00_InfoModel empInfo = sqlSession.selectOne("emp00_info.selectByLoginId", loginId) ;
-		if(empInfo != null) {
-			String emailAddr	= empInfo.getEmailAddress(); 
-			String mobileTelno	= empInfo.getMobileTelNo().replace("-", "");
-			String cycleTime	= "60";	//	empInfo.getCycleTime();
-			
-			System.out.println("emailAddr   => [" + emailAddr + "]");
-			System.out.println("mobileTelno => [" + mobileTelno + "]");
-			System.out.println("cycleTime   => [" + cycleTime + "]");
-			System.out.println("otpNumber   => [" + otpNumber + "]");
-			
-			Sys01_CompanyModel companyModel = sqlSession.selectOne("sys01_company.selectById", empInfo.getCompanyId());
-			if (otpNumber.equals(companyModel.getTelNo02())) {
-				result.setModel(10, "pass user!", empInfo);
-			} else {
-//				if (barootp.verifyTOTPL(emailAddr, mobileTelno, cycleTime, otpNumber)) {
-				if (barokey.verifyKEYL(emailAddr, mobileTelno, cycleTime, otpNumber)) {
-//					// find emp info check password or OTP number => return 10
-					result.setModel(10, "find employee user!", empInfo);
-				} else {
-					result.fail(-1, "OTP인증번호가 틀립니다.2");
-				}
-			}
-			return ;
-		}
+//		Emp00_InfoModel empInfo = sqlSession.selectOne("emp00_info.selectByLoginId", loginId) ;
+//		if(empInfo != null) {
+//			String emailAddr	= empInfo.getEmailAddress(); 
+//			String mobileTelno	= empInfo.getMobileTelNo().replace("-", "");
+//			String cycleTime	= "60";	//	empInfo.getCycleTime();
+//			
+//			System.out.println("emailAddr   => [" + emailAddr + "]");
+//			System.out.println("mobileTelno => [" + mobileTelno + "]");
+//			System.out.println("cycleTime   => [" + cycleTime + "]");
+//			System.out.println("otpNumber   => [" + otpNumber + "]");
+//			
+//			Sys01_CompanyModel companyModel = sqlSession.selectOne("sys01_company.selectById", empInfo.getCompanyId());
+//			if (otpNumber.equals(companyModel.getTelNo02())) {
+//				result.setModel(10, "pass user!", empInfo);
+//			} else {
+////				if (barootp.verifyTOTPL(emailAddr, mobileTelno, cycleTime, otpNumber)) {
+//				if (barokey.verifyKEYL(emailAddr, mobileTelno, cycleTime, otpNumber)) {
+////					// find emp info check password or OTP number => return 10
+//					result.setModel(10, "find employee user!", empInfo);
+//				} else {
+//					result.fail(-1, "OTP인증번호가 틀립니다.2");
+//				}
+//			}
+//			return ;
+//		}
 
 		// 없으면 user table에서 찾는다., user로 등록된 사람은 관리자이다. 
-		Sys02_UserModel userInfo = sqlSession.selectOne(mapperName + ".selectByLoginId", loginId) ;
-		if(userInfo != null) {
-			// find user info => return 20
-			result.setModel(20, "login OK", userInfo);
-			return ; 
-		}
+//		Sys02_UserModel userInfo = sqlSession.selectOne(mapperName + ".selectByLoginId", loginId) ;
+//		if(userInfo != null) {
+//			// find user info => return 20
+//			result.setModel(20, "login OK", userInfo);
+//			return ; 
+//		}
 
 		// not found employee or user 
 		result.fail(-1, "등록된 사용자 정보가 아닙니다. 입력정보를 확인하여 주십시요!");

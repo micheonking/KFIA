@@ -19,8 +19,8 @@ public class LoginUser {
 
 	public static Boolean isAdmin = false ; 
 	public static Boolean isManager = false ; 
+	public static String  fundCode;
 
-	
 	public static void setIsAdmin(Boolean adminYn) {
 		isAdmin = adminYn ; 
 	}
@@ -49,8 +49,16 @@ public class LoginUser {
 	public static void setCstUserModel(Cst01_UserModel cstUserModel2) {
 		cstUserModel = cstUserModel2; 
 	}
+	
+	public static void setFundCode(String fundCd) {
+		fundCode = fundCd;
+	}
 
- 	public static long getCompanyId() {
+	public static String getFundCode() {
+		return fundCode;
+	}
+
+	public static long getCompanyId() {
  		
  		if(isAdmin) {
  			return 0 ; // admin은 사용자 정보가 없다.  
