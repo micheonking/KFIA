@@ -26,6 +26,7 @@ public class Cst01_UserModel implements GridDataModel {
 	
 	private String	emailChk;
 	private String  fundCode;
+	private String  fundComboBoxName;
 	
 	private Sys01_CompanyModel companyModel = new Sys01_CompanyModel();
 
@@ -176,6 +177,14 @@ public class Cst01_UserModel implements GridDataModel {
 
 	public void setCompanyModel(Sys01_CompanyModel companyModel) {
 		this.companyModel = companyModel;
+	}
+
+	public String getFundComboBoxName() {
+		return fundComboBoxName;
+	}
+
+	public void setFundComboBoxName(String fundComboBoxName) {
+		this.fundComboBoxName = fundComboBoxName;
 	}
 
 }

@@ -20,6 +20,7 @@ import myApp.client.service.ServiceRequest;
 import myApp.client.service.ServiceResult;
 import myApp.client.utils.GridDataModel;
 import myApp.client.utils.InterfaceCallbackResult;
+import myApp.client.utils.SimpleMessage;
 import myApp.client.vi.LoginUser;
 import myApp.client.vi.sys.model.Sys00_CommonComboBoxModel;
 
@@ -125,7 +126,20 @@ public class CommonComboBoxField extends StringComboBox implements InterfaceServ
 		ServiceCall service = new ServiceCall();
 		service.execute(request, this);
 	}
-	
+
+	public void retrieve(String serviceName, Map param) {
+		ServiceRequest request = new ServiceRequest(serviceName);
+		if(param != null) {
+			Iterator<String> keys = param.keySet().iterator();
+			while(keys.hasNext()) {
+				String key = keys.next();
+				request.addParam(key, param.get(key));
+			}
+		}
+		ServiceCall service = new ServiceCall();
+		service.execute(request, this);
+	}
+
 	@Override
 	public void getServiceResult(ServiceResult result) {
 		

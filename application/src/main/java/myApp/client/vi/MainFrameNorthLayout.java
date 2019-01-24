@@ -32,7 +32,6 @@ import myApp.client.resource.ResourceIcon;
 import myApp.client.service.InterfaceCallback;
 import myApp.client.utils.SimpleMessage;
 import myApp.client.vi.LoginUser;
-import myApp.client.vi.rpt.Rpt01_Tab_BaseInfo;
 
 public class MainFrameNorthLayout extends BorderLayoutContainer {
 
@@ -56,28 +55,28 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 		header.add(image, new BoxLayoutData(new Margins(5, 0, 0, 20)));
 		
 		// 계좌 ComboBox
-		if(LoginUser.getCompanyId() == 2062721) {
-			Map<String, Object> param = new HashMap<String, Object>();
-			param.put("userId", LoginUser.getUserId());
-			fundComboBox = new CommonComboBoxField("cst.Cst02_Account.selectFundCodeList", param, new InterfaceCallback() {
-				@Override
-				public void execute() {
-//					LoginUser.setFundCode(fundComboBox.getCode());
-				}
-			});
-			fundComboBox.addCollapseHandler(new CollapseHandler() {
-				@Override
-				public void onCollapse(CollapseEvent event) {
-					LoginUser.getCstUserModel().setFundCode(fundComboBox.getCode());
-				}
-			});
-			FieldLabel fundCodeField = new FieldLabel(fundComboBox, "계좌 ");
-			fundCodeField.setLabelWidth(90);
-			fundCodeField.setWidth(400);
-			fundComboBox.setWidth(300);
-			header.add(fundCodeField, new BoxLayoutData(new Margins(9, 30, 0, 6)));
-//			header.add(fundComboBox, new BoxLayoutData(new Margins(9, 0, 0, 30)));
-		}
+//		if(LoginUser.getCompanyId() == 2062721) {
+//			Map<String, Object> param = new HashMap<String, Object>();
+//			param.put("userId", LoginUser.getUserId());
+//			fundComboBox = new CommonComboBoxField("cst.Cst02_Account.selectFundCodeList", param, new InterfaceCallback() {
+//				@Override
+//				public void execute() {
+////					LoginUser.setFundCode(fundComboBox.getCode());
+//				}
+//			});
+//			fundComboBox.addCollapseHandler(new CollapseHandler() {
+//				@Override
+//				public void onCollapse(CollapseEvent event) {
+//					LoginUser.getCstUserModel().setFundCode(fundComboBox.getCode());
+//				}
+//			});
+//			FieldLabel fundCodeField = new FieldLabel(fundComboBox, "계좌 ");
+//			fundCodeField.setLabelWidth(90);
+//			fundCodeField.setWidth(400);
+//			fundComboBox.setWidth(300);
+//			header.add(fundCodeField, new BoxLayoutData(new Margins(9, 30, 0, 6)));
+////			header.add(fundComboBox, new BoxLayoutData(new Margins(9, 0, 0, 30)));
+//		}
 		BoxLayoutData boxLayoutData = new BoxLayoutData(new Margins(0, 0, 0, 0)); 
 		boxLayoutData.setFlex(1);
 		header.add(new Label(), boxLayoutData);

@@ -59,6 +59,7 @@ public class Sys02_User {
 				List<Sys00_CommonComboBoxModel> fundList = sqlSession.selectList("cst02_account.selectFundCodeList", fundParam);
 				if (fundList != null) {
 					cstUserModel.setFundCode(fundList.get(0).getCode());
+					cstUserModel.setFundComboBoxName(fundList.get(0).getName());
 					result.setModel(30, "find employee user!", cstUserModel);
 				}
 //			} else {

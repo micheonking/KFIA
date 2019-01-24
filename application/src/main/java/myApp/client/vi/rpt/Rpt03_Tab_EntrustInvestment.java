@@ -15,6 +15,8 @@ import com.sencha.gxt.core.client.util.Margins;
 import com.sencha.gxt.core.client.util.ToggleGroup;
 import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
+import com.sencha.gxt.widget.core.client.event.CollapseEvent;
+import com.sencha.gxt.widget.core.client.event.CollapseEvent.CollapseHandler;
 import com.sencha.gxt.widget.core.client.form.FieldLabel;
 import com.sencha.gxt.widget.core.client.form.Radio;
 import com.sencha.gxt.widget.core.client.info.Info;
@@ -29,8 +31,8 @@ import myApp.client.vi.LoginUser;
 public class Rpt03_Tab_EntrustInvestment extends VerticalLayoutContainer implements InterfaceGridOperate {
 
 	VerticalLayoutContainer rdLayoutContainer = new VerticalLayoutContainer();
-	
-	CommonComboBoxField yearComboBox = null;
+	private CommonComboBoxField fundComboBox = null;
+	private CommonComboBoxField yearComboBox = null;
 	private String mmdd = null;
 	private Radio radio1 = new Radio();
 	private Radio radio2 = new Radio();
@@ -43,13 +45,37 @@ public class Rpt03_Tab_EntrustInvestment extends VerticalLayoutContainer impleme
 	}
 
 	public Rpt03_Tab_EntrustInvestment() {
-		this.setBorders(false); 
+ 
 		SearchBarBuilder searchBarBuilder = new SearchBarBuilder(this);
 
-		//년도 SET
-		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("fundCode", LoginUser.getCstUserModel().getFundCode());
-		yearComboBox = new CommonComboBoxField("cst.Cst02_Account.selectYearCombo", param, new InterfaceCallback() {
+		//계좌
+		Map<String, Object> fundFaram = new HashMap<String, Object>();
+		fundFaram.put("userId", LoginUser.getUserId());
+		fundComboBox = new CommonComboBoxField("cst.Cst02_Account.selectFundCodeList", fundFaram, new InterfaceCallback() {
+			@Override
+			public void execute() {
+				fundComboBox.setText(LoginUser.getCstUserModel().getFundComboBoxName());
+				retrieve();
+			}
+		});
+		fundComboBox.addCollapseHandler(new CollapseHandler() {
+			@Override
+			public void onCollapse(CollapseEvent event) {
+				LoginUser.getCstUserModel().setFundCode(fundComboBox.getCode());
+				LoginUser.getCstUserModel().setFundComboBoxName(fundComboBox.getText());
+				reSetYearComboBox(fundComboBox.getCode());
+			}
+		});
+		FieldLabel fundCodeField = new FieldLabel(fundComboBox, "계좌 ");
+		fundCodeField.setLabelWidth(50);
+		fundCodeField.setWidth(350);
+		fundComboBox.setWidth(300);
+		fundComboBox.setValue(LoginUser.getCstUserModel().getFundComboBoxName());
+
+		//년도
+		Map<String, Object> yearParam = new HashMap<String, Object>();
+		yearParam.put("fundCode", LoginUser.getCstUserModel().getFundCode());
+		yearComboBox = new CommonComboBoxField("cst.Cst02_Account.selectYearCombo", yearParam, new InterfaceCallback() {
 			@Override
 			public void execute() {
 				retrieve();
@@ -58,9 +84,8 @@ public class Rpt03_Tab_EntrustInvestment extends VerticalLayoutContainer impleme
 		FieldLabel yearField = new FieldLabel(yearComboBox, "년도 ");
 		yearField.setWidth(150);
 		yearField.setLabelWidth(50);
-		searchBarBuilder.getSearchBar().add(yearField);
 
-		//분기 SET
+		//분기
 		radio1.setBoxLabel("1분기");
 		radio2.setBoxLabel("2분기");
 		radio3.setBoxLabel("3분기");
@@ -129,20 +154,27 @@ public class Rpt03_Tab_EntrustInvestment extends VerticalLayoutContainer impleme
 		radioField.setWidth(300);
 		radioField.setLabelWidth(10);
 		radioField.setHeight(30);
-		searchBarBuilder.getSearchBar().add(radioField);
 
-		//조회버튼 SET
+		searchBarBuilder.getSearchBar().add(fundCodeField);
+		searchBarBuilder.getSearchBar().add(yearField);
+		searchBarBuilder.getSearchBar().add(radioField);
 		searchBarBuilder.addRetrieveButton();
 
 		this.add(searchBarBuilder.getSearchBar(), new VerticalLayoutData(1, 50, new Margins(1, 0, 0, 0)));
 		this.add(rdLayoutContainer, new VerticalLayoutData(1,1, new Margins(0,10,0,0)));
 	}
 
+	private void reSetYearComboBox(String fundCode) {
+		Map<String, Object> yearParam = new HashMap<String, Object>();
+		yearParam.put("fundCode", fundCode);
+		yearComboBox.retrieve("cst.Cst02_Account.selectYearCombo", yearParam);
+	}
+
 	@Override
 	public void retrieve() {
 		String pageName = "http://172.20.200.252:8283/ReportingServer/html5/RDhtml/";
 		String companyCode = LoginUser.getCstUserModel().getCompanyModel().getCompanyCode();
-		String fundCode = LoginUser.getCstUserModel().getFundCode(); 
+		String fundCode = fundComboBox.getCode(); 
 		String ymd = yearComboBox.getCode() + mmdd;
 		if (fundCode == null) {
 			new SimpleMessage("확인","계좌를 선택하여 주십시오.");

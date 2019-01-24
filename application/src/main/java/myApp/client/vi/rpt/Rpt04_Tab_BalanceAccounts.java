@@ -14,6 +14,8 @@ import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
+import com.sencha.gxt.widget.core.client.event.CollapseEvent;
+import com.sencha.gxt.widget.core.client.event.CollapseEvent.CollapseHandler;
 import com.sencha.gxt.widget.core.client.form.FieldLabel;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
@@ -32,8 +34,8 @@ import myApp.client.vi.LoginUser;
 public class Rpt04_Tab_BalanceAccounts extends VerticalLayoutContainer implements InterfaceGridOperate, InterfaceServiceCall {
 	
 	VerticalLayoutContainer rdLayoutContainer = new VerticalLayoutContainer();
-	CommonComboBoxField settleDateCombo = null;
-
+	private CommonComboBoxField fundComboBox = null;
+	private CommonComboBoxField settleDateCombo = null;
 	private String retrieveYn = "Y";
 	private String pageName = "http://172.20.200.252:8283/ReportingServer/html5/RDhtml/";
 	
@@ -43,9 +45,34 @@ public class Rpt04_Tab_BalanceAccounts extends VerticalLayoutContainer implement
 	}
 
 	public Rpt04_Tab_BalanceAccounts() {
-		this.setBorders(false); 
+
 		SearchBarBuilder searchBarBuilder = new SearchBarBuilder(this);
 
+		//계좌
+		Map<String, Object> fundFaram = new HashMap<String, Object>();
+		fundFaram.put("userId", LoginUser.getUserId());
+		fundComboBox = new CommonComboBoxField("cst.Cst02_Account.selectFundCodeList", fundFaram, new InterfaceCallback() {
+			@Override
+			public void execute() {
+				fundComboBox.setText(LoginUser.getCstUserModel().getFundComboBoxName());
+			}
+		});
+		fundComboBox.addCollapseHandler(new CollapseHandler() {
+			@Override
+			public void onCollapse(CollapseEvent event) {
+				LoginUser.getCstUserModel().setFundCode(fundComboBox.getCode());
+				LoginUser.getCstUserModel().setFundComboBoxName(fundComboBox.getText());
+				retrieveYn = "N";
+				reSetSettleDateComboBox(fundComboBox.getCode());
+			}
+		});
+		FieldLabel fundCodeField = new FieldLabel(fundComboBox, "계좌 ");
+		fundCodeField.setLabelWidth(50);
+		fundCodeField.setWidth(350);
+		fundComboBox.setWidth(300);
+		fundComboBox.setValue(LoginUser.getCstUserModel().getFundComboBoxName());
+
+		//결산일
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("fundCode", LoginUser.getCstUserModel().getFundCode());
 		settleDateCombo = new CommonComboBoxField("cst.Cst02_Account.selectSettlementDateCombo", param, new InterfaceCallback() {
@@ -63,12 +90,19 @@ public class Rpt04_Tab_BalanceAccounts extends VerticalLayoutContainer implement
 		FieldLabel dateField = new FieldLabel(settleDateCombo, "결산일");
 		dateField.setWidth(170);
 		dateField.setLabelWidth(55);
+
+		searchBarBuilder.getSearchBar().add(fundCodeField);
 		searchBarBuilder.getSearchBar().add(dateField);
-		
 		searchBarBuilder.addRetrieveButton();
 
 		this.add(searchBarBuilder.getSearchBar(), new VerticalLayoutData(1, 50, new Margins(1, 0, 0, 0)));
 		this.add(rdLayoutContainer, new VerticalLayoutData(1,1, new Margins(0,10,0,0)));
+	}
+
+	private void reSetSettleDateComboBox(String fundCode) {
+		Map<String, Object> Param = new HashMap<String, Object>();
+		Param.put("fundCode", fundCode);
+		settleDateCombo.retrieve("cst.Cst02_Account.selectSettlementDateCombo", Param);
 	}
 
 	@Override
