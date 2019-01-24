@@ -219,7 +219,7 @@ public class MenuOpener {
 			return (Widget) GWT.create(myApp.client.vi.rpt.Rpt04_Tab_BalanceAccounts.class);
 		}
 		if ("Rpt05_Tab_TerminationAll".equals(className)) {
-			return (Widget) GWT.create(myApp.client.vi.cst.Cst05_Tab_TerminationAll.class);
+			return (Widget) GWT.create(myApp.client.vi.rpt.Rpt05_Tab_TerminationAll.class);
 		}
 		if ("Dbm01_RD_TabComments.class".equals(className)) {
 			return (Widget) GWT.create(myApp.client.vi.dbm.Dbm01_RD_TabComments.class);

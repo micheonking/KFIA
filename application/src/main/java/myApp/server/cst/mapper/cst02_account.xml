@@ -73,7 +73,23 @@
  	</select>
 
 	<select id="getSettlementDate" resultType="String" parameterType="HashMap">
-		select to_char(bf_gyul_ymd,'yyyy.mm.dd')||to_char(af_gyul_ymd,'yyyy.mm.dd') as code
+		select to_char(bf_gyul_ymd,'yyyy.mm.dd')||'|'||to_char(af_gyul_ymd,'yyyy.mm.dd') as code
+		  from cst04_icam_accounts_date_info
+		 where fund_cd = #{fundCode}
+		   and tr_ymd = #{ymd}
+ 	</select>
+
+	<select id="selectCloseDateCombo" resultMap="mapper2" parameterType="HashMap">
+		select to_char(tr_ymd, 'yyyy-mm-dd') as name
+		     , to_char(tr_ymd, 'yyyymmdd') as code
+		  from cst04_icam_accounts_date_info
+		 where fund_cd = #{fundCode}
+		   and tr_nm = '해지'
+		 order by tr_ymd desc
+ 	</select>
+
+	<select id="getCloseDate" resultType="String" parameterType="HashMap">
+		select to_char(bf_gyul_ymd,'yyyy.mm.dd')||'|'||to_char(af_gyul_ymd,'yyyy.mm.dd')||'|'||to_char(af_bosu_ymd,'yyyy.mm.dd')||'|'||to_char(af_bosu_ymd,'yyyy.mm.dd') as code
 		  from cst04_icam_accounts_date_info
 		 where fund_cd = #{fundCode}
 		   and tr_ymd = #{ymd}

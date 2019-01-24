@@ -68,18 +68,36 @@ public class Cst02_Account {
 		List<GridDataModel> list = sqlSession.selectList(sqlId, request.getParam()) ;
 		result.setRetrieveResult(1, sqlId, list);
 	}
-	
+
 	public void getSettlementDate(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
 		String date = sqlSession.selectOne("cst02_account.getSettlementDate", request.getParam());
 		if(date == null) {
-			result.setMessage("결산정산내역이 없습니다.(2)");
+			result.setMessage("결산정산 내역이 없습니다.(2)");
 			result.setStatus(-1);
 		} else {
 			result.setMessage(date);
 			result.setStatus(1);
 		}
 	}
-	
+
+	public void selectCloseDateCombo(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+		String sqlId = "cst02_account.selectCloseDateCombo"; 
+		List<GridDataModel> list = sqlSession.selectList(sqlId, request.getParam()) ;
+		result.setRetrieveResult(1, sqlId, list);
+	}
+
+	public void getCloseDate(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+		String date = sqlSession.selectOne("cst02_account.getCloseDate", request.getParam());
+		if(date == null) {
+			result.setMessage("전부해지정산 내역이 없습니다.(2)");
+			result.setStatus(-1);
+		} else {
+			System.out.println(date);
+			result.setMessage(date);
+			result.setStatus(1);
+		}
+	}
+
 	public void update(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
 		UpdateDataModel<Cst02_AccountModel> updateModel = new UpdateDataModel<Cst02_AccountModel>(); 
 		updateModel.updateModel(sqlSession, request.getList(), mapperName, result);
