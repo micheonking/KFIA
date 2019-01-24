@@ -51,7 +51,7 @@ public class CoverPageBody extends ContentPanel {
 		centerVBox.setHeight(HEIGHT);
 
 		SafeHtml label1Html = SafeHtmlUtils.fromTrustedString(	"<center>"
-				+	"<div style='background-color: #1d7bbb; line-height:130%; '>"
+				+	"<div style='background-color: #1d7bbb; line-height:130%; border:5px solid silver'>"
 				+	"<span style='font-size:0.1em;'><br></span>"
 				+	"<div><img src='img/icon_left.png' width='32' height='40'></div>"
 				+	"<span style='font-size:0.1em;'><br></span>"
@@ -62,11 +62,11 @@ public class CoverPageBody extends ContentPanel {
 				);
 		LabelToolItem labelToolItem1 = new LabelToolItem(label1Html);
 		labelToolItem1.setWidth(300);
-		labelToolItem1.setHeight(142);
-		labelToolItem1.setBorders(true);
+//		labelToolItem1.setHeight(142);
+//		labelToolItem1.setBorders(true);
 
 		SafeHtml label2Html = SafeHtmlUtils.fromTrustedString(	"<center>"
-				+	"<div style='background-color: #349da0; line-height:130%; '>"
+				+	"<div style='background-color: #349da0; line-height:130%; border:5px solid silver'>"
 				+	"<span style='font-size:0.1em;'><br></span>"
 				+	"<div><img src='img/icon_middle.png' width='40' height='40'></div>"
 				+	"<span style='font-size:0.1em;'><br></span>"
@@ -77,11 +77,11 @@ public class CoverPageBody extends ContentPanel {
 				);
 		LabelToolItem labelToolItem2 = new LabelToolItem(label2Html);
 		labelToolItem2.setWidth(300);
-		labelToolItem2.setHeight(142);
-		labelToolItem2.setBorders(true);
+//		labelToolItem2.setHeight(142);
+//		labelToolItem2.setBorders(true);
 
 		SafeHtml label3Html = SafeHtmlUtils.fromTrustedString(	"<center>"
-				+	"<div style='background-color: #42339c; line-height:130%; '>"
+				+	"<div style='background-color: #42339c; line-height:130%; border:5px solid silver'>"
 				+	"<span style='font-size:0.1em;'><br></span>"
 				+	"<div><img src='img/icon_right.png' width='40' height='40'></div>"
 				+	"<span style='font-size:0.1em;'><br></span>"
@@ -92,8 +92,8 @@ public class CoverPageBody extends ContentPanel {
 				);
 		LabelToolItem labelToolItem3 = new LabelToolItem(label3Html);
 		labelToolItem3.setWidth(300);
-		labelToolItem3.setHeight(142);
-		labelToolItem3.setBorders(true);
+//		labelToolItem3.setHeight(142);
+//		labelToolItem3.setBorders(true);
 
 		HBoxLayoutContainer boxHBox = new HBoxLayoutContainer();
 		boxHBox.setHBoxLayoutAlign(HBoxLayoutAlign.MIDDLE);
@@ -121,8 +121,8 @@ public class CoverPageBody extends ContentPanel {
 	    TextButton textButton1 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 	    TextButton textButton2 = new TextButton(new TextButtonCell(new WhiteButtonCellAppearance<>()));
 		textButton1.setHTML(button4Html);
-		textButton1.setWidth(130);
-		textButton1.setHeight(30);
+//		textButton1.setWidth(130);
+//		textButton1.setHeight(60);
 		textButton1.setBorders(false);
 		textButton1.addSelectHandler(new SelectHandler() {
 			@Override
@@ -134,8 +134,8 @@ public class CoverPageBody extends ContentPanel {
 			}
 		});
 		textButton2.setHTML(button5Html);
-		textButton2.setWidth(130);
-		textButton2.setHeight(40);
+//		textButton2.setWidth(130);
+//		textButton2.setHeight(120);
 		textButton2.setBorders(false);
 		textButton2.addSelectHandler(new SelectHandler() {
 			@Override
@@ -148,8 +148,8 @@ public class CoverPageBody extends ContentPanel {
 			}
 		});
 
-		HorizontalLayoutData rowLayout1 = new HorizontalLayoutData(0.5, 30, new Margins(0, 380, 0, 18));	// Double Column Size
-		HorizontalLayoutData rowLayout2 = new HorizontalLayoutData(0.5, 160, new Margins(0, 0, 0, 18));	// Double Column Size
+		HorizontalLayoutData rowLayout1 = new HorizontalLayoutData(0.5, 40, new Margins(0, 380, 0, 18));	// Double Column Size
+		HorizontalLayoutData rowLayout2 = new HorizontalLayoutData(0.5, 180, new Margins(0, 0, 0, 18));		// Double Column Size
 
 		HorizontalLayoutContainer row00 = new HorizontalLayoutContainer();
 		row00.add(textButton1, rowLayout1);

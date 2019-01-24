@@ -19,9 +19,9 @@ import myApp.client.field.MyDateField;
 import myApp.client.grid.InterfaceGridOperate;
 import myApp.client.grid.SearchBarBuilder;
 import myApp.client.vi.LoginUser;
-import myApp.client.vi.rpt.Rpt04_Tab_BalanceAccounts.RDTemplate;
+import myApp.client.vi.cst.Cst01_Tab_BaseInfo.RDTemplate;
 
-public class Cst05_Tab_TerminationAll extends BorderLayoutContainer implements InterfaceGridOperate {
+public class Cst02_Tab_AssetSpecification extends BorderLayoutContainer implements InterfaceGridOperate {
 	
 	private MyDateField startDate  	= new MyDateField();
 	private ComboBox1FundCode fundCodeComboBox = new ComboBox1FundCode("");
@@ -33,7 +33,7 @@ public class Cst05_Tab_TerminationAll extends BorderLayoutContainer implements I
 	    SafeHtml getTemplate(String pageName);
 	}
 
-	public Cst05_Tab_TerminationAll() {
+	public Cst02_Tab_AssetSpecification() {
 		this.setBorders(false); 
 		
 		SearchBarBuilder searchBarBuilder = new SearchBarBuilder(this);
@@ -81,7 +81,7 @@ public class Cst05_Tab_TerminationAll extends BorderLayoutContainer implements I
 		RDTemplate rdTemplate = GWT.create(RDTemplate.class);
 
 		if(fundCode != "null") {
-			pageName = pageName + "web_sja031.html?ymd=" + ymd + "&fund_cd=" + fundCode;
+			pageName = pageName + "web_cs_portfolio.html?ymd=" + ymd + "&fund_cd=" + fundCode;
 		}
 		else {
 			pageName = pageName + "sample.html";
@@ -92,7 +92,6 @@ public class Cst05_Tab_TerminationAll extends BorderLayoutContainer implements I
 		rdLayoutContainer.add(htmlLayoutContainer, new VerticalLayoutData(1, 1));
 		this.setCenterWidget(rdLayoutContainer);
 	}
-
 
 	@Override
 	public void retrieve() {
