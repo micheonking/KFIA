@@ -74,6 +74,7 @@ public class Sys01_Tab_Company extends BorderLayoutContainer implements Interfac
 		GridBuilder<Sys01_CompanyModel> gridBuilder = new GridBuilder<Sys01_CompanyModel>(properties.keyId());  
 		gridBuilder.setChecked(SelectionMode.SINGLE);
 		
+		gridBuilder.addText(properties.companyCode(), 70, "고객번호", new TextField());
 		gridBuilder.addText(properties.companyName(), 150, "고객명", new TextField());
 		gridBuilder.addText(properties.bizNo(), 120, "사업자번호", new TextField());
 		gridBuilder.addText(properties.telNo01(), 100, "전화1", new TextField());

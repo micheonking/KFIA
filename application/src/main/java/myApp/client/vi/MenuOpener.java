@@ -205,20 +205,20 @@ public class MenuOpener {
 			return (Widget) GWT.create(myApp.client.vi.bbs.Bbs01_Tab_Board.class);
 		}
 
-		// RD 테스트	Cst01_Tab_BaseInfo
+		// 고객지원 페이지
 		if ("Rpt01_Tab_BaseInfo".equals(className)) {
 			return (Widget) GWT.create(myApp.client.vi.rpt.Rpt01_Tab_BaseInfo.class);
 		}
-		if ("Cst02_Tab_AssetSpecification".equals(className)) {
-			return (Widget) GWT.create(myApp.client.vi.cst.Cst02_Tab_AssetSpecification.class);
+		if ("Rpt02_Tab_AssetSpecification".equals(className)) {
+			return (Widget) GWT.create(myApp.client.vi.rpt.Rpt02_Tab_AssetSpecification.class);
 		}
-		if ("Cst03_Tab_EntrustInvestment".equals(className)) {
-			return (Widget) GWT.create(myApp.client.vi.cst.Cst03_Tab_EntrustInvestment.class);
+		if ("Rpt03_Tab_EntrustInvestment".equals(className)) {
+			return (Widget) GWT.create(myApp.client.vi.rpt.Rpt03_Tab_EntrustInvestment.class);
 		}
-		if ("Cst04_Tab_BalanceAccounts".equals(className)) {
-			return (Widget) GWT.create(myApp.client.vi.cst.Cst04_Tab_BalanceAccounts.class);
+		if ("Rpt04_Tab_BalanceAccounts".equals(className)) {
+			return (Widget) GWT.create(myApp.client.vi.rpt.Rpt04_Tab_BalanceAccounts.class);
 		}
-		if ("Cst05_Tab_TerminationAll".equals(className)) {
+		if ("Rpt05_Tab_TerminationAll".equals(className)) {
 			return (Widget) GWT.create(myApp.client.vi.cst.Cst05_Tab_TerminationAll.class);
 		}
 		if ("Dbm01_RD_TabComments.class".equals(className)) {

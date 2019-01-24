@@ -19,7 +19,7 @@ import myApp.client.field.MyDateField;
 import myApp.client.grid.InterfaceGridOperate;
 import myApp.client.grid.SearchBarBuilder;
 import myApp.client.vi.LoginUser;
-import myApp.client.vi.cst.Cst04_Tab_BalanceAccounts.RDTemplate;
+import myApp.client.vi.rpt.Rpt04_Tab_BalanceAccounts.RDTemplate;
 
 public class Cst05_Tab_TerminationAll extends BorderLayoutContainer implements InterfaceGridOperate {
 	

@@ -36,7 +36,7 @@
 	</select>
 
 	<select id="selectFundCodeList" resultMap="mapper2" parameterType="HashMap">
-		select concat(rpad(substr(cst02_account_no,1,3),12,'*'),'  '||cst02_account_nm) as name
+		select concat(rpad(substr(cst02_account_no,1,3),12,'*'),'  '||cst02_account_nm||'('||cst02_fund_cd||')') as name
 		     , cst02_fund_cd as code
 		  from cst02_account
 		 where cst02_user_id = #{userId}
@@ -50,6 +50,34 @@
 		 group	by mg_cd_nm, mg_cd 
 		 order	by 2
 	</select>
+	
+	<select id="selectYearCombo" resultMap="mapper2" parameterType="HashMap">
+		select to_char(sys12_day,'yyyy')||'년도' as name
+		     , to_char(sys12_day,'yyyy') as code
+		  from cst03_icam_accounts
+		     , sys12_calendar  
+		 where sys12_day between fst_seolj_ymd and trunc(sysdate)
+		   and fund_cd = #{fundCode}
+		   and to_char(sys12_day,'mmdd') >= '0331'
+		 group by to_char(sys12_day,'yyyy')
+		 order by 1 desc
+ 	</select>
+
+	<select id="selectSettlementDateCombo" resultMap="mapper2" parameterType="HashMap">
+		select to_char(tr_ymd, 'yyyy-mm-dd') as name
+		     , to_char(tr_ymd, 'yyyymmdd') as code
+		  from cst04_icam_accounts_date_info
+		 where fund_cd = #{fundCode}
+		   and tr_nm = '결산'
+		 order by tr_ymd desc
+ 	</select>
+
+	<select id="getSettlementDate" resultType="String" parameterType="HashMap">
+		select to_char(bf_gyul_ymd,'yyyy.mm.dd')||to_char(af_gyul_ymd,'yyyy.mm.dd') as code
+		  from cst04_icam_accounts_date_info
+		 where fund_cd = #{fundCode}
+		   and tr_ymd = #{ymd}
+ 	</select>
 
 	<select id="getPreDate" resultType="String" parameterType="HashMap">
 	    select to_char(sysdate - 1,'yyyy-mm-dd') as preDate

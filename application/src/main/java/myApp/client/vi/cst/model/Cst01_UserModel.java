@@ -5,6 +5,7 @@ import java.util.Date;
 import com.sencha.gxt.widget.core.client.info.Info;
 
 import myApp.client.utils.GridDataModel;
+import myApp.client.vi.sys.model.Sys01_CompanyModel;
 
 public class Cst01_UserModel implements GridDataModel {
 
@@ -24,6 +25,9 @@ public class Cst01_UserModel implements GridDataModel {
 	private	Long	companyId;
 	
 	private String	emailChk;
+	private String  fundCode;
+	
+	private Sys01_CompanyModel companyModel = new Sys01_CompanyModel();
 
 	@Override
 	public void setKeyId(Long id) {
@@ -156,6 +160,22 @@ public class Cst01_UserModel implements GridDataModel {
 
 	public void setEmailChk(String emailChk) {
 		this.emailChk = emailChk;
+	}
+
+	public String getFundCode() {
+		return fundCode;
+	}
+
+	public void setFundCode(String fundCode) {
+		this.fundCode = fundCode;
+	}
+
+	public Sys01_CompanyModel getCompanyModel() {
+		return companyModel;
+	}
+
+	public void setCompanyModel(Sys01_CompanyModel companyModel) {
+		this.companyModel = companyModel;
 	}
 
 }

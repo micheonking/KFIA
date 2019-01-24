@@ -57,6 +57,29 @@ public class Cst02_Account {
 		result.setRetrieveResult(1, sqlId, list);
 	}
 
+	public void selectYearCombo(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+		String sqlId = "cst02_account.selectYearCombo"; 
+		List<GridDataModel> list = sqlSession.selectList(sqlId, request.getParam()) ;
+		result.setRetrieveResult(1, sqlId, list);
+	}
+
+	public void selectSettlementDateCombo(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+		String sqlId = "cst02_account.selectSettlementDateCombo"; 
+		List<GridDataModel> list = sqlSession.selectList(sqlId, request.getParam()) ;
+		result.setRetrieveResult(1, sqlId, list);
+	}
+	
+	public void getSettlementDate(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+		String date = sqlSession.selectOne("cst02_account.getSettlementDate", request.getParam());
+		if(date == null) {
+			result.setMessage("결산정산내역이 없습니다.(2)");
+			result.setStatus(-1);
+		} else {
+			result.setMessage(date);
+			result.setStatus(1);
+		}
+	}
+	
 	public void update(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
 		UpdateDataModel<Cst02_AccountModel> updateModel = new UpdateDataModel<Cst02_AccountModel>(); 
 		updateModel.updateModel(sqlSession, request.getList(), mapperName, result);

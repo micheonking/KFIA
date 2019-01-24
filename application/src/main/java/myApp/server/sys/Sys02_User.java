@@ -15,6 +15,7 @@ import myApp.client.utils.GridDataModel;
 import myApp.client.vi.LoginUser;
 import myApp.client.vi.cst.model.Cst01_UserModel;
 import myApp.client.vi.emp.model.Emp00_InfoModel;
+import myApp.client.vi.sys.model.Sys00_CommonComboBoxModel;
 import myApp.client.vi.sys.model.Sys01_CompanyModel;
 import myApp.client.vi.sys.model.Sys02_UserModel;
 import myApp.server.utils.db.UpdateDataModel;
@@ -53,12 +54,19 @@ public class Sys02_User {
 			System.out.println("otpNumber   => [" + otpNumber + "]");
 
 //			if (barokey.verifyKEYL(emailAddr, mobileTelno, cycleTime, otpNumber)) {
-				result.setModel(30, "find employee user!", cstUserModel);
+				Map<String, Object> fundParam = new HashMap<String, Object>();
+				fundParam.put("userId", cstUserModel.getUserId());
+				List<Sys00_CommonComboBoxModel> fundList = sqlSession.selectList("cst02_account.selectFundCodeList", fundParam);
+				if (fundList != null) {
+					cstUserModel.setFundCode(fundList.get(0).getCode());
+					result.setModel(30, "find employee user!", cstUserModel);
+				}
 //			} else {
 //				result.fail(-1, "OTP인증번호가 틀립니다.");
 //			}
-			return ;
 		}
+		return;
+
 
 		// 사원부터 찾는다. 
 //		Emp00_InfoModel empInfo = sqlSession.selectOne("emp00_info.selectByLoginId", loginId) ;
@@ -96,8 +104,8 @@ public class Sys02_User {
 //		}
 
 		// not found employee or user 
-		result.fail(-1, "등록된 사용자 정보가 아닙니다. 입력정보를 확인하여 주십시요!");
-		return ; 
+//		result.fail(-1, "등록된 사용자 정보가 아닙니다. 입력정보를 확인하여 주십시요!");
+//		return ; 
 	}
 
 	public void getLoginAdminInfo(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {

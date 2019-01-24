@@ -3,6 +3,7 @@ package myApp.client.vi;
 import java.util.Date;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.sencha.gxt.widget.core.client.info.Info;
 
 import myApp.client.vi.cst.model.Cst01_UserModel;
 import myApp.client.vi.emp.model.Emp00_InfoModel;
@@ -19,7 +20,6 @@ public class LoginUser {
 
 	public static Boolean isAdmin = false ; 
 	public static Boolean isManager = false ; 
-	public static String  fundCode;
 
 	public static void setIsAdmin(Boolean adminYn) {
 		isAdmin = adminYn ; 
@@ -50,14 +50,6 @@ public class LoginUser {
 		cstUserModel = cstUserModel2; 
 	}
 	
-	public static void setFundCode(String fundCd) {
-		fundCode = fundCd;
-	}
-
-	public static String getFundCode() {
-		return fundCode;
-	}
-
 	public static long getCompanyId() {
  		
  		if(isAdmin) {

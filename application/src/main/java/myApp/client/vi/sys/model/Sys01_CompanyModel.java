@@ -8,6 +8,7 @@ public class Sys01_CompanyModel implements GridDataModel {
 
 	private Long 	companyId ; 	
 	private String 	companyName ;
+	private String 	companyCode ;
 	private String 	bizNo ;
 	private String 	telNo01 ;
 	private String 	telNo02 ;
@@ -150,6 +151,14 @@ public class Sys01_CompanyModel implements GridDataModel {
 
 	public void setCompanyMenuModel(Sys03_CompanyMenuModel companyMenuModel) {
 		this.companyMenuModel = companyMenuModel;
+	}
+
+	public String getCompanyCode() {
+		return companyCode;
+	}
+
+	public void setCompanyCode(String companyCode) {
+		this.companyCode = companyCode;
 	}
 	
 	

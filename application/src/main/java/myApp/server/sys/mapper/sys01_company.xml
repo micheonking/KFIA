@@ -6,7 +6,8 @@
 <resultMap 	id="mapper" type="myApp.client.vi.sys.model.Sys01_CompanyModel" >
 	<id  	column="sys01_company_id"		property="companyId"/>
 	<result column="sys01_company_nm"		property="companyName"/>
-	<result column="sys01_company_type_nm"		property="companyTypeName"/>  
+	<result column="sys01_company_cd"		property="companyCode"/>
+	<result column="sys01_company_type_nm"	property="companyTypeName"/>  
 	<result column="sys01_biz_no"			property="bizNo"/>
 	<result column="sys01_tel1"				property="telNo01"/>
 	<result column="sys01_tel2"				property="telNo02"/>
@@ -23,8 +24,6 @@
 		javaType="myApp.client.vi.sys.model.Sys03_CompanyMenuModel" 
 		resultMap="sys03_company_menu.mapper"
 	/>
-	
-	
 	
 </resultMap>
 

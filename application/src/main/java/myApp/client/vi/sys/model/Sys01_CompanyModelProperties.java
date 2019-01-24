@@ -12,6 +12,7 @@ public interface Sys01_CompanyModelProperties extends PropertyAccess<Sys01_Compa
 	
 	ValueProvider<Sys01_CompanyModel, Long >	companyId() ; 	
 	ValueProvider<Sys01_CompanyModel, String> 	companyName() ;
+	ValueProvider<Sys01_CompanyModel, String> 	companyCode() ;
 	ValueProvider<Sys01_CompanyModel, String>	bizNo() ;
 	ValueProvider<Sys01_CompanyModel, String>	telNo01() ;
 	ValueProvider<Sys01_CompanyModel, String>	telNo02() ;

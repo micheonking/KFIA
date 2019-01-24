@@ -266,19 +266,15 @@ public class LoginPage implements InterfaceServiceCall {
 			return;
 		} else {
 			if(result.getStatus() == 10 ) { // 일반사용자 접속
-				// get userModel
 				Emp00_InfoModel empModel = (Emp00_InfoModel) result.getResult(0);
 				LoginUser.setEmpModel(empModel); 
 			}
 			else if(result.getStatus() == 20) { // 회사관리자 접속
-				// get userModel
 				Sys02_UserModel userModel = (Sys02_UserModel) result.getResult(0); 
 				LoginUser.setUserModel(userModel); 
 			}
 			else if(result.getStatus() == 30) { // 고객 접속
-				// get userModel
 				Cst01_UserModel cstUserModel = (Cst01_UserModel) result.getResult(0); 
-//				Info.display("", ""+result.getStatus());
 				LoginUser.setCstUserModel(cstUserModel); 
 			}
 			else { // 로그인 정보를 찾을 수 없다.  

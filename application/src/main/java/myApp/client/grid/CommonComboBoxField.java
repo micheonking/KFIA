@@ -19,6 +19,7 @@ import myApp.client.service.ServiceCall;
 import myApp.client.service.ServiceRequest;
 import myApp.client.service.ServiceResult;
 import myApp.client.utils.GridDataModel;
+import myApp.client.utils.InterfaceCallbackResult;
 import myApp.client.vi.LoginUser;
 import myApp.client.vi.sys.model.Sys00_CommonComboBoxModel;
 
@@ -141,7 +142,9 @@ public class CommonComboBoxField extends StringComboBox implements InterfaceServ
 			codeMap.put(this.altCodeModel.getName(), this.altCodeModel);
 			this.add(altCodeModel.getName());
 		}
-		
+
+		int i=0;
+		String initCodeName = null;
 		for (GridDataModel model: result.getResult()) {
 			Sys00_CommonComboBoxModel code = (Sys00_CommonComboBoxModel)model ;
 			
@@ -149,88 +152,18 @@ public class CommonComboBoxField extends StringComboBox implements InterfaceServ
 				// 코드명이 같은게 있으면 Skip한다. 
 				codeMap.put(code.getName(), code);
 				this.add(code.getName());
+				
+				if(i==0) {
+					initCodeName = code.getName();
+				}
+				i++;
 			}
 		}
+		this.setText(initCodeName);
 		
 		if(this.callback != null) {
 			this.callback.execute();
 		}
-		
+
 	}
 }
-
-//package myApp.client.grid;
-//
-//import java.util.HashMap;
-//import java.util.Iterator;
-//import java.util.Map;
-//
-//import com.sencha.gxt.widget.core.client.form.StringComboBox;
-//import com.sencha.gxt.widget.core.client.info.Info;
-//
-//import myApp.client.service.InterfaceCallback;
-//import myApp.client.service.InterfaceServiceCall;
-//import myApp.client.service.ServiceCall;
-//import myApp.client.service.ServiceRequest;
-//import myApp.client.service.ServiceResult;
-//import myApp.client.utils.GridDataModel;
-//import myApp.client.vi.sys.model.Sys00_CommonComboBoxModel;
-//
-//public class CommonComboBoxField extends StringComboBox implements InterfaceServiceCall {
-//	
-//	private Map<String, Sys00_CommonComboBoxModel> codeMap = new HashMap<String, Sys00_CommonComboBoxModel>();
-//	private InterfaceCallback callback;
-//
-//	public CommonComboBoxField(String serviceName, Map map){
-//
-//		ServiceRequest request = new ServiceRequest(serviceName);
-//		
-//		Iterator<String> keys = map.keySet().iterator();
-//		while(keys.hasNext()) {
-//			String key = keys.next();
-//			request.addParam(key, map.get(key));
-//		}
-//
-//		ServiceCall service = new ServiceCall();
-//		service.execute(request, this);
-//		this.setTriggerAction(getTriggerAction().ALL);
-//  	}
-//
-//	public CommonComboBoxField(String serviceName){
-//		ServiceRequest request = new ServiceRequest(serviceName);
-//		ServiceCall service = new ServiceCall();
-//		service.execute(request, this);
-//		this.setTriggerAction(getTriggerAction().ALL);
-//  	}
-//
-//	public String getCode(){
-//		Sys00_CommonComboBoxModel code = codeMap.get(this.getCurrentValue());
-//		if(code != null) {
-//			return code.getCode();
-//		} else {
-//  			return null; 
-//  		}
-//  	}
-//	
-//	@Override
-//	public void getServiceResult(ServiceResult result) {
-//
-//		this.getStore().clear();
-//		this.codeMap.clear();
-//		
-//		if(result.getStatus() < 0){
-//			Info.display("error", result.getMessage());
-//			return ; 
-//		}
-//
-//		for (GridDataModel model : result.getResult()) {
-//			Sys00_CommonComboBoxModel code = (Sys00_CommonComboBoxModel)model;
-//			codeMap.put(code.getName(), code);
-//			this.add(code.getName());
-//		}
-//
-//		if(this.callback != null) {
-//			this.callback.execute();
-//		}
-//	}
-//}

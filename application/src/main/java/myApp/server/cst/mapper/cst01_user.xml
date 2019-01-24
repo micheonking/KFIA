@@ -15,18 +15,27 @@
 		<result	column="cst01_end_dt"		property="endDt"/>
 		<result	column="cst01_mrd_role"		property="mrdRole"/>
 		<result	column="cst01_company_id"	property="companyId"/>
+
+		<association property="companyModel" 
+			javaType="myApp.client.vi.sys.model.Sys01_CompanyModel" 
+			resultMap="sys01_company.mapper"
+		/>
 	</resultMap>
 
 	<select id="selectById" resultMap="mapper" parameterType="Long" >
 		select	*
-		from	cst01_user
-		where	cst01_user_id	=	#{userId}
+		  from	cst01_user
+		     ,  sys01_company
+		 where	cst01_company_id = sys01_company_id
+		   and  cst01_user_id	 = 	#{userId}
 	</select>
 	
 	<select id="selectByLoginId" resultMap="mapper" parameterType="HashMap" > 
 		select 	* 
 	      from 	cst01_user
-	     where 	cst01_email		 = #{loginId}
+	         ,  sys01_company
+	     where 	cst01_company_id = sys01_company_id
+	      and   cst01_email		 = #{loginId}
 		  and	cst01_company_id = #{companyId}
 	</select>
 	

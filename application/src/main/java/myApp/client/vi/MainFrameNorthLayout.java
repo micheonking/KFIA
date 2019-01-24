@@ -24,6 +24,7 @@ import com.sencha.gxt.widget.core.client.event.DialogHideEvent;
 import com.sencha.gxt.widget.core.client.event.CollapseEvent.CollapseHandler;
 import com.sencha.gxt.widget.core.client.event.DialogHideEvent.DialogHideHandler;
 import com.sencha.gxt.widget.core.client.form.FieldLabel;
+import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.grid.CommonComboBoxField;
@@ -31,10 +32,12 @@ import myApp.client.resource.ResourceIcon;
 import myApp.client.service.InterfaceCallback;
 import myApp.client.utils.SimpleMessage;
 import myApp.client.vi.LoginUser;
+import myApp.client.vi.rpt.Rpt01_Tab_BaseInfo;
 
 public class MainFrameNorthLayout extends BorderLayoutContainer {
 
 	Viewport viewport = new Viewport();
+	CommonComboBoxField fundComboBox = null;
 	
 	public MainFrameNorthLayout() {
 
@@ -48,31 +51,32 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 		// KFIA-logo
 		Image image = new Image();
 		image.setResource(ResourceIcon.INSTANCE.getLogo());
-		image.setPixelSize(330, 26);
+//		image.setPixelSize(330, 26);
+		image.setPixelSize(200,42);
 		header.add(image, new BoxLayoutData(new Margins(5, 0, 0, 20)));
 		
 		// 계좌 ComboBox
 		if(LoginUser.getCompanyId() == 2062721) {
 			Map<String, Object> param = new HashMap<String, Object>();
 			param.put("userId", LoginUser.getUserId());
-			final CommonComboBoxField fundComboBox = new CommonComboBoxField("cst.Cst02_Account.selectFundCodeList", param, new InterfaceCallback() {
+			fundComboBox = new CommonComboBoxField("cst.Cst02_Account.selectFundCodeList", param, new InterfaceCallback() {
 				@Override
 				public void execute() {
-					new SimpleMessage("펀드콤보 Callback", "첫번째Row 자동셋팅해주세요");
+//					LoginUser.setFundCode(fundComboBox.getCode());
 				}
 			});
 			fundComboBox.addCollapseHandler(new CollapseHandler() {
 				@Override
 				public void onCollapse(CollapseEvent event) {
-					LoginUser.setFundCode(fundComboBox.getCode());
+					LoginUser.getCstUserModel().setFundCode(fundComboBox.getCode());
 				}
 			});
 			FieldLabel fundCodeField = new FieldLabel(fundComboBox, "계좌 ");
-			fundCodeField.setLabelWidth(60);
+			fundCodeField.setLabelWidth(90);
 			fundCodeField.setWidth(400);
-//			header.add(fundCodeField, new BoxLayoutData(new Margins(9, 30, 0, 0)));
 			fundComboBox.setWidth(300);
-			header.add(fundComboBox, new BoxLayoutData(new Margins(9, 0, 0, 30)));
+			header.add(fundCodeField, new BoxLayoutData(new Margins(9, 30, 0, 6)));
+//			header.add(fundComboBox, new BoxLayoutData(new Margins(9, 0, 0, 30)));
 		}
 		BoxLayoutData boxLayoutData = new BoxLayoutData(new Margins(0, 0, 0, 0)); 
 		boxLayoutData.setFlex(1);

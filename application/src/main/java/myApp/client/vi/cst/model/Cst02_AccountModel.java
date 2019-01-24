@@ -14,7 +14,7 @@ public class Cst02_AccountModel implements GridDataModel {
 	private String accountBranch;
 	private String branchManager;
 	private String managerContact;
-
+	
 	@Override
 	public void setKeyId(Long id) {
 		this.setAccountId(id);
@@ -24,6 +24,7 @@ public class Cst02_AccountModel implements GridDataModel {
 	public Long getKeyId() {
 		return this.getAccountId();
 	}
+	
 
 	public Long getAccountId() {
 		return accountId;
