@@ -1,4 +1,34 @@
-theme {
+/**
+ * Sencha GXT 4.0.3 - Sencha for GWT
+ * Copyright (c) 2006-2018, Sencha Inc.
+ *
+ * licensing@sencha.com
+ * http://www.sencha.com/products/gxt/license/
+ *
+ * ================================================================================
+ * Commercial License
+ * ================================================================================
+ * This version of Sencha GXT is licensed commercially and is the appropriate
+ * option for the vast majority of use cases.
+ *
+ * Please see the Sencha GXT Licensing page at:
+ * http://www.sencha.com/products/gxt/license/
+ *
+ * For clarification or additional options, please contact:
+ * licensing@sencha.com
+ * ================================================================================
+ *
+ * ================================================================================
+ * Disclaimer
+ * ================================================================================
+ * THIS SOFTWARE IS DISTRIBUTED "AS-IS" WITHOUT ANY WARRANTIES, CONDITIONS AND
+ * REPRESENTATIONS WHETHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION THE
+ * IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, MERCHANTABLE QUALITY,
+ * FITNESS FOR A PARTICULAR PURPOSE, DURABILITY, NON-INFRINGEMENT, PERFORMANCE AND
+ * THOSE ARISING BY STATUTE OR FROM CUSTOM OR USAGE OF TRADE OR COURSE OF DEALING.
+ * ================================================================================
+ */
+ theme {
   name = "tritium"
   basePackage = "myApp.theme.tritium"
   
@@ -54,7 +84,7 @@ theme {
       }
     }
     borderLayout {
-      panelBackgroundColor = "#ececec" // "#2b579a" // "#5fa2dd" // "#ececec"
+      panelBackgroundColor = "#e0e0e0" // "#2b579a" // "#5fa2dd" // "#ececec"
       collapsePanelBackgroundColor = "#5fa2dd" // "#2b579a" // "#ffffff" // 
       collapsePanelBorder {
         bottom = 1 // 0 // 1
@@ -429,12 +459,12 @@ theme {
       cellBorderWidth = 1
       cellHBorderColor = "#e9e9e9"
       cellLineHeight = "18px"
-      cellOverBackgroundColor = "#eaeff4"
+      cellOverBackgroundColor = "#efefef" // "#eaeff4"
       cellOverHBorderColor = "#dee3e8"
       cellOverHBorderStyle = "solid"
       cellOverVBorderColor = "#dee3e8"
       cellOverVBorderStyle = "solid"
-      cellSelectedBackgroundColor = "#d6e0ea" // "#ccd8e4" // "#ffefbc"
+      cellSelectedBackgroundColor = "#e0e0e0" // "#d6e0ea" // "#ccd8e4" // "#ffefbc"
       cellSelectedHBorderColor = "#dee6ee" // "#f2e3b2"
       cellSelectedHBorderStyle = "solid"
       cellSelectedVBorderColor = "#dee6ee" // "#f2e3b2"
@@ -1270,11 +1300,11 @@ theme {
         right = 3
         top = 8
       }
-      dragOverBackgroundColor = "#eaeff4"
-      dropBackgroundColor = "#d6e0ea" // "#ffefbb"
+      dragOverBackgroundColor = "#efefef" // "#cacaca" // "#eaeff4"
+      dropBackgroundColor = "#e0e0e0" // "#d6e0ea" // "#ffefbb"
       itemHeight = "32px"
-      overBackgroundColor = "#eaeff4"
-      selectedBackgroundColor = "#d6e0ea" // "#ffefbb"
+      overBackgroundColor = "#efefef" // "#cacaca" // "#eaeff4"
+      selectedBackgroundColor = "#e0e0e0" // "#d6e0ea" // "#ffefbb"
       iconMargin {
         bottom = 0
         left = 2

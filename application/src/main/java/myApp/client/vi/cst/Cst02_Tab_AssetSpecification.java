@@ -56,7 +56,7 @@ public class Cst02_Tab_AssetSpecification extends BorderLayoutContainer implemen
 
 		BorderLayoutData northLayoutData = new BorderLayoutData(50);
 		northLayoutData.setMargins(new Margins(0, 8, 0, 0));
-		northLayoutData.setSplit(true);
+//		northLayoutData.setSplit(true);
 		northLayoutData.setMaxSize(1000);
 		this.setNorthWidget(searchBarBuilder.getSearchBar(), northLayoutData);
 		

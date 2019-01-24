@@ -122,7 +122,7 @@ public class Cst03_Tab_EntrustInvestment extends BorderLayoutContainer implement
 
 		BorderLayoutData northLayoutData = new BorderLayoutData(50);
 		northLayoutData.setMargins(new Margins(0, 8, 0, 0));
-		northLayoutData.setSplit(true);
+//		northLayoutData.setSplit(true);
 		northLayoutData.setMaxSize(1000);
 		this.setNorthWidget(searchBarBuilder.getSearchBar(), northLayoutData);
 		
@@ -133,9 +133,9 @@ public class Cst03_Tab_EntrustInvestment extends BorderLayoutContainer implement
 		this.setCenterWidget(rdLayoutContainer,centerLayoutData);
 
 		retrieve();
-		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(55));
-
-		this.setCenterWidget(rdLayoutContainer);
+//		this.setNorthWidget(searchBarBuilder.getSearchBar(), new BorderLayoutData(50));
+//
+//		this.setCenterWidget(rdLayoutContainer);
 	}
 
 	private void setReportDesigner() {
