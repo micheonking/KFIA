@@ -173,7 +173,12 @@ public class CommonComboBoxField extends StringComboBox implements InterfaceServ
 				i++;
 			}
 		}
-		this.setText(initCodeName);
+		
+		if(this.altCodeModel.getName() == null) {
+			this.setText(initCodeName);
+		} else {
+			this.setText(this.altCodeModel.getName());
+		}
 		
 		if(this.callback != null) {
 			this.callback.execute();

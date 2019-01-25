@@ -58,17 +58,19 @@ public class Cst01_User {
 		System.out.println("User정보 생성 완료");
 		
 		//계좌정보 생성
-		UpdateDataModel<Cst02_AccountModel> updateModel = new UpdateDataModel<Cst02_AccountModel>(); 
-		updateModel.updateModel(sqlSession, request.getList(), "cst02_account", result);
-		System.out.println("계좌정보 생성 완료");
+//		UpdateDataModel<Cst02_AccountModel> updateModel = new UpdateDataModel<Cst02_AccountModel>(); 
+//		updateModel.updateModel(sqlSession, request.getList(), "cst02_account", result);
+//		System.out.println("계좌정보 생성 완료");
 		
-		//사용자별 Role정보 생성
-		Sys05_UserRoleModel userRoleModel = new Sys05_UserRoleModel();
-		userRoleModel.setUserRoleId(sqlSession.selectOne("dbConfig.getSeq"));
-		userRoleModel.setUserId(userModel.getUserId());
-		userRoleModel.setRoleId((long)1000000);	//웹 사용자
-		userRoleModel.setNote("한채투 고객지원사이트 사용자");
-		sqlSession.update("sys05_user_role.insertUpdate", userRoleModel);
-		System.out.println("사용자별 Role정보 생성 완료");
+		if("NEW".equals(request.getStringParam("procType"))) {
+			//사용자별 Role정보 생성
+			Sys05_UserRoleModel userRoleModel = new Sys05_UserRoleModel();
+			userRoleModel.setUserRoleId(sqlSession.selectOne("dbConfig.getSeq"));
+			userRoleModel.setUserId(userModel.getUserId());
+			userRoleModel.setRoleId((long)1000000);	//웹 사용자
+			userRoleModel.setNote("한채투 고객지원사이트 사용자");
+			sqlSession.update("sys05_user_role.insertUpdate", userRoleModel);
+			System.out.println("사용자별 Role정보 생성 완료");
+		}
 	}
 }

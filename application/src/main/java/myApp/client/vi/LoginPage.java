@@ -142,8 +142,8 @@ public class LoginPage implements InterfaceServiceCall {
 		vlc.add(adminButton, new VerticalLayoutData(1, -1, new Margins(10, 0, 0, 0)));
 //		vlc.add(imsiButton, new VerticalLayoutData(1, -1, new Margins(0, 0, 0, 0)));
 
-		Label loginDesc = new HTML("<font size='2'>※ 회원가입 후 로그인이 가능합니다.</font>");
-		Label memberJoin = new HTML("<font size='2'><a href=\"#\">회원가입</a></font>");
+		Label loginDesc = new HTML("<font size='2'>※ 회원가입 후 로그인이 가능합니다. </font>");
+		Label memberJoin = new HTML("<font size='2'> ▶  <a href=\"#\">회원가입</a></font>");
 		memberJoin.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
@@ -163,12 +163,14 @@ public class LoginPage implements InterfaceServiceCall {
 				Info.display("로그인ID(E-Mail) 찾기", "GoGo!!!");
 			}
 		});
-		Label gb = new Label("/");
+//		Label gb = new Label("/");
+
 		HBoxLayoutContainer hBoxLayout1 = new HBoxLayoutContainer();
 		hBoxLayout1.add(loginDesc, new BoxLayoutData(new Margins(0, 10, 0, 0)));
 		hBoxLayout1.add(memberJoin, new BoxLayoutData(new Margins(0, 0, 0, 0)));
-		hBoxLayout1.add(gb, new BoxLayoutData(new Margins(0, 7, 0, 7)));
-		hBoxLayout1.add(eMailSearch, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+//		hBoxLayout1.add(gb, new BoxLayoutData(new Margins(0, 7, 0, 7)));
+//		hBoxLayout1.add(eMailSearch, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+		hBoxLayout1.setHeight(23);
 		vlc.add(hBoxLayout1, new VerticalLayoutData(1, -1, new Margins(15, 0, 0, 0)));
 
 		Label otpDesc = new HTML("<font size='2'>※ 핸드폰 OTP인증 앱설치 및 사용방법을 확인하세요.<br> </font>");
@@ -191,6 +193,7 @@ public class LoginPage implements InterfaceServiceCall {
 		hBoxLayout3.add(otpDesc, new BoxLayoutData(new Margins(0, 10, 0, 0)));
 		hBoxLayout3.add(otpandroid, new BoxLayoutData(new Margins(0, 5, 0, 0)));
 		hBoxLayout3.add(otpIphone, new BoxLayoutData(new Margins(0, 5, 0, 0)));
+		hBoxLayout3.setHeight(23);
 		vlc.add(hBoxLayout3, new VerticalLayoutData(1, -1, new Margins(0, 0, 0, 0)));
 
 //		Label browserDesc = new HTML("<font size='2'>※ 본 시스템은 크롬(Chrome)브라우즈에 최적화 되어 있습니다.<br>&nbsp;&nbsp;&nbsp;크롬(Chrome)을 내려 받아 사용하시기 바랍니다.<br></font>");

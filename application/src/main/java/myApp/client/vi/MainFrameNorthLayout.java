@@ -1,8 +1,5 @@
 package myApp.client.vi;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.safehtml.shared.SafeHtml;
@@ -19,19 +16,15 @@ import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutD
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HBoxLayoutContainer.HBoxLayoutAlign;
 import com.sencha.gxt.widget.core.client.container.Viewport;
-import com.sencha.gxt.widget.core.client.event.CollapseEvent;
 import com.sencha.gxt.widget.core.client.event.DialogHideEvent;
-import com.sencha.gxt.widget.core.client.event.CollapseEvent.CollapseHandler;
 import com.sencha.gxt.widget.core.client.event.DialogHideEvent.DialogHideHandler;
-import com.sencha.gxt.widget.core.client.form.FieldLabel;
-import com.sencha.gxt.widget.core.client.info.Info;
 import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
 
 import myApp.client.grid.CommonComboBoxField;
 import myApp.client.resource.ResourceIcon;
-import myApp.client.service.InterfaceCallback;
-import myApp.client.utils.SimpleMessage;
+import myApp.client.utils.InterfaceCallbackResult;
 import myApp.client.vi.LoginUser;
+import myApp.client.vi.cst.Cst01_Lookup_MemberJoin;
 
 public class MainFrameNorthLayout extends BorderLayoutContainer {
 
@@ -54,35 +47,10 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 		image.setPixelSize(200,42);
 		header.add(image, new BoxLayoutData(new Margins(5, 0, 0, 20)));
 		
-		// 계좌 ComboBox
-//		if(LoginUser.getCompanyId() == 2062721) {
-//			Map<String, Object> param = new HashMap<String, Object>();
-//			param.put("userId", LoginUser.getUserId());
-//			fundComboBox = new CommonComboBoxField("cst.Cst02_Account.selectFundCodeList", param, new InterfaceCallback() {
-//				@Override
-//				public void execute() {
-////					LoginUser.setFundCode(fundComboBox.getCode());
-//				}
-//			});
-//			fundComboBox.addCollapseHandler(new CollapseHandler() {
-//				@Override
-//				public void onCollapse(CollapseEvent event) {
-//					LoginUser.getCstUserModel().setFundCode(fundComboBox.getCode());
-//				}
-//			});
-//			FieldLabel fundCodeField = new FieldLabel(fundComboBox, "계좌 ");
-//			fundCodeField.setLabelWidth(90);
-//			fundCodeField.setWidth(400);
-//			fundComboBox.setWidth(300);
-//			header.add(fundCodeField, new BoxLayoutData(new Margins(9, 30, 0, 6)));
-////			header.add(fundComboBox, new BoxLayoutData(new Margins(9, 0, 0, 30)));
-//		}
 		BoxLayoutData boxLayoutData = new BoxLayoutData(new Margins(0, 0, 0, 0)); 
 		boxLayoutData.setFlex(1);
 		header.add(new Label(), boxLayoutData);
 
-		HBoxLayoutContainer hlc = new HBoxLayoutContainer();
-		hlc.setWidth(300);
 
 		//고객정보
 //		String userInfo = LoginUser.getCompanyId() + " " + LoginUser.getUserName();
@@ -90,8 +58,7 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 		userInfo = "<p style='color:#808080; font-size:14px; font-weight:normal'>반갑습니다. " +  userInfo + "님</p>" ;
 		SafeHtml safeEscapedHtml = SafeHtmlUtils.fromTrustedString(userInfo);
 		LabelToolItem label = new LabelToolItem(safeEscapedHtml);
-//		header.add(label, new BoxLayoutData(new Margins(9, 0, 0, 5)));
-		hlc.add(label, new BoxLayoutData(new Margins(4,2,0,0)));
+		header.add(label, new BoxLayoutData(new Margins(9, 0, 0, 5)));
 
 		//고객정보 수정
 //		String userInfoModi = "<p style='color:#808080; font-size:14px; font-weight:normal'><a href=\"#\">[정보수정]</a></p>" ;
@@ -101,15 +68,16 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 		userInfoModi.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				new SimpleMessage("회원 정보수정","정보수정 Go Go!!!");
+				Cst01_Lookup_MemberJoin memberJoinLookup = new Cst01_Lookup_MemberJoin();
+				memberJoinLookup.open(LoginUser.getUserId(), new InterfaceCallbackResult() {
+					@Override
+					public void execute(Object result) {
+					}
+				});
 			}
 		});
-//		header.add(userInfoModi, new BoxLayoutData(new Margins(9, 0, 0, 2)));
-		hlc.add(userInfoModi, new BoxLayoutData(new Margins(0,0,0,0)));
 
 		Label gb = new Label("/");
-//		header.add(gb, new BoxLayoutData(new Margins(9, 2, 0, 2)));
-		hlc.add(gb, new BoxLayoutData(new Margins(0,2,0,2)));
 
 		//로그아웃
 		Label userLogout = new HTML("<p style='color:#808080; font-size:14px; font-weight:normal'><a href=\"#\">로그아웃] </a></p>");
@@ -134,8 +102,11 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 				msgBox.show();
 			}
 		});
-//		header.add(userLogout, new BoxLayoutData(new Margins(9, 0, 0, 0)));
+		HBoxLayoutContainer hlc = new HBoxLayoutContainer();
+		hlc.add(userInfoModi, new BoxLayoutData(new Margins(0,0,0,0)));
+		hlc.add(gb, new BoxLayoutData(new Margins(0,2,0,2)));
 		hlc.add(userLogout, new BoxLayoutData(new Margins(0,0,0,0)));
+		hlc.setWidth(150);
 		header.add(hlc, new BoxLayoutData(new Margins(9, 0, 0, 0)));
 
 		//로그아웃 이미지
