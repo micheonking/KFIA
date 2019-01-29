@@ -431,9 +431,12 @@ public class Cst01_Lookup_MemberJoin extends Window implements Editor<Cst01_User
 		} else if ("save".equals(this.actionName)) {
 			if (result.getStatus() > -1) {
 				if("NEW".equals(procType)) {
-					new SimpleMessage("확인", "등록이 완료되었습니다.<br>계좌등록 화면으로 이동합니다.");
-					//callback.execute(userModel.getEmail());
-					loopUpAccountInfo();
+					new SimpleMessage("등록이 완료되었습니다.<br>계좌등록 화면으로 이동합니다.", 400, new InterfaceCallback() {
+						@Override
+						public void execute() {
+							loopUpAccountInfo();
+						}
+					});
 				} else {
 					new SimpleMessage("확인", "저장이 완료되었습니다.");
 					callback.execute(null);

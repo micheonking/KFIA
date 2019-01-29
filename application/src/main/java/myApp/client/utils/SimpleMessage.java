@@ -39,6 +39,24 @@ public class SimpleMessage {
 		messageBox.setMessage(safeEscapedHtml);
 		messageBox.show(); 
 	}
+
+	public SimpleMessage(String message, int width, InterfaceCallback callback){
+
+		MessageBox  messageBox = new MessageBox ("확인", ""); // , result.getMessage());
+		messageBox.addHideHandler(new HideHandler() {
+			@Override
+			public void onHide(HideEvent event) {
+				callback.execute();
+			}
+		});
+		messageBox.setWidth(width);
+		messageBox.setIcon(MessageBox.ICONS.question());
+		
+		SafeHtml safeEscapedHtml = SafeHtmlUtils.fromTrustedString(message);
+		messageBox.setMessage(safeEscapedHtml);
+		messageBox.show(); 
+	}
+
 	
 	public SimpleMessage(String message){
 		AlertMessageBox alert = new AlertMessageBox("확인", ""); // , result.getMessage());

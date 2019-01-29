@@ -83,9 +83,9 @@ public class Rpt04_Tab_BalanceAccounts extends VerticalLayoutContainer implement
 				retrieve();
 			}
 		});
-		FieldLabel dateField = new FieldLabel(settleDateCombo, "결산일");
+		FieldLabel dateField = new FieldLabel(settleDateCombo, "결산일 ");
 		dateField.setWidth(170);
-		dateField.setLabelWidth(55);
+		dateField.setLabelWidth(60);
 
 		searchBarBuilder.getSearchBar().add(fundCodeField);
 		searchBarBuilder.getSearchBar().add(dateField);

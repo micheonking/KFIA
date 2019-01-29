@@ -87,9 +87,9 @@ public class Rpt05_Tab_TerminationAll extends VerticalLayoutContainer implements
 				retrieve();
 			}
 		});
-		FieldLabel dateField = new FieldLabel(closeDateCombo, "해지일");
+		FieldLabel dateField = new FieldLabel(closeDateCombo, "해지일 ");
 		dateField.setWidth(170);
-		dateField.setLabelWidth(55);
+		dateField.setLabelWidth(60);
 
 		searchBarBuilder.getSearchBar().add(fundCodeField);
 		searchBarBuilder.getSearchBar().add(dateField);

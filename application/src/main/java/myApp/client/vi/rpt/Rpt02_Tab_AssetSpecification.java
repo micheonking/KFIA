@@ -66,9 +66,9 @@ public class Rpt02_Tab_AssetSpecification extends VerticalLayoutContainer implem
 		Date date = LoginUser.getToday();
 		CalendarUtil.addDaysToDate(date, -1);
 		baseDate.setValue(date);
-		FieldLabel dateFiledLabel = new FieldLabel(baseDate, "기준일");
+		FieldLabel dateFiledLabel = new FieldLabel(baseDate, "기준일 ");
 		dateFiledLabel.setWidth(170);
-		dateFiledLabel.setLabelWidth(55);
+		dateFiledLabel.setLabelWidth(60);
 
 		searchBarBuilder.getSearchBar().add(fundCodeField);
 		searchBarBuilder.getSearchBar().add(dateFiledLabel);

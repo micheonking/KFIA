@@ -32,7 +32,7 @@ public class Cst01_User {
 
 	public void checkEmail (SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
 		
-		String message = " ID(Email) 중복확인 중 오류발생. 고객지원실에 문의바랍니다.";
+		String message = " ID(Email) 중복확인 중 오류발생.<br> 고객지원실에 문의바랍니다.";
 		result.setMessage(message);
 
 		System.out.println("email ====> " + request.getStringParam("email")); 
@@ -42,7 +42,7 @@ public class Cst01_User {
 			result.setMessage("사용가능한 ID(Email)입니다.");
 			result.setStatus(1);
 		} else {
-			result.setMessage("사용불가합니다. 이미 등록된 ID(Email)입니다.");
+			result.setMessage("사용불가합니다.<br> 이미 등록된 ID(Email)입니다.");
 			result.setStatus(-1);
 		}
 	}
