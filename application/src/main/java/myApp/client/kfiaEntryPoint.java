@@ -13,8 +13,8 @@ public class kfiaEntryPoint implements EntryPoint {
 
 	@Override
 	public void onModuleLoad() {
-		myApp.client.vi.ContactPointer login = new ContactPointer();
-//		myApp.client.vi.LoginPage login = new LoginPage();
+//		myApp.client.vi.ContactPointer login = new ContactPointer();
+		myApp.client.vi.LoginPage login = new LoginPage();
 //		myApp.client.vi.MainLogin login = new MainLogin();
 		login.open();  
 	} 
