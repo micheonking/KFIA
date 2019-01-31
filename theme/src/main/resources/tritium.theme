@@ -113,7 +113,7 @@
       smallLineHeight = "18"
       border {
         bottom = 1
-        color = "#f1f1f1" // "#5897ce"
+        color = "#808080" // "#5897ce" f1f1f1
         left = 1
         right = 1
         style = "solid"
