@@ -15,8 +15,7 @@ public interface ResourceIcon extends ClientBundle {
 
 	public static final ResourceIcon INSTANCE = GWT.create(ResourceIcon.class);
 	  
-//	  @Source("files/KFIALogo.png")
-	  @Source("files/KFIALogo2.png")
+	  @Source("files/KFIALogo.png")
 	  ImageResource getLogo();
 
 	  @Source("files/logout.png")

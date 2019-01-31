@@ -43,8 +43,7 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 		// KFIA-logo
 		Image image = new Image();
 		image.setResource(ResourceIcon.INSTANCE.getLogo());
-//		image.setPixelSize(330, 26);
-		image.setPixelSize(200,42);
+		image.setPixelSize(330, 26);
 		header.add(image, new BoxLayoutData(new Margins(5, 0, 0, 20)));
 		
 		BoxLayoutData boxLayoutData = new BoxLayoutData(new Margins(0, 0, 0, 0)); 
@@ -55,7 +54,7 @@ public class MainFrameNorthLayout extends BorderLayoutContainer {
 		//고객정보
 //		String userInfo = LoginUser.getCompanyId() + " " + LoginUser.getUserName();
 		String userInfo = LoginUser.getUserName();
-		userInfo = "<p style='color:#808080; font-size:14px; font-weight:normal'>반갑습니다. " +  userInfo + "님</p>" ;
+		userInfo = "<p style='color:#808080; font-size:14px; font-weight:normal'>" +  userInfo + "님</p>" ;
 		SafeHtml safeEscapedHtml = SafeHtmlUtils.fromTrustedString(userInfo);
 		LabelToolItem label = new LabelToolItem(safeEscapedHtml);
 		header.add(label, new BoxLayoutData(new Margins(9, 0, 0, 5)));
