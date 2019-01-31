@@ -1,25 +1,19 @@
 package myApp.client.vi.rpt;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.google.gwt.core.shared.GWT;
-import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.sencha.gxt.core.client.XTemplates;
 import com.sencha.gxt.core.client.util.Margins;
-import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.HtmlLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
-import com.sencha.gxt.widget.core.client.container.BorderLayoutContainer.BorderLayoutData;
-import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
 import com.sencha.gxt.widget.core.client.event.CollapseEvent;
 import com.sencha.gxt.widget.core.client.event.CollapseEvent.CollapseHandler;
 import com.sencha.gxt.widget.core.client.form.FieldLabel;
-import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
+import com.sencha.gxt.widget.core.client.info.Info;
 
-import myApp.client.field.MyDateField;
 import myApp.client.grid.CommonComboBoxField;
 import myApp.client.grid.InterfaceGridOperate;
 import myApp.client.grid.SearchBarBuilder;
@@ -30,7 +24,6 @@ import myApp.client.service.ServiceRequest;
 import myApp.client.service.ServiceResult;
 import myApp.client.utils.SimpleMessage;
 import myApp.client.vi.LoginUser;
-import myApp.client.vi.rpt.Rpt04_Tab_BalanceAccounts.RDTemplate;
 
 public class Rpt05_Tab_TerminationAll extends VerticalLayoutContainer implements InterfaceGridOperate, InterfaceServiceCall {
 	
