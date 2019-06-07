@@ -266,6 +266,7 @@ public class Cst01_Lookup_MemberJoinAccount extends Window implements Editor<Cst
 		ServiceRequest request = new ServiceRequest("cst.Cst02_Account.getAccInfo");
 		request.addParam("mgCode", accModel.getMgCode());
 		request.addParam("accNo" , accModel.getAccountNo());
+		request.addParam("eMail" , userModel.getEmail());
 		ServiceCall service = new ServiceCall();
 		service.execute(request, this);
 	}

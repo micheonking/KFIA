@@ -9,6 +9,7 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.sencha.gxt.core.client.util.Margins;
+import com.sencha.gxt.widget.core.client.box.ConfirmMessageBox;
 import com.sencha.gxt.widget.core.client.button.TextButton;
 import com.sencha.gxt.widget.core.client.container.BoxLayoutContainer.BoxLayoutData;
 import com.sencha.gxt.widget.core.client.container.CenterLayoutContainer;
@@ -18,7 +19,9 @@ import com.sencha.gxt.widget.core.client.container.VBoxLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
 import com.sencha.gxt.widget.core.client.container.Viewport;
+import com.sencha.gxt.widget.core.client.event.DialogHideEvent;
 import com.sencha.gxt.widget.core.client.event.SelectEvent;
+import com.sencha.gxt.widget.core.client.event.DialogHideEvent.DialogHideHandler;
 import com.sencha.gxt.widget.core.client.event.SelectEvent.SelectHandler;
 import com.sencha.gxt.widget.core.client.form.FieldLabel;
 import com.sencha.gxt.widget.core.client.form.FormPanel;
@@ -26,6 +29,7 @@ import com.sencha.gxt.widget.core.client.form.PasswordField;
 import com.sencha.gxt.widget.core.client.form.TextField;
 import com.sencha.gxt.widget.core.client.info.Info;
 
+import myApp.client.service.GridDeleteData;
 import myApp.client.service.InterfaceServiceCall;
 import myApp.client.service.ServiceCall;
 import myApp.client.service.ServiceRequest;
@@ -33,9 +37,12 @@ import myApp.client.service.ServiceResult;
 import myApp.client.utils.InterfaceCallbackResult;
 import myApp.client.utils.SimpleMessage;
 import myApp.client.vi.emp.model.Emp00_InfoModel;
+import myApp.client.vi.opr.model.Opr01_CreateModel;
 import myApp.client.vi.MainFrame;
 import myApp.client.vi.cst.Cst01_Lookup_MemberJoin;
+import myApp.client.vi.cst.Cst01_Lookup_MemberJoinAccount;
 import myApp.client.vi.cst.model.Cst01_UserModel;
+import myApp.client.vi.cst.model.Cst02_AccountModel;
 import myApp.client.vi.sys.Sys00_Admin;
 import myApp.client.vi.sys.model.Sys02_UserModel;
 
@@ -61,7 +68,7 @@ public class LoginPage implements InterfaceServiceCall {
 		FieldLabel loginFieldLabel = new FieldLabel(firstName, "ID (E-Mail) ");
 		loginFieldLabel.setLabelWidth(100);
 		loginFieldLabel.setWidth(300);
-		firstName.setText("yiChun@k-fs.co.kr");
+//		firstName.setText("chorus-21@hanmail.net");
 		firstName.addKeyPressHandler(new KeyPressHandler() {
 			@Override
 			public void onKeyPress(KeyPressEvent event) {
@@ -74,7 +81,7 @@ public class LoginPage implements InterfaceServiceCall {
 		FieldLabel otpNumberFieldLabel = new FieldLabel(otpNumber, "OTP 인증번호 ");
 		otpNumberFieldLabel.setLabelWidth(100);
 		otpNumberFieldLabel.setWidth(300);
-		otpNumber.setText("1111");
+//		otpNumber.setText("1111");
 		otpNumber.addKeyPressHandler(new KeyPressHandler() {
 			@Override
 			public void onKeyPress(KeyPressEvent event) {
@@ -136,10 +143,10 @@ public class LoginPage implements InterfaceServiceCall {
 		HBoxLayoutContainer hBoxLayout = new HBoxLayoutContainer();
 		hBoxLayout.add(vBoxLayout  , new BoxLayoutData(new Margins(0, 0, 0, 0)));
 		hBoxLayout.add(okButton    , new BoxLayoutData(new Margins(0, 0, 0, 2)));
-		hBoxLayout.add(cancelButton, new BoxLayoutData(new Margins(0, 0, 0, 0)));
+//		hBoxLayout.add(cancelButton, new BoxLayoutData(new Margins(0, 0, 0, 0)));
 
 		vlc.add(hBoxLayout, new VerticalLayoutData(700, -1, new Margins(0, 0, 0, 0)));
-		vlc.add(adminButton, new VerticalLayoutData(1, -1, new Margins(10, 0, 0, 0)));
+//		vlc.add(adminButton, new VerticalLayoutData(1, -1, new Margins(10, 0, 0, 0)));
 //		vlc.add(imsiButton, new VerticalLayoutData(1, -1, new Margins(0, 0, 0, 0)));
 
 		Label loginDesc = new HTML("<font size='2'>※ 회원가입 후 로그인이 가능합니다. </font>");
@@ -178,14 +185,14 @@ public class LoginPage implements InterfaceServiceCall {
 		otpandroid.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				Window.open("/BaroOTP_Android.html", "optwin", "width=800,height=800,menubars=0,toolbars=0,location=0,scrollbars=yes");
+				Window.open("/KFIA/BaroOTP_Android.html", "optwin", "width=800,height=800,menubars=0,toolbars=0,location=0,scrollbars=yes");
 			}
 		});
 		Label otpIphone = new HTML("<font size='2'> ▶ <a href=\"#\">IOS(iPhone)</a>");
 		otpIphone.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
-				Window.open("/BaroOTP_iPhone.html", "optwin", "width=800,height=800,menubars=0,toolbars=0,location=0,scrollbars=yes");
+				Window.open("/KFIA/BaroOTP_iPhone.html", "optwin", "width=800,height=800,menubars=0,toolbars=0,location=0,scrollbars=yes");
 			}
 		});
 
@@ -280,6 +287,27 @@ public class LoginPage implements InterfaceServiceCall {
 				Cst01_UserModel cstUserModel = (Cst01_UserModel) result.getResult(0); 
 				LoginUser.setCstUserModel(cstUserModel); 
 			}
+			else if(result.getStatus() == 40) { // 계좌미등록 고객임. 계좌등록 POPUP OPEN!!!
+				Cst01_UserModel cstUserModel = (Cst01_UserModel) result.getResult(0); 
+				LoginUser.setCstUserModel(cstUserModel);
+				final ConfirmMessageBox msgBox = new ConfirmMessageBox("등록확인", "계좌 미등록 고객입니다. 계좌등록을 해주십시오.");
+				msgBox.addDialogHideHandler(new DialogHideHandler() {
+					@Override
+					public void onDialogHide(DialogHideEvent event) {
+						switch (event.getHideButton()) {
+						case YES:
+							lookUpAccount(cstUserModel);
+							break;
+						case NO:
+						default:
+							break;
+						}
+					}
+				});
+				msgBox.setWidth(300);
+				msgBox.show();
+				return ; 
+			}
 			else { // 로그인 정보를 찾을 수 없다.  
 				new SimpleMessage("로그인 정보 확인", result.getMessage());
 				return ; 
@@ -300,6 +328,15 @@ public class LoginPage implements InterfaceServiceCall {
 		openFrame();
 	}
 	
+	private void lookUpAccount(Cst01_UserModel cstUserModel) {
+		Cst01_Lookup_MemberJoinAccount lookupJoinAccount = new Cst01_Lookup_MemberJoinAccount();
+		lookupJoinAccount.open(cstUserModel, null, "NEW", new InterfaceCallbackResult() {
+			@Override
+			public void execute(Object result) {
+			}
+		});
+	}
+
 	private void openFrame(){
 		// 일반 사용자이다. 회사 선택없이 로드인한다. 
 		this.viewport.remove(container);

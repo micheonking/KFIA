@@ -93,7 +93,7 @@ public class Rpt02_Tab_AssetSpecification extends VerticalLayoutContainer implem
 			pageName += "&ymd="+ymd;
 			pageName += "&corp_gr="+companyCode;
 		}
-
+		
 		RDTemplate rdTemplate = GWT.create(RDTemplate.class);
 		HtmlLayoutContainer htmlLayoutContainer = new HtmlLayoutContainer(rdTemplate.getTemplate(pageName));
 		rdLayoutContainer.clear();

@@ -22,10 +22,13 @@
 
 		<!-- Tibero (티베로) -->
 			<property name="driver" value="com.tmax.tibero.jdbc.TbDriver" />
- 			<property name="url" value="jdbc:tibero:thin:@183.96.184.118:8629:HDB" />
+<!--  			<property name="url" value="jdbc:tibero:thin:@183.96.184.118:8629:HDB" /> -->
+			<property name="url" value="jdbc:tibero:thin:@183.96.184.114:8629:WDB" />
 			<property name="username" value="kfia" />
-			<property name="password" value="kfia8100" />
-		
+			<property name="password" value="senchagxt" />	<!-- kfia8100 -->
+<!--  			<property name="url" value="jdbc:tibero:thin:@172.20.200.252:8629:TDB" /> -->
+<!-- 			<property name="username" value="web_kfia" /> -->
+<!-- 			<property name="password" value="web_kfia" /> -->
 		</dataSource>
 	</environment>
 </environments>

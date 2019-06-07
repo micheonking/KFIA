@@ -21,7 +21,9 @@ public interface Cst02_AccountModelProperties extends PropertyAccess<Cst02_Accou
 	ValueProvider<Cst02_AccountModel, String> accountBranch();
 	ValueProvider<Cst02_AccountModel, String> branchManager();
 	ValueProvider<Cst02_AccountModel, String> managerContact();
-	
+
+	ValueProvider<Cst02_AccountModel, String> eMail();
+
 	ValueProvider<Cst02_AccountModel, String > actionCell();	// 그리드에 버튼을 넣기 위한 선언이다.
 
 }

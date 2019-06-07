@@ -14,6 +14,8 @@
 		<result	column="cst02_account_branch"	property="accountBranch"/>
 		<result	column="cst02_branch_manager"	property="branchManager"/>
 		<result	column="cst02_manager_contact"	property="managerContact"/>
+
+		<result	column="cst02_eMail"			property="eMail"/>
 	</resultMap>
 
 	<resultMap type="myApp.client.vi.sys.model.Sys00_CommonComboBoxModel" id="mapper2">
@@ -22,33 +24,70 @@
 	</resultMap>
 
 	<select id="selectById" resultMap="mapper" parameterType="Long" >
-		select	cst02_account.*
- 		     ,	mg_cd_nm||decode(mg_cd,'00028','(구)') as cst02_mg_nm
+		select	cst02_user_id
+		     ,  cst02_mg_cd
+             ,  icam.to_decrypts@link_tdb(cst02_account_no)	as cst02_account_no
+		     ,  cst02_fund_cd
+		     ,  cst02_account_nm
+		     ,  cst02_account_branch
+		     ,  cst02_branch_manager
+		     ,  cst02_manager_contact
+<!--  		     ,	mg_cd_nm||decode(mg_cd,'00028','(구)') as cst02_mg_nm -->
+             ,  b.tr_co_nm||decode(a.mg_cd,'00028','(구)')	as cst02_mg_nm
 		  from	cst02_account
-		     ,  cst03_icam_accounts
-		 where	cst02_fund_cd    = fund_cd
+<!-- 		     ,  cst03_icam_accounts -->
+			 ,  szm0fd_ja@link_tdb a
+             ,  szx2mm@link_tdb b
+		 where	a.corp_gr        = '1701'
+		   and 	a.corp_gr 		 = b.corp_gr
+           and  a.mg_cd 		 = b.tr_co_cd
+           and  cst02_fund_cd    = a.fund_cd
 		   and 	cst02_account_id = #{accountId}
 	</select>
 
 	<select id="selectByUserId" resultMap="mapper" parameterType="Long" >
-		select	cst02_account.*
- 		     ,	mg_cd_nm||decode(mg_cd,'00028','(구)') as cst02_mg_nm
+		select	cst02_user_id
+		     ,  cst02_mg_cd
+             ,  icam.to_decrypts@link_tdb(cst02_account_no)	as cst02_account_no
+		     ,  cst02_fund_cd
+		     ,  cst02_account_nm
+		     ,  cst02_account_branch
+		     ,  cst02_branch_manager
+		     ,  cst02_manager_contact
+<!--  		     ,	mg_cd_nm||decode(mg_cd,'00028','(구)') as cst02_mg_nm -->
+ 		     ,  b.tr_co_nm||decode(a.mg_cd,'00028','(구)')	as cst02_mg_nm
 		  from	cst02_account
-		     ,  cst03_icam_accounts
-		 where	cst02_fund_cd = fund_cd
+<!-- 		     ,  cst03_icam_accounts -->
+			 ,  szm0fd_ja@link_tdb a
+             ,  szx2mm@link_tdb b
+		 where	a.corp_gr     = '1701'
+		   and 	a.corp_gr 	  = b.corp_gr
+           and  a.mg_cd 	  = b.tr_co_cd
+		   and 	cst02_fund_cd = a.fund_cd
 		   and	cst02_user_id = #{userId}
 	</select>
 
 	<select id="getAccInfo" resultMap="mapper" parameterType="HashMap">
-		select	fund_cd as cst02_fund_cd
-		     ,  fund_nm as cst02_account_nm 
-		  from	cst03_icam_accounts
-	  	 where	mg_cd   = #{mgCode}
-		   and	acc_no	= #{accountNo}
-		   and  rownum = 1
+<!-- 		select	fund_cd as cst02_fund_cd -->
+<!-- 		     ,  fund_nm as cst02_account_nm  -->
+<!-- 		  from	cst03_icam_accounts -->
+<!-- 	  	 where	mg_cd   = #{mgCode} -->
+<!-- 		   and	acc_no	= #{accountNo} -->
+<!-- 		   and  rownum = 1 -->
+		select	a.fund_cd as cst02_fund_cd
+		     ,  a.fund_nm as cst02_account_nm
+		     ,  icam.to_decrypts@link_tdb(enc_fd_email) as cst02_eMail
+		  from	szm0fd@link_tdb a
+             ,  szm0fd_ja@link_tdb b
+	  	 where	a.corp_gr   = '1701'
+		   and 	a.corp_gr	= b.corp_gr
+           and  a.fund_cd   = b.fund_cd
+           and  b.mg_cd     = #{mgCode}
+		   and	icam.to_decrypts@link_tdb(b.enc_acct_no) = #{accountNo}
+		   and  rownum 		= 1
 	</select>
 	<select id="selectFundCodeList" resultMap="mapper2" parameterType="HashMap">
-		select concat(rpad(substr(cst02_account_no,1,3),12,'*'),'  '||cst02_account_nm||'('||cst02_fund_cd||')') as name
+		select concat(rpad(substr(icam.to_decrypts@link_tdb(cst02_account_no),1,3),12,'*'),'  '||cst02_account_nm||'('||cst02_fund_cd||')') as name
 		     , cst02_fund_cd as code
 		  from cst02_account
 		 where cst02_user_id = #{userId}
@@ -56,54 +95,99 @@
 	</select>
 
 	<select id="selectMgCombo" resultMap="mapper2" parameterType="HashMap">
-		select	mg_cd_nm||decode(mg_cd,'00028','(구)') as name
-		     ,  mg_cd as code
-		  from	cst03_icam_accounts
-		 group	by mg_cd_nm, mg_cd 
-		 order	by 2
+<!-- 		select	mg_cd_nm||decode(mg_cd,'00028','(구)') as name -->
+<!-- 		     ,  mg_cd as code -->
+<!-- 		  from	cst03_icam_accounts -->
+<!-- 		 group	by mg_cd_nm, mg_cd  -->
+<!-- 		 order	by 2 -->
+		select	b.tr_co_nm||decode(a.mg_cd,'00028','(구)') as name
+		     ,  a.mg_cd as code
+		  from	szm0fd_ja@link_tdb a
+             ,  szx2mm@link_tdb b
+         where  a.corp_gr = '1701'
+		   and 	a.corp_gr = b.corp_gr
+           and  a.mg_cd   = b.tr_co_cd
+		 group	by b.tr_co_nm, a.mg_cd 
+		 order	by 1
 	</select>
 	
 	<select id="selectYearCombo" resultMap="mapper2" parameterType="HashMap">
+<!-- 		select to_char(sys12_day,'yyyy')||'년도' as name -->
+<!-- 		     , to_char(sys12_day,'yyyy') as code -->
+<!-- 		  from cst03_icam_accounts -->
+<!-- 		     , sys12_calendar   -->
+<!-- 		 where sys12_day between fst_seolj_ymd and trunc(sysdate) -->
+<!-- 		   and fund_cd = #{fundCode} -->
+<!-- 		   and to_char(sys12_day,'mmdd') >= '0331' -->
+<!-- 		 group by to_char(sys12_day,'yyyy') -->
+<!-- 		 order by 1 desc -->
 		select to_char(sys12_day,'yyyy')||'년도' as name
 		     , to_char(sys12_day,'yyyy') as code
-		  from cst03_icam_accounts
+		  from szm0fd@link_tdb a
 		     , sys12_calendar  
-		 where sys12_day between fst_seolj_ymd and trunc(sysdate)
-		   and fund_cd = #{fundCode}
+		 where sys12_day between a.fst_seolj_ymd and trunc(sysdate)
+		   and a.corp_gr = '1701'
+		   and a.fund_cd = #{fundCode}
 		   and to_char(sys12_day,'mmdd') >= '0331'
 		 group by to_char(sys12_day,'yyyy')
 		 order by 1 desc
  	</select>
 
 	<select id="selectSettlementDateCombo" resultMap="mapper2" parameterType="HashMap">
+<!-- 		select to_char(tr_ymd, 'yyyy-mm-dd') as name -->
+<!-- 		     , to_char(tr_ymd, 'yyyymmdd') as code -->
+<!-- 		  from cst04_icam_accounts_date_info -->
+<!-- 		 where fund_cd = #{fundCode} -->
+<!-- 		   and tr_nm = '결산' -->
+<!-- 		 order by tr_ymd desc -->
 		select to_char(tr_ymd, 'yyyy-mm-dd') as name
 		     , to_char(tr_ymd, 'yyyymmdd') as code
-		  from cst04_icam_accounts_date_info
-		 where fund_cd = #{fundCode}
-		   and tr_nm = '결산'
+		  from sat0bg@link_tdb
+		 where corp_gr = '1701'
+           and fund_cd = #{fundCode}
+		   and tr_cd   = 'D41'
 		 order by tr_ymd desc
  	</select>
 
 	<select id="getSettlementDate" resultType="String" parameterType="HashMap">
-		select to_char(bf_gyul_ymd,'yyyy.mm.dd')||'|'||to_char(af_gyul_ymd,'yyyy.mm.dd') as code
-		  from cst04_icam_accounts_date_info
-		 where fund_cd = #{fundCode}
-		   and tr_ymd = #{ymd}
+<!-- 		select to_char(bf_gyul_ymd,'yyyy.mm.dd')||'|'||to_char(af_gyul_ymd,'yyyy.mm.dd') as code -->
+<!-- 		  from cst04_icam_accounts_date_info -->
+<!-- 		 where fund_cd = #{fundCode} -->
+<!-- 		   and tr_ymd = #{ymd} -->
+		select distinct to_char(bf_gyul_ymd,'yyyy.mm.dd')||'|'||to_char(af_gyul_ymd,'yyyy.mm.dd') as code
+		  from sat0bg@link_tdb
+		 where corp_gr = '1701'
+		   and tr_cd   = 'D41'
+           and fund_cd = #{fundCode}
+		   and tr_ymd  = #{ymd}
  	</select>
 
 	<select id="selectCloseDateCombo" resultMap="mapper2" parameterType="HashMap">
+<!-- 		select to_char(tr_ymd, 'yyyy-mm-dd') as name -->
+<!-- 		     , to_char(tr_ymd, 'yyyymmdd') as code -->
+<!-- 		  from cst04_icam_accounts_date_info -->
+<!-- 		 where fund_cd = #{fundCode} -->
+<!-- 		   and tr_nm = '해지' -->
+<!-- 		 order by tr_ymd desc -->
 		select to_char(tr_ymd, 'yyyy-mm-dd') as name
 		     , to_char(tr_ymd, 'yyyymmdd') as code
-		  from cst04_icam_accounts_date_info
-		 where fund_cd = #{fundCode}
-		   and tr_nm = '해지'
+		  from sat0bg@link_tdb
+		 where corp_gr = '1701'
+		   and tr_cd   = 'D44'
+           and fund_cd = #{fundCode}
 		 order by tr_ymd desc
  	</select>
 
 	<select id="getCloseDate" resultType="String" parameterType="HashMap">
-		select to_char(bf_gyul_ymd,'yyyy.mm.dd')||'|'||to_char(af_gyul_ymd,'yyyy.mm.dd')||'|'||to_char(bf_bosu_ymd,'yyyy.mm.dd')||'|'||to_char(af_bosu_ymd,'yyyy.mm.dd') as code
-		  from cst04_icam_accounts_date_info
-		 where fund_cd = #{fundCode}
+<!-- 		select to_char(bf_gyul_ymd,'yyyy.mm.dd')||'|'||to_char(af_gyul_ymd,'yyyy.mm.dd')||'|'||to_char(bf_bosu_ymd,'yyyy.mm.dd')||'|'||to_char(af_bosu_ymd,'yyyy.mm.dd') as code -->
+<!-- 		  from cst04_icam_accounts_date_info -->
+<!-- 		 where fund_cd = #{fundCode} -->
+<!-- 		   and tr_ymd = #{ymd} -->
+		select distinct to_char(bf_gyul_ymd,'yyyy.mm.dd')||'|'||to_char(af_gyul_ymd,'yyyy.mm.dd')||'|'||to_char(bf_bosu_ymd,'yyyy.mm.dd')||'|'||to_char(af_bosu_ymd,'yyyy.mm.dd') as code
+		  from sat0bg@link_tdb
+		 where corp_gr = '1701'
+		   and tr_cd   = 'D44'
+           and fund_cd = #{fundCode}
 		   and tr_ymd = #{ymd}
  	</select>
 
@@ -123,7 +207,7 @@
 	    update set
 		  a.cst02_user_id           = #{userId}
 		, a.cst02_mg_cd             = #{mgCode}
-		, a.cst02_account_no        = #{accountNo}
+		, a.cst02_account_no        = icam.to_encrypts@link_tdb(#{accountNo})
 		, a.cst02_fund_cd           = #{fundCode}
 		, a.cst02_account_nm        = #{accountName}
 		, a.cst02_account_branch    = #{accountBranch}
@@ -146,7 +230,7 @@
 		(	  #{accountId}
 			, #{userId}
 			, #{mgCode}
-			, #{accountNo}
+			, icam.to_encrypts@link_tdb(#{accountNo})
 			, #{fundCode}
 			, #{accountName}
 			, #{accountBranch}

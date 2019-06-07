@@ -44,7 +44,10 @@ public class Sys02_User {
 		System.out.println("loginId   : " + loginId);
 		
 		Cst01_UserModel cstUserModel = sqlSession.selectOne("cst01_user.selectByLoginId", param) ;
-		if(cstUserModel != null) {
+		if(cstUserModel == null) {
+			result.fail(-1, "미등록된 ID(E-Mail)입니다. 회원가입 후 로그인 하여 주십시오.");
+			return;
+		} else {
 			String emailAddr	= cstUserModel.getEmail(); 
 			String mobileTelno	= cstUserModel.getPhoneNo().replace("-", "");
 			String cycleTime	= "60";
@@ -52,19 +55,23 @@ public class Sys02_User {
 			System.out.println("emailAddr   => [" + emailAddr + "]");
 			System.out.println("mobileTelno => [" + mobileTelno + "]");
 			System.out.println("otpNumber   => [" + otpNumber + "]");
+			System.out.println("UserId   => [" + cstUserModel.getUserId() + "]");
 
-//			if (barokey.verifyKEYL(emailAddr, mobileTelno, cycleTime, otpNumber)) {
+			if (barokey.verifyKEYL(emailAddr, mobileTelno, cycleTime, otpNumber)) {
 				Map<String, Object> fundParam = new HashMap<String, Object>();
 				fundParam.put("userId", cstUserModel.getUserId());
 				List<Sys00_CommonComboBoxModel> fundList = sqlSession.selectList("cst02_account.selectFundCodeList", fundParam);
-				if (fundList != null) {
+				if (fundList.size() == 0) {
+					System.out.println("계좌정보 미등록!!!");
+					result.setModel(40, "no account!", cstUserModel);
+				} else {
 					cstUserModel.setFundCode(fundList.get(0).getCode());
 					cstUserModel.setFundComboBoxName(fundList.get(0).getName());
 					result.setModel(30, "find employee user!", cstUserModel);
 				}
-//			} else {
-//				result.fail(-1, "OTP인증번호가 틀립니다.");
-//			}
+			} else {
+				result.fail(-1, "OTP인증번호가 틀립니다.");
+			}
 		}
 		return;
 

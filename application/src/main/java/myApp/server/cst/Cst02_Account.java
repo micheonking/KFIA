@@ -34,20 +34,26 @@ public class Cst02_Account {
 //		Cst02_AccountModel accModel = (Cst02_AccountModel)request.getModelParam("accModel");
 		System.out.println("mgCode    : " + request.getStringParam("mgCode"));
 		System.out.println("accountNo : " + request.getStringParam("accNo"));
-		
+		System.out.println("eMail     : " + request.getStringParam("eMail"));
+
 		Map<String, Object> param = new HashMap<String, Object>();
 //		param.put("mgCode"   , accModel.getMgCode());
 //		param.put("accountNo", accModel.getAccountNo().replaceAll(" ", ""));
 		param.put("mgCode"   , request.getStringParam("mgCode"));
 		param.put("accountNo", request.getStringParam("accNo"));
 
-		List<GridDataModel> list = sqlSession.selectList("cst02_account.getAccInfo", param);
-		System.out.println("size : " + list.size());
-		if (list.size() == 0) {
+		Cst02_AccountModel accModel = sqlSession.selectOne("cst02_account.getAccInfo", param);
+		if (accModel == null) {
 			result.setMessage("계좌정보 조회 실패.<br>증권사 및 계좌번호를 확인하여 주십시오.");
 			result.setStatus(-1);
 		} else {
-			result.setRetrieveResult(list.size(), "select ok", list);
+			String eMail = request.getStringParam("eMail");
+			if(eMail.equals(accModel.geteMail())) {
+				result.setModel(1, "select ok", accModel);
+			} else {
+				result.setMessage("계좌정보와 E-Mail정보가 다릅니다. 계좌개설시 등록된 메일주소를 확인하여 주십시오.");
+				result.setStatus(-1);
+			}
 		}
 	}
 
@@ -76,6 +82,10 @@ public class Cst02_Account {
 	}
 
 	public void getSettlementDate(SqlSession sqlSession, ServiceRequest request, ServiceResult result) {
+
+		System.out.println("fundCode : " + request.getStringParam("fundCode"));
+		System.out.println("ymd : " + request.getStringParam("ymd"));
+
 		String date = sqlSession.selectOne("cst02_account.getSettlementDate", request.getParam());
 		if(date == null) {
 			result.setMessage("결산정산 내역이 없습니다.(2)");

@@ -318,10 +318,10 @@ public class Cst01_Lookup_MemberJoin extends Window implements Editor<Cst01_User
 		 Window w = new Window();
 		 if(type.equals("Android")) {
 			 w.setHeading("BaroOTP 설명서 (Android Ver)");
-			 w.setWidget(new Frame("/BaroOTP_Android.html"));
+			 w.setWidget(new Frame("/KFIA/BaroOTP_Android.html"));
 		 } else {
 			 w.setHeading("BaroOTP 설명서 (iphone Ver)");
-			 w.setWidget(new Frame("/BaroOTP_iPhone.html"));
+			 w.setWidget(new Frame("/KFIA/BaroOTP_iPhone.html"));
 		 }
 		 w.setModal(false);
 		 w.setPixelSize(800, 700);
